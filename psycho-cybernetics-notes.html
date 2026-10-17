@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psycho-Cybernetics Notes</title>
+<meta name="description" content="Principles of Maxwell Maltz's Psycho-Cybernetics, from theory to daily practice — plus notes on Creative Living for Today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ec; --surface:#fffdf9; --ink:#1d1a16; --muted:#6b6358; --line:#e4dccf;
+  --accent:#c2410c; --accent-soft:#fde7d9; --good:#15803d; --good-soft:#dcfce7;
+  --bad:#b91c1c; --bad-soft:#fee2e2; --note-soft:#eef2ff; --note:#3730a3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15130f; --surface:#1e1b16; --ink:#f1ebe1; --muted:#a59c8f; --line:#332e26;
+    --accent:#fb923c; --accent-soft:#3a2416; --good:#4ade80; --good-soft:#14301d;
+    --bad:#f87171; --bad-soft:#3a1818; --note-soft:#1e1f3a; --note:#a5b4fc;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15130f; --surface:#1e1b16; --ink:#f1ebe1; --muted:#a59c8f; --line:#332e26;
+  --accent:#fb923c; --accent-soft:#3a2416; --good:#4ade80; --good-soft:#14301d;
+  --bad:#f87171; --bad-soft:#3a1818; --note-soft:#1e1f3a; --note:#a5b4fc;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--accent)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:600}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+nav.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:12px;padding-bottom:12px}
+nav.top a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+nav.top a:hover{color:var(--accent)}
+nav.top .brand{font-family:Fraunces,serif;font-weight:800;color:var(--ink);margin-right:auto}
+#themeBtn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;font:inherit;font-size:.85rem}
+header.hero{padding:72px 0 48px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:600;color:var(--accent)}
+.hero h1{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:800;margin:.2em 0 .3em}
+.hero p.lede{font-size:1.15rem;color:var(--muted);max-width:640px}
+.loop{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.loop span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9rem;font-weight:500}
+.loop b{color:var(--accent);font-weight:600}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.sub{color:var(--muted);max-width:680px;margin-bottom:28px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.chip .n{font-family:Fraunces,serif;font-weight:800;color:var(--accent);font-size:1.1rem;margin-right:6px}
+details.p{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+details.p summary{cursor:pointer;list-style:none;padding:18px 20px;display:flex;gap:14px;align-items:baseline}
+details.p summary::-webkit-details-marker{display:none}
+details.p summary .n{font-family:Fraunces,serif;font-weight:800;color:var(--accent);font-size:1.4rem;min-width:2ch}
+details.p summary h3{margin:0;flex:1}
+details.p summary::after{content:"+";font-size:1.4rem;color:var(--muted)}
+details.p[open] summary::after{content:"–"}
+.body{padding:0 20px 20px;display:grid;gap:16px;grid-template-columns:1fr 1fr}
+.body>div{border-radius:10px;padding:14px 16px}
+.theory{background:var(--bg)}
+.practice{background:var(--accent-soft)}
+.body h4{margin:0 0 6px;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.body ul{margin:0;padding-left:18px}
+.body p{margin:0 0 8px}
+@media (max-width:720px){.body{grid-template-columns:1fr}}
+.two{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+.acro{border-radius:14px;padding:20px;border:1px solid var(--line)}
+.acro.s{background:var(--good-soft)} .acro.f{background:var(--bad-soft)}
+.acro.s h3{color:var(--good)} .acro.f h3{color:var(--bad)}
+.acro dl{margin:0;display:grid;grid-template-columns:2.2rem 1fr;gap:6px 8px}
+.acro dt{font-family:Fraunces,serif;font-weight:800;font-size:1.3rem;line-height:1.2}
+.acro dd{margin:0}
+.routine{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:140px 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.step .t{font-weight:600;color:var(--accent)}
+@media (max-width:560px){.step{grid-template-columns:1fr;gap:4px}}
+.q{background:var(--surface);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:10px}
+.q small{display:block;color:var(--muted)}
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.tbl{overflow-x:auto}
+.verdict{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+@media (max-width:720px){.verdict{grid-template-columns:1fr}}
+.verdict .chip h3{font-size:1.05rem}
+.ok h3{color:var(--good)} .warn h3{color:var(--bad)}
+.note{background:var(--note-soft);color:var(--ink);border-radius:12px;padding:14px 18px;font-size:.95rem}
+.note b{color:var(--note)}
+ol.read{padding-left:20px} ol.read li{margin-bottom:6px}
+footer{padding:40px 0 60px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <span class="brand">Psycho-Cybernetics</span>
+  <a href="#principles">Principles</a>
+  <a href="#deep">Theory → Practice</a>
+  <a href="#acronyms">SUCCESS / FAILURE</a>
+  <a href="#routine">Daily routine</a>
+  <a href="#questions">4 Questions</a>
+  <a href="#creative">Creative Living</a>
+  <a href="#evidence">Evidence check</a>
+  <a href="#reading">Reading</a>
+  <button id="themeBtn" aria-label="Toggle theme">◐</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Study notes · Maxwell Maltz (1960)</div>
+  <h1>Change the image,<br>change the life.</h1>
+  <p class="lede">Maltz was a plastic surgeon who noticed that fixing a face didn't always fix how people felt. His conclusion: behaviour follows the <em>self-image</em>, and the brain is a goal-seeking machine that steers toward whatever target that image sets.</p>
+  <div class="loop">
+    <span><b>1</b> Self-image sets the target</span>
+    <span><b>2</b> Imagination programs it</span>
+    <span><b>3</b> Success mechanism steers</span>
+    <span><b>4</b> Mistakes = feedback</span>
+    <span><b>5</b> Correct &amp; let go</span>
+  </div>
+</div></header>
+
+<main>
+<section id="principles"><div class="wrap">
+  <h2>The 15 principles</h2>
+  <p class="sub">The whole book in one screen. Each one is expanded below with the theory and what to actually do.</p>
+  <div class="grid">
+    <div class="chip"><span class="n">1</span>The self-image is the key to personality and behaviour</div>
+    <div class="chip"><span class="n">2</span>The brain is a goal-seeking "success mechanism"</div>
+    <div class="chip"><span class="n">3</span>Imagination drives it — the nervous system can't tell vivid imagining from reality</div>
+    <div class="chip"><span class="n">4</span>Dehypnotize yourself from false beliefs</div>
+    <div class="chip"><span class="n">5</span>Use rational thinking, not willpower</div>
+    <div class="chip"><span class="n">6</span>Relax and let the mechanism work</div>
+    <div class="chip"><span class="n">7</span>Happiness is a habit</div>
+    <div class="chip"><span class="n">8</span>Build the success-type personality (SUCCESS)</div>
+    <div class="chip"><span class="n">9</span>Spot the failure mechanism (FAILURE)</div>
+    <div class="chip"><span class="n">10</span>Remove emotional scars — the "emotional facelift"</div>
+    <div class="chip"><span class="n">11</span>Release your real personality from inhibition</div>
+    <div class="chip"><span class="n">12</span>Do-it-yourself tranquilizers: the quiet room</div>
+    <div class="chip"><span class="n">13</span>Turn crises into opportunities</div>
+    <div class="chip"><span class="n">14</span>Cultivate the "winning feeling"</div>
+    <div class="chip"><span class="n">15</span>Change takes time — at least ~21 days</div>
+  </div>
+</div></section>
+
+<section id="deep"><div class="wrap">
+  <h2>From theory to practice</h2>
+  <p class="sub">Tap a principle to open it. Left: why it works. Right: what to do.</p>
+
+  <details class="p" open><summary><span class="n">1</span><h3>The self-image is the key</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Some surgery patients transformed; others still felt ugly with a fixed face. The outer change only worked when the inner picture changed too.</p><p>Everyone carries a picture of "what kind of person I am," built from past wins, failures and how others reacted. We treat it as fact and act consistently with it. Behaviour follows the self-image — fighting it with effort alone is fighting your own steering wheel.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Write "I'm the kind of person who…" for work, money, relationships, health.</li><li>Trace each limiting line to where it came from — often one incident or comment.</li><li>Write a new, realistic present-tense self-description.</li><li>Aim for an <em>accurate</em> image, not an inflated fantasy.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">2</span><h3>The success mechanism</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>From cybernetics: a guided missile has a target, moves, gets feedback, corrects, repeats. It succeeds by making and correcting errors.</p><p>Your brain works the same way, mostly below awareness. The mechanism is neutral — it steers just as efficiently toward failure if that's the target your self-image sets.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Give it a clear, picturable target.</li><li>Focus on the <em>what</em>; let the <em>how</em> unfold.</li><li>After a mistake ask "what adjustment does this tell me?" — then drop it.</li><li>Think a problem through before sleep, then stop and let the subconscious work.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">3</span><h3>Imagination is the steering wheel</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>We react to what we believe or imagine to be true — imagined danger produces real fear. Worry is just negative imagination, rehearsing failure. The same process can rehearse success.</p></div>
+    <div class="practice"><h4>Practice — Theater of the Mind</h4><ul><li>30 quiet minutes a day.</li><li>Picture yourself acting and feeling the way you want in one specific situation.</li><li>Add sensory detail: room, sounds, faces.</li><li>Focus on the feeling (calm, capable), not just the outcome.</li><li>Repeat daily for at least three weeks.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">4</span><h3>Dehypnotize yourself</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>A hypnotized person told "you can't lift this pencil" truly can't. Many people are "hypnotized" by beliefs accepted in childhood. Maltz's example: Alfred Adler was told he was bad at math, believed it, did poorly — until he solved a problem no one else could, and the belief cracked.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>List your "I can't" statements.</li><li>Find exceptions — one is enough to show it isn't fixed.</li><li>Run a small, low-risk experiment against the belief.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">5</span><h3>Rational thinking, not willpower</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>When willpower and imagination fight, imagination wins. Conscious thinking's job is to choose goals, check beliefs and feed accurate data to the automatic mechanism — then step back. Strong desire for the new result gives the goal energy.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Run the <a href="#questions">four rational questions</a> on any negative belief.</li><li>Use past failures as feedback only, not identity.</li><li>Pair reasons with genuine feeling about the change.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">6</span><h3>Relax and let it work</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Over-trying jams the mechanism — like a trembling hand missing the needle's eye. Good performance comes when you're relaxed and absorbed, not tense and self-watching.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Do your thinking before the action; trust yourself during it.</li><li>Physically relax: lie down, let the body go heavy.</li><li>Keep worry time separate from action time.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">7</span><h3>Happiness is a habit</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Happiness is mostly a mental habit, not a result of circumstances. "I'll be happy when…" postpones it forever. A happy mind also thinks and performs better, so happiness is a condition for success, not just a reward.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Ask: does this deserve my peace of mind?</li><li>Notice small pleasures daily.</li><li>Drop "I'll be happy when…"</li><li>Act cheerful — feelings follow actions.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">8</span><h3>The success-type personality</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Traits of people whose mechanism works well, summed up as <a href="#acronyms">SUCCESS</a>. Confidence is built on remembering successes, not failures.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Rate yourself 1–10 on each trait; pick one or two.</li><li>Keep a "success file" of wins; read it before challenges.</li><li>Do one slightly uncomfortable thing daily.</li><li>Separate who you are from what you did.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">9</span><h3>The failure mechanism</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Warning signs summed up as <a href="#acronyms">FAILURE</a>. They're dashboard lights, not identity — signals that something needs correcting.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Name it: "this is resentment."</li><li>Trace it: which goal is blocked, which belief is involved?</li><li>Redirect: channel frustration toward the real goal; decide to ease uncertainty; set a goal to fill emptiness.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">10</span><h3>The emotional facelift</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Physical wounds leave thick, insensitive scar tissue; emotional hurt does the same. Defences built against pain also block closeness and creativity. The cure is real forgiveness — cancelling the debt because carrying it harms you.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>List grudges and regrets you still carry.</li><li>Cancel the debt — no need to excuse or reconcile.</li><li>Forgive yourself specifically: name it, take the lesson, release it.</li><li>Build resilience, not walls.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">11</span><h3>Release your real personality</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Inhibition is excessive negative feedback. Too much self-monitoring freezes the system — the stutterer who gets worse the harder they watch themselves.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Think before acting, not while acting.</li><li>Speak a bit louder and a bit sooner; greet people first.</li><li>Accept occasional awkwardness — nobody watches as closely as you think.</li><li>Shift attention outward, to the person or task.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">12</span><h3>Do-it-yourself tranquilizers</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>We react automatically, like rushing to a ringing phone. You can learn to delay the response, and build an inner place of calm.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Build a mental "quiet room"; visit it a few minutes daily and before stress.</li><li>Pause a few seconds before reacting.</li><li>Clear yourself between activities so stress doesn't spill over.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">13</span><h3>Crisis into opportunity</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>People who perform under pressure usually practiced without pressure first. The realistic worst case is usually smaller than the fear.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Rehearse when nothing is at stake.</li><li>Name the worst case and how you'd handle it.</li><li>Read the adrenaline as excitement.</li><li>Keep the goal, not the danger, in focus.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">14</span><h3>The winning feeling</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>When the mechanism is on track there's a recognizable feeling of calm confidence. You can call it up deliberately before acting.</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Recall a past success in detail, especially how it felt.</li><li>Carry that feeling into the new challenge.</li><li>Act "as if" — posture, voice, preparation.</li></ul></div>
+  </div></details>
+
+  <details class="p"><summary><span class="n">15</span><h3>The 21-day principle</h3></summary><div class="body">
+    <div class="theory"><h4>Theory</h4><p>Patients took about 21 days to get used to a new face; amputees about the same to lose a phantom limb. Maltz meant this as a <em>minimum</em> for a new image to set in — not "habits take 21 days."</p></div>
+    <div class="practice"><h4>Practice</h4><ul><li>Commit to one change for at least 21 days.</li><li>Expect the old image to push back early.</li><li>Track each day's practice.</li><li>Plan for longer — see the <a href="#evidence">evidence check</a>.</li></ul></div>
+  </div></details>
+</div></section>
+
+<section id="acronyms"><div class="wrap">
+  <h2>SUCCESS vs FAILURE</h2>
+  <p class="sub">Maltz's two acronyms: traits to build, and warning lights to notice.</p>
+  <div class="two">
+    <div class="acro s"><h3>Success-type personality</h3><dl>
+      <dt>S</dt><dd><b>Sense of direction</b> — goals that matter to you</dd>
+      <dt>U</dt><dd><b>Understanding</b> — of yourself, others and the facts</dd>
+      <dt>C</dt><dd><b>Courage</b> — acting without guarantees</dd>
+      <dt>C</dt><dd><b>Charity</b> — respect and kindness toward others</dd>
+      <dt>E</dt><dd><b>Esteem</b> — valuing yourself without arrogance</dd>
+      <dt>S</dt><dd><b>Self-confidence</b> — built on remembered successes</dd>
+      <dt>S</dt><dd><b>Self-acceptance</b> — flaws included, still improving</dd>
+    </dl></div>
+    <div class="acro f"><h3>Failure mechanism</h3><dl>
+      <dt>F</dt><dd><b>Frustration</b> — chronic dissatisfaction</dd>
+      <dt>A</dt><dd><b>Aggressiveness</b> — misdirected hostility</dd>
+      <dt>I</dt><dd><b>Insecurity</b> — measuring against impossible standards</dd>
+      <dt>L</dt><dd><b>Loneliness</b> — cutting off to avoid hurt</dd>
+      <dt>U</dt><dd><b>Uncertainty</b> — avoiding decisions to avoid being wrong</dd>
+      <dt>R</dt><dd><b>Resentment</b> — blaming others or life</dd>
+      <dt>E</dt><dd><b>Emptiness</b> — no purpose, nothing seems worth it</dd>
+    </dl></div>
+  </div>
+</div></section>
+
+<section id="routine"><div class="wrap">
+  <h2>A daily routine</h2>
+  <p class="sub">Most of the principles, applied together. Run it for 21 days, then keep going.</p>
+  <div class="routine">
+    <div class="step"><div class="t">Morning · 5 min</div><div>Read your new self-description. Pick one goal for the day.</div></div>
+    <div class="step"><div class="t">During the day</div><div>Watch for FAILURE signals — name, trace, redirect. Pause before reacting. Do one small brave thing.</div></div>
+    <div class="step"><div class="t">Before challenges · 2 min</div><div>Visit your quiet room, then recall the winning feeling from a past success.</div></div>
+    <div class="step"><div class="t">Evening · 30 min</div><div>Theater of the Mind. Add today's wins to your success file. Forgive one thing — including your own mistakes.</div></div>
+    <div class="step"><div class="t">Before sleep</div><div>Think a problem through clearly, then hand it to your subconscious.</div></div>
+  </div>
+</div></section>
+
+<section id="questions"><div class="wrap">
+  <h2>The four rational questions</h2>
+  <p class="sub">From Chapter 5, "How to Utilize the Power of Rational Thinking" — rewritten in plain first-person language. Use them in order whenever an "I can't" thought shows up.</p>
+  <div class="q">Why do I actually believe this?<small>Is there a rational basis for it, or did I just absorb it?</small></div>
+  <div class="q">Could I be wrong about myself here?<small>Look for exceptions and contrary evidence.</small></div>
+  <div class="q">Would I judge a friend this harshly?<small>Apply the standard you'd use for someone else in the same situation.</small></div>
+  <div class="q">If it's not true, why am I still living like it is?<small>Turn the conclusion into a change in behaviour.</small></div>
+</div></section>
+
+<section id="creative"><div class="wrap">
+  <h2>Creative Living for Today (1967)</h2>
+  <p class="sub">Maltz's later companion book. It takes the Psycho-Cybernetics framework as given and applies it to everyday life, one day at a time.</p>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Psycho-Cybernetics (1960)</th><th>Creative Living for Today (1967)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Role</b></td><td>The theory book — how the mind works and how to retrain it</td><td>The daily companion — applying it to live fully each day</td></tr>
+      <tr><td><b>Core focus</b></td><td>Reprogramming the self-image over time</td><td>Living in the present, not in regret or worry</td></tr>
+      <tr><td><b>Style</b></td><td>Cybernetics vocabulary, case studies, structured exercises</td><td>Warmer, inspirational, short chapters to reread</td></tr>
+      <tr><td><b>Scope</b></td><td>Achievement and personal success</td><td>Loneliness, ageing, retirement, crises, relationships</td></tr>
+      <tr><td><b>Emphasis</b></td><td>Imagination, goals, feedback</td><td>Forgiveness, kindness, happiness as a creative act</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:16px"><b>Accuracy note:</b> detailed chapter-level information about <em>Creative Living for Today</em> is hard to verify online. This comparison reflects its general themes; check it against the book itself.</p>
+</div></section>
+
+<section id="evidence"><div class="wrap">
+  <h2>Evidence check</h2>
+  <p class="sub">Read Maltz as a motivational text, not a science textbook. Keep the tools; skip the absolute claims.</p>
+  <div class="verdict">
+    <div class="chip ok"><h3>Holds up reasonably well</h3><ul>
+      <li>Self-image shapes behaviour</li>
+      <li>Mental rehearsal helps — especially combined with real practice</li>
+      <li>How you explain setbacks matters (echoed in Seligman's optimism research)</li>
+      <li>Self-compassion beats harsh self-criticism</li>
+    </ul></div>
+    <div class="chip warn"><h3>Outdated or overstated</h3><ul>
+      <li>"21 days to form a habit" — research suggests about 66 days on average, with wide variation</li>
+      <li>Left-brain / right-brain claims in some companion material — not supported by modern neuroscience</li>
+      <li>"Strong visualization prevents failure" — Oettingen's research shows pure positive fantasy can reduce effort; pair it with mental contrasting</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="reading"><div class="wrap">
+  <h2>What to read next</h2>
+  <div class="two">
+    <div>
+      <h3>Maltz, in order</h3>
+      <ol class="read">
+        <li><b>Psycho-Cybernetics</b> — start here</li>
+        <li><b>The Magic Power of Self-Image Psychology</b></li>
+        <li><b>The Search for Self-Respect</b></li>
+        <li><b>Creative Living for Today</b> — the daily companion</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Complementary books</h3>
+      <ul>
+        <li><b>Learned Optimism</b> — Martin Seligman</li>
+        <li><b>Atomic Habits</b> — James Clear</li>
+        <li><b>Rethinking Positive Thinking</b> — Gabriele Oettingen</li>
+        <li><b>Thinking, Fast and Slow</b> — Daniel Kahneman</li>
+        <li><b>Emotional Intelligence</b> — Daniel Goleman</li>
+        <li><b>Sources of Power</b> — Gary Klein</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  Personal study notes on Maxwell Maltz's work, written in my own words. Not affiliated with the author or publishers.
+</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
