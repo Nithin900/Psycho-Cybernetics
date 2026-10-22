@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Self-Image Day</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one practice column, morning to evening, like a day planner page; a sticky progress strip shows how many of the seven exercises are done */
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+.wrap{max-width:46rem;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2.3rem,7vw,3.4rem)}
+h2{font-size:1.5rem}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+header{padding-block:1.5rem 1.5rem;display:grid;gap:1rem}
+.lede{font-size:1.12rem;color:var(--muted);max-width:38rem}
+.datebar{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+.datebar input{font:inherit;font-size:.95rem;padding:.35rem .6rem;border:1px solid var(--rule);border-radius:.5rem;background:var(--surface);color:var(--ink)}
+
+/* progress strip */
+.strip{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--bg);padding-block:.75rem;border-block:1px solid var(--rule);display:grid;gap:.45rem}
+.strip .row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.count{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.85rem}
+.pips{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.pips a{height:.5rem;border-radius:999px;background:var(--glass);display:block}
+.pips a.on{background:var(--go)}
+
+/* exercises */
+.step{padding-block:2.25rem;border-bottom:1px solid var(--rule);display:grid;gap:1rem}
+.step-head{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;align-items:start}
+.num{grid-row:span 2;width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);background:var(--accent-soft);color:var(--accent);font-size:.95rem}
+.step.done .num{background:var(--go);color:var(--surface)}
+.src{color:var(--muted);font-size:.95rem;max-width:40rem}
+.src q{font-style:italic;quotes:"\201C" "\201D"}
+label.f{display:grid;gap:.3rem;font-weight:700;font-size:.95rem}
+textarea,input[type=text]{font:inherit;font-weight:400;font-size:1rem;width:100%;padding:.6rem .75rem;border:1px solid var(--rule);border-radius:.6rem;background:var(--surface);color:var(--ink);resize:vertical}
+textarea{min-height:4.2rem}
+::placeholder{color:var(--muted);opacity:.8}
+button{font:inherit;font-size:.92rem;padding:.45rem 1rem;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.primary:hover{color:var(--surface);filter:brightness(1.08)}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.ok{font-size:.9rem;color:var(--go);font-weight:700}
+
+/* lists exercise */
+.lists{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.list{background:var(--surface);border:1px solid var(--rule);border-radius:.75rem;padding:1rem;display:grid;gap:.5rem;align-content:start;min-height:8.5rem}
+.list h3{font-size:1.05rem}
+.list.lose h3{color:var(--stop)}
+.list.win h3{color:var(--go)}
+.list ol{margin:0;padding-left:1.3rem;color:var(--muted);font-size:.95rem;display:grid;gap:.15rem}
+.list li.me{color:var(--ink);font-weight:700}
+.list.lose li.me{text-decoration:line-through;text-decoration-color:var(--stop)}
+
+/* double feature */
+.screens{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.screen{display:grid;gap:.5rem;justify-items:center;text-align:center;padding:1rem .75rem;border-radius:.75rem;border:2px solid var(--rule);background:var(--surface);cursor:pointer;color:var(--ink);font-size:.92rem}
+.screen svg{width:min(9rem,100%);height:auto}
+.screen[aria-pressed="true"]{border-color:var(--go);background:var(--go-soft)}
+.screen.tense[aria-pressed="true"]{border-color:var(--stop);background:var(--stop-soft)}
+.screen b{font-family:var(--display);font-weight:400;font-size:1.1rem}
+
+/* dual forces */
+.word{font-family:var(--display);font-size:clamp(1.3rem,5vw,1.9rem);letter-spacing:.12em;display:flex;flex-wrap:wrap;gap:.1rem .25rem}
+.word span{color:var(--rule);transition:color .2s}
+.word span.lit{color:var(--go)}
+.word span.dim{color:var(--stop)}
+.word .gap{width:.6em}
+.forces{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}
+.force{display:grid;grid-template-columns:1.6rem 1fr 1fr;gap:.5rem;align-items:stretch}
+.force .l{font-family:var(--mono);color:var(--accent);align-self:center}
+.force button{border-radius:.5rem;text-align:left;font-size:.88rem;padding:.45rem .7rem;line-height:1.3;min-width:0}
+.force button.pos[aria-pressed="true"]{background:var(--go-soft);border-color:var(--go);color:var(--ink);font-weight:700}
+.force button.neg[aria-pressed="true"]{background:var(--stop-soft);border-color:var(--stop);color:var(--ink);font-weight:700}
+.legend{display:flex;gap:1rem;font-size:.85rem;color:var(--muted)}
+
+/* forgiveness */
+.four{display:grid;gap:.9rem}
+
+/* timer */
+.timer{display:grid;gap:.75rem;background:var(--surface);border:1px solid var(--rule);border-radius:.75rem;padding:1.1rem}
+.clock{font-family:var(--mono);font-size:2.4rem;font-variant-numeric:tabular-nums;line-height:1}
+.track{height:.7rem;border-radius:999px;background:var(--glass);overflow:hidden;position:relative}
+.track i{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);border-radius:999px;transition:width .9s linear}
+.modes{display:flex;flex-wrap:wrap;gap:.5rem}
+.modes button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.cue{color:var(--muted);font-size:.95rem}
+
+/* verdict */
+.verdict{font-family:var(--display);font-size:clamp(1.8rem,7vw,2.6rem);color:var(--go);border:3px solid var(--go);border-radius:.4rem;padding:.2rem 1rem;display:inline-block;transform:rotate(-3deg);justify-self:start}
+.successes{display:grid;gap:.6rem}
+
+/* history */
+.history{display:flex;flex-wrap:wrap;gap:.4rem}
+.history button{font-family:var(--mono);font-size:.78rem;padding:.25rem .6rem;font-variant-numeric:tabular-nums}
+.history button.full{background:var(--go-soft);border-color:var(--go)}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (max-width:34rem){
+  .lists,.screens{grid-template-columns:1fr}
+  .force{grid-template-columns:1.4rem 1fr}
+  .force .neg{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+
+<header>
+  <span class="label">Maxwell Maltz &middot; Psycho-Cybernetics &amp; Self-Fulfillment &middot; pp. 16&ndash;17</span>
+  <h1>Self-Image Day</h1>
+  <p class="lede">Maltz proposes a day when &ldquo;you pull your name off the Loser&rsquo;s List and you tack it up on the Winner&rsquo;s List.&rdquo; This page turns it into a daily practice of seven exercises, all taken from the book, morning to night.</p>
+  <div class="datebar">
+    <label class="label" for="day">Day</label>
+    <input type="date" id="day">
+    <span class="label" id="saved-note">Saved in this browser only</span>
+  </div>
+</header>
+
+<div class="strip" aria-live="polite">
+  <div class="row"><span class="label">Today&rsquo;s practice</span><span class="count" id="count">0 of 7 done</span></div>
+  <div class="pips" id="pips"></div>
+</div>
+
+<main>
+
+<section class="step" id="s1" data-step="1">
+  <div class="step-head">
+    <span class="num">1</span>
+    <h2>Morning mirror</h2>
+    <p class="src">&ldquo;&hellip;when you get up in the morning and look at yourself in the mirror. You ask yourself who you want to be that day? You must answer&rdquo; (p. 209). Then set the day&rsquo;s goal: &ldquo;You wake up in the morning and you set a goal for that day&rdquo; (p. 14).</p>
+  </div>
+  <label class="f" for="mirror">Who do I want to be today?
+    <textarea id="mirror" data-field="mirror" placeholder="Example: Calm and confident in the team meeting, the way I was when I presented last month."></textarea>
+  </label>
+  <label class="f" for="goal">My one goal for today
+    <input type="text" id="goal" data-field="goal" placeholder="Example: Finish the first draft of the report, one thing at a time.">
+  </label>
+</section>
+
+<section class="step" id="s2" data-step="2">
+  <div class="step-head">
+    <span class="num">2</span>
+    <h2>Off the Loser&rsquo;s List</h2>
+    <p class="src">On Self-Image Day <q>you are a friend to yourself</q>, and the only present is <q>a roundtable discussion with your self-image</q> (p. 17).</p>
+  </div>
+  <label class="f" for="name">Your name
+    <input type="text" id="name" data-field="name" placeholder="Type your name">
+  </label>
+  <div class="lists">
+    <div class="list lose"><h3>Loser&rsquo;s List</h3><ol id="lose-list"></ol></div>
+    <div class="list win"><h3>Winner&rsquo;s List</h3><ol id="win-list"></ol></div>
+  </div>
+  <div class="actions"><button class="primary" id="move" type="button">Move my name to the Winner&rsquo;s List</button></div>
+</section>
+
+<section class="step" id="s3" data-step="3">
+  <div class="step-head">
+    <span class="num">3</span>
+    <h2>The double feature</h2>
+    <p class="src">&ldquo;Close your eyes, relax, and get ready for the double feature in the theater of your mind.&rdquo; Two close-ups, <q>and the strange thing is that both of them are you</q> (pp. 31&ndash;32). Close your eyes, see both, then choose which picture runs today.</p>
+  </div>
+  <div class="screens">
+    <button type="button" class="screen tense" id="face-tense" aria-pressed="false">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" fill="var(--glass)" stroke="var(--stop)" stroke-width="3"/><path d="M34 40 L50 46 M86 40 L70 46" stroke="var(--stop)" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M45 32 Q60 26 75 32" stroke="var(--stop)" stroke-width="2" fill="none"/><circle cx="45" cy="56" r="4" fill="var(--ink)"/><circle cx="75" cy="56" r="4" fill="var(--ink)"/><path d="M40 86 L80 86" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><path d="M46 82 v8 M54 82 v8 M62 82 v8 M70 82 v8" stroke="var(--ink)" stroke-width="2"/></svg>
+      <b>Frustrated</b><span>Forehead creased in a frown, teeth clenched, hands knotted into fists</span>
+    </button>
+    <button type="button" class="screen" id="face-happy" aria-pressed="false">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" fill="var(--glass)" stroke="var(--go)" stroke-width="3"/><path d="M36 44 Q45 39 54 44 M66 44 Q75 39 84 44" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="45" cy="56" r="4.5" fill="var(--ink)"/><circle cx="75" cy="56" r="4.5" fill="var(--ink)"/><circle cx="47" cy="54" r="1.5" fill="var(--surface)"/><circle cx="77" cy="54" r="1.5" fill="var(--surface)"/><path d="M38 76 Q60 98 82 76" stroke="var(--go)" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+      <b>Enthusiastic</b><span>A smile warms the face, the eyes glisten, the palms of both hands open</span>
+    </button>
+  </div>
+  <p class="src" id="face-note" hidden></p>
+</section>
+
+<section class="step" id="s4" data-step="4">
+  <div class="step-head">
+    <span class="num">4</span>
+    <h2>Your self image, spelled out</h2>
+    <p class="src">The 13 &ldquo;dual forces in you&rdquo; (pp. 23&ndash;37): <q>to be happy, you must bolster the positive forces and fight off the desire for defeat and negation.</q> For each pair, tap the side you lived today. Be honest; this is for you.</p>
+  </div>
+  <div class="word" id="word" aria-label="YOUR SELF IMAGE"></div>
+  <div class="legend"><span>Left: positive force</span><span>Right: negative force</span><span class="count" id="force-count">0 of 13 chosen</span></div>
+  <ul class="forces" id="forces"></ul>
+</section>
+
+<section class="step" id="s5" data-step="5">
+  <div class="step-head">
+    <span class="num">5</span>
+    <h2>Four points against a resentment</h2>
+    <p class="src">What Maltz told the woman who resented her mother: <q>Four points&hellip; none of them easy &mdash; unless you have the desire to make them easy</q> (p. 29). Pick one grievance you carried today and work through each point.</p>
+  </div>
+  <div class="four">
+    <label class="f" for="grudge">The grievance
+      <input type="text" id="grudge" data-field="grudge" placeholder="Example: My manager criticized my work in front of others.">
+    </label>
+    <label class="f" for="p1">1. Forgive others &mdash; &ldquo;for your own peace of mind&rdquo;
+      <textarea id="p1" data-field="p1" placeholder="What I let go of, and why it helps me"></textarea>
+    </label>
+    <label class="f" for="p2">2. Forgive yourself &mdash; stop &ldquo;seeing yourself with unkind eyes&rdquo;
+      <textarea id="p2" data-field="p2" placeholder="What I forgive myself for in this"></textarea>
+    </label>
+    <label class="f" for="p3">3. See yourself at your best &mdash; &ldquo;as you are when you like yourself&rdquo;
+      <textarea id="p3" data-field="p3" placeholder="A moment when I liked myself"></textarea>
+    </label>
+    <label class="f" for="p4">4. Keep up with yourself, not with somebody else
+      <textarea id="p4" data-field="p4" placeholder="What I will do my own way, for my own reasons"></textarea>
+    </label>
+  </div>
+</section>
+
+<section class="step" id="s6" data-step="6">
+  <div class="step-head">
+    <span class="num">6</span>
+    <h2>Two quiet minutes</h2>
+    <p class="src">Pick one. <b>Your own Kentucky Derby</b>: <q>Every day we allot two minutes to ourselves&hellip; We see ourselves running for our self-respect</q> (p. 242). Or <b>the geyser</b>: see <q>a geyser letting off steam, a symbol for you to let go your tensions of the day</q> (pp. 69, 206).</p>
+  </div>
+  <div class="timer">
+    <div class="modes" role="group" aria-label="Exercise">
+      <button type="button" id="mode-derby" aria-pressed="true">Kentucky Derby</button>
+      <button type="button" id="mode-geyser" aria-pressed="false">The geyser</button>
+    </div>
+    <p class="cue" id="cue"></p>
+    <div class="clock" id="clock">2:00</div>
+    <div class="track" aria-hidden="true"><i id="bar"></i></div>
+    <div class="actions">
+      <button class="primary" type="button" id="start">Start two minutes</button>
+      <button type="button" id="reset">Reset</button>
+      <span class="ok" id="timer-done" hidden>Done for today</span>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="s7" data-step="7">
+  <div class="step-head">
+    <span class="num">7</span>
+    <h2>Evening: recall and verdict</h2>
+    <p class="src">&ldquo;When you hit the pillow at night, you recall how during the day you gave your self-image a boost. Recall this &mdash; placidly, pleasantly&rdquo; (p. 14). Then be <q>a wise and compassionate judge, and pass a gentle judgment upon yourself</q> (p. 61).</p>
+  </div>
+  <div class="successes">
+    <label class="f" for="w1">A success today, however small
+      <input type="text" id="w1" data-field="w1" placeholder="Example: I spoke up calmly when I disagreed.">
+    </label>
+    <input type="text" id="w2" data-field="w2" aria-label="Second success" placeholder="Another one">
+    <input type="text" id="w3" data-field="w3" aria-label="Third success" placeholder="And one more">
+  </div>
+  <div class="actions"><button class="primary" type="button" id="judge">Pass the verdict</button></div>
+  <div class="verdict" id="verdict" hidden>NOT GUILTY</div>
+  <p class="src" id="verdict-note" hidden>&ldquo;Not guilty of being a criminal. Not guilty of being inferior. Not guilty of being an unworthy human being who deserves punishment&rdquo; (p. 61).</p>
+</section>
+
+<section class="step" id="days" style="border-bottom:0">
+  <h2>Days you kept</h2>
+  <p class="src">Tap a date to open it. Green means all seven exercises were done.</p>
+  <div class="history" id="history"></div>
+</section>
+</main>
+
+<footer>
+  <p>Exercises and quotes from <em>Psycho-Cybernetics &amp; Self-Fulfillment</em> by Maxwell Maltz, M.D. (Bantam, 1973); page numbers refer to that edition. Your entries are stored only in this browser.</p>
+  <p><a href="self-fulfillment-reading-guide.html">Reading guide</a> &middot; <a href="self-fulfillment-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var KEY = "selfImageDay.v1";
+  var FORCES = [
+    ["Y","You","Somebody else"],["O","Obey","Oppose"],["U","Understanding","Unbelief"],["R","Reason","Resentment"],
+    ["S","Friend","Stranger"],["E","Enthusiasm","Extinction"],["L","Live","Perish"],["F","Fact","Fiction"],
+    ["I","Decision","Indecision"],["M","Mind watcher","Mind avoider"],["A","Adjustment","Atrophy"],
+    ["G","Go-go","No-no"],["E","Enterprise","Emptiness"]
+  ];
+  var CUES = {
+    derby: "Sit in a quiet room. See yourself as a racing contender, running toward your goal without holding yourself back with negative feelings. Use the confidence of a past success.",
+    geyser: "Sit in a quiet room and close your eyes. See a geyser blowing off steam. Let the day's tensions flow out of you the way the steam flows from the geyser."
+  };
+
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ return {}; } }
+  function persist(){ try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e){ document.getElementById("saved-note").textContent = "Not saved: this browser blocks storage"; } }
+  function todayStr(){ var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0,10); }
+
+  var store = load();
+  var dayInput = document.getElementById("day");
+  var day = todayStr();
+  dayInput.value = day;
+  function rec(){ if(!store[day]) store[day] = {forces:{}}; if(!store[day].forces) store[day].forces = {}; return store[day]; }
+  function cur(){ return store[day] || {forces:{}}; }
+
+  /* text fields */
+  var fields = document.querySelectorAll("[data-field]");
+  fields.forEach(function(el){
+    el.addEventListener("input", function(){ rec()[el.dataset.field] = el.value; persist(); refresh(); });
+  });
+
+  /* step 2: lists */
+  var LOSERS = ["Never good enough", "Too old to change", "Always unlucky"];
+  function drawLists(){
+    var r = cur(), name = (r.name || "").trim() || "Your name";
+    var lose = document.getElementById("lose-list"), win = document.getElementById("win-list");
+    lose.innerHTML = ""; win.innerHTML = "";
+    LOSERS.forEach(function(t){ var li = document.createElement("li"); li.textContent = t; lose.appendChild(li); });
+    var me = document.createElement("li"); me.className = "me"; me.textContent = name;
+    (r.moved ? win : lose).appendChild(me);
+    if (r.moved){ ["Self-respect","Confidence","Desire"].forEach(function(t){ var li=document.createElement("li"); li.textContent=t; win.appendChild(li); }); }
+    document.getElementById("move").textContent = r.moved ? "Move it back" : "Move my name to the Winner’s List";
+  }
+  document.getElementById("name").addEventListener("input", drawLists);
+  document.getElementById("move").addEventListener("click", function(){ var r = rec(); r.moved = !r.moved; persist(); refresh(); });
+
+  /* step 3: faces */
+  var tense = document.getElementById("face-tense"), happy = document.getElementById("face-happy"), fnote = document.getElementById("face-note");
+  function pickFace(v){ var r = rec(); r.face = v; persist(); refresh(); }
+  tense.addEventListener("click", function(){ pickFace("tense"); });
+  happy.addEventListener("click", function(){ pickFace("happy"); });
+  function drawFaces(){
+    var f = cur().face;
+    tense.setAttribute("aria-pressed", f === "tense"); happy.setAttribute("aria-pressed", f === "happy");
+    fnote.hidden = !f;
+    fnote.textContent = f === "happy" ? "“You must hop on the vehicle that moves you toward an enthusiasm for living” (p. 32). Done by “working every day to build your self-image.”"
+      : f === "tense" ? "That picture is you too. “In choosing your life style, you must move away from the forces of extinction” (p. 32). Tap the other face when you are ready." : "";
+  }
+
+  /* step 4: forces */
+  var list = document.getElementById("forces"), word = document.getElementById("word");
+  FORCES.forEach(function(f, i){
+    var li = document.createElement("li"); li.className = "force";
+    li.innerHTML = '<span class="l">' + f[0] + '</span><button type="button" class="pos" aria-pressed="false"></button><button type="button" class="neg" aria-pressed="false"></button>';
+    li.querySelector(".pos").textContent = f[1]; li.querySelector(".neg").textContent = f[2];
+    li.querySelector(".pos").addEventListener("click", function(){ setForce(i, "pos"); });
+    li.querySelector(".neg").addEventListener("click", function(){ setForce(i, "neg"); });
+    list.appendChild(li);
+  });
+  function setForce(i, v){ var r = rec(); r.forces[i] = r.forces[i] === v ? undefined : v; persist(); refresh(); }
+  function drawForces(){
+    var fs = cur().forces || {}, chosen = 0, pos = 0;
+    list.querySelectorAll(".force").forEach(function(li, i){
+      li.querySelector(".pos").setAttribute("aria-pressed", fs[i] === "pos");
+      li.querySelector(".neg").setAttribute("aria-pressed", fs[i] === "neg");
+      if (fs[i]) chosen++; if (fs[i] === "pos") pos++;
+    });
+    word.innerHTML = "";
+    FORCES.forEach(function(f, i){
+      if (i === 4) { var g = document.createElement("span"); g.className = "gap"; word.appendChild(g); }
+      if (i === 8) { var g2 = document.createElement("span"); g2.className = "gap"; word.appendChild(g2); }
+      var s = document.createElement("span"); s.textContent = f[0];
+      if (fs[i] === "pos") s.className = "lit"; else if (fs[i] === "neg") s.className = "dim";
+      word.appendChild(s);
+    });
+    document.getElementById("force-count").textContent = chosen + " of 13 chosen · " + pos + " positive";
+    return chosen;
+  }
+
+  /* step 6: timer */
+  var mode = "derby", total = 120, left = 120, tick = null;
+  var clock = document.getElementById("clock"), bar = document.getElementById("bar"), startBtn = document.getElementById("start");
+  function setMode(m){ mode = m; document.getElementById("mode-derby").setAttribute("aria-pressed", m === "derby"); document.getElementById("mode-geyser").setAttribute("aria-pressed", m === "geyser"); document.getElementById("cue").textContent = CUES[m]; }
+  document.getElementById("mode-derby").addEventListener("click", function(){ setMode("derby"); });
+  document.getElementById("mode-geyser").addEventListener("click", function(){ setMode("geyser"); });
+  function fmt(s){ return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); }
+  function drawClock(){ clock.textContent = fmt(left); bar.style.width = ((total-left)/total*100) + "%"; }
+  function stop(){ clearInterval(tick); tick = null; startBtn.textContent = left < total && left > 0 ? "Resume" : "Start two minutes"; }
+  startBtn.addEventListener("click", function(){
+    if (tick){ stop(); return; }
+    if (left <= 0) left = total;
+    startBtn.textContent = "Pause";
+    tick = setInterval(function(){
+      left--; drawClock();
+      if (left <= 0){ stop(); var r = rec(); r.timer = mode; persist(); refresh(); }
+    }, 1000);
+  });
+  document.getElementById("reset").addEventListener("click", function(){ stop(); left = total; drawClock(); startBtn.textContent = "Start two minutes"; });
+
+  /* step 7: verdict */
+  document.getElementById("judge").addEventListener("click", function(){ var r = rec(); r.verdict = true; persist(); refresh(); });
+
+  /* completion */
+  function doneMap(r){
+    r = r || {forces:{}};
+    var fs = r.forces || {}, n = 0; for (var k in fs) if (fs[k]) n++;
+    return {
+      1: !!((r.mirror||"").trim() && (r.goal||"").trim()),
+      2: !!r.moved,
+      3: r.face === "happy",
+      4: n === 13,
+      5: ["p1","p2","p3","p4"].every(function(k){ return (r[k]||"").trim(); }),
+      6: !!r.timer,
+      7: !!(r.verdict && (r.w1||"").trim())
+    };
+  }
+  function drawHistory(){
+    var h = document.getElementById("history"); h.innerHTML = "";
+    var days = Object.keys(store).filter(function(d){ var m = doneMap(store[d]); return Object.keys(m).some(function(k){ return m[k]; }); }).sort().reverse();
+    if (!days.length){ h.innerHTML = '<span class="src">No days yet. Today will be the first.</span>'; return; }
+    days.forEach(function(d){
+      var m = doneMap(store[d]), c = 0; for (var k in m) if (m[k]) c++;
+      var b = document.createElement("button"); b.type = "button"; b.textContent = d + " · " + c + "/7";
+      if (c === 7) b.className = "full";
+      if (d === day) b.setAttribute("aria-current", "date");
+      b.addEventListener("click", function(){ day = d; dayInput.value = d; fill(); window.scrollTo({top:0, behavior:"smooth"}); });
+      h.appendChild(b);
+    });
+  }
+  var pips = document.getElementById("pips");
+  for (var i = 1; i <= 7; i++){ var a = document.createElement("a"); a.href = "#s" + i; a.setAttribute("aria-label", "Exercise " + i); pips.appendChild(a); }
+  function refresh(){
+    drawLists(); drawFaces(); drawForces();
+    var r = cur(), m = doneMap(r), c = 0;
+    for (var s = 1; s <= 7; s++){
+      document.getElementById("s" + s).classList.toggle("done", m[s]);
+      pips.children[s-1].classList.toggle("on", m[s]);
+      if (m[s]) c++;
+    }
+    document.getElementById("count").textContent = c + " of 7 done";
+    document.getElementById("verdict").hidden = !r.verdict;
+    document.getElementById("verdict-note").hidden = !r.verdict;
+    document.getElementById("timer-done").hidden = !r.timer;
+    drawHistory();
+  }
+  function fill(){
+    var r = cur();
+    fields.forEach(function(el){ el.value = r[el.dataset.field] || ""; });
+    stop(); left = total; drawClock();
+    refresh();
+  }
+  dayInput.addEventListener("change", function(){ if (dayInput.value){ day = dayInput.value; fill(); } });
+
+  setMode("derby");
+  fill();
+})();
+</script>
+</body>
+</html>

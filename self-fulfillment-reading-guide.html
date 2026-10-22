@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Self-Fulfillment Reading Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column (same tokens as the Live Free Workbook), with wide tables scrolling in their own frames */
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --stop:#b4473a;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --stop:#e48a7e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --stop:#e48a7e; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maxwell Maltz &middot; Psycho-Cybernetics &amp; Self-Fulfillment &middot; 1970</span>
+  <h1>Self-Fulfillment, chapter by chapter</h1>
+  <p class="lede">A front-to-back read of the book: for each chapter, what Maltz says, how he makes the case, what he asks you to do, and how it connects to the rest. Book content only, with page numbers.</p>
+  <p class="noteline">The scanned copy used for these notes skips page 3 and pages 5&ndash;10 (the opening of Chapter 1), so that part is not covered.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#chapter-1-reaching-goals-pp-3-20">Ch. 1</a><a href="#chapter-2-the-fulfillment-in-your-self-i">Ch. 2</a><a href="#chapter-3-fulfillment-through-clear-thin">Ch. 3</a><a href="#chapter-4-ten-steps-toward-relaxation-pp">Ch. 4</a><a href="#chapter-5-imagination-and-your-self-fulf">Ch. 5</a><a href="#chapter-6-self-acceptance-and-self-fulfi">Ch. 6</a><a href="#chapter-7-winning-the-battle-with-your-c">Ch. 7</a><a href="#chapter-8-from-loneliness-to-happiness-p">Ch. 8</a><a href="#chapter-9-creative-mind-watching-pp-152-">Ch. 9</a><a href="#part-two-questions-and-answers-pp-173-24">Part Two</a><a href="#threads-through-the-whole-book">Threads through the whole book</a><a href="#check-yourself">Check yourself</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>The book's one goal is <strong>self-fulfillment</strong>, and its one key is the <strong>self-image</strong>: "a strong self-image is almost synonymous with self-fulfillment, and a weak self-image is almost synonymous with frustration" (p. 22).</p>
+<p>Maltz is a plastic surgeon. He writes as someone who removes "outer scars" and wants to help remove "inner scars" (p. 225). The book follows his earlier <em>Psycho-Cybernetics</em> and assumes its model of the mind. That model, as he restates it here:</p>
+<ol>
+<li><strong>The forebrain sets the goal.</strong> It is "the center of our desires, our goals, our hopes" — the seat of thinking, "not the seat of execution" (pp. 183, 190).</li>
+<li><strong>The midbrain carries it out.</strong> It holds "a very small electronic computer, a tape recorder, an automatic servo-mechanism, a success mechanism" that works subconsciously (p. 4).</li>
+<li><strong>The tape recorder holds past experiences, good and bad.</strong> Which ones you call up decides whether you move toward a goal "with a happy, winning feeling or with a negative feeling that we will fail even before we start" (p. 190).</li>
+<li><strong>Two mechanisms compete.</strong> The success mechanism, and a failure mechanism — "a composite of frustrated, negative feelings which pull us off course" (p. 4).</li>
+<li><strong>The self-image decides which one wins.</strong> "You perform according to what you believe your self-image is" (p. 218).</li>
+</ol>
+<p>"Psycho-cybernetics" names the method: from the Greek <em>kybernetes</em>, a helmsman — "steering your mind to a productive, useful goal" (p. 204). He stresses this "does not imply that man is a machine, but that man controls a machine that is his" (p. 4).</p>
+<p><strong>How the book is built.</strong> Part One has nine chapters, and each spells out a key word one letter per idea (YOUR SELF IMAGE, CLEAR THINKING, RELAXATION, and so on). Part Two answers 35 real questions from readers and audiences, in alphabetical order (p. 173).</p>
+<p><strong>The tone.</strong> He talks to the reader directly ("you"), tells many stories from his practice and lectures, and repeats a small set of practices again and again. The most frequent ones: recall your past successes, forgive, live today, and set a goal for each day.</p>
+<h2 id="chapter-1-reaching-goals-pp-3-20">Chapter 1 — Reaching Goals (pp. 3–20)</h2>
+<p><strong>What he's saying.</strong> People are goal-strivers, and fulfillment comes from setting goals and moving toward them every day. Animals' goals "are pre-set"; humans have "a power of creative imagination which makes us more than creatures — creators", so "our goals are limitless" (p. 4). The tool for reaching goals is the midbrain's success mechanism; the obstacle is the failure mechanism (p. 4).</p>
+<p><em>Not in the scanned copy: the chapter's opening and items 1–3 (pp. 3, 5–10). Page 11 opens at the end of item 3, with Maltz describing "this new reintegration of myself" and feeling he could "reach out toward new frontiers".</em></p>
+<p><strong>How he builds it.</strong> The chapter is a list of 13 things that reaching a goal involves. From item 4 on:</p>
+<ul>
+<li><strong>Courage</strong> — "life is a series of calculated risks"; if you fail, "take it on the chin and bounce back" (p. 11).</li>
+<li><strong>How to jump hurdles</strong> — the college hurdler who became a weak insurance salesman. After breaking his leg at a reunion, he realized he had never used his athletic method — "sense of direction, practice, and more practice" — on selling. He rehearsed customers' objections in his mind and became a winner (pp. 12–13). Lesson: "You must anticipate the hurdles."</li>
+<li><strong>Improvement</strong> — use anxiety "productively"; each morning set the goal "improvement" (pp. 13–14).</li>
+<li><strong>Nourishment for your self-image</strong> — goals feed the self-image "vitamins". At night, recall "placidly, pleasantly" how you gave it a boost, and you will sleep well (p. 14).</li>
+<li><strong>Going forward</strong> — "you cannot live in your yesterdays". You gamble on yourself with "the blue chips inside you: your confidence, your desire, your self-respect" (pp. 14–15).</li>
+<li><strong>Getting places</strong> — Theodore Dreiser, "an awkward, rambling writer" ranked with the giants because of his passion (pp. 15–16).</li>
+<li><strong>Observance Day</strong> — renamed <strong>Self-Image Day</strong>: "you pull your name off the Loser's List and you tack it up on the Winner's List". The only present is "a roundtable discussion with your self-image" (pp. 16–17).</li>
+<li><strong>Anticipation</strong> — "When you try, you are almost there"; stop at red lights, accelerate on green (pp. 17–18).</li>
+<li><strong>Learning how</strong> — learn what to do and what not to do, like a ballerina with "no waste motion" (p. 18).</li>
+<li><strong>Seeing yourself successful</strong> — bring past successes "out of your storehouse of memories" so your imagination "is alive with success pictures" (p. 19).</li>
+</ul>
+<p>It closes with O. Henry's story "The Third Ingredient": a penniless woman who goes after the onion and potatoes she needs as her daily goal (pp. 19–20).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Set a goal every morning, even if it is only "improvement".</li>
+<li>Each night, recall how you fed your self-image that day.</li>
+<li>Picture past successes before moving toward a new goal.</li>
+<li>Rehearse the hurdles in your mind before you meet them.</li>
+<li>Hold a Self-Image Day.</li>
+</ul>
+<p><strong>How it connects.</strong> It introduces the machinery the rest of the book relies on: the success and failure mechanisms, goals, past-success pictures and the self-image. Chapter 2 now turns to the self-image itself.</p>
+<h2 id="chapter-2-the-fulfillment-in-your-self-i">Chapter 2 — The Fulfillment in Your Self-image (pp. 21–38)</h2>
+<p><strong>What he's saying.</strong> Each day you bring yourself either frustration or self-fulfillment, and "you must make yourself responsible for the caliber of your day" (p. 21). The deciding factor is the self-image: "your picture of yourself… your opinion of yourself… your value judgment about yourself". It is invisible but "as real as the chair you sit on" (p. 22). Strength comes not from "an external miracle" but from within, and "only when you are kind toward yourself, when you are a friend to yourself, when you refuse to quit on yourself" (pp. 22–23).</p>
+<p><strong>How he builds it.</strong> He spells out YOUR SELF IMAGE as 13 "dual forces" — each a positive force paired with a negative one (p. 23):</p>
+<ol>
+<li><strong>You or somebody else</strong> — stop pleasing "Joe and Mary and Harry" and imitating stars. "Make your own movies": you are the hero, the adventurer, and the operator of the motion-picture projector (p. 24).</li>
+<li><strong>Obey or oppose</strong> — "PLAY BALL!" Follow the rules of building your self-image: "Aren't you more than a blunder? Be human with yourself" (p. 25).</li>
+<li><strong>Unbelief or understanding</strong> — we are all "composites". Give yourself compassion, "not castigation". He tells of his own bad day — late, curt, inefficient — and how he still accepted himself (pp. 25–27).</li>
+<li><strong>Resentment or reason</strong> — don't let daily irritations become "a mass of resentment". A woman, 40, resented her artist mother. His <strong>four points</strong>: forgive others; forgive yourself; see yourself at your best; keep up with yourself, not somebody else. Eight months later she brought him a painting of a sad clown: "That was me… But look at me now!" (pp. 27–29).</li>
+<li><strong>Stranger or friend</strong> — "You must annihilate the distance that separates you from yourself." Harry Truman ignored his critics: "His self-image was his friend" (pp. 29–31).</li>
+<li><strong>Enthusiasm or extinction</strong> — the "double feature in the theater of your mind": a tense, frustrated face and a happy, relaxed one — "both of them are you" (pp. 31–32).</li>
+<li><strong>Live or perish</strong> — live in the present and in reality. You perish when you retreat from life, give up on your self-image, surrender to loneliness and despair, or bury yourself in resentment. A childless woman adopted a child and "adopted herself" (pp. 32–33).</li>
+<li><strong>Fact or fiction</strong> — live as your genuine self, not a masquerade (pp. 33–34).</li>
+<li><strong>Indecision or decision</strong> — "Because you failed badly once, this does not mean you are a failure"; give up the need to be perfect (pp. 34–35).</li>
+<li><strong>Mind watcher or mind avoider</strong> — the watcher fights off "tumors of doubt"; the avoider "loses himself in trivia" (p. 35).</li>
+<li><strong>Adjustment or atrophy</strong> — changing a self-image takes "five minutes or a whole lifetime" (pp. 35–36).</li>
+<li><strong>Go-go or no-no</strong> — stop blocking your goals with negative feelings (p. 36).</li>
+<li><strong>Enterprise or emptiness</strong> — every day give yourself "appreciation… self-acceptance… praise" (pp. 36–37).</li>
+</ol>
+<p>He ends with Quasimodo: most of us don't look like him, "but how do you see yourself in your mind?" (pp. 37–38).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Each day, look in the mirror and ask who you are.</li>
+<li>Use your own standards, not other people's.</li>
+<li>After a mistake, be a friend to yourself.</li>
+<li>Apply the four points to any resentment.</li>
+<li>Run the "double feature" and choose the happy face.</li>
+</ul>
+<p><strong>How it connects.</strong> This chapter sets out the book's central object. The four points of forgiveness and the "motion-picture projector" come back many times, including in Part Two's answers on Relaxation (pp. 205–206) and Sin (p. 225).</p>
+<h2 id="chapter-3-fulfillment-through-clear-thin">Chapter 3 — Fulfillment through Clear Thinking (pp. 39–56)</h2>
+<p><strong>What he's saying.</strong> Help "must come from yourself" — no miracles, no intermediaries (p. 39). With the self-image as the base, the next skill is clear thinking. A person can own a house, a car and fine furniture "and feel completely unfulfilled — if his thinking is torturous and confused" (p. 40). He compares building it to paving "a superb highway" toward self-fulfillment (p. 40).</p>
+<p>What clear thinking means (pp. 41–43):</p>
+<ul>
+<li>define what you are thinking about and focus on it;</li>
+<li>think first, then act;</li>
+<li>ask intelligent questions;</li>
+<li>probe for your hidden assets;</li>
+<li>keep negative feelings from eating up "the wealthy area of your mind".</li>
+</ul>
+<p>You become "your own judge — not a hanging judge, but a sympathetic judge". "Creative thinking is the greatest power in the universe" (p. 43).</p>
+<p><strong>How he builds it.</strong> CLEAR THINKING, 13 components (pp. 43–55):</p>
+<ol>
+<li><strong>Concentration</strong> — "thought massed in formation, like a football line". Take a few minutes daily with radio and TV off (pp. 44–45).</li>
+<li><strong>Longing for improvement</strong> — as an intern he hated the brilliant "Dr. B." Then Dr. B. apologized and explained his stock-market losses, and Maltz's "resentment was now friendliness" (pp. 45–47).</li>
+<li><strong>Empathy</strong> — he had never asked why Dr. B. acted as he did. "The empathetic person not only feels for others, he also listens" (pp. 47–48).</li>
+<li><strong>Aspiration</strong> — helping others, as William Lloyd Garrison did, increases "the objectivity — and therefore the clarity — of your thinking" (p. 48).</li>
+<li><strong>Relaxation</strong> — clear thinking cannot happen while "a tornado whips back and forth across your mind" (p. 48).</li>
+<li><strong>Tapping hidden resources</strong> — in yourself and in others. A Texas insurance salesman fainted while speaking, afraid of a mistake; Maltz told him he "would still be a good man" even if he made one (pp. 49–50).</li>
+<li><strong>Habit of self-discipline</strong> — "You cannot allow a total anarchy of your thoughts" (p. 50).</li>
+<li><strong>Imaginative development of will power</strong> — get out "your motion-picture projector" and flash success pictures, especially your own past successes (p. 51).</li>
+<li><strong>Nostalgia — for today</strong> — "use substitution to forget". Visit "a room of yesterday" only briefly, then return to today (pp. 51–52).</li>
+<li><strong>Knowledge of direction</strong> — "dissolve emotional blackout"; use spare time to reflect on where you are going (pp. 52–53).</li>
+<li><strong>Integrity</strong> — "the heartbeat of clear thinking" and more than honesty: "an active seeking out of truth". Example: the executive who hired Satchel Paige in his sixties so he could qualify for a pension (pp. 53–54).</li>
+<li><strong>New nucleus of faith</strong> — a belief in yourself "reasonable in terms of who you are". A wife at a divorce consultation said "I forgive him, but I cannot forget" — "no form of real forgiveness" (pp. 54–55).</li>
+<li><strong>Growth as a human being</strong> — all of the above add up to maturity, security, happiness and inner peace (p. 55).</li>
+</ol>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Spend a few quiet minutes a day concentrating on one fruitful subject.</li>
+<li>Before judging others, look behind their faces.</li>
+<li>Show success pictures on your inner screen.</li>
+<li>Forget the past by substituting today's goals.</li>
+<li>"Spell them out for yourselves as they apply to you individually" (p. 55).</li>
+</ul>
+<p><strong>How it connects.</strong> It moves from who you are (Ch. 2) to how you think. It introduces two ideas the book leans on later: forgetting by <strong>substitution</strong>, and the <strong>room</strong> in the mind.</p>
+<h2 id="chapter-4-ten-steps-toward-relaxation-pp">Chapter 4 — Ten Steps Toward Relaxation (pp. 57–76)</h2>
+<p><strong>What he's saying.</strong> "Without relaxation, without inner peace, there can be no self-fulfillment that lasts" (p. 57). Relaxation is not bought with a bank account or a penthouse; "you must bring yourself relaxation" (p. 58). It is also contagious: a nervous waiter can make a whole table fidgety (pp. 58–59).</p>
+<p><strong>How he builds it.</strong> RELAXATION, 10 steps (p. 59):</p>
+<ol>
+<li><strong>Requirements for relaxation</strong> — make relaxation a goal, but don't force it with the forebrain. Let "your servo-mechanism in the midbrain" achieve it subconsciously. You trigger it with desire, by overcoming negative feelings, building your self-image, and living with pressure (pp. 59–60).</li>
+<li><strong>Enjoyment</strong> — be "a wise and compassionate judge" of yourself and pass the verdict <strong>NOT GUILTY</strong>. A construction worker, told at school that he was stupid, had never liked himself. Maltz pointed to his successes — years of steady work, five children, a daughter in college — and got a smile: "I never thought of things that way" (pp. 61–64).</li>
+<li><strong>Looking for leisure</strong> — "We are not simply work machines." Small doses of solitude are "therapeutic" (pp. 64–65).</li>
+<li><strong>Acquiring goals for self-fulfillment</strong> — "Stop expecting the impossible of yourself!" Limit goals by age, temperament and other factors (pp. 65–66).</li>
+<li><strong>X marks the spot for your inner revolution</strong> — a quiet rebirth in your <strong>Think Chair</strong>, "your launching pad" and "your Magic Carpet". Pablo Casals at 90 spoke of being reborn each day (pp. 66–67).</li>
+<li><strong>Adventure in lifelong youth</strong> — "your age does not matter"; keep your thinking young (p. 67).</li>
+<li><strong>Triumph over tension</strong> — imagine your mind has a face. Open its mouth, smile slightly, unclench your hands. Tell yourself "God created you to succeed", relive past successes, then picture <strong>a geyser blowing off steam</strong>. A widow of about 60 beat her tension by becoming a babysitter (pp. 68–70).</li>
+<li><strong>Insurance for true security</strong> — (A) stop fearing failure, (B) stop expecting perfection, (C) stop selling yourself short (pp. 70–71).</li>
+<li><strong>Overcoming the pitfalls of "tomorrow"</strong> — don't join "Mañana Incorporated"; "move on your goals… and do" (pp. 71–72).</li>
+<li><strong>Nostalgia for mental tone</strong> — like archaeologists, dig for the treasure inside: "our sincerity, our self-confidence… our desire to do good" (pp. 72–73).</li>
+</ol>
+<p>Then <strong>one more ingredient: forgiveness</strong> (pp. 73–75). Two points about forgiving others: see their point of view, and know that "holding a grudge hurts you most of all". Then forgive yourself — for your mistakes "past, present, and future". He lists them: being inconsiderate, not a good parent or friend, too timid, too bold. "You are a human being, not a god."</p>
+<p>It ends with <strong>liberation</strong>. A woman who had survived the Nazi camps had her tattooed number removed and married. "You must defeat the Gestapo in yourself" (pp. 75–76).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Pass the NOT GUILTY verdict on yourself.</li>
+<li>Take leisure, and set reasonable goals.</li>
+<li>Sit in a Think Chair.</li>
+<li>Do the smiling-face, unclenched-hands and geyser exercise.</li>
+<li>Forgive others and yourself completely.</li>
+</ul>
+<p><strong>How it connects.</strong> Relaxation appeared as one item in Chapter 3; here it gets a full chapter. The geyser, forgiveness and "keep up with yourself" return in Part Two's Relaxation answer (pp. 204–206) and in Chapter 9's "Relaxation plus".</p>
+<h2 id="chapter-5-imagination-and-your-self-fulf">Chapter 5 — Imagination and Your Self-fulfillment (pp. 77–94)</h2>
+<p><strong>What he's saying.</strong> Not everything can be measured like arithmetic; we turn inward "to our imagination" (p. 77). Imagination is not only for poets and inventors — "we all have imagination" (p. 78). Children use it freely; adults starve it with routine, and must win it back (p. 78). "Imagination means the growth of images in your mind", and daily success images build "a wonderful image of yourself". "Imagination is the heartbeat of fulfillment" (p. 79).</p>
+<p><strong>How he builds it.</strong> IMAGINATION, 11 ingredients (p. 80):</p>
+<ol>
+<li><strong>Inquiring mind</strong> — be a detective about yourself. Dr. Bell of Edinburgh read patients from small clues, and his student Arthur Conan Doyle built Sherlock Holmes from him. Track down "Mr. Shortcomings", "that part of yourself who fears failure", and also uncover your good qualities (pp. 80–83).</li>
+<li><strong>Motivation</strong> — "tear out of your imagination the negative images that are forerunners of failure" (p. 83).</li>
+<li><strong>Action</strong> — "Positive thinking is wonderful", but go "one step further — to positive doing". Like Laurence Olivier as Hamlet, act out your success images (pp. 83–84).</li>
+<li><strong>Goal setting</strong> — everyone has "the desire to live and be happy". Start with that universal goal, then build up to complex ones (pp. 84–85).</li>
+<li><strong>Inspiration</strong> — when he is down, Maltz pictures his late father. In one story his father talked a bully named Whitey out of hurting a boy named Tony (pp. 85–87).</li>
+<li><strong>Navigation</strong> — "a modern-day Columbus", sailing "through the choppy seas of frustration" toward a new self-image (p. 87).</li>
+<li><strong>Achievement</strong> — don't use imagination for self-destruction. A man felt he had to wash his hands whenever he saw a hearse or ambulance. Maltz told him the past was not his fault and to set goals daily and keep his successes in mind (pp. 88–90).</li>
+<li><strong>Truth about yourself</strong> — take stock of assets as well as liabilities. Your main aim is not "outcompeting Joe or Harry or Fred" but competing with yourself (pp. 90–91).</li>
+<li><strong>Intent to improve</strong> — "You cannot truly succeed if you carry in your mind someone else's image" (p. 91).</li>
+<li><strong>Orientation for progress</strong> — claim your rights, stop expecting perfection, and savor success feelings "as you would… a tasty slice of sirloin steak" (p. 92).</li>
+<li><strong>Nucleus of desire</strong> — keep the desire for good alive "in rainy and in sunny weather" (p. 93).</li>
+</ol>
+<p>He closes by contrasting the frightening imagery of Poe and Kafka with real life: "your images pack awesome power", for good or bad. "The power of your imagination is your supreme force" (pp. 93–94).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Investigate yourself like a detective, both faults and good qualities.</li>
+<li>Act out your success images, not only think them.</li>
+<li>Use a loved memory for inspiration.</li>
+<li>Compete only with yourself.</li>
+<li>Replay and savor past successes.</li>
+</ul>
+<p><strong>How it connects.</strong> Imagination is how you feed the success mechanism (Ch. 1) and build the self-image (Ch. 2). "Positive doing" returns in the Part Two answer on Psycho-cybernetics (p. 204), and "Imagination plus" is set against "Imagination minus" in Chapter 7.</p>
+<h2 id="chapter-6-self-acceptance-and-self-fulfi">Chapter 6 — Self-acceptance and Self-fulfillment (pp. 95–112)</h2>
+<p><strong>What he's saying.</strong> You may miss many goals — the five-figure income, the Cadillac, the world cruise — and still be "in good shape" if you reach "a peaceful sense of self-fulfillment" (p. 95). The one who quietly accepts himself is more fortunate than the millionaire who "hates himself" (pp. 95–96). "You will never be happy if you spend your life trying to be someone else" (p. 96). Mistakes don't make you a criminal: "Come out of hiding" (p. 96).</p>
+<p><strong>How he builds it.</strong> SELF ACCEPTANCE, 14 items (p. 97):</p>
+<ol>
+<li><strong>Search for the better you</strong> — when you read the morning paper, survey "the world inside you" too, and "write a good newspaper about yourself" (pp. 97–99).</li>
+<li><strong>Enterprise</strong> — you are "the president of a company — you". Don't be like the characters "Waiting for Godot" in helpless passivity (pp. 99–100).</li>
+<li><strong>Longing for growth</strong> — picture a baby reaching out to explore. Reasonable limits are fine; "over-limitation" is "a jail sentence on yourself" with you as the only, unfair judge (pp. 100–102).</li>
+<li><strong>Fact versus fantasy</strong> — mulling over past mistakes is "living in a dream world". After Pirandello, you are "the author in search of six characters": happiness or unhappiness, confidence or frustration, success or failure — you choose the roles (pp. 102–103).</li>
+<li><strong>Aspiration Autonomous</strong> — modeled on an Alcoholics Anonymous meeting, with four rules: you are an autonomous island; turn your back on negative feelings; concentrate on positive goals; stay on the mainland with others (pp. 103–104).</li>
+<li><strong>Courageous struggle</strong> — his father, an Austrian immigrant, did not upbraid himself for mistakes and "would not buckle under to bullies" (pp. 104–105).</li>
+<li><strong>Compassionate attitude</strong> — "compassion must start with yourself". Refuse alienation from yourself. On a bad day (cut while shaving, a lost button, bills, illness in the family) he cut his goals to two, put off the third, "and I accepted myself — with compassion" (pp. 105–107).</li>
+<li><strong>Expectation of miracles</strong> — a sign in a minister's office read EXPECT A MIRACLE. "The real miracle… is your self-acceptance" (pp. 107–108).</li>
+<li><strong>Preparation for pleasure</strong> — don't be the child who kicks over his own blocks in a moment of anger (p. 108).</li>
+<li><strong>Truth-seeking</strong> — you are "a complex composite" and "a series of contradictions, and yet you make sense". Accept death and live fully (pp. 108–109).</li>
+<li><strong>Active awareness</strong> — a chauffeur on call at 4 a.m. says "I feel I'm needed": be aware of yourself "as a giver in life" (pp. 109–110).</li>
+<li><strong>Nucleus of affirmation</strong> — believe in yourself as surely as in the dates on a calendar (p. 110).</li>
+<li><strong>Concentration plus</strong> — the cure for <strong>self-imagitis</strong>, "wounded self-image" (pp. 110–111).</li>
+<li><strong>Enthusiastic effort</strong> — bring to self-acceptance the energy you'd bring to mowing the lawn (p. 111).</li>
+</ol>
+<p>He closes on <strong>liberation</strong> again: "We must stop locking up our personalities" (pp. 111–112).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Every day, take a few minutes to remind yourself to accept yourself.</li>
+<li>Survey and "write a good newspaper" about your inner world.</li>
+<li>On bad days, reformulate your goals down to what you can do.</li>
+<li>Give yourself the compassion "any good friend" would give.</li>
+</ul>
+<p><strong>How it connects.</strong> Chapter 2 asked you to build the self-image; this one asks you to accept it as it is while still improving it. Over-limitation reappears as the first "face of loneliness" in Chapter 8.</p>
+<h2 id="chapter-7-winning-the-battle-with-your-c">Chapter 7 — Winning the Battle With Your Conscience (pp. 113–131)</h2>
+<p><strong>What he's saying.</strong> He expects the reader's objection: "my conscience won't let me reach self-fulfillment" (p. 113). Conscience has tortured people through history, "transforming winners into losers". He sees it instead as "a battle between our success mechanism and our failure mechanism" — one you must win (pp. 113–114). He makes one qualification: he is not telling you to throw away "good, sound ethical ideas" or step on others. He means the conscience used "in an unrealistically prohibitive sense" (pp. 116, 120).</p>
+<p><strong>How he builds it.</strong> CONSCIENCE, a 10-part "battle plan" (p. 114):</p>
+<ol>
+<li><strong>Confrontation</strong> — end the "cold war" with the negative forces inside you. Stop downgrading yourself, stop worrying about every little thing, stop hating yourself for every fault (pp. 114–115).</li>
+<li><strong>Opportunity versus oppression</strong> — "opportunity does not usually knock. You must create" it. Stop using conscience "as an excuse for reinforcing your failure mechanism". A girl of 19, who used LSD, blamed herself for the crash that crippled her mother. "It was not your fault… forgive yourself." Years later her father told Maltz she was teaching elocution (pp. 115–119).</li>
+<li><strong>Negative feelings versus positive feelings</strong> — "Do not let a tyrannical conscience crush your positive feelings!" (pp. 119–120).</li>
+<li><strong>Search for self-respect or failure</strong> — we are "Siamese twins"; maturity means being "our own plastic surgeon" to separate them. Mrs. Molly A., a widow in her sixties, overrode her conscience and her daughter's opinions: first a new hat, then a face-lift (pp. 120–122).</li>
+<li><strong>Cooperation or non-cooperation with your self-image</strong> — the self-image is "your guiding star"; "in a way your self-image is your conscience". Ask every morning if you are cooperating with it (pp. 122–123).</li>
+<li><strong>Imagination plus versus imagination minus</strong> — bright, realistic prospects, or a "conscience" that bothers you whenever you might succeed (pp. 123–124).</li>
+<li><strong>Enterprise plus versus enterprise minus</strong> — Mr. H., 68, lived a fixed routine of park bench and cigar until a stranger left him a puppy, Fenimore. He became a boys' team umpire and started courting — Mrs. Molly A. "Change is always possible, even at sixty-eight" (pp. 124–127).</li>
+<li><strong>Nucleus of faith or despair</strong> — "Faith is a goal in the making; despair is a goal you have forsaken." Give your conscience "a positive role" (p. 128).</li>
+<li><strong>Courage to win</strong> — the little-seen courage to defy a conscience that says "You're no good because you're not perfect" (pp. 128–129).</li>
+<li><strong>Empathy</strong> — "a fellow feeling" for all sides of yourself. Forgive yourself "for your errors of commission and omission… for the past, the present, and the future" (pp. 129–130).</li>
+</ol>
+<p>His summary: "Don't let your conscience rule you; you rule your conscience" (p. 130).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Every morning, ask if you are cooperating with your self-image.</li>
+<li>Stop using conscience as an excuse.</li>
+<li>Choose imagination plus and enterprise plus.</li>
+<li>Forgive yourself completely.</li>
+</ul>
+<p><strong>How it connects.</strong> It ties conscience to the self-image (Ch. 2). He says it again in Part Two: "The strength of our self-image is the strength of our conscience. They are one and the same" (p. 213).</p>
+<h2 id="chapter-8-from-loneliness-to-happiness-p">Chapter 8 — From Loneliness to Happiness (pp. 132–151)</h2>
+<p><strong>What he's saying.</strong> Loneliness and self-fulfillment "cannot comfortably coexist". Loneliness is "a component of the failure mechanism" and "a manifestation of unbelief in ourselves which causes us to withdraw from the positive side of ourselves" (p. 132). First he names the enemy, then its reverse.</p>
+<p><strong>How he builds it.</strong> Two spelled words:</p>
+<ul>
+<li><strong>UNBELIEF</strong>: a checklist of symptoms to find in yourself (pp. 133–134). Examples: "Unconvinced that you can reach happiness", "No goals", "Being a chronic complainer", "Looking backward, in rage", "Incarcerated in a dungeon you have created", "Failure to forgive". "Be honest about it; evasion will only injure you."</li>
+<li><strong>LONELINESS</strong>: ten faces, each turned over to a "reverse face" of happiness. Each reverse word is itself spelled out as advice (pp. 134–150):</li>
+</ul>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Face of loneliness</th>
+<th>What it is in the book</th>
+<th>Reverse face</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limitation (over-limitation)</td>
+<td>"Unnecessary, fearful constriction of the personality"</td>
+<td>LIBERTY</td>
+</tr>
+<tr>
+<td>Obstinacy</td>
+<td>"Fixedness of outlook"; forcing opinions on others</td>
+<td>OPPORTUNITY</td>
+</tr>
+<tr>
+<td>Neglect of self-respect</td>
+<td>"A terrible crime toward yourself"</td>
+<td>UNDERSTANDING</td>
+</tr>
+<tr>
+<td>Eviction of sense of self</td>
+<td>Worse than eviction from a home — "you do it to yourself"</td>
+<td>CONVICTION</td>
+</tr>
+<tr>
+<td>Lamentation</td>
+<td>Grief "as a way of life"</td>
+<td>INVOLVEMENT</td>
+</tr>
+<tr>
+<td>Impotent emptiness</td>
+<td>"Barely half-alive", withdrawing from life out of fear</td>
+<td>ENTHUSIASM</td>
+</tr>
+<tr>
+<td>Nostalgia for the past</td>
+<td>Living in yesterday — "you surrender your maturity to illusion"</td>
+<td>THE PRESENT</td>
+</tr>
+<tr>
+<td>Elimination (list) / Enslavement (heading)</td>
+<td>"Concentration camps we have built in our minds"</td>
+<td>PARTICIPATION</td>
+</tr>
+<tr>
+<td>Selfishness</td>
+<td>"Just a taker in life, never a giver"</td>
+<td>PLAYING BALL</td>
+</tr>
+<tr>
+<td>Separation</td>
+<td>From your self-image and from the world of people</td>
+<td>BELONGING</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The stories.</strong></p>
+<ul>
+<li><strong>A young divorced woman</strong> stopped pleading and built her self-respect. When her ex-husband phoned, "she respected herself too much to act like a beggar"; he flew back and remarried her (pp. 137–139).</li>
+<li><strong>A mother</strong> lived in dread for her son in Vietnam. He wrote: "Mother, don't kill yourself before you're dead" (pp. 140–141).</li>
+<li><strong>A schoolteacher</strong> who lost her father at six felt empty and talked of suicide when her husband had an affair. Maltz said: "No matter what… you must respect yourself." A year later she had more hope (pp. 142–144).</li>
+<li><strong>A young man</strong> slept all day to get revenge on his domineering father. Maltz said: "You must break your enslavement to the past — and to sleep" (pp. 146–147).</li>
+</ul>
+<p>He closes with "moving day" from loneliness to the land of HAPPINESS, where loneliness becomes "your past loneliness" (pp. 150–151).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Check yourself honestly against the UNBELIEF symptoms.</li>
+<li>For each face of loneliness, practice its reverse.</li>
+<li>Don't hold yourself responsible for other people's actions.</li>
+<li>Give rather than take, and "talk less, and listen more".</li>
+</ul>
+<p><strong>How it connects.</strong> Loneliness is shown as the failure mechanism at work in relationships. Part Two's Loneliness answer repeats "Loneliness means eviction" and names three kinds of loneliness (p. 196).</p>
+<h2 id="chapter-9-creative-mind-watching-pp-152-">Chapter 9 — Creative Mind Watching (pp. 152–170)</h2>
+<p><strong>What he's saying.</strong> This chapter pulls Part One together. The creative mind watcher focuses "on the operation of his thinking-imaging processes". He guards against negative thoughts and images and holds on to positive ones (p. 152). Unlike the passive TV watcher, he is active: "Mind watching first, emotional growth next, and finally an active movement out into the world in pursuit of goals" (p. 153).</p>
+<p><strong>How he builds it.</strong> MIND WATCHERS, 12 items (p. 153):</p>
+<ol>
+<li><strong>Molding the better you</strong> — look into the mirror truthfully, forgive yesterday's errors, accept "a complicated, composite truth" and build on your strong points (p. 154).</li>
+<li><strong>Imaginative power</strong> — hang a <strong>NO TRESPASSING</strong> sign against images of doom and past blunders. A concentration-camp survivor, shot and left for dead in 1944, waited 25 years to have his face scar repaired — until he was ready to forget. Afterwards he gave Maltz a rag doll, the kind he makes for a living (pp. 154–157).</li>
+<li><strong>No negative feelings</strong> — guard against them as a bank guards against robbers. Accept your weaknesses "and you rise above them". Too many people make "every day… Grievance Day". "Be a good neighbor to yourself" (pp. 157–159).</li>
+<li><strong>Determination to reach goals</strong> — the one goal common to all is "to live and to be happy". A woman in her forties became a successful real estate agent (pp. 159–160).</li>
+<li><strong>Why not be a winner in life?</strong> — like Babe Ruth, keep your eye on the ball. "You have to make your breaks." He cites Mr. H. and Mrs. Molly A. again (p. 160).</li>
+<li><strong>Action, trying, doing</strong> — be as vigilant as a first scout in wartime, watching for the enemy: negative feelings (pp. 160–161).</li>
+<li><strong>Today is the day</strong> — "Not tomorrow. Today." Stay in the driver's seat; at a dead end, "turn around" (p. 161).</li>
+<li><strong>Compassion, courage, concentration</strong> — compassion takes courage, because we must rise above slights. Concentration "screen[s] out… the static" (p. 162).</li>
+<li><strong>Habits that work</strong> — keep the habits that work, like brushing your teeth. Exterminate negative thinking habits as you would cockroaches (pp. 163–164).</li>
+<li><strong>Enthusiastic excitement</strong> — "excitement plus" (goals and urgency) vs. "excitement minus" (no goals, fear). Enjoy small things, like a stranger warmly greeting him on Fifth Avenue (pp. 164–166).</li>
+<li><strong>Relaxation plus</strong> — "We are human beings, not supermen". Rest wholeheartedly. Three suggestions: practice forgiveness, keep up with yourself, see your past successes (pp. 166–168).</li>
+<li><strong>Success as a way of life</strong> — don't feel inferior to celebrities or tycoons. Set realistic goals, work out strategies, and reactivate the success mechanism daily (pp. 168–169).</li>
+</ol>
+<p><strong>The close of Part One.</strong> The path to self-fulfillment is: "With a strong self-image. Setting goals that are real. Overcoming the potential tyranny of conscience. Using your imagination as a potent force for good." For people who give up on a hard world: "Self-fulfillment is a possibility in this world; it is not an empty goal" (pp. 169–170).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>Watch your mind every day.</li>
+<li>Post NO TRESPASSING against doom images.</li>
+<li>Replace habits that don't work.</li>
+<li>Start each day with exciting goals.</li>
+<li>Rest fully once you have lived fully.</li>
+</ul>
+<p><strong>How it connects.</strong> It gathers the earlier chapters into one daily discipline. Self-image (Ch. 2), imagination (Ch. 5), forgiveness and relaxation (Ch. 4), goals (Ch. 1) and conscience (Ch. 7) all reappear here.</p>
+<h2 id="part-two-questions-and-answers-pp-173-24">Part Two — Questions and Answers (pp. 173–245)</h2>
+<p><strong>What it is.</strong> Questions people asked after reading his books or hearing his lectures, "with my answers", arranged alphabetically "for easier reading". He notes there is "some overlap" (p. 173). A reader soon sees that each answer applies a Part One idea to one everyday problem. Below, the 35 topics are grouped by the idea they use; the grouping is this guide's, and the links are the book's own words.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Part One idea</th>
+<th>Topics (pages)</th>
+<th>How the answers use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The self-image decides performance (Ch. 2)</td>
+<td>Self-image (208–223), Identity (194–195), Small Potato (227–228), Truth (236–237), Weakness (239–240), Pressure (200–201)</td>
+<td>"This self-image doesn't rule us; we rule it" (209). Helen, told she was clumsy, played well once she changed her opinion of herself (219). Our "truths" about ourselves are "distortions" (237). Accept weakness first under pressure (200)</td>
+</tr>
+<tr>
+<td>Forgiveness and resentment (Chs. 2, 4, 7)</td>
+<td>Anger (173–174), Sin (224–225), Emotional Scars (177–178), God (186–187), Evil (178–179)</td>
+<td>"Forgive, forgive, forgive" (174). The real sins are refusing to rise above a mistake and refusing to forgive (225). Tear down the "wall of Jericho" of resentment (187)</td>
+</tr>
+<tr>
+<td>Relaxation and the room of the mind (Ch. 4)</td>
+<td>Relaxation (204–206), Sleep (225–227), Weekend (240–241), Frustration (183–184), Moodiness (197–198), Worry (243–244)</td>
+<td>The five cardinal points restate the four forgiveness points plus the geyser (205–206). Moods: sit, relax, "go into a room of your mind" and see past successes (198)</td>
+</tr>
+<tr>
+<td>Imagination and past successes (Ch. 5)</td>
+<td>Negative Feelings (198–200), Winning (241–243)</td>
+<td>The hockey player relived his scoring games to replace fear of injury (199). The daily two-minute "Kentucky Derby" in a quiet room (242)</td>
+</tr>
+<tr>
+<td>Live today, not yesterday or tomorrow (Ch. 2, "Live or perish")</td>
+<td>Tomorrow (235–236), Yesterday (244–245)</td>
+<td>Postpone only the bad feelings "till tomorrow" (236). Learn from yesterday, use its successes for "instant confidence", then return to the present (244–245)</td>
+</tr>
+<tr>
+<td>Self-acceptance and the happiness habit (Ch. 6)</td>
+<td>Happiness (187–192), Unhappiness (237–239), Functioning (185–186), Humility (192–193)</td>
+<td>Happiness is a habit, chosen like any habit (190, 244). Humility "is not self-denial. It is self-affirmation" (192)</td>
+</tr>
+<tr>
+<td>Giving and belonging (Ch. 8)</td>
+<td>Compassion (175–176), Friendship (180–182), Loneliness (196–197), Discipline (176–177), Sex (223–224)</td>
+<td>Friendship "is not what we take from others, but what we give" (181). "Loneliness means eviction" (196)</td>
+</tr>
+<tr>
+<td>The method itself</td>
+<td>Psycho-cybernetics (203–204), Psychoanalysis (201–203), Existentialism (179–180), Religion (206–208), Success (228–235)</td>
+<td>Defines the word (204). Present vs. past (202). "Green light" vs. "red light" (180). "No substitute for religion" (207). The servo-mechanism and the SUCCESS list (233–234)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What changes in Part Two.</strong> The voice is more personal and anecdotal: letters from a hockey player, a psychiatrist and a university dean; Dalí's painting; his own snoring on a night flight. Three lines keep returning:</p>
+<ul>
+<li>"mistake maker… mistake breaker" (210, 217, 238);</li>
+<li>success means "the capacity to rise above" a failure (201, 210);</li>
+<li>"no one can make you [lonely / unhappy] without your consent" (197, 209, 239).</li>
+</ul>
+<h2 id="threads-through-the-whole-book">Threads through the whole book</h2>
+<p>A small set of ideas and practices carries the whole book. The most repeated is recalling past successes. These are the ones a reader meets again and again, with the pages where each appears.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Thread</th>
+<th>In the book's words</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recall past successes</td>
+<td>Bring images of past successes "out of your storehouse of memories" and use "the confidence of past successes in your present undertaking"</td>
+<td>14, 19, 51, 69, 92, 155, 167–168, 184, 188, 198, 209, 220, 242, 244</td>
+</tr>
+<tr>
+<td>The mirror confrontation</td>
+<td>Look in the mirror and ask "Who am I?" — "No evasion, no double-talk"</td>
+<td>24, 97, 154, 174, 195, 201, 209–210, 214, 222, 230, 237</td>
+</tr>
+<tr>
+<td>Forgive others and yourself</td>
+<td>The four points: forgive others; forgive yourself; see yourself at your best; keep up with yourself, not others</td>
+<td>29, 73–75, 130, 167, 174, 205, 225</td>
+</tr>
+<tr>
+<td>A room of your mind</td>
+<td>A quiet inner room to relax in, take stock and see past successes; a "gallery" of the past to visit briefly</td>
+<td>52, 184, 198, 206, 219, 241–242, 245</td>
+</tr>
+<tr>
+<td>Live today; forget by substitution</td>
+<td>"Living today in yesterday is not living; it is perishing"; "you forget by substitution"</td>
+<td>14, 32, 51–52, 184, 188, 206, 236, 245</td>
+</tr>
+<tr>
+<td>A goal every day</td>
+<td>Set a goal each morning; "one goal after another"</td>
+<td>14, 90, 192, 195, 209, 212, 228, 232</td>
+</tr>
+<tr>
+<td>Rise above a mistake</td>
+<td>"Success… means the capacity to rise above a problem"; "a mistake maker… a mistake breaker"</td>
+<td>179, 201, 210, 217, 225, 231, 238</td>
+</tr>
+<tr>
+<td>Born to succeed</td>
+<td>"God created you to succeed, not to fail"; "we came into this world to succeed"</td>
+<td>69, 191, 193, 208, 210, 222</td>
+</tr>
+<tr>
+<td>Not perfect, and that's all right</td>
+<td>"Stop expecting perfection"; accept your weaknesses</td>
+<td>11, 34, 71, 92, 108, 200, 218, 239–240</td>
+</tr>
+<tr>
+<td>Pictures on the inner screen</td>
+<td>The motion-picture projector; success pictures; the double feature</td>
+<td>24, 31–32, 51, 100, 190, 210</td>
+</tr>
+<tr>
+<td>Be your own friend first</td>
+<td>"To be a friend to others, you must first be a friend to yourself"</td>
+<td>23, 27, 31, 130, 169, 181, 195, 216, 223, 244</td>
+</tr>
+<tr>
+<td>Positive doing</td>
+<td>"One step beyond worthwhile positive thinking, is positive doing"</td>
+<td>83, 160, 204</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The book's arc, as a reader experiences it:</strong> set goals (Ch. 1) → build and befriend the self-image (Ch. 2) → think clearly (Ch. 3) → relax and forgive (Ch. 4) → use imagination (Ch. 5) → accept yourself (Ch. 6) → win over conscience (Ch. 7) → move from loneliness to others (Ch. 8) → watch your mind daily (Ch. 9) → apply all of it to everyday questions (Part Two).</p>
+<h2 id="check-yourself">Check yourself</h2>
+<p>Two questions per part. Answer from memory, then check the book's answer and page.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Question</th>
+<th>The book's answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>What are the "blue chips" you gamble with?</td>
+<td>"Your confidence, your desire, your self-respect" (p. 15)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>What did the hurdler do differently as a salesman?</td>
+<td>Rehearsed the customer's objections in his mind, with "practice and more practice" (p. 13)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Name the four points given to the resentful painter</td>
+<td>Forgive others; forgive yourself; see yourself at your best; keep up with yourself, not somebody else (p. 29)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>What are the four ways people "perish"?</td>
+<td>Retreat from life; give up on your self-image; surrender to loneliness and despair; bury yourself in resentment (p. 32)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>How does Maltz say you forget the past?</td>
+<td>"Use substitution to forget" — concentrate on today's goals (p. 52)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>What is "the heartbeat of clear thinking"?</td>
+<td>Integrity — "an active seeking out of truth" (p. 53)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>What verdict do you pass on yourself?</td>
+<td>NOT GUILTY (p. 61)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>What image releases tension?</td>
+<td>A geyser blowing off steam (p. 69)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Who is "Mr. Shortcomings"?</td>
+<td>"That part of yourself who fears failure" (p. 82)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>What is one step beyond positive thinking?</td>
+<td>Positive doing (p. 83)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>What is "self-imagitis" and its cure?</td>
+<td>A wounded self-image; cured by "concentration plus" on worthwhile goals (pp. 110–111)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>What is the real miracle to expect?</td>
+<td>Your self-acceptance (p. 107)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>How does he see conscience?</td>
+<td>As a battle between the success mechanism and the failure mechanism (p. 113)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>What changed Mr. H. at 68?</td>
+<td>A puppy, Fenimore, left with him by a stranger (pp. 125–127)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>What is the reverse face of Selfishness?</td>
+<td>PLAYING BALL (p. 148)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>What did the soldier write to his worried mother?</td>
+<td>"Mother, don't kill yourself before you're dead" (p. 141)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>What sign do you hang against images of doom?</td>
+<td>NO TRESPASSING (p. 155)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Name the three suggestions for "relaxation plus"</td>
+<td>Practice forgiveness; keep up with yourself; see your past successes (pp. 167–168)</td>
+</tr>
+<tr>
+<td>Part Two</td>
+<td>What does <em>kybernetes</em> mean?</td>
+<td>A helmsman, a man who steers his ship to port (pp. 203–204)</td>
+</tr>
+<tr>
+<td>Part Two</td>
+<td>What is the first rule for living with pressure?</td>
+<td>Accept your periods of weakness (p. 200)</td>
+</tr>
+</tbody>
+</table></div>
+</article>
+<footer>
+  <p>From <em>Psycho-Cybernetics &amp; Self-Fulfillment</em> by Maxwell Maltz, M.D. (Bantam, 1973). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="index.html">Back to all pages</a></p>
+</footer>
+</div>
+</body>
+</html>

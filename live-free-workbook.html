@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live Free Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column like a pocket paperback, with a mirror-glass header band and a practice tracker at the end */
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --stop:#b4473a;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --stop:#e48a7e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --stop:#e48a7e; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;padding-inline:16px;padding-block:0 4rem}
+.wrap{max-width:44rem;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2.2rem,7vw,3.4rem)}
+h2{font-size:1.75rem;margin-bottom:.75rem}
+h3{font-size:1.25rem}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{padding-block:3rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:36rem}
+.mirror{margin-top:.5rem;background:var(--glass);border-radius:999px 999px 1rem 1rem;padding:2.25rem 1.5rem 1.5rem;text-align:center;display:grid;gap:.5rem}
+.mirror q{font-family:var(--display);font-size:clamp(1.3rem,4.5vw,1.7rem);quotes:none;line-height:1.3}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem}
+nav a{font-size:.9rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav a:hover{border-color:var(--accent);color:var(--accent)}
+section{padding-block:2.5rem;border-bottom:1px solid var(--rule);display:grid;gap:1rem}
+.intro{color:var(--muted)}
+ol.steps{margin:0;padding:0;list-style:none;display:grid;gap:1rem;counter-reset:s}
+ol.steps li{display:grid;grid-template-columns:2.25rem 1fr;gap:.75rem;counter-increment:s}
+ol.steps li::before{content:counter(s);font-family:var(--mono);width:2.25rem;height:2.25rem;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+ol.steps b{display:block}
+.tool{display:grid;gap:.6rem;padding-block:1.25rem;border-top:1px dashed var(--rule)}
+.tool:first-of-type{border-top:0}
+.tool .meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline}
+.row{display:grid;grid-template-columns:5.5rem 1fr;gap:.75rem}
+.row > *{min-width:0}
+.row .k{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);padding-top:.25rem}
+.say{font-style:italic}
+ul.plain{margin:0;padding-left:1.1rem;display:grid;gap:.3rem}
+.pledge{background:var(--surface);border:1px solid var(--rule);border-radius:.75rem;padding:1.25rem 1.25rem 1.25rem 1.5rem;display:grid;gap:.4rem;font-family:var(--display);font-size:1.08rem;line-height:1.45}
+.lights{display:flex;gap:.5rem;align-items:center}
+.dot{width:.8rem;height:.8rem;border-radius:50%;display:inline-block}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+tr:last-child td{border-bottom:0}
+td.old{color:var(--stop);text-decoration:line-through;text-decoration-thickness:1px}
+td.new{color:var(--go);font-weight:700}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem 1.5rem;margin:0;padding:0;list-style:none;counter-reset:r}
+.rules li{counter-increment:r;display:grid;gap:.2rem}
+.rules li b::before{content:counter(r) ". ";font-family:var(--mono);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips span{font-size:.9rem;padding:.2rem .65rem;border-radius:999px;background:var(--accent-soft);color:var(--ink)}
+.frame{display:grid;gap:.25rem;padding:1rem 1.1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0}
+.frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
+.frames > *{min-width:0}
+dl{margin:0;display:grid;gap:.9rem}
+dl div{display:grid;gap:.1rem}
+dt{font-weight:700}
+dd{margin:0;color:var(--muted)}
+dd i{color:var(--ink)}
+.tracker td,.tracker th{text-align:center;padding:.45rem .5rem}
+.tracker td:first-child,.tracker th:first-child{text-align:left;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tracker input{width:1.15rem;height:1.15rem;accent-color:var(--accent);cursor:pointer}
+.tracker tr.done td:first-child{color:var(--go);font-weight:700}
+.bar{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between}
+.count{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button{font:inherit;font-size:.9rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+button.danger{border-color:var(--stop);color:var(--stop)}
+footer{padding-block:2rem;color:var(--muted);font-size:.9rem}
+@media (max-width:30rem){.row{grid-template-columns:1fr;gap:.1rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<a href="index.html" style="display:inline-block;padding:1rem 0 0;font-size:.9rem;color:inherit;opacity:.8">&larr; All pages</a>
+
+<header>
+  <span class="label">Maxwell Maltz · Live and Be Free Thru Psycho-Cybernetics · Ch. 27, pp. 151–172</span>
+  <h1>Live Free Workbook</h1>
+  <p class="lede">Chapter 27 is the practice part of the book. Here it is in plain English, with words you can use to say what you feel, and a 21-day tracker at the end.</p>
+  <div class="mirror">
+    <span class="label">The one idea behind every exercise</span>
+    <q>Act the way you want to be in your imagination, and you become the way you act.</q>
+    <span class="label">“Do the thing and you will have the power.” — Emerson</span>
+  </div>
+</header>
+
+<nav aria-label="Sections">
+  <a href="#routine">Daily routine</a>
+  <a href="#tools">The 12 tools</a>
+  <a href="#express">Say what you feel</a>
+  <a href="#swap">Swap your words</a>
+  <a href="#words">Word list</a>
+  <a href="#tracker">21-day tracker</a>
+</nav>
+
+<section id="routine">
+  <h2>Your daily routine</h2>
+  <p class="intro">This puts the whole chapter into about 15 minutes a day. Do it in this order.</p>
+  <ol class="steps">
+    <li><div><b>Morning: breathe (2 min)</b>Breathe slowly. Tell yourself you are making yourself strong enough to step over yesterday's fears.</div></li>
+    <li><div><b>Morning: mirror (1 min)</b>Look at yourself and ask, “Am I a friend to myself?” Answer kindly.</div></li>
+    <li><div><b>Morning: read the pledge (2 min)</b>Read the daily pledge below out loud. Tick it in the tracker.</div></li>
+    <li><div><b>Leaving home: close the door</b>As you shut the door, shut it on one old mistake. Leave it behind.</div></li>
+    <li><div><b>During the day: one thing at a time</b>When you feel rushed, stop and pick the one next thing. At a red light, wait calmly and expect the green.</div></li>
+    <li><div><b>When a feeling comes: name it</b>Use one sentence from “Say what you feel.” Say it to yourself or to the person.</div></li>
+    <li><div><b>Evening: quiet time (10–30 min)</b>Sit alone and relax. Look at your day from a distance. Throw out one worry with the trash.</div></li>
+  </ol>
+</section>
+
+<section id="tools">
+  <h2>The 12 tools in this chapter</h2>
+  <p class="intro">Each tool shows the book page, what it means, what to do, and words you can say.</p>
+
+  <div class="tool">
+    <div class="meta"><h3>1. The daily pledge</h3><span class="label">p. 152–153 · read every morning for 21 days</span></div>
+    <div class="row"><span class="k">Means</span><p>Every day costs you one day of your life. So you choose on purpose what you trade it for.</p></div>
+    <div class="row"><span class="k">Do</span><p>Read this out loud each morning. Mark the day. The book asks for 21 days in a row.</p></div>
+    <div class="pledge" aria-label="Daily pledge in plain English">
+      <span>Today is a new day, and it is mine to use.</span>
+      <span>What I do today matters. I pay for it with one day of my life.</span>
+      <span>Tomorrow this day is gone. Only what I trade it for stays.</span>
+      <span>I promise myself to trade it for something good, so I don't regret the price.</span>
+      <span>I think calmly and cheerfully.</span>
+      <span>I am friendly to people.</span>
+      <span>I am patient with people's faults, and I see what they do in the kindest way I can.</span>
+      <span>I act as if my goals are sure to happen. I already am the person I want to be.</span>
+      <span>I don't let gloomy talk or negative thinking change my judgment.</span>
+      <span>I smile several times a day.</span>
+      <span>I respond calmly, whatever happens.</span>
+      <span>When I can't control something, I still respond in a positive way.</span>
+    </div>
+    <div class="row"><span class="k">Result</span><p>The book promises less worry, guilt and anger, and more self-confidence.</p></div>
+    <p class="label">This is a plain-English version. The book's exact words are on p. 152–153.</p>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>2. The person in the mirror</h3><span class="label">p. 154–155 · poem</span></div>
+    <div class="row"><span class="k">Means</span><p>The opinion that matters most in your life is your own. You can fool other people and get praise, but if you can't look yourself in the eye, the praise is empty. If you are your own friend, you pass life's hardest test.</p></div>
+    <div class="row"><span class="k">Do</span><p>The book asks you to say the poem with “I, me, my.” In your own words: “The person whose opinion counts most is me. I want to be someone I respect.”</p></div>
+    <div class="row"><span class="k">Say</span><p class="say">“Can I look myself in the eye about this?”</p></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>3. Mirror practice</h3><span class="label">p. 156–157 · every morning</span></div>
+    <div class="row"><span class="k">Means</span><p>You are not talking to a mirror. You are talking to the most important person in your life, which is you. You need to be your own friend before you can be a good friend to others.</p></div>
+    <div class="row"><span class="k">Do</span><p>Breathe for a few minutes. Picture the air feeding your body and your spirit. Then look in the mirror and ask, “Am I a friend to myself?” Let go of yesterday's mistake so you can respect yourself today.</p></div>
+    <div class="row"><span class="k">Say</span><p class="say">“Yesterday is finished. Today I'm on my own side.”</p></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>4. Throw out mental garbage</h3><span class="label">p. 158 · 6 days</span></div>
+    <div class="row"><span class="k">Means</span><p>Your mind collects junk too: old hurts, worries, regrets.</p></div>
+    <div class="row"><span class="k">Do</span><p>Take out the trash at home for six days. Each time, name one thought you are throwing away with it.</p></div>
+    <div class="row"><span class="k">Say</span><p class="say">“I'm throwing out the thought that ___.”</p></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>5. Close the door on the past</h3><span class="label">p. 158 · 6 days</span></div>
+    <div class="row"><span class="k">Means</span><p>A past mistake doesn't get to walk into your new day.</p></div>
+    <div class="row"><span class="k">Do</span><p>Every time you leave home and shut the door, picture shutting it on one failure or mistake.</p></div>
+    <div class="row"><span class="k">Say</span><p class="say">“That happened. It stays behind this door.”</p></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>6. Red light, green light</h3><span class="label">p. 159 · 6 days</span></div>
+    <div class="row"><span class="k">Means</span><p><span class="lights"><span class="dot" style="background:var(--stop)"></span>The red light is your fear of failing.</span> <span class="lights"><span class="dot" style="background:var(--go)"></span>The green light is your way forward.</span> Nothing holds you back forever. When one door shuts, another opens.</p></div>
+    <div class="row"><span class="k">Do</span><p>At every red light, walking or driving, wait and expect the green. When it turns green, move forward and remember a past success.</p></div>
+    <div class="row"><span class="k">Say</span><p class="say">“This is a pause, not a stop.”</p></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>7. Ten rules for success</h3><span class="label">p. 160–161</span></div>
+    <p>Easy to understand, hard to follow. Rules 3, 4 and 5 are about speaking and listening.</p>
+    <ol class="rules">
+      <li><b>Do one thing at a time.</b>Two things at once get less done than one.</li>
+      <li><b>Know the problem.</b>Say the problem clearly before you look for answers.</li>
+      <li><b>Listen to learn.</b>Open your ears before you open your mouth.</li>
+      <li><b>Ask questions.</b>Socrates became wise by asking. Ask, even just to check.</li>
+      <li><b>Be brief.</b>Be known for clear, short words, not for talking a lot.</li>
+      <li><b>Accept change.</b>You can't step in the same river twice. Everything can improve.</li>
+      <li><b>Admit your mistakes.</b>Don't make excuses, and don't fear mistakes.</li>
+      <li><b>Be simple.</b>If a child can understand it, an adult can too.</li>
+      <li><b>Be calm.</b>Good judgment grows in quiet, not in a storm.</li>
+      <li><b>Smile.</b>Humor gives you warmth. A smile passes from person to person.</li>
+    </ol>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>8. Take time to</h3><span class="label">p. 163</span></div>
+    <p>A list of things worth making time for. Pick three a day.</p>
+    <div class="chips">
+      <span>think</span><span>play</span><span>read</span><span>love</span><span>plan</span><span>be friendly</span><span>laugh</span><span>give</span><span>work</span><span>relax</span><span>feel free</span><span>apologize</span><span>admit an error</span><span>begin again</span><span>set goals</span><span>dream</span><span>see yourself at your best</span><span>count blessings</span><span>use your imagination</span><span>understand yourself and others</span><span>forgive yourself and others</span><span>be considerate</span><span>learn</span><span>make decisions</span><span>develop a hobby</span><span>smile</span><span>notice what's near you</span><span>question false beliefs</span><span>be happy now</span>
+    </div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>9. “My greatest mistake is to…”</h3><span class="label">p. 164–165</span></div>
+    <p>The book lists 27 habits that hold you back. Here each one is turned around into what you do instead.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Old habit</th><th>Instead, I…</th></tr></thead>
+      <tbody>
+        <tr><td class="old">be afraid to make a mistake</td><td class="new">try, and learn from mistakes</td></tr>
+        <tr><td class="old">live in the past</td><td class="new">live today</td></tr>
+        <tr><td class="old">worry about tomorrow</td><td class="new">act on what I can do now</td></tr>
+        <tr><td class="old">compare myself with others</td><td class="new">compare myself with who I was yesterday</td></tr>
+        <tr><td class="old">doubt myself, lack confidence</td><td class="new">remember what I have already done well</td></tr>
+        <tr><td class="old">judge myself and others harshly</td><td class="new">look for the kindest explanation</td></tr>
+        <tr><td class="old">not enjoy the present moment</td><td class="new">notice one good thing right now</td></tr>
+        <tr><td class="old">not improve my self-image</td><td class="new">picture myself at my best every day</td></tr>
+        <tr><td class="old">not be a friend to myself</td><td class="new">talk to myself like a good friend</td></tr>
+        <tr><td class="old">not set goals</td><td class="new">write one goal for this week</td></tr>
+        <tr><td class="old">not keep a positive mental attitude</td><td class="new">choose a positive response</td></tr>
+        <tr><td class="old">not use my creative imagination</td><td class="new">imagine the result I want</td></tr>
+        <tr><td class="old">not like my work</td><td class="new">find one part of my work I enjoy</td></tr>
+        <tr><td class="old">get tense and not relax</td><td class="new">take quiet time every day</td></tr>
+        <tr><td class="old">break promises to myself</td><td class="new">make small promises and keep them</td></tr>
+        <tr><td class="old">not laugh at my mistakes</td><td class="new">smile at my mistakes</td></tr>
+        <tr><td class="old">not have a good hobby</td><td class="new">do something just for fun</td></tr>
+        <tr><td class="old">abuse my health</td><td class="new">sleep, move and eat with care</td></tr>
+        <tr><td class="old">hold back my real personality</td><td class="new">let people see the real me</td></tr>
+        <tr><td class="old">say “I can't” or “I have to”</td><td class="new">say “I choose to” or “I'm learning to”</td></tr>
+        <tr><td class="old">think I am not important</td><td class="new">know that I matter</td></tr>
+        <tr><td class="old">not try to see the other person's view</td><td class="new">ask how they see it</td></tr>
+        <tr><td class="old">not react calmly and wisely</td><td class="new">pause, breathe, then answer</td></tr>
+        <tr><td class="old">give up</td><td class="new">take one more step</td></tr>
+        <tr><td class="old">ignore negative feedback</td><td class="new">use mistakes to correct my course</td></tr>
+        <tr><td class="old">care too much what others think</td><td class="new">care most about the person in the mirror</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>10. How to make decisions</h3><span class="label">p. 166</span></div>
+    <div class="row"><span class="k">Means</span><p>Worry fades when you face the facts. A problem that is stated well is half solved.</p></div>
+    <div class="row"><span class="k">Do</span><ul class="plain"><li>What am I worried about?</li><li>What can I do about it?</li><li>Decide what to do.</li><li>Start doing it right away.</li></ul></div>
+    <div class="row"><span class="k">Then</span><p>Once you decide and act, stop worrying about the result. You are like a player whose bet is placed while the wheel spins. You can't control it now. “If you worry, don't do it. If you do it, don't worry.”</p></div>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>11. Just for today</h3><span class="label">p. 167–168 · read every day for 7 days</span></div>
+    <p>Unused “nows” turn into useless “thens.” Just for today, I…</p>
+    <ul class="plain">
+      <li>live the next 12 hours and don't fix my whole life at once.</li>
+      <li>remember that everyone gets the same 24 hours.</li>
+      <li>don't worry about what might happen. I make things happen.</li>
+      <li>stop saying “if I had time.” I make time.</li>
+      <li>learn something useful and read something that makes me think.</li>
+      <li>look my best, speak gently, and am polite.</li>
+      <li>don't find fault with others or try to change anyone but me.</li>
+      <li>follow a plan, and avoid hurry and indecision.</li>
+      <li>do a secret good deed, do two things I don't want to do, and am not afraid to enjoy beauty.</li>
+      <li>have a quiet half hour alone to see my life clearly.</li>
+      <li>am happy.</li>
+    </ul>
+  </div>
+
+  <div class="tool">
+    <div class="meta"><h3>12. Four short readings</h3><span class="label">p. 169–172 · written by students of the course</span></div>
+    <div class="row"><span class="k">Problem</span><p>A problem that stops me might be easy for someone else. So part of the problem lives in how I see it.</p></div>
+    <div class="row"><span class="k">Friend</span><p>I want a friend who is loyal, kind, patient and forgiving. It's best if that friend is me.</p></div>
+    <div class="row"><span class="k">Today</span><p>What I have today comes from what I did yesterday. Tomorrow comes from what I do today. Crying over the past is useless. I work with what I have now.</p></div>
+    <div class="row"><span class="k">Certainty</span><p>The moment when you know every answer never comes. A wise person makes a good guess with too little information, then acts with courage and confidence.</p></div>
+  </div>
+</section>
+
+<section id="express">
+  <h2>Say what you feel</h2>
+  <p class="intro">This is the skill the chapter builds: notice the feeling, name it calmly, then say it simply. Rule 5 says be brief, so each line is one sentence.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>When you feel…</th><th>Say</th><th>Book tool</th></tr></thead>
+    <tbody>
+      <tr><td>Worried</td><td class="say">“I'm worried about ___. One thing I can do is ___.”</td><td>Decisions</td></tr>
+      <tr><td>Guilty, regretful</td><td class="say">“I made a mistake. I own it, and next time I'll ___.”</td><td>Admit mistakes, close the door</td></tr>
+      <tr><td>Scared to try</td><td class="say">“I'm nervous, and I'm doing it anyway.”</td><td>Red light, green light</td></tr>
+      <tr><td>Hurt or angry</td><td class="say">“I felt hurt when ___. Can you tell me how you saw it?”</td><td>Be tolerant, see their view</td></tr>
+      <tr><td>Small, unimportant</td><td class="say">“My view matters too. Here it is: ___.”</td><td>Mirror, self-image</td></tr>
+      <tr><td>Overwhelmed</td><td class="say">“There's a lot here. First I'll do ___.”</td><td>One thing at a time</td></tr>
+      <tr><td>Jealous, comparing</td><td class="say">“That's their path. Mine is ___.”</td><td>Don't compare</td></tr>
+      <tr><td>Confused</td><td class="say">“Can I ask a question to check I understand?”</td><td>Ask questions</td></tr>
+      <tr><td>Stuck</td><td class="say">“The real problem is ___.”</td><td>Know the problem</td></tr>
+      <tr><td>Happy, grateful</td><td class="say">“Thank you. That made my day.”</td><td>Smile, count blessings</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Speaking frames</h3>
+  <div class="frames">
+    <div class="frame"><span class="label">Make a point (be brief)</span><span class="say">“My point is ___. The reason is ___. For example, ___.”</span></div>
+    <div class="frame"><span class="label">Listen first</span><span class="say">“So you mean ___? Did I get that right?”</span></div>
+    <div class="frame"><span class="label">Ask to learn</span><span class="say">“Can you help me understand ___? What would you do?”</span></div>
+    <div class="frame"><span class="label">Disagree calmly</span><span class="say">“I see it differently. Here's why: ___.”</span></div>
+    <div class="frame"><span class="label">Apologize</span><span class="say">“I'm sorry I ___. I'll ___ next time.”</span></div>
+    <div class="frame"><span class="label">Talk to yourself (mirror)</span><span class="say">“I'm on my side. I can handle the next step.”</span></div>
+  </div>
+</section>
+
+<section id="swap">
+  <h2>Swap your words</h2>
+  <p class="intro">The book calls saying “I can't” and “I have to” a great mistake. The words you use shape your self-image, so change them.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Stop saying</th><th>Start saying</th></tr></thead>
+    <tbody>
+      <tr><td class="old">I can't.</td><td class="new">I haven't learned it yet. / I choose not to.</td></tr>
+      <tr><td class="old">I have to.</td><td class="new">I choose to, because ___.</td></tr>
+      <tr><td class="old">I'm bad at this.</td><td class="new">I'm practising this.</td></tr>
+      <tr><td class="old">If I had time…</td><td class="new">I'll make time on ___.</td></tr>
+      <tr><td class="old">What if it goes wrong?</td><td class="new">What can I do right now?</td></tr>
+      <tr><td class="old">He makes me angry.</td><td class="new">I feel angry when ___.</td></tr>
+      <tr><td class="old">I always fail.</td><td class="new">That time didn't work. I'm adjusting.</td></tr>
+      <tr><td class="old">I'm not sure, so I'll wait.</td><td class="new">My best guess is ___, so I'll start.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="words">
+  <h2>Word list from the chapter</h2>
+  <p class="intro">Useful words from these pages, with a plain meaning and a sentence to copy.</p>
+  <dl>
+    <div><dt>Self-image</dt><dd>The picture you have of who you are. <i>“I'm building a stronger self-image.”</i></dd></div>
+    <div><dt>Attitude</dt><dd>Your usual way of thinking and feeling about things. <i>“My attitude is calm today.”</i></dd></div>
+    <div><dt>Aspire</dt><dd>To want strongly to become something. <i>“I aspire to be a clear speaker.”</i></dd></div>
+    <div><dt>Pessimism</dt><dd>Expecting the worst. <i>“I won't let pessimism decide for me.”</i></dd></div>
+    <div><dt>Tolerant</dt><dd>Patient with people who are different or make mistakes. <i>“I try to be tolerant.”</i></dd></div>
+    <div><dt>Shortcomings</dt><dd>Faults or weak points. <i>“We all have shortcomings.”</i></dd></div>
+    <div><dt>Negative feedback</dt><dd>A signal that you are off course, used to correct yourself. <i>“That mistake is useful feedback.”</i></dd></div>
+    <div><dt>PMA</dt><dd>Positive mental attitude. <i>“I'm keeping a PMA today.”</i></dd></div>
+    <div><dt>Dehypnotize</dt><dd>To wake up from a false belief you accepted without checking. <i>“I'm questioning that old belief.”</i></dd></div>
+    <div><dt>Inhibit</dt><dd>To hold back. <i>“I don't inhibit my real personality.”</i></dd></div>
+    <div><dt>Succinct</dt><dd>Short and clear. <i>“Let me be succinct.”</i></dd></div>
+    <div><dt>Rationalize</dt><dd>To make excuses that sound reasonable. <i>“I won't rationalize my mistake.”</i></dd></div>
+    <div><dt>Inevitable</dt><dd>Sure to happen. <i>“Change is inevitable.”</i></dd></div>
+    <div><dt>Indecision</dt><dd>Not being able to decide. <i>“Indecision wastes my time.”</i></dd></div>
+    <div><dt>Perspective</dt><dd>A way of seeing a situation. <i>“Quiet time gives me perspective.”</i></dd></div>
+    <div><dt>Verdict</dt><dd>A final judgment. <i>“My own verdict matters most.”</i></dd></div>
+  </dl>
+</section>
+
+<section id="tracker">
+  <h2>21-day tracker</h2>
+  <p class="intro">Tick each practice as you do it. A day turns green when all five are ticked. Your ticks are saved in this browser only.</p>
+  <div class="bar">
+    <span class="count" id="count">0 of 21 days complete</span>
+    <span><button type="button" id="reset">Clear all</button> <button type="button" id="confirm" class="danger" hidden>Yes, clear</button></span>
+  </div>
+  <div class="scroll"><table class="tracker">
+    <thead><tr><th>Day</th><th>Pledge</th><th>Mirror</th><th>Let go</th><th>Named a feeling</th><th>Smiled</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+  <p class="label">Let go means trash, door or red light. Do whichever fits that day.</p>
+</section>
+
+<footer>Based on Chapter 27, “Exercises and Techniques,” of Live and Be Free Thru Psycho-Cybernetics by Maxwell Maltz and Charles Schreiber (Warner Books, 1975). The plain-English wording is a summary, not the book's exact text.</footer>
+</div>
+
+<script>
+(function(){
+  var KEY="live-free-tracker-v1", HABITS=5, DAYS=21, state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ state={}; }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+  var tbody=document.getElementById("rows"), names=["Pledge","Mirror","Let go","Named a feeling","Smiled"];
+  for(var d=1; d<=DAYS; d++){
+    var tr=document.createElement("tr"), td=document.createElement("td");
+    td.textContent=(d<10?"0":"")+d; tr.appendChild(td);
+    for(var h=0; h<HABITS; h++){
+      var c=document.createElement("td"), i=document.createElement("input");
+      i.type="checkbox"; i.id="d"+d+"h"+h; i.dataset.k=d+"-"+h;
+      i.setAttribute("aria-label","Day "+d+" "+names[h]);
+      i.checked=!!state[d+"-"+h]; c.appendChild(i); tr.appendChild(c);
+    }
+    tbody.appendChild(tr);
+  }
+  function refresh(){
+    var done=0;
+    Array.prototype.forEach.call(tbody.rows,function(r){
+      var all=Array.prototype.every.call(r.querySelectorAll("input"),function(x){return x.checked;});
+      r.classList.toggle("done",all); if(all) done++;
+    });
+    document.getElementById("count").textContent=done+" of 21 days complete";
+  }
+  tbody.addEventListener("change",function(e){
+    if(e.target.dataset.k){ if(e.target.checked) state[e.target.dataset.k]=1; else delete state[e.target.dataset.k]; save(); refresh(); }
+  });
+  var reset=document.getElementById("reset"), confirmBtn=document.getElementById("confirm");
+  reset.addEventListener("click",function(){ confirmBtn.hidden=!confirmBtn.hidden; });
+  confirmBtn.addEventListener("click",function(){
+    state={}; save(); tbody.querySelectorAll("input").forEach(function(x){x.checked=false;});
+    confirmBtn.hidden=true; refresh();
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
