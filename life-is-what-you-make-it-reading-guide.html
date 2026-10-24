@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Life Is What You Make It Reading Guide</title>
+<meta name="description" content="Life Is What You Make It read chapter by chapter: choice, defeat versus failure, counting blessings, giving, the Golden Rule, asking, self-image, worry and goal-setting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Ron Willingham &middot; Life Is What You Make It &middot; 1973</span>
+  <h1>Life Is What You Make It, chapter by chapter</h1>
+  <p class="lede">A front-to-back read of Ron Willingham's book (introduced by Maltz): for each chapter, what he's saying, how he builds it, what he asks you to do and how it links to the rest. Book content only, with page numbers.</p>
+  <p class="noteline">Ten chapters (pp. 15&ndash;154), each ending with &ldquo;Questions to Ask Yourself.&rdquo; Willingham, who ran personal-development courses in Amarillo, Texas, writes from a Christian viewpoint and quotes the Bible (mostly The Living Bible) alongside Emerson and Maltz.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#how-to-use-the-book-pp-11-13">How to use it</a><a href="#chapter-1-your-life-is-what-you-make-it">Ch. 1</a><a href="#chapter-2-have-you-failed-or-just-been-d">Ch. 2</a><a href="#chapter-3-your-blessings-usually-outnumb">Ch. 3</a><a href="#chapter-4-you-always-get-back-what-you-g">Ch. 4</a><a href="#chapter-5-treat-others-as-you-want-them">Ch. 5</a><a href="#chapter-6-greatness-comes-from-serving-p">Ch. 6</a><a href="#chapter-7-when-you-ask-you-receive-pp-95">Ch. 7</a><a href="#chapter-8-what-s-your-opinion-of-yoursel">Ch. 8</a><a href="#chapter-9-don-t-worry-about-living-pp-12">Ch. 9</a><a href="#chapter-10-goal-setting-helps-you-get-wh">Ch. 10</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>Maltz's introduction is three sentences long: he met <strong>Ron Willingham</strong> at a Psycho-Cybernetics seminar in Amarillo, Texas, and calls him "a great student of Psycho-Cybernetics" who writes "on Self-Fulfillment his way" (p. 9). Willingham later built a Psycho-Cybernetics course with Maltz (back cover).</p>
+<p>The book's starting point is that God gave us "the power of choice" — so "life is what we make it" (p. 15). Its other recurring ideas:</p>
+<ul>
+<li><strong>Two things to beat fear:</strong> "courage to act and faith in God's power to help" (p. 18).</li>
+<li><strong>Cause and effect.</strong> Thoughts → actions → character → circumstances (p. 63). "You always get back what you give out" (p. 58).</li>
+<li><strong>Emotional, not intellectual, belief.</strong> You only really believe a principle after you've practised it — "this self-help book is not designed to teach you knowledge but to motivate you to action" (pp. 101–102, 126).</li>
+<li><strong>The book's central law</strong> (p. 121): "If you can get a mental picture of the person you'd like to be, and hold this in your imagination long enough, you will… you must… become that person."</li>
+</ul>
+<p>Willingham quotes widely — Emerson's <em>Compensation</em>, James Allen's <em>As a Man Thinketh</em>, Henry Drummond, Maltz's <em>Psycho-Cybernetics</em> — and the Bible, mostly <em>The Living Bible</em> (Notes, pp. 155–157).</p>
+<h2 id="how-to-use-the-book-pp-11-13">How to use the book (pp. 11–13)</h2>
+<p><strong>What he's saying.</strong> You picked up the book because you have <strong>"creative dissatisfaction"</strong> — thankful for what you have, but wanting more living (p. 11).</p>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li><strong>Alone:</strong> read it through within a month, then reread one chapter at a time with a pencil. Answer the questions at the end of each chapter. "Measure everything against cause and effect. Ask yourself, 'Why?'" Write goals down, carry them, and "act as if you've already reached your goals" (pp. 11–12).</li>
+<li><strong>In a group:</strong> read a chapter a week and discuss (1) how you put ideas into practice, (2) what you learned, (3) what results you got — never critical analysis or arguments (p. 12).</li>
+</ul>
+<h2 id="chapter-1-your-life-is-what-you-make-it">Chapter 1 — Your Life Is What You Make It (pp. 15–29)</h2>
+<p><strong>What he's saying.</strong> God gave us the power of choice; "It's up to us!" (p. 15). The fear he targets is the destructive kind — anxiety, fear of criticism, failure, poverty or death (p. 17). Emerson: "Do the thing you fear, and the death of fear is certain" (p. 18).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Where you are came from your past</strong>, especially childhood; look for causes (pp. 18–20).</li>
+<li><strong>You can change your future</strong> through attitude. James Allen: "A man cannot directly choose his circumstances, but he can choose his thoughts" (p. 20).</li>
+<li><strong>Ralph Yerby</strong>, so shy he sat on the back row, whose relatives said he'd had brain damage and couldn't read. He won an improvement award, enrolled in adult education — "what it makes a grown man feel like to have his ten-year-old boy read this thing to him?" — and an eye test found he'd never been able to focus. With glasses he learned to read, and within six or seven years was paying for 640 acres of his own (pp. 21–22).</li>
+<li><strong>Twenty-four attitudes</strong> (pp. 23–24): Peter's seven (virtue, knowledge, temperance, patience, godliness, brotherly kindness, love), Christ's eight from the Beatitudes, and Paul's nine ingredients of love. Happiness comes from giving, not getting (Henry Drummond, p. 24).</li>
+<li><strong>"Do the thing and you will have the power"</strong> (Emerson, p. 25). Bob Oliver, a college defensive end crushed by a roughing-the-passer penalty, agreed to act enthusiastic for a week, had his best game, was spotted on a Cleveland Browns scout's film, hit his goals (257 lb and a 5.0 forty) and made the team's top forty (pp. 25–27).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Answer: what has caused you to be where you are, and which of the twenty-four attitudes do you need most? (p. 29)</p>
+<h2 id="chapter-2-have-you-failed-or-just-been-d">Chapter 2 — Have You Failed… or Just Been Defeated? (pp. 30–42)</h2>
+<p><strong>What he's saying.</strong> "Failure is permanent. Defeat is temporary" (p. 30). The difference is your attitude. Three ideas (pp. 30–31): everyone suffers defeats; defeats can be creative; fear of failure is the big enemy.</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>A pilot who crash-landed</strong> went straight back up and circled the field (p. 31). "Good judgment comes from experience, and experience comes from bad judgment" (p. 31).</li>
+<li><strong>Willingham's own defeats.</strong> As a boy he loaded bread trucks at 4 a.m. and felt small; a minister, J. P. Crenshaw, made him feel he "was somebody" (p. 32). In 1964 the local Air Force base closed and took 40% of his furniture store's sales; he lost about $30,000 — and then had "the greatest period of my life," teaching courses in churches (pp. 33–34). Later his <em>Success for You</em> company promised millions, the market fell, and he walked out "with exactly what I had walked in—zero" (pp. 35–38). He learned "Pride goes before a fall" and that he's happiest "giving people more than I take from them" (p. 38).</li>
+<li><strong>Two kinds of defeat:</strong> problems you can solve, and the big ones that change your course (pp. 34–35).</li>
+<li><strong>Creative suffering.</strong> Viktor Frankl: people need "the striving and struggling for some goal worthy of him"; unnecessary suffering is "neurotic" (p. 39). Paul: "when I am weak, then I am strong" (p. 39).</li>
+<li><strong>Fear of failure.</strong> The insurance salesman who cured his fear of rejection by not making calls (p. 40).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> "Grit our teeth and go back into the game" (p. 40). List your biggest defeats and what each taught you (p. 42).</p>
+<h2 id="chapter-3-your-blessings-usually-outnumb">Chapter 3 — Your Blessings Usually Outnumber Your Troubles (pp. 43–55)</h2>
+<p><strong>What he's saying.</strong> "Happiness is an attitude—a state of mind" (p. 43). William Law: thanking God for everything "turns all that it touches into happiness" (p. 44).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Troubles that became blessings:</strong> a student with spondylitis who couldn't play Olympic soccer and became a minister — "a Coach that's never lost a game"; a dentist whose 20/600 eyesight led him to dentistry and his wife; a doctor whose badly set arm meant he needed an education (pp. 45–46).</li>
+<li><strong>Strength through weakness:</strong> Churchill's lisp and stutter; Einstein not talking until nearly four (pp. 47–48).</li>
+<li><strong>Substitution.</strong> You can't hold two emotions at once, and attacking a fear head-on is like threading a needle. "When you count your blessings, you drive out negative thoughts by substitution" (pp. 48–49).</li>
+<li><strong>The $65,000 week.</strong> Jim, who'd sold his fried-chicken franchises, carried a card reading "Count your blessings, not your troubles." A friend who'd built a children's-home cottage in his dead son's memory said: build one for your Jimmy, "because he's still alive" (pp. 50–51).</li>
+<li><strong>Three ways to make it a habit</strong> (p. 52): thank God through prayer; thank people specifically; remind yourself of the good things you have — "become a noticer." In New York he walked to the Plaza instead of sitting in his room and met Elmer Leterman (p. 53).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Ten minutes listing blessings, ten minutes listing troubles: "What's the score?" (p. 55)</p>
+<h2 id="chapter-4-you-always-get-back-what-you-g">Chapter 4 — You Always Get Back What You Give Out (pp. 56–68)</h2>
+<p><strong>What he's saying.</strong> "As you sow, so shall you reap" is a fixed law, in this life (p. 58). Fear and frustration "publish the fact there are weaknesses at the cause level" (p. 59).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The Irish family's ham.</strong> Students from Belfast gave their small Christmas ham to friends with nothing, then were invited to a feast and sent home with a box holding a ham too big for any pan (pp. 56–57).</li>
+<li><strong>Emerson's <em>Compensation</em>:</strong> "Every act rewards itself"; fear follows inequity; "The thief steals from himself"; "Love, and you shall be loved" (pp. 59–62).</li>
+<li><strong>Solomon's Proverbs</strong> on cause and effect (pp. 62–63).</li>
+<li><strong>Thoughts → actions → character → circumstances.</strong> "You attract what you are," and your attitude toward others reveals your attitude toward yourself (pp. 63–64). A sarcastic salesman who stole from Willingham was, ten years later, still quitting jobs and suing; his friend Bill Johnson, who never says an unkind word, is in demand (pp. 64–66).</li>
+<li><strong>"Give, and you will get"</strong> — "pressed down, shaken together… running over" (Luke 6:38, p. 66).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Ask whether you go "the extra mile," and recall an incident that proves the law (p. 68).</p>
+<h2 id="chapter-5-treat-others-as-you-want-them">Chapter 5 — Treat Others As You Want Them to Treat You (pp. 69–81)</h2>
+<p><strong>What he's saying.</strong> First decide how you want to be treated, then treat others that way (p. 70). Five things we all want (p. 70):</p>
+<ol>
+<li><strong>Encourage me.</strong> Maltz's story of a young man whose father, playing catch, "would never let me catch the tenth ball" — so he left the family business "because I wanted somehow to catch that tenth ball!" (pp. 70–71). A columnist's line made Wally Bullington believe he could be All-American (p. 72).</li>
+<li><strong>Appreciate me.</strong> William James: "the craving to be appreciated." A boy walked through his parents' dinner party balancing a feather on his nose (pp. 72–73).</li>
+<li><strong>Forgive me.</strong> "To condemn is human, to forgive is divine." A Nashville urologist showed him files of illnesses caused by "the giant destructive emotions" (pp. 73–75).</li>
+<li><strong>Listen to me.</strong> Watch how rarely people listen; a bank teller's letter about customers who come in to talk (pp. 75–76).</li>
+<li><strong>Understand me.</strong> Psychologists' formula <strong>SFF: Stop Finding Fault</strong> (p. 77). A hostile class member who wore a fur-lined parka with the hood up finally told how his elderly father died before he could say he loved him: "Understand me!" (pp. 77–79)</li>
+</ol>
+<p><strong>How it connects.</strong> The <strong>law of psychological reciprocity</strong>: people "feel powerfully impelled to 'do unto you' as you 'do unto them'" (p. 79).</p>
+<h2 id="chapter-6-greatness-comes-from-serving-p">Chapter 6 — Greatness Comes from Serving (pp. 82–94)</h2>
+<p><strong>What he's saying.</strong> Greatness belongs to anyone who serves "without a hook at the end of his gift" (p. 82). "To be the greatest, be a servant" (p. 82).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>In business:</strong> Elmer Leterman met Hawaiian ships with leis at his own expense and introduced people to each other at lunch; his insurance business flourished. "There is a world of difference between starting out in the morning to sell something and starting out to serve somebody" (pp. 83–84). Fuller began "designing brushes for sales" (p. 84).</li>
+<li><strong>In reputation:</strong> Walt Disney and Edison weren't driven by money (pp. 85–86).</li>
+<li><strong>Noticing the unnoticed:</strong> a shy man told Jane, a girl in a children's home who felt ugly in her glasses, she was "pretty on the inside" (pp. 86–87).</li>
+<li><strong>Humility:</strong> Giles Tate found two children living in an abandoned school bus, took their father to hospital, paid the bills and read him the Bible through the window screen (pp. 88–89).</li>
+<li><strong>Give part of yourself:</strong> notice someone and think "Here's an important person; I'll make his day a little brighter" (p. 90); write notes of encouragement; accept compliments with enthusiasm — "Wheeee! I feel like ten giant men!" (pp. 90–92).</li>
+<li><strong>Give without expecting a reward.</strong> Seneca: "There is no grace that sticks to the fingers" (p. 92).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Ask: am I mainly a giver or a taker? (p. 94) "Greatness is to give the world more than you take from it!" (p. 93)</p>
+<h2 id="chapter-7-when-you-ask-you-receive-pp-95">Chapter 7 — When You Ask You Receive (pp. 95–108)</h2>
+<p><strong>What he's saying.</strong> Emerson: "the highest price we can pay for a thing is to ask for it" (p. 95). Sales rise 20–40% when salesmen simply ask for the order (p. 95). Jessie Rittenhouse's poem "My Wage": life pays what you ask (p. 96).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Afraid to ask:</strong> a football co-captain who couldn't ask a girl to a banquet until 6:00, when she'd already dressed and was waiting; Willingham, as a freshman, calling from a far-off phone booth to say "I guess you already have a date for Saturday night" (pp. 96–97).</li>
+<li><strong>Four ingredients of asking</strong>, which together make faith (pp. 98–106):</li>
+<li><strong>Desire</strong> — he sold magazine subscriptions door to door in the cold to win a watch (pp. 99–101).</li>
+<li><strong>Belief</strong> — intellectual belief is "cool"; <strong>emotional ("hot") belief</strong> comes from experience (pp. 101–103).</li>
+<li><strong>Determination</strong> — desire plus belief, which needs a goal; Vince Lombardi: "I have never been associated with a losing team" (pp. 103–104).</li>
+<li><strong>Persistence</strong> — his daughter Robin had the car running before he'd said yes (p. 105); the friend at midnight asking for three loaves (pp. 105–106).</li>
+<li><strong>Why we don't ask:</strong> "Our doubts are traitors" — fear of rejection (p. 106).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> "You receive from life what you ask of it—no more, no less!" (p. 107)</p>
+<h2 id="chapter-8-what-s-your-opinion-of-yoursel">Chapter 8 — What's Your Opinion of Yourself? (pp. 109–124)</h2>
+<p><strong>What he's saying.</strong> He quotes Maltz: the self-image is "the most important psychological discovery of this century," your actions always match it, and it can be changed (p. 109). "You'll always act like the sort of person you think you are" (p. 113).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>A 25-question self-inventory</strong> — childhood, affection, compliments, comparing yourself, reliving successes or hurts (pp. 110–111).</li>
+<li><strong>Two quarterbacks:</strong> one told himself he couldn't complete passes and threw late; Jim Lindsey "never" thought of interceptions (pp. 112–113).</li>
+<li><strong>How it formed:</strong> mostly by age three or four. Dr. Wilder Penfield found the brain records, recalls and relives experiences (pp. 113–116).</li>
+<li><strong>It isn't always correct.</strong> "I'm not good at math" and similar beliefs are false limits (p. 116).</li>
+<li><strong>A healthy self-opinion has four things</strong> (p. 117): a goal that arouses enthusiasm; loving God; liking others; liking yourself. Criticism of others reveals self-worthlessness (p. 118).</li>
+<li><strong>Three ways to change it</strong> (p. 119): relive past successes; hold a mental picture of the person you'd like to be; enjoy a series of successful experiences. Each day, finish something small — clean your desk, write a letter, make the call (p. 122).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Daily, in a quiet place: relax, pick one success, recall its details and feelings, and replay it (pp. 119–120). Then hold the picture of who you want to be — "No principle of action in this whole book is more important" (p. 121).</p>
+<h2 id="chapter-9-don-t-worry-about-living-pp-12">Chapter 9 — Don't Worry about Living (pp. 125–138)</h2>
+<p><strong>What he's saying.</strong> "Worry is holding mental pictures of what you don't want to happen! Faith is holding mental pictures of what you do want to happen" (p. 125). "You become what you think about" (p. 126).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Analyze:</strong> ask "Why do I feel this way? What am I afraid of?" His dread of bank loans turned out to be fear of rejection, of a glass room full of staring people, and his own sloppy records; it eased only when he kept better accounts (pp. 127–128). "Positive action causes positive emotions which overcome worry" (p. 129).</li>
+<li><strong>Faith in God's promises:</strong> Abraham at a hundred. Say aloud, in the mirror: <strong>"Everything that happens to me works for my good if I love God and fit into his plans"</strong> (pp. 129–131).</li>
+<li><strong>The four-step action formula</strong> (p. 133): define your worry; analyze it; write down everything you can do; put the solutions in order and do them one at a time. Kettering: "A problem well stated is a problem half solved."</li>
+<li><strong>Relax, laugh, live a little:</strong> recall a calm place in detail (his cabin in the New Mexico mountains), take naps like Edison, laugh like Lincoln reading Artemus Ward to his cabinet: "if I did not laugh, I would die" (pp. 134–135).</li>
+<li><strong>Talk about positive things</strong> — your speech shapes your emotions (pp. 135–136).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Remember that "people who do nothing have few problems" (p. 138).</p>
+<h2 id="chapter-10-goal-setting-helps-you-get-wh">Chapter 10 — Goal-Setting Helps You Get What You Want (pp. 139–154)</h2>
+<p><strong>What he's saying.</strong> We're "goal-striving beings." You can reach almost any goal if you know what, when and why; write it down; visualize already having it; and persist (pp. 139–140). Goals release powers: concentration (Edison: "Stick to one object"), enthusiasm, confidence, easier decisions, awareness of opportunity (pp. 140–142).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>How to set goals</strong> (p. 142): write down three or four things; number them by importance; give each a time limit; write a plan. Sharpen each with <strong>What? When? Why? How? How can I measure it?</strong> — worked through for a 25% sales increase by June 30 (pp. 143–145). Can't decide? Force a start and discard later (pp. 145–146).</li>
+<li><strong>How to make them work</strong> (pp. 146–147): review them morning, noon and night; keep pictures as reminders; visualize already having them; change them as your values change; tell no one who'll react negatively. "There ain't no such thing as constructive criticism" of goals (p. 148).</li>
+<li><strong>Stories:</strong> Conrad Hilton's picture of the Waldorf under his desk glass (p. 148); a man who'd lost 110 lb in Vietnam put up the photo again (p. 149); a shot-putter who visualized a school record the night before and threw 45 ft 3½ in (p. 149); a dentist's wife who felt empty after a ten-year goal was reached — set new goals at once (pp. 150–151); his own company, where goals of profit and helping people clashed (pp. 151–152).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Stop reading now and write some goals (p. 146). Emerson: "The world makes way for the man who knows where he is going," and the goal of goals: "Seek ye first the kingdom of God" (pp. 152–153).</p>
+<div class="next"><a href="life-is-what-you-make-it-activity.html">Practice: Make It Today &rarr;</a><a href="life-is-what-you-make-it-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>Life Is What You Make It</em> by Ron Willingham, with an introduction by Maxwell Maltz, M.D. (Word Books, 1973; paperback 1977). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="life-is-what-you-make-it-activity.html">Make It Today</a> &middot; <a href="life-is-what-you-make-it-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>

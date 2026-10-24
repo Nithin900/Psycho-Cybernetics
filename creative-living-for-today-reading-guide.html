@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Creative Living for Today Reading Guide</title>
+<meta name="description" content="Creative Living for Today read chapter by chapter: security, goals, negative feelings, pleasure, instant confidence and frustration, emotional scars, friendship, loneliness, life after sixty-five, the creative day and the first hour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maxwell Maltz &middot; Creative Living for Today &middot; 1967</span>
+  <h1>Creative Living for Today, chapter by chapter</h1>
+  <p class="lede">A front-to-back read of Maltz's 1967 book: for each chapter, what he's saying, how he builds it, what he asks you to do (each chapter has a numbered exercise) and how it connects. Book content only, with page numbers.</p>
+  <p class="noteline">Sixteen chapters (pp. 1&ndash;209) and fifteen numbered exercises. The scanned paperback is the 1970 Pocket Books printing.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#chapter-1-the-search-for-your-creative-p">Ch. 1</a><a href="#chapter-2-security-in-an-uncertain-world">Ch. 2</a><a href="#chapter-3-the-power-in-life-activities-p">Ch. 3</a><a href="#chapter-4-dynamic-living-starts-now-pp-3">Ch. 4</a><a href="#chapter-5-years-of-success-for-you-pp-48">Ch. 5</a><a href="#chapter-6-success-goals-for-creative-liv">Ch. 6</a><a href="#chapter-7-how-to-win-the-war-against-neg">Ch. 7</a><a href="#chapter-8-how-to-accept-pleasure-pp-91-1">Ch. 8</a><a href="#chapter-9-instant-confidence-that-inner">Ch. 9</a><a href="#chapter-10-instant-frustration-that-inne">Ch. 10</a><a href="#chapter-11-living-with-your-emotional-sc">Ch. 11</a><a href="#chapter-12-tasting-the-heady-wine-of-fri">Ch. 12</a><a href="#chapter-13-conquering-the-scourge-of-lon">Ch. 13</a><a href="#chapter-14-creative-living-at-sixty-five">Ch. 14</a><a href="#chapter-15-your-creative-day-pp-180-197">Ch. 15</a><a href="#chapter-16-your-first-hour-launching-a-c">Ch. 16</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>Maltz wrote this book in his late sixties because "people's years are so wasted" (Preface). People live longer, yet many feel useless — victims "not of prejudice, but of inertia." His chief enemy is passivity: people "become 'watchers' in a world that passes them by" (Preface). His belief: "while you are living, you live."</p>
+<p>The book's spine:</p>
+<ul>
+<li><strong>Two pitfalls</strong> (p. 61): withdrawing from life, and letting other people's opinions decide your worth.</li>
+<li><strong>Two ideas "which will never let you down"</strong> (p. 29): set goals every day you live, and never withdraw from life.</li>
+<li><strong>The self-image is your best friend</strong> — better than the dog (p. 10) — and your "pacemaker" (pp. 52, 90).</li>
+<li><strong>Fifteen exercises</strong>, one at the end of most chapters, most done in a chair or at a mirror (p. 8). The Reference lists all fifteen.</li>
+</ul>
+<p>Familiar machinery from <em>Psycho-Cybernetics</em> returns — the SUCCESS and FAILURE mechanisms (pp. 72–74, 83–86) — alongside new acrostics: CONFIDENCE (p. 114), FRUSTRATION (p. 118) and CREATIVE DAY (p. 182). Many stories are Maltz's own: his father's death, the Coney Island cigars, the White House kippers, the money in his sock, the night of the blackout.</p>
+<h2 id="chapter-1-the-search-for-your-creative-p">Chapter 1 — The Search for Your Creative Powers (pp. 1–8)</h2>
+<p><strong>What he's saying.</strong> Life should be "a fruitful, growing adventure," yet for many it's "a grotesque traffic jam. The motor keeps running, but the car can't move" (p. 1). People blame the pace of life, the loss of individuality or the bomb. There's some truth in it, but "people have always lived with imperfection and with danger" (p. 2).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Operating on your mind.</strong> After about forty years as a plastic surgeon, he points to a force that "can remove scars from the mind": your self-image (pp. 3–4).</li>
+<li><strong>Patients who couldn't enjoy a new face</strong> because their self-image was too weak (pp. 5–6).</li>
+<li><strong>Don't let worries get you down</strong> — the student worrying about fallout, the anxious mother, the money-obsessed businessman (p. 4). And don't blame yourself for time already wasted (p. 5).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> See yourself "as someone you like, as someone with whom you'd like to be friends" (p. 7). "Now is the time to reappraise yourself" (p. 8).</p>
+<h2 id="chapter-2-security-in-an-uncertain-world">Chapter 2 — Security in an Uncertain World (pp. 8–19)</h2>
+<p><strong>What he's saying.</strong> Uncertainty runs from infancy to retirement; the answer is "more life… with the help of a healthy self-image" (p. 9). "While we lived, did we live?" (p. 10).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Man's best friend is his self-image</strong> — the real test is "whether you rally to your own aid" when things go wrong (pp. 10–11).</li>
+<li><strong>Do not commit spiritual suicide.</strong> As a new intern, Maltz waited in a hospital lobby to show his father his uniform; his father was killed by a truck on the way. Maltz lost months to grief, then "renounced spiritual suicide" (pp. 11–12). Ben Hogan and Jerry Kramer came back from terrible injuries (pp. 12–13).</li>
+<li><strong>War and dentistry.</strong> A friend who led night patrols in World War II is terrified of the dentist: at the front he accepted himself, but in the chair he's ashamed of his fear (pp. 13–14).</li>
+<li><strong>Borrowed time.</strong> To a 70-year-old in Denver: "Everyone is on borrowed time, whether seven or seventy. Every day is a lifetime" (p. 18).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 1</strong> (pp. 15–17): several times a day, stay at the mirror a few minutes longer. Get reacquainted with your face — no narcissism, no harsh criticism — and see "the person behind the face" and his successes. Ask, "How is my self-image today?"</p>
+<h2 id="chapter-3-the-power-in-life-activities-p">Chapter 3 — The Power in Life Activities (pp. 20–34)</h2>
+<p><strong>What he's saying.</strong> Is time your opportunity or your burden? (p. 20) Even when fishing, be active — or "even the fish will say, 'I won't bite'" (p. 21).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Productive work</strong> builds self-esteem. "You are a human being, not a mattress" (pp. 21–22). Maltz trained himself as a writer while still a surgeon (p. 22).</li>
+<li><strong>Your time:</strong> "time is not your problem. You are the problem" (p. 23). When you play tennis, play tennis — one thing at a time (p. 24).</li>
+<li><strong>A goal every day,</strong> however small. "It's not Rembrandt? That's not the point" (pp. 24–26).</li>
+<li><strong>Two Houston women</strong> with full-time jobs wrote a children's book, started a novel and formed a company in under a year after reading <em>Psycho-Cybernetics</em> (p. 27).</li>
+<li><strong>An 86-year-old</strong> who founded a home for older people — "Every day is interesting to me" — beside a dull-eyed 12-year-old who said people from the plane "look like bugs." "It is not age that dulls people's lives; it is emotional blockage" (pp. 29–30).</li>
+<li><strong>The barbershop quartet</strong> who knew every oil-change interval: "we take better care of our cars than we do of our image of ourselves" (p. 31).</li>
+<li><strong>Do.</strong> "You don't have to be perfect, but you do have to take part" (p. 33).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 2</strong> (p. 34): when fear of failure stops you setting goals, sit and reason with yourself — have you ever met a perfect mother, teacher or driver? Then say: "I may be a mistake-maker, but I am also a mistake-breaker."</p>
+<h2 id="chapter-4-dynamic-living-starts-now-pp-3">Chapter 4 — Dynamic Living Starts NOW (pp. 35–48)</h2>
+<p><strong>What he's saying.</strong> Planning plants the seeds of dynamic living, and the lifelong search is for a healthy self-image. "Each day is a lifetime"; leave yesterday's mistakes "in the tomb of time" (p. 36).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Orange drinks and cigars.</strong> At 17, working at Coney Island, he spent his first $8 on five-cent cigars to look like a "he-man" and made himself sick — a lesson about fleeing your real self into fantasy (pp. 37–38).</li>
+<li><strong>Wingy.</strong> Mary, the girl in his Lower East Side gang, had her arm crushed in a beer-wagon wheel and frozen in a V. Mocked, she hauled water for longshoremen until her left arm grew strong — then pulled a trapped boy free from between a barge and the pier. The gang elected her president (pp. 38–41).</li>
+<li><strong>The Forsyth School</strong> in St. Louis taught three-to-six-year-olds his ideas. One child said "Make that s-k-i-l-l" instead of kill; another: "I have a 'gold' in my computer" (pp. 45–46).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 3</strong> (pp. 46–47): when a crowd makes you feel like "an ant in an ant colony," picture a past success in technicolor, then another happy moment, then plan your next goal as you walk.</p>
+<h2 id="chapter-5-years-of-success-for-you-pp-48">Chapter 5 — Years of Success for You (pp. 48–60)</h2>
+<p><strong>What he's saying.</strong> "I'm writing for people in this world, not for angels in paradise" (p. 48). Sympathy "plus five cents" won't buy a cup of coffee (p. 49).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>"I just wanted to help."</strong> At a sanitarium near Detroit, the night man — who wore a heart pacemaker — made Maltz eggs at 2 a.m. without being asked. "Let your self-image be your pacemaker" (pp. 50–52).</li>
+<li><strong>S-I, not IQ.</strong> Ask "How's my S-I?" rather than "How's my IQ today?" (pp. 52–53).</li>
+<li><strong>The White House kippers.</strong> As Mrs. Roosevelt's guest he ate kippers he detested because "Frank loves kippers," and was sick all day: "A success in other people's eyes… is not a success. It is a failure" (pp. 53–55). "A poor man can be more successful than a king if his self-image is stronger."</li>
+<li><strong>Bring back your image.</strong> Sing "My Bonnie" at the mirror with "my image" in place of "my bonnie" (pp. 55–57).</li>
+<li><strong>The threads of love.</strong> In Nicaragua, a baby's harelip set two families feuding (two old men even fought a sword duel). Maltz's repair brought them back together (pp. 57–58).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 4</strong> (pp. 58–59): for an "emotional harelip," be your own plastic surgeon and close the gap with the threads of love; live with what can't be fixed; list your good qualities; flash a success over and over.</p>
+<h2 id="chapter-6-success-goals-for-creative-liv">Chapter 6 — Success Goals for Creative Living (pp. 61–75)</h2>
+<p><strong>What he's saying.</strong> Set goals every morning, "as automatic as washing your face" — and make them <em>your</em> goals (p. 62). "No goal is too small; only one's thinking about the goal is small" (p. 66).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Edison's intensity:</strong> three months of school, a lab day from 8 a.m. to 2 a.m., and vacations with no work talk (pp. 64–65).</li>
+<li><strong>Live each moment.</strong> Breakfast and the newspaper are two small goals — do you taste the toast, or worry over the war news? (pp. 66–67)</li>
+<li><strong>Changing your "luck."</strong> O. Henry began writing in prison (pp. 68–70).</li>
+<li><strong>SUCCESS mechanism</strong> (pp. 72–74): Sense of direction, Understanding, Charity, Courage, Esteem, Self-confidence, Self-acceptance.</li>
+<li><strong>Humanity toward yourself.</strong> We forgive others' blunders but not burnt toast, a lost five-dollar bill or a forgotten appointment of our own. "Success and self-hate cannot live together." First thing in bed: "Today I will be human—toward myself" (pp. 74–75).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 5</strong> (pp. 70–72): a Panamanian boy whose webbed fingers Maltz separated shouted "V for Victory!" Each day at the mirror, think of your good moments and make your own V sign in your mind.</p>
+<h2 id="chapter-7-how-to-win-the-war-against-neg">Chapter 7 — How To Win the War Against Negative Feelings (pp. 76–90)</h2>
+<p><strong>What he's saying.</strong> Your mind is a battlefield. You must "dehypnotize" yourself from false beliefs — that you're inferior, that you must suffer to atone (pp. 76–78).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The "African bug."</strong> A tall, dignified patient paid his life savings for a lip operation his girlfriend demanded. She cursed him, and he became convinced a deadly "bug" was in his mouth. Maltz removed a bit of scar tissue "no bigger than a grain of rice," and the man walked out his full height again. "We all have our 'African bugs'" (pp. 79–83).</li>
+<li><strong>FAILURE mechanism</strong> (pp. 83–86): Frustration, Aggressiveness (misdirected), Insecurity, Loneliness, Uncertainty, Resentment, Emptiness.</li>
+<li><strong>Failing isn't failure.</strong> "If you've never failed at anything, it's a certainty that you never really tried anything" (p. 87).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 6</strong> (pp. 88–90): cross-examine each negative belief (stupid? ugly? weak? undeserving?) as unfair, the way "witches" were judged. Shrink it to reasonable size, then picture a success — "see it, smell it, feel it" — and say: "I shall concentrate on the confidence of my past successes… I am the captain of my ship."</p>
+<h2 id="chapter-8-how-to-accept-pleasure-pp-91-1">Chapter 8 — How To Accept Pleasure (pp. 91–103)</h2>
+<p><strong>What he's saying.</strong> "It is immoral for people to fester in unhappiness" (p. 93). If there's a sin, it's upbraiding yourself for human mistakes (p. 93).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Edison again:</strong> scarlet fever, near-deafness, whipped in public at six for setting a fire, living on five-cent apple dumplings — and over a thousand patents (pp. 95–96).</li>
+<li><strong>Mickey and room 414.</strong> A medical classmate sulking after influenza put up a NO VISITORS sign. A nurse had him write love letters to a lonely girl patient; he recovered — then learned there was no girl and no room 414. He'd learned the happiness of giving (pp. 96–98).</li>
+<li><strong>Bending habit to your will.</strong> For thirty years Maltz stuffed his money into his left sock before operating. Only a mirror inside his locker, making him laugh at himself, broke the habit. You need "a mirror in your mind" (pp. 100–102).</li>
+<li><strong>No conditions on pleasure</strong> — not "when I make $10,000." Some people "couldn't live with happiness" (pp. 102–103).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 7</strong> (pp. 98–100): reread four ideas until they sink in — build up your self-image; unearth your hidden talents; give to others; concentrate on your goals ("play golf, don't just dabble at it").</p>
+<h2 id="chapter-9-instant-confidence-that-inner">Chapter 9 — Instant Confidence: That Inner Creative Force (pp. 104–116)</h2>
+<p><strong>What he's saying.</strong> Instant confidence is built by "repeating, revisualizing, reemphasizing the winning moments" until it's second nature (pp. 104–105).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The "born orator" who wasn't.</strong> As a shy medical student he froze in oral exams before "160 angry eyes," but got an A on a microscope exam. Next time he pretended he was looking through a microscope, and passed with honors (pp. 105–107). That fear later led to <em>Psycho-Cybernetics</em> (p. 108).</li>
+<li><strong>Mrs. Nesbitt,</strong> a South African woman in her seventies, came to tea to match him with her daughter, then flew on to her other children around the world — confidence with charm (pp. 110–111).</li>
+<li><strong>Be your own sculptor,</strong> as Michelangelo saw Moses in the stone (p. 113).</li>
+<li><strong>Ten commandments — CONFIDENCE</strong> (p. 114): Concentrate on a stronger self-image; Offer it full partnership; Never let it disappear; Fulfill yourself with it; Infuse it with compassion; Develop it daily; Elevate yourself with it; Nourish it; Create a climate for it; Enjoy it.</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 8</strong> (pp. 115–116): in the evening, choose tomorrow's goal and see yourself moving toward it. His example is an insurance salesman nervous about a busy executive: mirror with friendly eyes, cut the negative beliefs down, relive one good sale and then another — "over and over."</p>
+<h2 id="chapter-10-instant-frustration-that-inne">Chapter 10 — Instant Frustration: That Inner Destructive Force (pp. 117–128)</h2>
+<p><strong>What he's saying.</strong> Salvador Dalí painted for Maltz a world half in shadow (a shrunken figure, a capsizing ship) and half in sunlight (a tall figure, a ship reaching port) (pp. 117–118).</p>
+<p><strong>How he builds it — FRUSTRATION</strong> (pp. 118–127): Fear (chronic fear, not fear itself, is the enemy); Retreat; Unconditional surrender of your self-image; Seeking excuses (Mañana Incorporated); Traitor to yourself; Resignation; Agitation; Termites of nothingness ("Learn to cybernate, not hibernate"); Inadequacy; Oppression (boredom draining out like bathwater); Negative feelings ("I'm old, so I'm useless").</p>
+<p><strong>What he asks you to do — Exercise 9</strong> (pp. 128–129): a double feature in your mind — a sailboat capsizing because you dwelt on failures, then a sailboat gliding into port because you dwelt on successes. Feel both, like an actor believing he is Hamlet, then resolve: "I shall succeed because I was born to succeed!"</p>
+<h2 id="chapter-11-living-with-your-emotional-sc">Chapter 11 — Living with Your Emotional Scars (pp. 129–142)</h2>
+<p><strong>What he's saying.</strong> "Life is scars" (p. 129). Handle them as an adult — "when I became a man, I put away childish things" (p. 130).</p>
+<p><strong>How he builds it.</strong> Emotional "penicillin," no prescription (p. 132): <strong>escape now and then; learn to forgive; strengthen your reluctant self-image.</strong></p>
+<ul>
+<li><strong>The hermit of Ischia.</strong> On a deserted island citadel, Maltz met a wealthy young man who'd gone there for a year to cure his boredom — "from surrendering to every appetite." "You can make an Ischia anywhere: a quiet room to retreat to." Maltz's version is a room in your mind (pp. 132–137).</li>
+<li><strong>Forgive yourself</strong> for the unwise decisions, the lost tempers, the hurtful remarks — then forgive others (pp. 138–139).</li>
+<li><strong>The courtroom.</strong> An imaginary judge sneers "You look like a criminal type" — no harsher than many of us are to ourselves (pp. 139–141).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 10</strong> (pp. 141–142): in a quiet chair, name what's bothering you, slow the thoughts until they stop, take a mental vacation to a beach, mountain or happy moment, then forgive yourself, the people who hurt you and the world. See your better side, and set a goal.</p>
+<h2 id="chapter-12-tasting-the-heady-wine-of-fri">Chapter 12 — Tasting the Heady Wine of Friendship (pp. 143–155)</h2>
+<p><strong>What he's saying.</strong> "Life without friendship is like cereal without milk" (p. 144). Friendship is giving: compassion, sincerity, courage, "the transfer of some of our self-respect to others" (p. 145).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Don't wear a poker face.</strong> Four women have played poker every Friday for years and know each other's tells. Be yourself: let your true face "be your ace in the hole" (pp. 146–147).</li>
+<li><strong>Friendship takes courage</strong> — not to attack a man "for the color of his skin or the size of his nose" (p. 149).</li>
+<li><strong>Hercules and the geysers.</strong> In the Azores, a small, wise man named Hercules showed him the Furnas geysers: "isn't man like an island?" Let off steam safely, as the island does (pp. 150–152).</li>
+<li><strong>The Million Dollar Round Table</strong> listened to him, which made them his friends (pp. 152–153).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 11</strong> (pp. 154–155): talk the book's ideas over with a tried-and-true friend — the success mechanism, the self-image, negative feelings. <strong>Exercise 11A</strong>, a bonus for frustration: picture the geysers, admit your anger without guilt, release it harmlessly, then get back to things (pp. 155–156).</p>
+<h2 id="chapter-13-conquering-the-scourge-of-lon">Chapter 13 — Conquering the Scourge of Loneliness (pp. 156–167)</h2>
+<p><strong>What he's saying.</strong> Of all fears, none is worse than loneliness (p. 156). It's not being alone but <strong>feeling</strong> alone — Thoreau at Walden wasn't lonely (p. 157).</p>
+<p><strong>How he builds it — six symptoms plus separation</strong> (pp. 158–166): limitation (a fence that confines instead of contents); stubbornness ("wins all arguments… and loses all his friends"); self-eviction (the cure is conviction); grief (Disraeli: "the indulgence of grief the blunder of a lifetime"); spiritual impotence; and the illusion of nostalgia (swap the Old Nostalgia for the <strong>New Nostalgia</strong>, a longing to improve today). Separation, he says, "is loneliness itself."</p>
+<p><strong>What he asks you to do — Exercise 12</strong> (pp. 166–167): each day, check the six symptoms in your "mental mirror" and work on each — fewer limits, less stubbornness, no self-eviction, an end to grief, courage for change, New Nostalgia.</p>
+<h2 id="chapter-14-creative-living-at-sixty-five">Chapter 14 — Creative Living at Sixty-Five and Over (pp. 167–179)</h2>
+<p><strong>What he's saying.</strong> "Sixty-five" may replace thirteen as the unlucky number (p. 168). Some live with death; others collapse into "rosy inertia" — "horizontal, never vertical" (p. 169). Segregating older people is discrimination: "Why not segregate people into short and tall?" (pp. 174–175).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Other cultures</strong> that honor age — Confucian societies, Eskimo elders, Burma (pp. 171–172).</li>
+<li><strong>The roll call:</strong> Sandburg, Hoover, Chaplin, Stengel, Eleanor Roosevelt, Steichen, Casals, Picasso, Churchill (prime minister at 65) and Schweitzer (pp. 175–177).</li>
+<li><strong>"I'm eighty-two, and I'm practicing to be ninety"</strong> — a seminar student in San Diego. "The time to retire in one field is when you are growing up in another" (p. 178).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 13</strong> (pp. 178–179): talk sense to yourself about age; fight pessimistic talk; set goals daily; never retire; give yourself the right to be happy. Cicero: old age is "the consummation of life, just as of a play" — make it a strong third act (p. 179).</p>
+<h2 id="chapter-15-your-creative-day-pp-180-197">Chapter 15 — Your Creative Day (pp. 180–197)</h2>
+<p><strong>What he's saying.</strong> "You add up a succession of creative days—and you have a creative life" (p. 181).</p>
+<p><strong>How he builds it — CREATIVE DAY, eleven facets</strong> (pp. 182–195):</p>
+<ol>
+<li><strong>Concentration with courage</strong> — like a letter, the hard part is beginning.</li>
+<li><strong>Return to yourself</strong> — ten or fifteen minutes a day in the "Ischia of your mind," remembering nine things (you can succeed again; every day is a new lifetime…).</li>
+<li><strong>Ears for others.</strong></li>
+<li><strong>Affirmation</strong> — a cabbie whose taxi was bumped just said "Forget it."</li>
+<li><strong>Training in self-discipline</strong> — Ted Williams practising; shadowboxing; Semmelweis vs authority.</li>
+<li><strong>Imagination.</strong></li>
+<li><strong>V for Victory</strong> — worry before you start, not after; respond to today; one thing at a time; sleep <em>on</em> a problem, not <em>with</em> it; relax while you work.</li>
+<li><strong>Eagerness.</strong></li>
+<li><strong>Daily growth</strong> — Emerson: a weed is "a plant whose virtues have not been discovered."</li>
+<li><strong>Adjustment</strong> — a "nucleus of faith"; "every day do the impossible."</li>
+<li><strong>Yearning for improvement.</strong></li>
+</ol>
+<p><strong>The woman who wouldn't give up.</strong> Anna lost her baby to a Nazi soldier in Warsaw and survived slave labor in Riga, keeping her head high. Years later she asked Maltz to repair her scarred face so her son would recognize her, and brought him a carnation — "my most difficult operation" (pp. 196–197).</p>
+<p><strong>What he asks you to do — Exercise 14</strong> (pp. 197–198): when you've done well, send yourself a flower "From an admirer!" At the mirror, say: "I have discarded the image of failure and frustration… Sometimes I falter, but I keep trying. I deserve this flower!"</p>
+<h2 id="chapter-16-your-first-hour-launching-a-c">Chapter 16 — Your First Hour: Launching a Creative Day (pp. 198–209)</h2>
+<p><strong>What he's saying.</strong> Simplify: base your happiness on your self-image (p. 199). Your first hour is yours, and used well it "has 1440 minutes because your hour will make your day" (p. 200).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The first hour, step by step</strong> (pp. 200–202): on waking, resolve to make it the best day you can and be human toward yourself; in the shower, see your good moments and wash away negative feelings; brushing your teeth, appreciate your face with its flaws; dressing, tell yourself you have the right to be happy; at the mirror again, plan goals that excite you; end with breakfast.</li>
+<li><strong>Boysie the sculptor.</strong> At his thirtieth reunion Maltz mistook his own reflection for a classmate. An old professor, overworked and sleepless during the war, imagined a new life for a "young Boysie" who'd become a sculptor — and carved figurines at night. No more sleepless nights (pp. 202–205).</li>
+<li><strong>No blackout for your goals.</strong> During the great Eastern blackout he walked down eighteen floors in the dark, lost one taxi and caught another, and made his flight to lecture in California (pp. 206–207).</li>
+</ul>
+<p><strong>What he asks you to do — Exercise 15</strong> (pp. 208–209): sit with one light on, turn it off and feel the blackout, then turn it back on. Then use the first hour to strengthen your self-image, weed out negative feelings and reaffirm your right to good things. "This must be your finest hour."</p>
+<div class="next"><a href="creative-living-for-today-activity.html">Practice: Your First Hour &rarr;</a><a href="creative-living-for-today-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>Creative Living for Today</em> by Maxwell Maltz, M.D. (Pocket Books, 1970; © 1967 (Trident Press)). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="creative-living-for-today-activity.html">Your First Hour</a> &middot; <a href="creative-living-for-today-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>

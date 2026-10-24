@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PC for Youth Reading Guide</title>
+<meta name="description" content="Power Psycho-Cybernetics for Youth read chapter by chapter: big self and little self, the professional human being, the smile principle, the dark side of the moon, games, clubs and personal responsibility, plus the question-and-answer section.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maxwell Maltz &middot; Power Psycho-Cybernetics for Youth &middot; early 1970s</span>
+  <h1>Power Psycho-Cybernetics for Youth, chapter by chapter</h1>
+  <p class="lede">A front-to-back read of Maltz's book for young people: for each chapter of Part One, what he's saying, how he builds it, what he asks you to do and how it connects, then a map of Part Two's questions and answers. Book content only, with page numbers.</p>
+  <p class="noteline">Part One has eleven chapters (pp. 3&ndash;134); Part Two (pp. 137&ndash;218) answers questions sent in by high-school and college students and young working people, arranged by topic from Acceptance to Youth.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#chapter-1-your-life-begins-now-when-you">Ch. 1</a><a href="#chapter-2-big-self-little-self-pp-14-24">Ch. 2</a><a href="#chapter-3-the-professional-human-being-p">Ch. 3</a><a href="#chapter-4-where-s-the-action-you-re-the">Ch. 4</a><a href="#chapter-5-the-smile-principle-pp-46-57">Ch. 5</a><a href="#chapter-6-what-time-is-it-pp-58-69">Ch. 6</a><a href="#chapter-7-the-dark-side-of-the-moon-pp-7">Ch. 7</a><a href="#chapter-8-the-evolution-of-you-pp-82-94">Ch. 8</a><a href="#chapter-9-winning-today-s-games-pp-95-10">Ch. 9</a><a href="#chapter-10-clubmanship-for-youth-pp-108">Ch. 10</a><a href="#chapter-11-a-sense-of-personal-responsib">Ch. 11</a><a href="#part-two-questions-and-answers-pp-137-21">Part Two</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>"When I wrote Psycho-Cybernetics, I was writing a book about youth" (p. 3). After lecturing "in just about every state," Maltz promised himself a book that applied his ideas to young people's problems. Part One is what he thinks; in Part Two "you ask me questions… and I answer them" (p. 4).</p>
+<p>He takes young people's worries seriously — the bomb, Vietnam, pollution, racism, materialism, "You don't like the game, and you don't trust the umpires!" (pp. 5–6) — but doesn't share their pessimism. Youth has two advantages: it lives for <strong>now</strong>, and it has <strong>time</strong> to change (pp. 7, 134).</p>
+<p>The book's recurring ideas:</p>
+<ul>
+<li><strong>Big self, little self.</strong> Every morning the mirror shows one or the other (pp. 14–15).</li>
+<li><strong>The professional human being.</strong> Practise being a person the way a doctor practises medicine, on your own terms (p. 26).</li>
+<li><strong>Success on your terms</strong> — "I do not mean you should make money your God" (p. 10).</li>
+<li><strong>Constructive, not destructive.</strong> Turn "kill" into "skill," and evolution, not revolution (pp. 34, 84).</li>
+<li><strong>"A new dimension in personal freedom,"</strong> his phrase for where it all leads (pp. 35, 134).</li>
+</ul>
+<p>Maltz builds acrostics again (LITTLE SELF, EVOLUTION, RESPONSIBILITY, BIGOTRY), lists of games and clubs, and many case stories from his New York office.</p>
+<h2 id="chapter-1-your-life-begins-now-when-you">Chapter 1 — Your Life Begins Now—When You Begin to Live (pp. 3–13)</h2>
+<p><strong>What he's saying.</strong> For Maltz, psycho-cybernetics means "fighting back… climb over the ropes into the ring, and start punching again. Inner death—spiritual suicide—not for me!" (pp. 3–4). "Your life begins now—when you begin to live" (p. 7).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Is your heart in it?</strong> Life is a struggle for everyone (pp. 7–8). A newspaperman wrote about George, about eighteen, "totally deaf, dumb, and blind," who chopped his mother's wood every morning, sliding his hand off the block as the axe fell. Before showing visitors, the boy asked them, "How is your heart?" (pp. 8–9).</li>
+<li><strong>Three power tools</strong> (pp. 10–11): imagination; belief in <strong>now</strong> — skipping the adult "yesterday-tomorrow complex"; and enthusiasm for your goals.</li>
+<li><strong>Rebirth, not death.</strong> <em>Death of a Salesman</em> is about a man dying; this book is about "rebirth of the life force" (p. 12).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Answer honestly: "Is your heart in it?" — "that's half the battle" (p. 9). Then try, like a technician saying "Testing. Testing." — "just in trying… we succeed even before we start" (pp. 12–13).</p>
+<h2 id="chapter-2-big-self-little-self-pp-14-24">Chapter 2 — Big Self, Little Self (pp. 14–24)</h2>
+<p><strong>What he's saying.</strong> In the mirror you see either confidence drawn from past successes or frustration under past failures — some days "ten feet tall," some days "three feet tall" (pp. 14–15). The key is feeling "that you are worth something, that you have rights… that you came into the world to succeed and be happy" (p. 16).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Mike Garrett,</strong> the Kansas City running back, fell from 1,087 yards to 564 after five injuries. He told himself over and over that he could do it, and in 1969 helped his team become champions (p. 16).</li>
+<li><strong>Lonely at nineteen.</strong> A record-shop salesman thought he was ugly and that girls rejected him. "You are your problem… Girls reject you because you reject yourself first." Maltz's advice: look at yourself with kind eyes, compare yourself to yourself, and "make friends with yourself" first (pp. 17–20).</li>
+<li><strong>Four tools for building a big self</strong> (pp. 20–23): concentrate on usefulness; emphasize friendship, starting with yourself; focus on your emotional growth — "Do you like yourself? … more the longer you live?"; carve out opportunities — "Opportunity does not knock from without; you create opportunity from within."</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Be "your own plastic surgeon," repairing your self-image each morning (pp. 23–24).</p>
+<h2 id="chapter-3-the-professional-human-being-p">Chapter 3 — The Professional Human Being (pp. 25–35)</h2>
+<p><strong>What he's saying.</strong> Follow society's "rules of the game" when you can; change them when they block your creative individuality — never to destroy or injure others (pp. 25–26). Become a <strong>professional human being</strong>, "on your terms… at your age… within the limits of your capacities" (p. 27).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Daily practice</strong> (p. 28): forgive yourself; forgive others (but be nobody's doormat); picture "the you that you like." Camus: "greatness consists in trying to be great."</li>
+<li><strong>The generation gap is a misnomer:</strong> "The problem is not chronology; it is focus" (p. 29).</li>
+<li><strong>The girl from Barbados</strong> who had put things off since she was ten, always late like her mother. "I think I'm a little away from hating myself." — "That's like saying you're a little pregnant." Like yourself better and "you will not feel so disorganized" (pp. 30–32).</li>
+<li><strong>Readjust</strong> (p. 33): drop trivia, drop negative feelings, refocus on essentials. Children studying his ideas turned "kill" into "skill" (p. 34).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Check for a "performance gap" with three questions (p. 35): are you a "now" person or a "never" person? Do you get involved with people, or daydream about it? Do you live actively or passively?</p>
+<h2 id="chapter-4-where-s-the-action-you-re-the">Chapter 4 — Where's the Action? You're the Action! (pp. 36–45)</h2>
+<p><strong>What he's saying.</strong> "You are the action… You are the goal" (p. 37). Action starts in your forebrain with a goal. Then the hazelnut-sized "servo-mechanism" in your midbrain replays past successes or past failures — and "to take positive action with negative feelings is most unlikely" (pp. 37–38).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Youthful imprisonment, elderly freedom.</strong> A 26-year-old art teacher from East Prussia had lived under a domineering father, a strict sister and an arbitrary cult leader. "You are no longer in East Prussia." A year later he'd grown as a teacher who never dominated his students. In contrast, a cheerful 79-year-old messenger Maltz saw on television (pp. 39–41).</li>
+<li><strong>Seven principles of clear thinking — seven don'ts</strong> (pp. 42–44): don't delay; don't be a doubting Thomas; don't evade the present; don't let an error make you feel inadequate ("You have the right to make dozens of mistakes"); don't daydream (except a short rest in a room of your mind); don't look for detours; don't surrender to boredom — "renunciation stemming from fear."</li>
+<li><strong>Cliff Richey,</strong> the tennis champion, got over his depression with <em>Psycho-Cybernetics</em> and played "fiercely yet with relaxation" (p. 45).</li>
+</ul>
+<p><strong>What he asks you to do — three dos</strong> (p. 45): set a goal every day; do everything you can to reach it today; if you fail, don't blame yourself — sleep, and set a goal for tomorrow.</p>
+<h2 id="chapter-5-the-smile-principle-pp-46-57">Chapter 5 — The Smile Principle (pp. 46–57)</h2>
+<p><strong>What he's saying.</strong> A San Francisco elevator operator said "I have no time to smile," then apologized two hours later: "perhaps I was rude to myself" (pp. 46–47). The smile principle isn't forced or conformist: you smile "as an affirmation of your inner contentment" (pp. 48–49).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The Tenth Ball.</strong> A Midwestern mother wanted her son, 19, to run his late father's real-estate firm. The son explained that when they played catch, his father always arranged for him to miss the tenth ball and never win the prize. "On my own terms I will catch the Tenth Ball" (pp. 49–54).</li>
+<li><strong>Frown principle vs smile principle</strong> (pp. 54–56): you hurt yourself with criticism / you stop criticizing yourself; you don't understand yourself / you work to understand yourself; you feast on negative feelings / you feast on positive ones; you feel a little self / you feel a big self.</li>
+</ul>
+<p><strong>How it connects.</strong> Build it every day, "using worries as challenges to overcome" (p. 57). The same tenth-ball story appears in Ron Willingham's <em>Life Is What You Make It</em>, credited to Maltz.</p>
+<h2 id="chapter-6-what-time-is-it-pp-58-69">Chapter 6 — What Time Is It? (pp. 58–69)</h2>
+<p><strong>What he's saying.</strong> At a Midwestern college, beside a broken clock, someone sent up the question "What time is it?" His answer: "It's time for you to become your big self" (p. 59).</p>
+<p><strong>How he builds it — the big-self mechanism, seven principles</strong> (pp. 60–65):</p>
+<ol>
+<li><strong>Belief in yourself</strong> — "make that B picture of yourself an A picture" in the movies you run in your head.</li>
+<li><strong>Intensification of courage under stress</strong> — see past successes, and keep liking yourself if the crisis is too much.</li>
+<li><strong>Growth through understanding</strong> — of yourself, your rights and other people.</li>
+<li><strong>Search for goals</strong> — imagine a world where everyone says "What for?" and goes back to sleep.</li>
+<li><strong>Empathy and compassion</strong> (John Donne).</li>
+<li><strong>Living for today.</strong></li>
+<li><strong>Focus on your potential</strong> — Wes Parker of the Dodgers went from .239 to .278 after a four-day course (pp. 64–65).</li>
+</ol>
+<p><strong>The ghost of fear.</strong> A 22-year-old artist set his shoes pointing away from his family each night to keep "the ghost" off, and blamed himself for an uncle killed the day after a bike ride. Maltz told him his own story: as a new intern he phoned his father to come see him in uniform, and his father was killed crossing the street. "Get yesterday off your back" (pp. 65–69).</p>
+<p><strong>What he asks you to do.</strong> "The time is now. It is always now" (p. 69).</p>
+<h2 id="chapter-7-the-dark-side-of-the-moon-pp-7">Chapter 7 — The Dark Side of the Moon (pp. 70–81)</h2>
+<p><strong>What he's saying.</strong> The moon landing cost billions; a greater adventure in "inner space" costs nothing. The danger is "human blackout" — landing on the dark side of your own mind (pp. 70–71). A five-year-old at a St. Louis school who hadn't spoken for three months finally burst out, "Where the devil are those damn kids" (pp. 71–72).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The girl who furnished her mental room</strong> — a bed, a carpet, two chairs, windows on the ocean and a forest. She retreats there to relax, went to an audition and got the part, and now plays guitar for her mother instead of in the bathroom (pp. 73–76).</li>
+<li><strong>The little-self mechanism — LITTLE SELF</strong> (pp. 76–81): Living in frustration (Linda Carbonetto wore leg braces at three and became Canadian skating champion), Inferiority, Termites of aggressiveness, Tumors of uncertainty (Babe Ruth thought of home runs when he struck out), Lonely in feeling, Essence of emptiness, Storms of resentment, Evasion of reality, Living in yesterday, Futility and weightlessness.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Vow "No emotional blackout" (p. 81).</p>
+<h2 id="chapter-8-the-evolution-of-you-pp-82-94">Chapter 8 — The Evolution of You (pp. 82–94)</h2>
+<p><strong>What he's saying.</strong> "Survival of the fittest emotionally" (p. 82). Evolution, not revolution: "No r. No revolution. Evolution" (p. 84). Like Schweitzer, give to yourself before you give to others (p. 84).</p>
+<p><strong>How he builds it — nine steps, EVOLUTION</strong> (pp. 84–90): Embarking on a new career (being a fuller human being; drop trivia — "So what?"); Valuable growth; Opportunities in confrontation (the biggest confrontation is inside you); Living like you mean it; Unquenchable desire (stay alert, don't panic, reason, then solve it); Think and do (fly a reconnaissance mission over your own mind and photograph the negative thought); Important you; Offering your friendship (to yourself, even after acting like a fool); Now you love life.</p>
+<p><strong>The easy life isn't easy.</strong> A 22-year-old who lived free with his mother started seeing each girlfriend's nose "getting bigger" whenever things got serious — a way to stay unattached (pp. 90–92).</p>
+<p><strong>What he asks you to do.</strong> Use "your finest minute" — waking up each morning — to restart (pp. 92–93). Six suggestions for "emotional riot control" (pp. 93–94): practise without pressure; role-play in the mirror; drown out self-criticism; build the big-self feeling; fight negative feelings; relax.</p>
+<h2 id="chapter-9-winning-today-s-games-pp-95-10">Chapter 9 — Winning Today's Games (pp. 95–107)</h2>
+<p><strong>What he's saying.</strong> Life is a series of games: do yours grow you or shrink you? (p. 95)</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Negative games</strong> (pp. 96–101): Depression, Take ("There are suckers, and there are takers"), Yesterday, Stock-Market ("I never get a break"), Prison (guilty without a crime), Escape, "To Be or Not To Be," and Indifferent ("So what?").</li>
+<li><strong>Positive games</strong> (pp. 101–103): the <strong>Mirror Game</strong> — "Sure I behaved like an idiot yesterday in class… but I'm okay anyway"; the <strong>Flower Game</strong>, learned from a woman who survived a Nazi camp with dignity — give yourself and a friend a flower, or a smile; the <strong>Give Game</strong> — give yourself acceptance first, then let it overflow.</li>
+<li><strong>A yesterday-game player.</strong> A 20-year-old weightlifter was sure his backside was too big and asked for surgery, all because of a remark overheard in a gym two years earlier. "Set some goals for yourself—today" (pp. 103–106).</li>
+<li><strong>Constructive gossip:</strong> talk over why Harry and Anna broke up, to learn and perhaps help (pp. 106–107).</li>
+</ul>
+<h2 id="chapter-10-clubmanship-for-youth-pp-108">Chapter 10 — Clubmanship for Youth (pp. 108–120)</h2>
+<p><strong>What he's saying.</strong> Twelve imaginary organizations, eleven of them "organizations for losers" (p. 109).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The losers' clubs</strong> (pp. 109–115): the Hate Club, the Earth Day Garbage Collectors, the Shy Society, the Opinionated Officers' Club, the Worry Watchers, the Nit Pickers, the Termite Teams, Mañana Incorporated (young people are ideal recruits — they have so many tomorrows), Hijackers International, the Gas Grabbers (grass-acid-speed), and the Society of Mental Weightlessness.</li>
+<li><strong>From misery to happiness.</strong> A 19-year-old who started smoking pot after her best friend moved away fell for Jimmy, who "could rap with anyone." She ended it — "You're a hustler, Jimmy" — and later called from California, happy: "I respect myself again" (pp. 115–118).</li>
+<li><strong>The one club to join: the Personal Persuaders</strong> (pp. 118–120). They persuade themselves every day that they were born to succeed; that they'll take stock of their assets, relive past successes, live now, relax and grow.</li>
+</ul>
+<h2 id="chapter-11-a-sense-of-personal-responsib">Chapter 11 — A Sense of Personal Responsibility (pp. 121–134)</h2>
+<p><strong>What he's saying.</strong> It all boils down to "building inner strength—and then projecting this inner strength out into the world" (p. 121). Personal responsibility means "a sense that I'm with me" (p. 122).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>RESPONSIBILITY, fourteen aspects</strong> (pp. 122–129): Relaxed attitude, Empathy as a daily enterprise, Selection of realistic goals (at least one a day), Productive adjustment, Opportunity alive, Negotiation with yourself, Self-fulfillment, Involvement with yourself, Building of compassion, Impersonation of yourself (be yourself — the woman on the <em>Michelangelo</em> who "walked to keep thin" while eating), Living in a creative mold, Instant me, Time for living is now, Youth means improvement.</li>
+<li><strong>A word a day</strong> (pp. 129–130): Monday FIRE, Tuesday THEFT, Wednesday PANIC, Thursday UNBELIEF, Friday FAITH, Saturday SMILE, Sunday BIG SELF. Close your eyes on each and ask what it means for you.</li>
+<li><strong>The "silly goose."</strong> A 21-year-old piano salesman who never finished anything, drank and strayed, was straddling a fence. Asked what he wanted, he chose his wife and daughter. By the end of the year: "The world seems more friendly to me now" (pp. 130–133).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Say: "No matter how tough things are, I'm with me" (p. 133).</p>
+<h2 id="part-two-questions-and-answers-pp-137-21">Part Two — Questions and Answers (pp. 137–218)</h2>
+<p><strong>What it is.</strong> Young people's questions, answered under alphabetical topics — Acceptance, Aggression, Alienation, Beauty, Bigotry, Confidence, Drugs, Fear ("by far the most frequent question asked by teenagers," p. 163), Forgiveness, the Generation Gap, Goals, Loneliness, Mirror Watching, Pressure, Sex, Values, You and Youth, among others. The Reference page lists every one.</p>
+<p><strong>What stands out.</strong></p>
+<ul>
+<li><strong>Aggression:</strong> channel it into sport, or "write the worst letter you can think of… then read it and tear it up" (p. 139).</li>
+<li><strong>"To be or not to be?"</strong> — "to be." Say it daily for a month (pp. 140–141).</li>
+<li><strong>"People are mistake-makers, but they are also mistake-breakers"</strong> (p. 143).</li>
+<li><strong>His own main goal:</strong> at six, scalded by boiling water, he loved the kind old doctor who treated him; now he helps people "become their own plastic surgeons." In tense moments he still pictures that doctor (pp. 170–172).</li>
+<li><strong>His most rewarding operation:</strong> a baby girl sent to him by Mrs. Roosevelt, born with three nostrils. The girl visited every year, and eighteen years later he danced at her wedding (pp. 193–194).</li>
+<li><strong>Youth's daily dozen</strong> of values (pp. 213–214), and his verdict on this generation: "headed for glory, not disaster" (p. 217).</li>
+</ul>
+<div class="next"><a href="psycho-cybernetics-for-youth-activity.html">Practice: Big Self Day &rarr;</a><a href="psycho-cybernetics-for-youth-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>Power Psycho-Cybernetics for Youth</em> by Maxwell Maltz, M.D. (early 1970s (the scanned copy has no copyright page)). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="psycho-cybernetics-for-youth-activity.html">Big Self Day</a> &middot; <a href="psycho-cybernetics-for-youth-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>

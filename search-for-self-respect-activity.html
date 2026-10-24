@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fourteen-Week Goal Builders</title>
+<meta name="description" content="A daily page for The Search for Self-Respect: pick this week&#x27;s Goal Builder, do its exercise, write its word on the mirror, forgive actively, and close the day with a goal for tomorrow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one practice column, like a day planner page; a sticky strip shows how many exercises are done today */
+body{line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+.wrap{max-width:46rem;margin:0 auto}
+h1{font-size:clamp(2.3rem,7vw,3.4rem)}
+h2{font-size:1.5rem}
+header{padding-block:1.5rem 1.5rem;display:grid;gap:1rem}
+.datebar{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+.datebar input{font:inherit;font-size:.95rem;padding:.35rem .6rem;border:1px solid var(--rule);border-radius:.5rem;background:var(--surface);color:var(--ink)}
+.strip{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--bg);padding-block:.75rem;border-block:1px solid var(--rule);display:grid;gap:.45rem}
+.strip .row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.count{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.85rem}
+.pips{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px}
+.pips a{height:.5rem;border-radius:999px;background:var(--glass);display:block}
+.pips a.on{background:var(--go)}
+.step{padding-block:2.25rem;border-bottom:1px solid var(--rule);display:grid;gap:1rem}
+.step-head{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;align-items:start}
+.num{grid-row:span 2;width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);background:var(--accent-soft);color:var(--accent);font-size:.95rem}
+.step.done .num{background:var(--go);color:var(--surface)}
+.src{color:var(--muted);font-size:.95rem;max-width:40rem}
+.src q{font-style:italic;quotes:"\201C" "\201D"}
+label.f{display:grid;gap:.3rem;font-weight:700;font-size:.95rem}
+textarea,input[type=text]{font:inherit;font-weight:400;font-size:1rem;width:100%;padding:.6rem .75rem;border:1px solid var(--rule);border-radius:.6rem;background:var(--surface);color:var(--ink);resize:vertical}
+textarea{min-height:4.2rem}
+::placeholder{color:var(--muted);opacity:.8}
+button{font:inherit;font-size:.92rem;padding:.45rem 1rem;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.primary:hover{color:var(--surface);filter:brightness(1.08)}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.ok{font-size:.9rem;color:var(--go);font-weight:700}
+.fields{display:grid;gap:.9rem}
+.word{font-family:var(--display);font-size:clamp(1.3rem,5vw,1.9rem);letter-spacing:.12em;display:flex;flex-wrap:wrap;gap:.1rem .25rem}
+.word span{color:var(--rule);transition:color .2s}
+.word span.lit{color:var(--go)}
+.word span.dim{color:var(--stop)}
+.word .gap{width:.6em}
+.pairs{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}
+.pair{display:grid;grid-template-columns:1.6rem 1fr 1fr;gap:.5rem;align-items:stretch}
+.pair .l{font-family:var(--mono);color:var(--accent);align-self:center}
+.pair button{border-radius:.5rem;text-align:left;font-size:.88rem;padding:.45rem .7rem;line-height:1.3;min-width:0}
+.pair button.pos[aria-pressed="true"]{background:var(--go-soft);border-color:var(--go);color:var(--ink);font-weight:700}
+.pair button.neg[aria-pressed="true"]{background:var(--stop-soft);border-color:var(--stop);color:var(--ink);font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;font-size:.85rem;color:var(--muted)}
+.checks{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}
+.checks label{display:grid;grid-template-columns:1.4rem 1fr;gap:.6rem;align-items:start;padding:.6rem .75rem;border:1px solid var(--rule);border-radius:.6rem;background:var(--surface);cursor:pointer;font-size:.95rem}
+.checks input{width:1.15rem;height:1.15rem;margin:.15rem 0 0;accent-color:var(--go)}
+.checks label:has(input:checked){border-color:var(--go);background:var(--go-soft)}
+.checks small{display:block;color:var(--muted);font-size:.85rem}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.75rem}
+.choices button{border-radius:.75rem;text-align:left;padding:.9rem 1rem;display:grid;gap:.3rem;line-height:1.35}
+.choices button b{font-family:var(--display);font-weight:400;font-size:1.1rem}
+.choices button[aria-pressed="true"].good{border-color:var(--go);background:var(--go-soft);color:var(--ink)}
+.choices button[aria-pressed="true"].bad{border-color:var(--stop);background:var(--stop-soft);color:var(--ink)}
+.timer{display:grid;gap:.75rem;background:var(--surface);border:1px solid var(--rule);border-radius:.75rem;padding:1.1rem}
+.clock{font-family:var(--mono);font-size:2.4rem;font-variant-numeric:tabular-nums;line-height:1}
+.track{height:.7rem;border-radius:999px;background:var(--glass);overflow:hidden;position:relative}
+.track i{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);border-radius:999px;transition:width .9s linear}
+.modes{display:flex;flex-wrap:wrap;gap:.5rem}
+.modes button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.cue{color:var(--muted);font-size:.95rem}
+.stamp{font-family:var(--display);font-size:clamp(1.6rem,6vw,2.4rem);color:var(--go);border:3px solid var(--go);border-radius:.4rem;padding:.2rem 1rem;display:inline-block;transform:rotate(-3deg);justify-self:start;text-transform:uppercase}
+.history{display:flex;flex-wrap:wrap;gap:.4rem}
+.history button{font-family:var(--mono);font-size:.78rem;padding:.25rem .6rem;font-variant-numeric:tabular-nums}
+.history button.full{background:var(--go-soft);border-color:var(--go)}
+.streak{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+@media (max-width:34rem){
+  .pair{grid-template-columns:1.4rem 1fr}
+  .pair .neg{grid-column:2}
+}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maxwell Maltz &middot; The Search for Self-Respect &middot; 1973</span>
+  <h1>Fourteen-Week Goal Builders</h1>
+  <p class="lede">Chapter 15 is a program: fourteen Goal Builders, one a week, six days on and one off — 84 working days in all. Each day: do the week's exercise, write its word on your mirror, say its sentence, then act (pp. 231–232).</p>
+  <div class="datebar">
+    <label class="label" for="day">Day</label>
+    <input type="date" id="day">
+    <span class="label" id="saved-note">Saved in this browser only</span>
+  </div>
+</header>
+<main>
+<div class="strip" aria-live="polite">
+  <div class="row"><span class="label">Today’s practice</span><span class="count" id="count">0 of 5 done</span></div>
+  <div class="pips" id="pips"></div>
+</div>
+<section class="step" id="s1" data-step="1">
+  <div class="step-head">
+    <span class="num">1</span>
+    <h2>This week's Goal Builder</h2>
+    <p class="src"><q>Give each goal builder one full week: work on it for six days, then take a day off</q> (p. 231). Pick the one you're on.</p>
+  </div>
+  <div class="choices" id="choices1"></div>
+  <p class="src" id="cn1" hidden></p>
+</section>
+<section class="step" id="s2" data-step="2">
+  <div class="step-head">
+    <span class="num">2</span>
+    <h2>Do the exercise</h2>
+    <p class="src">Most Goal Builders start in a quiet place with your eyes closed and your imagination at work; some use pencil and paper (pp. 232–248). Maltz made several of them <q>purposely exaggerated and unreal so that when you come back to earth you can cope</q> (p. 248).</p>
+  </div>
+  <div class="fields"><label class="f" for="f2_0">What I imagined, listed or noticed<textarea id="f2_0" data-field="f2_0" placeholder=""></textarea></label><label class="f" for="f2_1">What it showed me about myself<textarea id="f2_1" data-field="f2_1" placeholder=""></textarea></label></div>
+</section>
+<section class="step" id="s3" data-step="3">
+  <div class="step-head">
+    <span class="num">3</span>
+    <h2>Write it on the mirror</h2>
+    <p class="src"><q>Take out a lipstick or an erasable pencil and in large capital letters—don't be afraid—write on the mirror</q> (p. 233). Look at the word and at yourself, and say the week's sentence.</p>
+  </div>
+  <div class="fields"><label class="f" for="f3_0">The word on my mirror and what I said<textarea id="f3_0" data-field="f3_0" placeholder="SELF-RESPECT — Today I will try to respect myself."></textarea></label></div>
+  <div class="actions"><button class="primary" type="button" id="stampbtn3">Written and said</button></div>
+  <div class="stamp" id="stamp3" hidden>Mirror word</div>
+</section>
+<section class="step" id="s4" data-step="4">
+  <div class="step-head">
+    <span class="num">4</span>
+    <h2>Active, not passive</h2>
+    <p class="src">Ideas and images <q>are not in themselves always enough</q> (p. 59). Tick what you carried into action today.</p>
+  </div>
+  <ul class="checks" id="checks4"></ul>
+  <p class="legend"><span class="count" id="cc4"></span></p>
+</section>
+<section class="step" id="s5" data-step="5">
+  <div class="step-head">
+    <span class="num">5</span>
+    <h2>A goal for tomorrow</h2>
+    <p class="src"><q>Set goals every day</q> (pp. 60, 81). Weigh it the way Goal Builder 6 asks: <q>Is it your goal? Does it mean something to you?… Do you have a fighting chance, at least?</q> (p. 240).</p>
+  </div>
+  <div class="fields"><label class="f" for="f5_0">Tomorrow's goal<input type="text" id="f5_0" data-field="f5_0" placeholder=""></label></div>
+</section>
+<section class="step" id="days" style="border-bottom:0">
+  <h2>Days you kept</h2>
+  <p class="src">Tap a date to open it. Green means every exercise was done that day. <span class="streak" id="streak"></span></p>
+  <div class="history" id="history"></div>
+</section>
+</main>
+<footer>
+  <p>From <em>The Search for Self-Respect</em> by Maxwell Maltz, M.D. (Grosset &amp; Dunlap, 1973). Page numbers refer to that edition. Short quotes are used for study. Your entries are stored only in this browser.</p>
+  <p><a href="search-for-self-respect-reading-guide.html">Reading guide</a> &middot; <a href="search-for-self-respect-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+<script>
+(function(){
+  var SPEC = {"key": "selfRespectGB.v1", "goalDays": 84, "steps": [{"type": "choice", "options": [{"t": "1. Self-Respect", "d": "Mirror word: SELF-RESPECT", "good": true, "note": "Imagine yourself a snarling, rioting convict; return to reality and ask whether you are really like that. Then write SELF-RESPECT on the mirror and say: \"Today I will try to respect myself. I deserve to respect myself.\" (pp. 232–233)."}, {"t": "2. Understanding", "d": "Mirror word: UNDERSTANDING", "good": true, "note": "Walk down a street noticing who seems to feel they have a right to be happy and who doesn't. Then write UNDERSTANDING on the mirror and say: \"Do I have rights? Yes. Yes, I do.\" (pp. 233–235)."}, {"t": "3. Sincerity", "d": "Mirror word: SINCERITY", "good": true, "note": "Picture yourself in the amusement park \"fun\" mirrors; then ask if you distort yourself emotionally. Then write SINCERITY on the mirror and say: Laugh at your emotional distortions as you would at the fun mirror (pp. 235–237)."}, {"t": "4. Defeating Uncertainty", "d": "Mirror word: DEFEAT UNCERTAINTY", "good": true, "note": "Imagine being cut off at night on a Pacific island in WWII (or another terror); your life could be worse. Then write DEFEAT UNCERTAINTY on the mirror and say: \"I will try to face my problems… and not run to hide at the first sign of danger.\" (pp. 237–238)."}, {"t": "5. Overcoming Resentment", "d": "Mirror word: OVERCOME RESENTMENT", "good": true, "note": "Write down your worries of last week, last month and a year ago; check which were realistic. Then write OVERCOME RESENTMENT on the mirror and say: \"I will try to reduce my anxieties. I will set constructive goals. I want self-respect.\" (pp. 238–239)."}, {"t": "6. Getting Rid of Emptiness", "d": "Mirror word: NO EMPTINESS", "good": true, "note": "Write goals on a pad and weigh each — or close your eyes and search for them. Then write NO EMPTINESS on the mirror and say: \"Time is my treasure and I will not waste it.\" (pp. 239–240)."}, {"t": "7. Opportunity", "d": "Mirror word: OPPORTUNITY", "good": true, "note": "Remember Sam-I-am in Green Eggs and Ham; each morning list today's opportunities and plot your course. Then write OPPORTUNITY on the mirror and say: \"What opportunities await me today? How can I make today a good day?\" (pp. 240–241)."}, {"t": "8. Forgiveness", "d": "Mirror word: FORGIVENESS", "good": true, "note": "Draw an arrow, \"From forgiveness to self-respect\"; picture a torture scene and see your self-torture as no kinder. Then write FORGIVENESS on the mirror and say: \"I will try to forgive myself. I will try to forgive others. We are all human and imperfect.\" (pp. 241–242)."}, {"t": "9. Creative Mirror Watching", "d": "Mirror word: FRIEND", "good": true, "note": "Look at yourself honestly, walk away, then come back and look at yourself as at a specific good friend. Then write FRIEND on the mirror and say: \"I will be a friend to myself. I will look at myself with kind eyes.\" (pp. 242–243)."}, {"t": "10. Tearing Down Prison Walls", "d": "Mirror word: PRISON", "good": true, "note": "Imagine batting against a tough pitcher: stop swinging for home runs, shorten your grip and aim for a single. Then write PRISON on the mirror and say: \"I do not deserve to imprison myself… Instead, I will accept myself.\" (pp. 243–245)."}, {"t": "11. Tranquillity", "d": "Mirror word: TRANQUILLITY", "good": true, "note": "Close your eyes and listen to the sounds that soothe you — rain on city streets, the ocean, music. Then write TRANQUILLITY on the mirror and say: \"I will be tranquil today.\" (pp. 245)."}, {"t": "12. No Retirement Clock", "d": "Mirror word: CLOCK", "good": true, "note": "Listen to a ticking clock, real or imagined: time is your life. Then write CLOCK on the mirror and say: \"I must not resort to 'killing' time.\" (pp. 245–246)."}, {"t": "13. Integrity", "d": "Mirror word: INTEGRITY", "good": true, "note": "List your proud moments and your qualities of integrity; give yourself a fair shake. Then write INTEGRITY on the mirror and say: Kind eyes; see myself at my best; forgive myself; forgive others (pp. 246–247)."}, {"t": "14. Survival", "d": "Mirror word: SURVIVAL", "good": true, "note": "Imagine facing 125,000 people in a stadium, so nervous you brush your teeth with soap. Then write SURVIVAL on the mirror and say: \"I will accept myself no matter what all these people think of me.\" (pp. 247–248)."}]}, {"type": "fields", "fields": [["What I imagined, listed or noticed"], ["What it showed me about myself"]], "need": 1}, {"type": "stamp", "fields": [["The word on my mirror and what I said"]], "button": "Written and said", "undo": "Undo"}, {"type": "checks", "items": [["I forgave someone in action, not just in words", "Active forgiveness (p. 117)"], ["I forgave myself a mistake", "\"the great forgiveness\" (p. 129)"], ["I looked at myself in the mirror as I would a friend", "Goal Builder 9 (p. 243)"], ["I recalled a past success", "pp. 42, 187, 248"], ["I did something today instead of mañana", "pp. 47, 190, 227"], ["I reached out to another person", "p. 95"]], "need": 3}, {"type": "fields", "fields": [["Tomorrow's goal"]]}]};
+  var KEY = SPEC.key, STEPS = SPEC.steps, N = STEPS.length;
+  var savedNote = document.getElementById("saved-note");
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ return {}; } }
+  function persist(){ try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e){ savedNote.textContent = "Not saved: this browser blocks storage"; } }
+  function todayStr(){ var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0,10); }
+  var store = load(), dayInput = document.getElementById("day"), day = todayStr();
+  dayInput.value = day;
+  function rec(){ if(!store[day]) store[day] = {}; return store[day]; }
+  function cur(){ return store[day] || {}; }
+  function obj(r, k){ if(!r[k]) r[k] = {}; return r[k]; }
+
+  var fields = document.querySelectorAll("[data-field]");
+  fields.forEach(function(el){ el.addEventListener("input", function(){ rec()[el.dataset.field] = el.value; persist(); refresh(); }); });
+  function filled(r, n, count){ for (var j=0;j<count;j++){ if(!((r["f"+n+"_"+j]||"").trim())) return false; } return true; }
+
+  var timers = {};
+  STEPS.forEach(function(s, i){
+    var n = i + 1;
+    if (s.type === "pairs"){
+      var ul = document.getElementById("pairs"+n);
+      s.pairs.forEach(function(p, j){
+        var li = document.createElement("li"); li.className = "pair";
+        li.innerHTML = '<span class="l"></span><button type="button" class="pos" aria-pressed="false"></button><button type="button" class="neg" aria-pressed="false"></button>';
+        li.querySelector(".l").textContent = p[0]; li.querySelector(".pos").textContent = p[1]; li.querySelector(".neg").textContent = p[2];
+        li.querySelector(".pos").addEventListener("click", function(){ var o = obj(rec(), "p"+n); o[j] = o[j] === "pos" ? null : "pos"; persist(); refresh(); });
+        li.querySelector(".neg").addEventListener("click", function(){ var o = obj(rec(), "p"+n); o[j] = o[j] === "neg" ? null : "neg"; persist(); refresh(); });
+        ul.appendChild(li);
+      });
+    }
+    if (s.type === "checks"){
+      var cl = document.getElementById("checks"+n);
+      s.items.forEach(function(it, j){
+        var li = document.createElement("li");
+        li.innerHTML = '<label><input type="checkbox"><span><span class="t"></span><small></small></span></label>';
+        li.querySelector(".t").textContent = it[0]; li.querySelector("small").textContent = it[1] || "";
+        if (!it[1]) li.querySelector("small").remove();
+        li.querySelector("input").addEventListener("change", function(ev){ var o = obj(rec(), "c"+n); o[j] = ev.target.checked; persist(); refresh(); });
+        cl.appendChild(li);
+      });
+    }
+    if (s.type === "choice"){
+      var ch = document.getElementById("choices"+n);
+      s.options.forEach(function(op, j){
+        var b = document.createElement("button"); b.type = "button"; b.className = op.good ? "good" : "bad"; b.setAttribute("aria-pressed","false");
+        b.innerHTML = "<b></b><span></span>"; b.querySelector("b").textContent = op.t; b.querySelector("span").textContent = op.d || "";
+        b.addEventListener("click", function(){ rec()["ch"+n] = j; persist(); refresh(); });
+        ch.appendChild(b);
+      });
+    }
+    if (s.type === "timer"){
+      var T = timers[n] = {mode: 0, total: s.modes[0].secs, left: s.modes[0].secs, tick: null};
+      var modes = document.getElementById("modes"+n), cue = document.getElementById("cue"+n), clock = document.getElementById("clock"+n), bar = document.getElementById("bar"+n), start = document.getElementById("start"+n);
+      function fmt(x){ return Math.floor(x/60) + ":" + String(x%60).padStart(2,"0"); }
+      T.draw = function(){ clock.textContent = fmt(T.left); bar.style.width = ((T.total-T.left)/T.total*100) + "%"; };
+      T.stop = function(){ clearInterval(T.tick); T.tick = null; start.textContent = T.left < T.total && T.left > 0 ? "Resume" : "Start " + s.modes[T.mode].label.toLowerCase(); };
+      T.set = function(m){ T.stop(); T.mode = m; T.total = T.left = s.modes[m].secs; cue.textContent = s.modes[m].cue;
+        Array.prototype.forEach.call(modes.children, function(b, k){ b.setAttribute("aria-pressed", k === m); }); T.draw(); T.stop(); };
+      s.modes.forEach(function(md, k){ var b = document.createElement("button"); b.type = "button"; b.textContent = md.label + " · " + fmt(md.secs); b.addEventListener("click", function(){ T.set(k); }); modes.appendChild(b); });
+      start.addEventListener("click", function(){
+        if (T.tick){ T.stop(); return; }
+        if (T.left <= 0) T.left = T.total;
+        start.textContent = "Pause";
+        T.tick = setInterval(function(){ T.left--; T.draw(); if (T.left <= 0){ T.stop(); rec()["t"+n] = s.modes[T.mode].label; persist(); refresh(); } }, 1000);
+      });
+      document.getElementById("reset"+n).addEventListener("click", function(){ T.stop(); T.left = T.total; T.draw(); T.stop(); });
+      T.set(0);
+    }
+    var sb = document.getElementById("stampbtn"+n);
+    if (sb) sb.addEventListener("click", function(){ var r = rec(); r["s"+n] = !r["s"+n]; persist(); refresh(); });
+  });
+
+  function doneStep(r, s, n){
+    var t = s.type, k, c;
+    if (t === "fields") return filled(r, n, s.need || s.fields.length);
+    if (t === "stamp") return !!r["s"+n] && filled(r, n, s.need || 1);
+    if (t === "pairs"){ var o = r["p"+n] || {}; c = 0; for (k in o) if (o[k]) c++; return c === s.pairs.length; }
+    if (t === "checks"){ var o2 = r["c"+n] || {}; c = 0; for (k in o2) if (o2[k]) c++; return c >= (s.need || s.items.length); }
+    if (t === "choice"){ var j = r["ch"+n]; return j !== undefined && s.options[j] && !!s.options[j].good; }
+    if (t === "timer") return !!r["t"+n] && (!s.fields || filled(r, n, s.need || 0));
+    return false;
+  }
+  function doneMap(r){ var m = {}; STEPS.forEach(function(s, i){ m[i+1] = doneStep(r || {}, s, i+1); }); return m; }
+
+  function drawSteps(){
+    var r = cur();
+    STEPS.forEach(function(s, i){
+      var n = i + 1;
+      if (s.type === "pairs"){
+        var o = r["p"+n] || {}, chosen = 0, pos = 0;
+        document.querySelectorAll("#pairs"+n+" .pair").forEach(function(li, j){
+          li.querySelector(".pos").setAttribute("aria-pressed", o[j] === "pos"); li.querySelector(".neg").setAttribute("aria-pressed", o[j] === "neg");
+          if (o[j]) chosen++; if (o[j] === "pos") pos++;
+        });
+        document.getElementById("pc"+n).textContent = chosen + " of " + s.pairs.length + " chosen · " + pos + " on the success side";
+        var w = document.getElementById("word"+n);
+        if (w){ w.innerHTML = ""; s.pairs.forEach(function(p, j){
+          if (s.gaps && s.gaps.indexOf(j) >= 0){ var g = document.createElement("span"); g.className = "gap"; w.appendChild(g); }
+          var sp = document.createElement("span"); sp.textContent = p[0]; if (o[j] === "pos") sp.className = "lit"; else if (o[j] === "neg") sp.className = "dim"; w.appendChild(sp); }); }
+      }
+      if (s.type === "checks"){
+        var o2 = r["c"+n] || {}, c = 0;
+        document.querySelectorAll("#checks"+n+" input").forEach(function(inp, j){ inp.checked = !!o2[j]; if (o2[j]) c++; });
+        document.getElementById("cc"+n).textContent = c + " of " + s.items.length + " checked" + (s.need && s.need < s.items.length ? " · " + s.need + " to complete" : "");
+      }
+      if (s.type === "choice"){
+        var j2 = r["ch"+n], note = document.getElementById("cn"+n);
+        Array.prototype.forEach.call(document.getElementById("choices"+n).children, function(b, k){ b.setAttribute("aria-pressed", k === j2); });
+        note.hidden = j2 === undefined; if (j2 !== undefined) note.textContent = s.options[j2].note || "";
+      }
+      if (s.type === "timer") document.getElementById("tdone"+n).hidden = !r["t"+n];
+      var st = document.getElementById("stamp"+n);
+      if (st){ st.hidden = !r["s"+n]; var stn = document.getElementById("stampnote"+n); if (stn) stn.hidden = !r["s"+n];
+        document.getElementById("stampbtn"+n).textContent = r["s"+n] ? (s.undo || "Undo") : s.button; }
+    });
+  }
+
+  var pips = document.getElementById("pips");
+  for (var i = 1; i <= N; i++){ var a = document.createElement("a"); a.href = "#s" + i; a.setAttribute("aria-label", "Exercise " + i); pips.appendChild(a); }
+
+  function drawHistory(){
+    var h = document.getElementById("history"); h.innerHTML = "";
+    var days = Object.keys(store).filter(function(d){ var m = doneMap(store[d]); return Object.keys(m).some(function(k){ return m[k]; }); }).sort().reverse();
+    var full = days.filter(function(d){ var m = doneMap(store[d]); return Object.keys(m).every(function(k){ return m[k]; }); }).length;
+    document.getElementById("streak").textContent = SPEC.goalDays ? (full + " of " + SPEC.goalDays + " full days kept") : (full + " full days kept");
+    if (!days.length){ h.innerHTML = '<span class="src">No days yet. Today will be the first.</span>'; return; }
+    days.forEach(function(d){
+      var m = doneMap(store[d]), c = 0; for (var k in m) if (m[k]) c++;
+      var b = document.createElement("button"); b.type = "button"; b.textContent = d + " · " + c + "/" + N;
+      if (c === N) b.className = "full";
+      if (d === day) b.setAttribute("aria-current", "date");
+      b.addEventListener("click", function(){ day = d; dayInput.value = d; fill(); window.scrollTo({top:0, behavior:"smooth"}); });
+      h.appendChild(b);
+    });
+  }
+  function refresh(){
+    drawSteps();
+    var m = doneMap(cur()), c = 0;
+    for (var s = 1; s <= N; s++){ document.getElementById("s"+s).classList.toggle("done", m[s]); pips.children[s-1].classList.toggle("on", m[s]); if (m[s]) c++; }
+    document.getElementById("count").textContent = c + " of " + N + " done";
+    drawHistory();
+  }
+  function fill(){
+    var r = cur();
+    fields.forEach(function(el){ el.value = r[el.dataset.field] || ""; });
+    for (var k in timers){ timers[k].stop(); timers[k].left = timers[k].total; timers[k].draw(); timers[k].stop(); }
+    refresh();
+  }
+  dayInput.addEventListener("change", function(){ if (dayInput.value){ day = dayInput.value; fill(); } });
+  fill();
+})();
+</script>
+</body>
+</html>
