@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conquest of Frustration Reading Guide</title>
+<meta name="description" content="The Conquest of Frustration read part by part: Maltz&#x27;s chapters and Barker&#x27;s replies on frustration, self-respect, happiness, crises and success.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maltz &amp; Barker &middot; The Conquest of Frustration &middot; 1969</span>
+  <h1>The Conquest of Frustration, part by part</h1>
+  <p class="lede">A front-to-back read of the book Maltz wrote with the minister Raymond Charles Barker: for each part, what Maltz says, how Barker answers, the stories, and what they ask you to do. Book content only, with page numbers.</p>
+  <p class="noteline">Six parts (pp. 3&ndash;176). In each, Maltz writes first and Barker, a Religious Science minister, answers. The scanned copy ends partway through Barker's last section, at p. 176.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#part-i-the-art-of-overcoming-frustration">Part I</a><a href="#part-ii-winging-away-from-frustration-pp">Part I</a><a href="#part-iii-the-road-to-self-respect-pp-65">Part I</a><a href="#part-iv-happiness-and-unhappiness-pp-95">Part I</a><a href="#part-v-winning-out-over-crises-pp-125-15">Part V</a><a href="#part-vi-on-to-success-pp-155-176">Part V</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>Two voices, one subject. <strong>Maxwell Maltz</strong>, the plastic surgeon behind <em>Psycho-Cybernetics</em>, and <strong>Raymond Charles Barker</strong>, minister of the First Church of Religious Science in New York, take turns: in each of six parts Maltz writes a chapter of stories and lists, then Barker answers from a spiritual, "mind in action" angle.</p>
+<p>The theme is <strong>chronic frustration</strong> — not the "daily complaints we all have," but "piling on your mental back fifty pounds of extra mental and spiritual weight—the old heartaches, the old tragedies, the old guilts" (p. 6).</p>
+<p>The book's main images:</p>
+<ul>
+<li><strong>The prison you build yourself.</strong> Maltz opens with prisoners at Leavenworth studying Psycho-Cybernetics, then asks: "You are outside of prison—aren't you? Or are you?" (p. 4). Frustration is "the prison you create inside yourself" (p. 4).</li>
+<li><strong>Two faces in the mirror.</strong> Each morning you see "the person of frustration and… the person of confidence. Who will win out—inside of you?" (p. 5). Maltz greets them as "Betsy baby" and "Charlie, old boy."</li>
+<li><strong>Consent.</strong> "No one can make you unhappy without your consent. No one can make you lonely without your consent. No one can fill you with frustration without your consent" (p. 6).</li>
+<li><strong>Twelve faces.</strong> Part I lists the Twelve Faces of Frustration; Part VI answers with the Twelve Faces of Success.</li>
+</ul>
+<p><strong>The two authors differ in tone.</strong> Maltz talks about the self-image and the success mechanism. Barker talks about the subconscious mind as "part of the mind of God," statements you say aloud, and "spiritual treatment." Where they meet: you are responsible for your own thinking, and "the cause of frustration is never in one's job… nor is it in the location where a person lives" (p. 81).</p>
+<h2 id="part-i-the-art-of-overcoming-frustration">Part I — The Art of Overcoming Frustration (pp. 3–31)</h2>
+<h3>Maltz (pp. 3–15)</h3>
+<p><strong>What he's saying.</strong> Peace of mind — "Pax vobiscum" — starts with seeing the jail you've built. He tells of Anna, whose baby was killed by the Nazis and who survived a concentration camp without letting "her spirit perish" (p. 4), and of inmates writing that Psycho-Cybernetics gave them "Inner Peace" (pp. 7–8). "The conquest of frustration… starts with living now. You've got to live now—N-O-W" (p. 6).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Five roadblocks that lead to frustration</strong> (pp. 8–9): (1) worrying after you've made a decision; (2) worrying about today, yesterday and tomorrow; (3) trying to do too many things at once — "Julius Caesar… did two things at two different times"; (4) wrestling with problems all day — "you sleep with it, not on it"; (5) refusing to relax.</li>
+<li><strong>Four steps to relaxation</strong> (p. 9): forgive others ("no forgiveness on the installment plan"); forgive yourself; see yourself at your best; keep up with yourself.</li>
+<li><strong>Communication.</strong> Fourteen-year-old Ray, in Atlanta, couldn't get a note out of his horn in front of 800 people (p. 10). Maltz was once that Ray: as a medical student he froze in oral exams until he pretended he was looking through a microscope (pp. 10–11). A Texan who couldn't talk to his son finally said, "Son, forgive me. It may be that I may have made a mistake about you but isn't it possible that you could have made a mistake about me?" — and the boy lifted his father off the ground (pp. 12–13). "The first principle of communication is that you have to learn how to communicate with yourself" (p. 13).</li>
+<li><strong>The Twelve Faces of Frustration</strong> (pp. 14–15): not being true to yourself; destructive imagination (no goal); not knowing how to relax; aiming at unhappiness; frustration as a habit; not accepting your weaknesses; no compassion; wearing a mask; repeating your mistakes; retiring from life; considering yourself a loser; not accepting yourself for what you are.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Look in the mirror each morning and choose which face wins: "Today I fulfill myself, and even if I fall flat on my face I'm going to stand up" (p. 5). Remember that "Happiness is something you give yourself" (p. 15).</p>
+<h3>Barker (pp. 16–31)</h3>
+<p><strong>What he's saying.</strong> We are physically free but "mentally locked up" (p. 16). He confesses his own frustration: confident in the pulpit, he flopped at Rotary Clubs and garden clubs (pp. 17–18). Frustrations are "God-given urges to get out of a rut"; we are "unfinished business" (p. 18).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Two faces = two minds.</strong> In the mirror he sees his conscious-mind face and his subconscious-mind face, and "in any conflict between the conscious and subconscious mind the subconscious will always win" (p. 19).</li>
+<li><strong>Like yourself.</strong> Say "I like myself" over and over, alone (pp. 19–20). Many people carry an image someone else gave them; he asks, "When you were a child, which parent wanted you to fail?" (p. 20). His own declaration: "I am not George Barker's little boy any more… I am myself" (p. 21).</li>
+<li><strong>The five roadblocks, turned positive</strong> (pp. 22–29), each with a statement to say:</li>
+<li><em>Indecision</em> — "indecision is a decision to fail." Dinner guests who order "the same thing"; a friend who returns every tie. Say: "I am a decision maker. Once I have made a decision I proceed toward my goal" (p. 24).</li>
+<li><em>Worry</em> — find your "worry spot" or "anxiety seat" and move to a "faith chair." Say: "I am not a worry person. I am a right-thinking, creative individual, valuable to life" (p. 25).</li>
+<li><em>Failure to do what needs to be done</em> — procrastination is a habit; the tides are always on time. Say: "I am an on-time individual" (p. 26).</li>
+<li><em>"Insoluble" problems</em> — "There is not a problem in the universe that cannot be solved." Say: "I can beat this… There are no insoluble problems" (p. 27).</li>
+<li><em>Refusing to relax</em> — your Iowa grandmother pumped water and baked bread without complaining of complexity (p. 28). Sit in a "do-nothing chair" for five minutes (pp. 28–29).</li>
+<li><strong>Creative thinking and forgiveness.</strong> Picture your goal as reached and feel the joy — "planting a seed" (p. 30). His forgiveness statement: "I forgive every person in my life from the day I was born to the present… Subconscious mind, you do the rest" — and "Barker, you now forgive Barker" (p. 30).</li>
+<li><strong>Communication is "the ability to give yourself away"</strong> (p. 31). Note where you don't communicate, find the secret you're hiding, and ask, "What difference would it make?"</li>
+</ul>
+<h2 id="part-ii-winging-away-from-frustration-pp">Part II — Winging Away from Frustration (pp. 35–62)</h2>
+<h3>Maltz (pp. 35–48)</h3>
+<p><strong>What he's saying.</strong> "Have you thrust yourself into your own jail?" (p. 36). A woman told him she "felt invisible" (p. 37). On a beach in France, one fisherman quit in a rage because his friend caught the first fish: "never make success dependent on another person" (p. 37).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>What kind of bird are you?</strong> The tufted puffin dies if moved from its island: "Are you a tufted puffin… with sawdust stuffin'?… Or are you a goal-striver, a stress-survivor" (p. 38). Victor Hugo's bird on a bough too light "Yet sings! Knowing she hath wings." Your wings are faith and belief in yourself (p. 38).</li>
+<li><strong>Tattoos and harelips.</strong> A woman had her concentration-camp number removed and began a new life — "Have you tattooed numbers on" your mental arms? (p. 39). A 17-year-old who screamed "I'm going to die!" before harelip surgery looked in the mirror after and cried "I'm going to live!" (p. 40). "Have you an emotional harelip?"</li>
+<li><strong>The tomorrow illusion.</strong> Members of "Mañana, Inc." put off living; "frustration is the thief of time" (p. 41). But postpone your resentment: "wait till tomorrow. I'll give vent to my anger… tomorrow" (pp. 41–42).</li>
+<li><strong>Ten refusals and FAILURE</strong> (pp. 43–45). Frustration means refusing your self-image partnership, nourishment, a climate to grow. It produces Fear, Aggressiveness, Insecurity, Loneliness, Uncertainty, Resentment, Emptiness — the last pictured as packing your self-image in a suitcase, locking it in an airport locker and throwing away the key.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> An evening assignment with pencil and pad (p. 47): "What did I forget today?" — to aim at being better, to curb aggressiveness, to drop resentment, to be honest with myself? Then: "What did you remember to do? What goals did you achieve?" Forgive the omissions and set new goals for tomorrow.</p>
+<h3>Barker (pp. 49–62)</h3>
+<p><strong>What he's saying.</strong> Even a clergyman jails himself sometimes. "You should never let disturbing thoughts or emotions last more than two or three hours" (p. 49). Books can't do it for you — the Sermon on the Mount hasn't changed the world because "its teachings have stayed at the idea level" (p. 51).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Minor goals.</strong> "A thousand mile walk starts with a single step" (p. 52). If your goal is happiness, a minor goal might be better conversation — read something and talk about that.</li>
+<li><strong>Act the part now.</strong> How would you dress, groom and talk if you were self-fulfilled? Do it now (p. 54). Self-acceptance: "I accept myself today, right now, as I am… if I am good enough for God, I'd better be good enough for myself" (pp. 55–56). "I walk this day as a dignified, creative individual" — and let your posture show it (p. 56).</li>
+<li><strong>Thought, feeling and speech</strong> are "the trinity of the creative process," the three tools every baby is born with (pp. 57, 61). For money: put away a dollar a week, or add a dollar a week to one bill, so your mind is on paying, not owing (pp. 58–59).</li>
+<li><strong>You are needed.</strong> "You are not a biological mistake… I was born at the right time, through the right family, and in the right location to do my right work" (p. 59). Let the judge in your mind say: "I now set you free to be a creative person" (p. 60).</li>
+<li><strong>Expression, not repression.</strong> A man who gave up smoking, drinking and meat still didn't feel spiritual: "Why don't you enter a monastery?" (p. 62). The spirit within says "Be! Become! Become! Become!"</li>
+</ul>
+<h2 id="part-iii-the-road-to-self-respect-pp-65">Part III — The Road to Self-Respect (pp. 65–91)</h2>
+<h3>Maltz (pp. 65–78)</h3>
+<p><strong>What he's saying.</strong> A restaurant sign read "Forgive others often—yourself never!" A customer wrote suggesting "Forgive others always—forgive yourself, as often" (pp. 65–66). Maltz agrees.</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The anti-frustration torpedo.</strong> After reading about a Navy torpedo, he writes his own news item: "Man has a new anti-Frustration Torpedo: Compassion… Mark Happiness 100… it weighs nothing" (pp. 67–68).</li>
+<li><strong>The jealous partner.</strong> In Costa Rica a jealous man attacked a couple on a park bench, sure it was his wife and partner; it was a stranger, and he was shunned (pp. 68–69). Negative emotions "hurt most the one who feels them."</li>
+<li><strong>Stop complaining.</strong> Complaining for attention is "like scratching on marble"; gossip is self-destruction (p. 69).</li>
+<li><strong>Conscience.</strong> "Conscience doth make cowards of us all"? No — "we make cowards of our conscience." Conscience is your self-image; when you "can't live with your conscience" you mean you can't live with yourself (pp. 70–71).</li>
+<li><strong>Become your own surgeon</strong> (pp. 71–72): deal rationally with pin-pricks; build a self-reliant image; build a scaffold of relaxation with the four rules. "Play a game of tennis with your self-image… play ball with it."</li>
+<li><strong>The butler and the treasure.</strong> A rumoured million dollars hidden in his building had his butler digging up the terrace at 3 a.m. — and a month later Maltz caught himself doing the same (pp. 74–75). Your real treasure is your self-respect; your blue chips are self-acceptance, compassion, confidence (p. 76).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> In the mirror, alone: "Betsy, baby—Charlie, old boy… there have been some rumors about your being a conscience… you're my friend. I like you" (pp. 73–74). Become "a judge without a grudge" (p. 73). Let people know when you like them — "Why wait until they're dead?" (p. 74). Then five steps (p. 76): give yourself another chance; befriend your conscience; set goals within your capabilities; picture the realistic better you; make your self-image "ten feet tall."</p>
+<h3>Barker (pp. 79–91)</h3>
+<p><strong>What he's saying.</strong> Conscience isn't an accuser but "spiritual inspiration… the still, small voice that… says: 'Do it. Be it. Become it'" (p. 79). "Frustration is a mental condition; it is not a situation" (p. 81).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Count your assets.</strong> Your past good is your standard. See the frustration as already broken, the way your mother saw the pie before she baked it (p. 82). For a job frustration, ask: "How would I be if I did not have this frustration?… What would I talk about?" (pp. 82–83).</li>
+<li><strong>Before every lecture</strong> he tells himself: "Barker, you have done it before, and you have done it well; and you are going to do it well again" (p. 84).</li>
+<li><strong>Do something different.</strong> To a chronic complainer: stop going to your favourite department store for a few months (p. 86). William Glasser's <em>Reality Therapy</em> ignores the past; "Your past does not necessarily condition your present" (p. 87).</li>
+<li><strong>Napoleon's flank.</strong> Attack one frustration at a time (pp. 87–88).</li>
+<li><strong>No finalities.</strong> Vows like "I'll never do this again" don't hold; many widows who swear never to remarry do (p. 89).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Find your "mental impediment load" (p. 90). Sit quietly and ask, "What, in me, is keeping me from being the individual I know I can be?" Then declare: "the impediment in my mind has no reality, no existence, no continuity… It is robbed of all emotion."</p>
+<h2 id="part-iv-happiness-and-unhappiness-pp-95">Part IV — Happiness and Unhappiness (pp. 95–121)</h2>
+<h3>Maltz (pp. 95–108)</h3>
+<p><strong>What he's saying.</strong> Helen Keller, blind and deaf, "couldn't see; but, nevertheless, she saw" (p. 95). Happiness and unhappiness are mirror images: goal-striving or self-destruction, tone or tension, winner or loser (p. 96). Six-year-old Sylvia, afraid after a fall, got back on her bicycle by "thinking how I used to do it well" (pp. 96–97).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The unhappiness trap</strong> (pp. 98–99): complaining; dwelling on liabilities; distrusting yourself; wearing a mask (the energy could "push a ship from New York to Paris"); ridiculing your weaknesses; playing games; expecting perfection; frowning; fretting that "the world is coming to an end"; living in the past.</li>
+<li><strong>Moving toward happiness</strong> (pp. 99–100): be cheerful, friendly, less critical; act as if success were inevitable; refuse negative feelings; smile at least three times a day; react calmly.</li>
+<li><strong>The Milan plague.</strong> A health minister who wiped inky fingers on white walls was blamed for the plague and burned (pp. 100–101). "Do you put yourself in your own dungeon with negative feelings?"</li>
+<li><strong>"Typhoid Marys" of happiness</strong> spread it to ten people, who spread it to ten more (p. 101).</li>
+<li><strong>The happiness habit</strong> (pp. 102–104). There are no "ifs." A woman said his book "didn't do anything for me" — she had only read it: "This is not positive thinking: it is positive doing!" (p. 103). Use your free eight hours — "you own stock in yourself."</li>
+<li><strong>Overcoming unhappiness</strong> (pp. 104–108). Let the mental telephone ring; carry a "mental umbrella" against "tension stroke"; keep your eye on the ball to the end; let off steam like Old Faithful or a faucet; forgive.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> On the worst days, remember who your friend is: "John? Jim? Margaret?… Yourself" (p. 107).</p>
+<h3>Barker (pp. 109–121)</h3>
+<p><strong>What he's saying.</strong> "You are mind in action" (p. 109). Many chronically unhappy people want to stay unhappy; let them (pp. 110–111). Happiness has a spiritual basis: "There is something in me that is greater than I am, and that something wants me to be happy" (p. 112).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Declare it.</strong> Tell an unhappy person to say "I am happy." "That would be telling a lie." "Well, then, tell the lie" (p. 113).</li>
+<li><strong>Ask what it's worth.</strong> When unhappy: "What's the value of this? What's the benefit?" (p. 114). Negative attitudes are worthless checks in your "mental bank account" (pp. 114–115).</li>
+<li><strong>Look and act the part.</strong> Queen Mary in outdated clothes still looked like "a success person" (p. 117). "Are people better because they know you?" Is your social life as active as ten years ago? "Do you know three people whom you could call and invite to lunch?" (pp. 118–119). "Act as though it were so, and it will become so" (p. 119) — but vary the words, unlike the instructor who always answered "I never felt better and I never had more."</li>
+<li><strong>Dignity is self-acceptance</strong> (pp. 120–121): "Yes, I like myself." Moses wasn't meek, and Jesus said "I am the Light of the World." If you're in a job you don't want, get out.</li>
+</ul>
+<h2 id="part-v-winning-out-over-crises-pp-125-15">Part V — Winning Out over Crises (pp. 125–152)</h2>
+<h3>Maltz (pp. 125–138)</h3>
+<p><strong>What he's saying.</strong> Written after the killings of Robert Kennedy and Martin Luther King, the chapter asks us to stop the violence we do to ourselves: "no amount of policing of the world can ever bring peace… unless we learn to police ourselves" (p. 126).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Your wonderful computer</strong>, "no larger than… a small hazel nut," diagnoses your health, not your disease (p. 127).</li>
+<li><strong>Fear breeds in imagination.</strong> In Santo Domingo, he posted two doctors beside Trujillo's wife in case she fainted during surgery; one of the doctors fainted, and the First Lady helped carry him out (pp. 130–131).</li>
+<li><strong>Persistence.</strong> Paul Ehrlich named his syphilis cure "606" because he failed 605 times in eleven years (p. 132).</li>
+<li><strong>"That was a million years ago."</strong> A man who hated his boss slapped his daughter for spilling milk; the next evening she ran to hug him and said it was "a million years ago" (p. 133).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> A first-aid kit for crises (pp. 134–136): let the telephone in your mind ring (or take the receiver off the hook); meet crises with reason, not worry; make relaxation a habit; keep your eye on the ball; keep your self-image "well oiled"; practise without pressure; recall past successes ("change the record"); no mountains out of molehills; take your chances; shadowbox in the mirror each morning and laugh; and, like Babe Ruth, think about home runs when you strike out.</p>
+<h3>Barker (pp. 139–152)</h3>
+<p><strong>What he's saying.</strong> "Mental health is the most priceless commodity that you can possess" (p. 140). He even claims the common cold is "an outer expression of an inner hurt" (p. 142). No one is born a pessimist: "Expect what you want, not what you are afraid will happen" — one subject at a time (p. 143).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>List what's right.</strong> To people who complain about New York: "make a list of six things that are right with New York" (p. 144).</li>
+<li><strong>Police yourself</strong> by keeping your mind and affairs in order — even make your will (pp. 145–146). Problems arise "in order to be solved"; supply comes before demand (p. 146).</li>
+<li><strong>Uncertainty is life.</strong> "I want the excitement of uncertainty" (p. 149).</li>
+<li><strong>Drop false duties.</strong> Ask of every pressure: "Because I really want to? Fine. Because the world thinks I should? No" (pp. 150–151). To the woman who "gave my life for my family": "You shouldn't have" (p. 151).</li>
+</ul>
+<h2 id="part-vi-on-to-success-pp-155-176">Part VI — On to Success! (pp. 155–176)</h2>
+<h3>Maltz (pp. 155–170)</h3>
+<p><strong>What he's saying.</strong> "Are you ready for success?… many, many people are not emotionally equipped to handle success" (p. 155). A friend's infantry company failed twice to take a French village head-on, then circled to level ground on the other side and took it in minutes: "One approach, failure. Another approach, success" (pp. 156–157).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The person who has no rights</strong> (pp. 158–159) feels he doesn't deserve success or even to be human, and stays "more comfortable with failure than… with success." Re-read the Twelve Faces of Frustration: are they you?</li>
+<li><strong>A new success approach</strong> (pp. 160–163): appreciate your individuality ("characters" are "people who are not afraid to be themselves"); set goals every day, and don't belittle ordinary ones — the family man and the housewife have worthy goals; keep after them; build your self-image — "success is a growing self-image."</li>
+<li><strong>SUCCESS, again</strong> (pp. 163–165): Sense of direction, Understanding, Courage, <strong>Compassion</strong>, Esteem, Self-acceptance, Self-confidence.</li>
+<li><strong>The Twelve Faces of Success</strong> (pp. 165–168), each answering a face of frustration: Truth, Imagination, Relaxation, the Aim of Happiness, Good Habits, Accepting Your Weaknesses, Compassion, Unmasking, Living Through Your Mistakes, Never Retiring ("I'm eighty-two and I'm practicing to be ninety"), Considering Yourself a Winner, and Accepting Yourself for What You Are.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> "When you look in the mirror, see the two sides of you… Choose confidence. Reject frustration" (p. 168).</p>
+<h3>Barker (pp. 171–176)</h3>
+<p><strong>What he's saying.</strong> The last step: "Have you the inner ability to face your fears?" (p. 171). Ernest Holmes called fear "the negative use of faith" (p. 172).</p>
+<p><strong>What he asks you to do.</strong> Within 24 hours, list your fears (p. 173), then turn each into a constructive drive: fear of lack into a savings plan, fear of illness into a check-up and good habits, fear of deadlines into better planning, fear of accidents into reasonable caution (pp. 174–175). Knowing where you are is like finding a landmark on a road map (p. 176). <em>The scanned copy ends here.</em></p>
+<div class="next"><a href="conquest-of-frustration-activity.html">Practice: Frustration to Confidence &rarr;</a><a href="conquest-of-frustration-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>The Conquest of Frustration</em> by Maxwell Maltz, M.D., and Raymond Charles Barker, D.D. (Ballantine Books, 1976; © 1969). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="conquest-of-frustration-activity.html">Frustration to Confidence</a> &middot; <a href="conquest-of-frustration-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>

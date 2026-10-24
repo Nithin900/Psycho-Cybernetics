@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live and Be Free Reading Guide</title>
+<meta name="description" content="Live and Be Free Thru Psycho-Cybernetics read section by section: the 21-day self-study course on self-image, goals, data revision, imagination and happiness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maxwell Maltz &middot; Live and Be Free Thru Psycho-Cybernetics &middot; 1975</span>
+  <h1>Live and Be Free, section by section</h1>
+  <p class="lede">A front-to-back read of Maltz's 21-day self-study course: what each section teaches, its examples and diagrams, the exercises, and how the pieces fit together. Book content only, with page numbers.</p>
+  <p class="noteline">The book is a workbook of short titled sections (pp. 9&ndash;172) rather than numbered chapters. The final section, &ldquo;Exercises and Techniques&rdquo; (pp. 151&ndash;172), already has its own page on this site: the <a href="live-free-workbook.html">Live Free Workbook</a>. A few boxed passages did not survive in the scanned copy.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#starting-the-course-purpose-two-images-k">Starting</a><a href="#the-self-image-as-a-man-thinks-and-self">Self-image</a><a href="#definitions-pp-42-45">Definitions</a><a href="#do-we-see-what-s-really-there-pp-47-53">Seeing</a><a href="#the-process-of-thinking-pp-54-61">Thinking</a><a href="#the-secret-of-creative-thinking-pp-62-66">Creative thinking</a><a href="#the-quiet-place-pp-67-69">Quiet place</a><a href="#relaxation-pp-70-73">Relaxation</a><a href="#the-psychology-of-goals-pp-74-80">Goals</a><a href="#goals-the-eight-step-self-analysis-pp-81">8 steps</a><a href="#synthetic-experience-data-revision-pp-93">Data revision</a><a href="#mental-picturing-and-think-sheets-pp-102">Mental picturing</a><a href="#imagination-and-the-method-pp-115-125">Imagination</a><a href="#how-to-make-use-of-negative-feedback-pp">Negative feedback</a><a href="#attitudes-can-be-changed-pp-129-130">Attitudes</a><a href="#plan-of-action-pp-131-137">Plan of action</a><a href="#tired-people-pp-138-139">Tired people</a><a href="#happiness-and-the-happiness-concept-pp-1">Happiness</a><a href="#exercises-and-techniques-pp-151-172">Exercises</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>This is Maltz's "first 'Self Study' program on Psycho-Cybernetics" (Preface), a practical course rather than a theory book. His promise: "a new life for you—living free—in just twenty-one days." A footnote gives the reason for that number: "a minimum of twenty-one consecutive days must elapse" for a noticeable change in a mental picture (p. 11).</p>
+<p>The course rests on a handful of claims that run through every section:</p>
+<ol>
+<li><strong>The self-image is a ceiling.</strong> It is "the ceiling on the effectiveness with which we can use our true potential" (p. 35). You can only perform inside your "comfort zone"; outside it you feel tension (p. 36).</li>
+<li><strong>Positive thinking only works if it fits the self-image</strong> (p. 37). So you change the picture first.</li>
+<li><strong>The nervous system can't tell real from imagined</strong> (p. 94). That makes "data revision" — affirmation plus vivid picturing plus feeling — "a direct and controlled method of changing the self-image" (p. 43).</li>
+<li><strong>Goals are the real secret.</strong> "The real secret is goals; people succeed with them and fail without them" (p. 27).</li>
+<li><strong>Happiness is learned.</strong> "We are not born happy. We learn to be happy" (p. 142).</li>
+</ol>
+<p><strong>How the book is built.</strong> About thirty short sections, each a page or a few pages, many with diagrams, quizzes, poems and blanks to fill in. It moves from motivation (why people fail, the self-image), through how the mind works (conscious, subconscious, Creative Center), to tools (the quiet place, relaxation, goal analysis, affirmations, the plan of action) and ends with happiness and a set of daily exercises.</p>
+<p><strong>How to use it.</strong> "You can only prove by doing" (p. 10). Avoid debating the ideas; try them in your life (p. 14). "Reading this book will not make you a success. You must become emotionally involved" (p. 24).</p>
+<h2 id="starting-the-course-purpose-two-images-k">Starting the course — Purpose, Two Images, Knowledge, the Strangest Secret, Expectation of Change (pp. 9–29)</h2>
+<p><strong>What he's saying.</strong> You can treat the book as "an interesting mental exercise" or you can test the tools (p. 9). Only the second will help. "A person is not born happy—he learns to be happy" (p. 10). Talent isn't the issue: people with ability and education fail while others without them succeed (p. 11), because for most people "things happen to them more by chance than by choice" (p. 12).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>15 / 85.</strong> Only 15 percent of success comes from technical training; 85 percent comes from personal qualities: goal orientation, relaxation, memory, confidence, creativity, friendliness, calm reactions, decisiveness, enthusiasm, aggressiveness, diplomacy, getting along with others (pp. 12–13). The mind is like a parachute — it only works when open (p. 12).</li>
+<li><strong>Inner space.</strong> We put men on the moon in the same year as the murders of Robert Kennedy and Martin Luther King; "we got a man on the moon before we had figured out a way to get the pigeons off the statues" (pp. 13–14).</li>
+<li><strong>Don't debate.</strong> You can't argue people into changing; argument comes from who they already are (p. 15). Test ideas instead.</li>
+<li><strong>The two triangles</strong> (pp. 16–17). One person has great ability, talent, education and personality; another has far less. The second succeeds more because he <em>uses</em> more of his potential. "The measure of success we achieve is not dependent on how much we possess, but how much we utilize" (p. 15).</li>
+<li><strong>Two images</strong> (pp. 18–19). You carry two pictures: the person you know yourself to be, and the person you'd like to be. The course shows how to "become the person tomorrow that you envision today."</li>
+<li><strong>Knowledge is passive, experience active</strong> (p. 20). "Until knowledge is activated into a useful advantage, it is worthless" (p. 21).</li>
+<li><strong>The strangest secret</strong> (pp. 26–27). Maybe one person in fifty can name the secret of success; "95 percent are actually searching for the right to fail." The secret is goals. People are like a man told a mansion waits over the hill who won't believe it because he's been fooled before.</li>
+<li><strong>Expect change, and confusion</strong> (pp. 28–29). Change starts immediately ("something different is occurring"). Confusion is helpful — "To realize you don't know is the beginning of knowing" — and it often grows just before understanding, "darkness before the dawn."</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Commit to 21 days, keep the material near you and glance at it often (p. 21), set a reachable goal and use imagination to get enthusiastic about it (p. 25).</p>
+<h2 id="the-self-image-as-a-man-thinks-and-self">The self-image — As a Man Thinks and Self-Image (pp. 30–41)</h2>
+<p><strong>What he's saying.</strong> "As a man thinks, so he is; and as he continues to think, so he shall remain" (p. 30). The self-image is "the overall average of the various attitudes which we hold towards our capabilities" — the picture we have of ourselves (p. 35).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The man behind bars</strong> (p. 31). What keeps him there? "I don't want to get out," "I don't see a way out," "I can't get out." If he believes he can't, he can't.</li>
+<li><strong>Psycho-Cybernetics defined</strong> (pp. 31–32): "a method of steering yourself." Not knowing your goal is like asking the airline clerk for "a ticket to anywhere you choose." It is "positive doing," steering "to a productive, useful, worthwhile, predetermined goal," and the greatest port is peace of mind. When you drift from your purpose you get negative feedback, "Divine Discontent" (p. 32).</li>
+<li><strong>Two liners</strong> (p. 33). One with a crew and a goal arrives 9,999 times in 10,000; one with neither runs onto the beach before leaving the harbor.</li>
+<li><strong>The comfort zone</strong> (pp. 36–38). Picture a scale of knowledge with your self-image surrounded by an "effectiveness range." You perform well only inside it; outside it, you feel tension. Raise the self-image and the ceiling rises. "How you look at the world means nothing. All that counts is how you look at yourself" (p. 39).</li>
+<li><strong>Room for improvement.</strong> The largest room in the world. Dizzy Dean: "When you stop getting better you stop being good" (p. 39).</li>
+<li><strong>The bear on the trail</strong> (pp. 39–40). Bill is told his friend John is waiting in a bear suit to scare him. John doesn't show, a real bear does — and Bill isn't frightened, because he believes it's John.</li>
+<li><strong>Inferiority</strong> (pp. 40–41). Nearly 95 percent feel it, from measuring ourselves against others. "You are not superior to another person. You are not inferior to another person. You are merely you. Period." A professor's "fifteen-minute" test that really took an hour upset even brilliant students.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Keep up with yourself, not others (p. 41).</p>
+<h2 id="definitions-pp-42-45">Definitions (pp. 42–45)</h2>
+<p><strong>What he's saying.</strong> A short glossary that the rest of the book relies on (see the Reference page). Highlights:</p>
+<ul>
+<li><strong>Habit patterns</strong> are automatic responses, either constructive or restrictive, and restrictive ones are "compulsive (have to)" or "inhibitive (can't)" (p. 43).</li>
+<li><strong>Attitudes</strong> are "habit[s] of thought," formed mostly before age seven. A child "either becomes a bank president or a bank robber" — the victim or beneficiary of attitudes he didn't choose. But he needn't stay a victim (p. 43).</li>
+<li><strong>Motivation.</strong> Incentive motivation is the carrot before the donkey; it wears out when he's full. Fear motivation is the stick; he becomes immune. Attitude motivation lasts (pp. 43–44). "The world is not short of people who know how, but… of people who will do it" (p. 44).</li>
+<li><strong>The chain of emotion:</strong> Goal → Plan → Desire → Confidence → Determination ("I will reach my goal") (p. 45).</li>
+<li><strong>Success</strong> is "the progressive realization towards a productive, useful, worthwhile, predetermined goal" — "a journey, not a destination" (p. 45).</li>
+</ul>
+<h2 id="do-we-see-what-s-really-there-pp-47-53">Do we see what's really there? (pp. 47–53)</h2>
+<p><strong>What he's saying.</strong> "Most of us underestimate ourselves and overestimate the problem." The truth that sets you free is the truth about yourself, and since "inhibition is always based on fear… the only real freedom is being free from fear" (p. 47).</p>
+<p><strong>How he builds it.</strong> A run of perception tests: describe your watch face without looking (you've seen it 5,000 times a year); read "PARIS IN THE THE SPRING"; count the F's in a sentence (six, most people find three); read a word written in white space ("FLY"); find the cow's head in a blurry photo; see the young woman or the old hag (pp. 47–51). "Sometimes opportunities are like that—we look right at them and do not see them" (p. 50). "It's not what you don't know that harms you; it's what you know for darn sure that isn't so" (p. 51).</p>
+<p><strong>Conditioning.</strong> We're "either the victim or the beneficiary" of childhood ideas like "born loser," "all thumbs," "can't teach an old dog new tricks" (p. 52). A circus elephant, chained as a calf to an iron stake, stays put as an adult tied with a light rope (p. 52). A pike that keeps hitting a glass partition never attacks the minnow even after the glass is gone (p. 53).</p>
+<h2 id="the-process-of-thinking-pp-54-61">The process of thinking (pp. 54–61)</h2>
+<p><strong>What he's saying.</strong> A working model of the mind in three parts.</p>
+<ul>
+<li><strong>Conscious mind:</strong> Perception → Association → Evaluation → Decision (p. 55). It is accurate, but only as good as its data: "G.I.G.O.—Garbage In Garbage Out" (p. 56).</li>
+<li><strong>Subconscious:</strong> runs the body's automatic functions and stores everything as memory, forming habit patterns. It "cannot discriminate" — it records what it's given (p. 56). A poem, "I Am Very Accommodating… I am your subconscious," makes the point (p. 57). It can identify a blue Chevrolet convertible instantly; doing it by logic would take weeks (pp. 58–59).</li>
+<li><strong>Creative Center:</strong> (1) maintains sanity, largely through dreams; (2) finds creative solutions; (3) motivates you toward goals; (4) creates new means of reaching them (pp. 60–61).</li>
+</ul>
+<h2 id="the-secret-of-creative-thinking-pp-62-66">The secret of creative thinking (pp. 62–66)</h2>
+<p><strong>What he's saying.</strong> Original ideas come out of the subconscious after you gather the facts, picture the outcome, and relax. "Conscious effort is the greatest impediment to effective creativity" (p. 62).</p>
+<p><strong>How he builds it.</strong> A creative idea links facts that were unconnected. Four separate facts — roads to be resurfaced, a 100-acre farm for sale in that area, a new plant hiring 3,000 people, a housing shortage — suddenly suggest buying the farm for a housing development (p. 64). What you need is OBSERVATION, RETENTION, SELECTION, and four stages: ACCUMULATION, CEREBRATION, GESTATION (the "mental oven") and ELATION ("you've struck oil") (p. 65). "It's not how old you are, but how bold you are."</p>
+<p><strong>What he asks you to do.</strong> The blindfold demonstration (pp. 65–66): find a small object by trial and error, put it back, then reach for it again. You'll get it first time, because you kept the success and dropped the errors.</p>
+<h2 id="the-quiet-place-pp-67-69">The quiet place (pp. 67–69)</h2>
+<p><strong>What he's saying.</strong> Everyone needs a peaceful place within, visited at least once a day (p. 67). "It is not outside events that are your key to being agitated or calm, but your own response" (p. 68). Truman had "a foxhole in my mind."</p>
+<p><strong>How he builds it.</strong> Build it in imagination to your own taste: a room with soft chairs, a stereo and a computer that can solve any problem, a house on an uncharted island, a cloud, a distant planet. "Don't tell anybody where your quiet room is." Getting there takes an instant, as long as it takes to picture the Golden Gate Bridge (p. 69).</p>
+<p><strong>What he asks you to do.</strong> Go there at least once a day (p. 69).</p>
+<h2 id="relaxation-pp-70-73">Relaxation (pp. 70–73)</h2>
+<p><strong>What he's saying.</strong> The forebrain is the operator; it "was never designed to solve problems" (p. 70). Relaxation is learned like driving, and it "is a way of immunizing yourself against external disturbances by refusing to respond to them" (p. 72).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Schindler's rules</strong> (p. 71): keep life simple; avoid listening for the knock in your motor; learn to like your work; have a good hobby; like people; say the cheerful, pleasant thing; meet your problems with decision.</li>
+<li><strong>Present awareness.</strong> When tense, ask: "What is there in my present environment right now that I am able to react to in a positive way?" (p. 71). Reacting to the past means reacting "to a possibility, not to a reality" (p. 72).</li>
+<li><strong>Four aspects of psychological relaxation</strong> (p. 72): forgive yourself; forgive others; keep up with yourself, not others; see yourself at your best. When you tense up, check which one you're breaking.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Begin each day with the creed "This is the beginning of a new day… I'm exchanging a new day of my life for it" and its daily resolutions (pp. 72–73).</p>
+<h2 id="the-psychology-of-goals-pp-74-80">The psychology of goals (pp. 74–80)</h2>
+<p><strong>What he's saying.</strong> "There is no real happiness… if a person has no goals" (p. 74). A guidance system can't steer if you stand still.</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Energy follows goals</strong> (p. 75). The person who limps through the day has goals far below his potential. "Aim high."</li>
+<li><strong>Consistent, compatible, constructive.</strong> Don't aim for a $250,000 home on $10,000 a year; a man with a 1967 Ford aims for a 1968 Chevrolet, not a chauffeured Rolls Royce. "If you can almost believe it possible, but not quite, then it is high enough" (p. 75). "Goals by the yard are hard—Goals by the inch a cinch" (p. 76).</li>
+<li><strong>The ant and the straw</strong> (p. 76). An ant carrying a straw reached a crack too wide to cross, laid the straw across it and walked over: "The burden becomes the bridge."</li>
+<li><strong>Four basic goals</strong> (p. 77): Security; Love; Ego Satisfaction; Bodily Comforts and Possessions. The degree of each makes people unique.</li>
+<li><strong>Two reasons</strong> anyone does anything: to gain a benefit or to avoid a loss (p. 77).</li>
+<li><strong>Appraise your motivation</strong> (pp. 78–79): what excites you, do you get a kick out of doing things well, are you goal-oriented, do you plan?</li>
+</ul>
+<p><strong>What he asks you to do.</strong> "Get yourself a goal or a series of goals. Get yourself a project" (p. 79). "Men of accomplishment seldom reach their goals; their goals keep moving ahead of them" (p. 80).</p>
+<h2 id="goals-the-eight-step-self-analysis-pp-81">Goals — the eight-step self-analysis (pp. 81–92)</h2>
+<p><strong>What he's saying.</strong> A workbook section to find your goals today.</p>
+<p><strong>The eight steps.</strong></p>
+<ol>
+<li><strong>Rate yourself 0–100</strong> in ten areas: earning money, leadership, work ability, getting along with others, sports and hobbies, family relationships, persuasion, memory, awareness of potential, confidence. The unused part is your liability (pp. 81–82).</li>
+<li><strong>Composite self-image rating:</strong> total ÷ 10 (pp. 82–83).</li>
+<li><strong>What you need right now</strong> — as if he'd write a check for anything (p. 83).</li>
+<li><strong>Personality qualities</strong> you need for those goals (pp. 83–84).</li>
+<li><strong>Characteristics to acquire</strong>, and those that help you (pp. 84–85).</li>
+<li><strong>Analyze "I can't"</strong> (p. 85): why can't you; is that truth or assumption; could you be mistaken; would you believe it of someone else; if not true, why act on it? Like the man asked if he plays piano: "I don't know, I have never tried" (p. 86).</li>
+<li><strong>Personal balance sheet</strong>: know-how, energy, time, imagination, people, research and development (pp. 86–87).</li>
+<li><strong>A yes/no quiz</strong> on leadership, intellectual efficiency, ambition, responsibility and conviction of success (pp. 87–88, answers p. 92).</li>
+</ol>
+<p>Then come self-analysis questions for six areas of life — social, spiritual, mental, physical, family, financial (pp. 88–91). For example: How many people have you invited home in three months? Are you embarrassed because you know so little? Do you reserve time for your children? What can you do to increase your worth? If a goal is too close, raise it; if too far, add intermediate steps (p. 89).</p>
+<h2 id="synthetic-experience-data-revision-pp-93">Synthetic experience — data revision (pp. 93–101)</h2>
+<p><strong>What he's saying.</strong> Affirmation is ancient, but now we know why it works: the nervous system can't distinguish real from imagined experience (p. 94). This solves the old trap: no success without experience, no experience without success (pp. 93–94).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Three requirements:</strong> Desire, Information, Repetition (p. 94).</li>
+<li><strong>When:</strong> right after waking, just before sleep, after lunch, or any relaxed moment alone (p. 94).</li>
+<li><strong>The method:</strong> take a goal from the eight steps; write a <strong>Descriptive Statement</strong> of why you want it, in detail; boil it to a short <strong>Affirmation</strong>; relax, repeat it, picture yourself performing, and feel the emotions of having done it. "Begin by knowing you have arrived. Words Pictures Feelings" — all three every time (pp. 94–95). Then let it work: don't check progress, don't talk about it, don't predict (p. 95).</li>
+<li><strong>Ten rules for wording</strong> (pp. 95–96): personal (I, me, my); positive (no "not"); present tense; not "I am going to"; not comparative; no "able to" or "can"; balanced; realistic; for yourself; no time limits.</li>
+<li><strong>A checklist</strong> for the statement (p. 96): do I really want it; is it compatible; positive; detailed; realistic for <em>some</em> human being; high enough; does it include the personality factors I'll need?</li>
+<li><strong>Example</strong> (p. 97): fear of speaking becomes a detailed scene of 200 people applauding a talk on creative thinking, and the affirmation "I AM A CONFIDENT SPEAKER."</li>
+<li><strong>Creative wording.</strong> The subconscious takes words literally. A man's headaches came from repeatedly saying "that gave me a headache" (pp. 97–98). Watch for "makes me sick," "can't stomach that," "pain in the neck," "gets under my skin" (p. 98).</li>
+<li><strong>Cases.</strong> A sculptor in debt in Scottsdale, Arizona wrote six affirmations — shop sold, debts paid, a home for his mother, $10,000 in the bank, time to sculpt, travel. After weeks he said, "I must be going crazy because I'm experiencing happy feelings and my situation has not changed one bit." All six came true within six months (pp. 99–100). A furniture designer who argued with her manufacturer in her head every morning began imagining him congratulating her, and his behaviour reversed: "others only echo that which we whisper to them in silence" (pp. 100–101).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> "ACT THE WAY YOU WANT TO BE (IN YOUR IMAGINATION). AND YOU'LL BE THE WAY YOU ACT" (p. 96).</p>
+<h2 id="mental-picturing-and-think-sheets-pp-102">Mental picturing and Think Sheets (pp. 102–114)</h2>
+<p><strong>What he's saying.</strong> Teachers of truth found that the method that reaches the mind is "the mental picture" (pp. 102–103). He lists fourteen advantages: everyone understands one, it gives a positive course of action, it is a bridge to the unknown, and "once implanted, works ceaselessly and effortlessly" (p. 103). A guided missile reaches its target by zigzags, and "when it was on a failure course, it did not consider this a failure" (p. 104). Since 83 percent of perception is through sight, pictures matter (p. 105).</p>
+<p><strong>How he builds it.</strong> A comic letter from a bricklayer injured by a barrel of bricks on a pulley gives practice in forming pictures (pp. 105–106). Then four <strong>Think Sheets</strong> of logic puzzles (pp. 107–114) — matching socks in the dark, the year that reads the same upside down, trains and a fly — because solving them uses the same steps as reaching goals: reject false assumptions, hold a clear picture of the answer, and know "the feeling of victory." "When learning ceases to be fun, it ceases to be learning" (p. 108).</p>
+<h2 id="imagination-and-the-method-pp-115-125">Imagination and the Method (pp. 115–125)</h2>
+<p><strong>What he's saying.</strong> "Imagination is more important than knowledge" (Einstein, p. 115). It is "the gateway to reality" (p. 116). "Before imagination can flow, you must let go."</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Ten minutes a day</strong> of relaxation, alone, eyes closed, imagining with all five senses (p. 117).</li>
+<li><strong>Think from the goal, not of it.</strong> Be a participant, not an onlooker: "Every goal is already there as a mere possibility as long as you think of it, but is overpoweringly real if you think from it" (p. 119). "The art of living consists in sustaining the feeling of your goals as already being fulfilled" (p. 119).</li>
+<li><strong>Attention is the muscle.</strong> "Man either goes forward in imagination or remains imprisoned in his senses" (p. 121).</li>
+<li><strong>Three essentials</strong> (p. 123): a strong desire; physical stillness at will; and daily experience of the feeling of having achieved the goal, for 21 consecutive days. After 21 days "you will find yourself behaving differently, without conscious thought or effort" (p. 122).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> <em>Controlled attention:</em> just before sleep, review the day backwards, from getting into bed to getting up (p. 121).</p>
+<h2 id="how-to-make-use-of-negative-feedback-pp">How to make use of negative feedback (pp. 126–128)</h2>
+<p><strong>What he's saying.</strong> Treat negatives like warning lights on an instrument panel: glance, don't stare (p. 126). A tennis player doesn't think about the net; a golfer doesn't dwell on the sand traps (p. 127). "Negative feedback is never a STOP sign" (p. 128).</p>
+<p><strong>What he asks you to do.</strong> Three steps: notice the negative as a warning; judge it unwanted; correct at once — until it becomes an automatic reflex (p. 127). With people: don't try too hard to impress, don't say things for effect, don't think about what they think of you (p. 128).</p>
+<h2 id="attitudes-can-be-changed-pp-129-130">Attitudes can be changed (pp. 129–130)</h2>
+<p>Attitudes change through repetition. Read the daily statement for seven days: "I am involved in a daily, methodical, systematic program toward direction of my chosen goals" — the mind, like camera film, "absorbs everything it is exposed to" (pp. 129–130).</p>
+<h2 id="plan-of-action-pp-131-137">Plan of action (pp. 131–137)</h2>
+<p><strong>What he's saying.</strong> Unlike data revision, the plan of action is written and carries deadlines; together they work "amazingly well" (p. 131). "People Don't Plan to Fail, They Fail to Plan" (p. 132). Call it <em>my</em> plan, or it will never change your life (p. 133).</p>
+<p><strong>The five steps.</strong></p>
+<ol>
+<li><strong>Crystalize your thinking</strong> (p. 133). Only 5 percent have definite plans, and 5 percent are highly successful. "Some day" never comes. Set long-range goals high, short-range goals easy, and see yourself already there.</li>
+<li><strong>A written plan with deadlines</strong> (pp. 134–135). "Writing crystalizes thought and crystalized thought stimulates action." If you miss a deadline, move it: "The man who succeeds is the man who alters the deadline, but not the goal."</li>
+<li><strong>Develop real desire</strong> with seven questions (p. 135): What do I want? Where do I stand now? What are the obstacles? How can I overcome them? Target dates? What are the rewards? Is it really worth it to me?</li>
+<li><strong>Develop self-confidence</strong> (pp. 135–136): "we can change if we think we can" — by changing self-image, attitudes and habits rather than forcing conscious actions.</li>
+<li><strong>Develop determination</strong> (p. 136) by reviewing your written plan and concentrating on the rewards.</li>
+</ol>
+<p>Make plans in six areas: spiritual, mental, physical, social, family, financial (p. 136).</p>
+<h2 id="tired-people-pp-138-139">Tired people (pp. 138–139)</h2>
+<p>Patients say "I seem to have so little energy" and doctors find nothing wrong. They're carrying "unnoticed loads of energy-robbing negative thoughts." "The feeling of being free is not a matter of gaining anything. It is purely a process of ridding ourselves of something" (p. 138).</p>
+<h2 id="happiness-and-the-happiness-concept-pp-1">Happiness and the Happiness Concept (pp. 140–150)</h2>
+<p><strong>What he's saying.</strong> Happiness, in Schindler's words, is "a state of mind in which our thinking is pleasant a good share of the time" (p. 140). It's a by-product of goals and can be "methodically cultivated" (p. 141). "There can be no real happiness if the things we believe in are different from the things we do" (p. 142).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>A list of what happiness is</strong> (p. 142): a by-product of a goal, a mental attitude and habit, purely internal, practised only in the present, in your own terms with "no comparative norm."</li>
+<li><strong>Perpetual happiness is nonsense</strong> (p. 143). Periodic depression is normal.</li>
+<li><strong>Limit your thinking</strong> (p. 143): about the past, think of happy times; the present, of what you're improving; the future, of what you want as possible.</li>
+<li><strong>Not in the future</strong> (p. 144): not when the mortgage is paid or the children graduate. "Care more for happiness than success" (p. 145). "No happy person ever disturbed a meeting, preached a war… nagged a husband, wife, or children" (p. 145).</li>
+<li><strong>Maturity is learned</strong> (pp. 145–146): a collection of adult attitudes; meeting adult problems with childish reactions creates stress.</li>
+<li><strong>Success and conscience</strong> (pp. 146–147): either shape your life to your beliefs or your beliefs to your life. Choosing the second costs ulcers and breakdowns. "It is the effort that counts, not the achievement." The unhappy man seeks others' approval; the happy man his own.</li>
+<li><strong>Real self and false self</strong> (pp. 148–150). The real self is positive and always there. You owe "they" nothing: "Behaving in a manner that does no damage to you or to anyone else is genuine morality" (p. 149). Be someone to others rather than do something for them: "Genuine kindness is what you are… The greatest kindness you can ever offer anyone is the truth" (p. 150).</li>
+</ul>
+<h2 id="exercises-and-techniques-pp-151-172">Exercises and techniques (pp. 151–172)</h2>
+<p>The closing section gathers the daily practices: the "new day" creed marked off for 21 days, the "It's Done With Mirrors" poem, mirror and red-light exercises, ten rules "In Pursuit of Success," "Take Time To…," "My Greatest Mistake Is To…," how to make decisions, "Just for Today," and short student poems. It is covered in detail, with a 21-day tracker, on the site's <a href="live-free-workbook.html">Live Free Workbook</a>.</p>
+<div class="next"><a href="live-free-activity.html">Practice: 21-Day Data Revision &rarr;</a><a href="live-free-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>Live and Be Free Thru Psycho-Cybernetics</em> by Maxwell Maltz, M.D. (Warner Books, 1976; © 1975 Charles Schreiber). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="live-free-activity.html">21-Day Data Revision</a> &middot; <a href="live-free-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>

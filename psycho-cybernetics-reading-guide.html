@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Psycho-Cybernetics Reading Guide</title>
+<meta name="description" content="Psycho-Cybernetics read chapter by chapter: what Maltz says, his stories, the exercises, and how each chapter connects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Maxwell Maltz &middot; Psycho-Cybernetics &middot; 1960</span>
+  <h1>Psycho-Cybernetics, chapter by chapter</h1>
+  <p class="lede">A front-to-back read of the 1960 original: for each chapter, what Maltz says, how he makes the case, what he asks you to do, and how it connects to the rest. Book content only, with page numbers.</p>
+  <p class="noteline">15 chapters (pp. 1&ndash;268) after a preface on roman-numbered pages (pp. v&ndash;xv). Page numbers are from the Pocket Books edition.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#preface-the-secret-of-using-this-book-to">Preface</a><a href="#chapter-1-the-self-image-your-key-to-a-b">Ch. 1</a><a href="#chapter-2-discovering-the-success-mechan">Ch. 2</a><a href="#chapter-3-imagination-the-first-key-to-y">Ch. 3</a><a href="#chapter-4-dehypnotize-yourself-from-fals">Ch. 4</a><a href="#chapter-5-how-to-utilize-the-power-of-ra">Ch. 5</a><a href="#chapter-6-relax-and-let-your-success-mec">Ch. 6</a><a href="#chapter-7-you-can-acquire-the-habit-of-h">Ch. 7</a><a href="#chapter-8-ingredients-of-the-success-typ">Ch. 8</a><a href="#chapter-9-the-failure-mechanism-how-to-m">Ch. 9</a><a href="#chapter-10-how-to-remove-emotional-scars">Ch. 10</a><a href="#chapter-11-how-to-unlock-your-real-perso">Ch. 11</a><a href="#chapter-12-do-it-yourself-tranquilizers">Ch. 12</a><a href="#chapter-13-how-to-turn-a-crisis-into-a-c">Ch. 13</a><a href="#chapter-14-how-to-get-that-winning-feeli">Ch. 14</a><a href="#chapter-15-more-years-of-life-and-more-l">Ch. 15</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>The book's one claim: the <strong>self-image</strong> is "the most important psychologic discovery of this century" (p. 2). It is a mental blueprint of "the sort of person I am", built mostly from past experiences, and "all your actions, feelings, behavior—even your abilities—are always consistent with this self-image" (p. 2). The good news is the second half: "The self-image can be changed" (p. 3).</p>
+<p>Maltz is a plastic surgeon. He noticed that some patients changed completely after surgery, while others with new faces "went right on wearing the same old personality" (p. 8). The missing piece was an inner "face of personality" (p. vii): the self-image.</p>
+<p>To explain <em>how</em> the self-image works, he borrows from Cybernetics, the science of goal-seeking machines. His model:</p>
+<ol>
+<li><strong>You are the operator.</strong> "Psycho-Cybernetics does not say that man is a machine. Rather, it says that man has a machine which he uses" (p. 19).</li>
+<li><strong>The machine is a servo-mechanism.</strong> The brain and nervous system form "a goal-striving mechanism" that steers toward a target like a self-guided torpedo, correcting course through feedback (pp. 18–20).</li>
+<li><strong>It is impersonal.</strong> Give it success goals and it works as a Success Mechanism; give it negative goals and it works "just as faithfully as a 'Failure Mechanism'" (p. 13).</li>
+<li><strong>Its goals are pictures.</strong> "The goals that our own Creative Mechanism seeks to achieve are MENTAL IMAGES… which we create by the use of IMAGINATION. The key goal-image is our Self-image" (p. 13).</li>
+<li><strong>It cannot tell real from imagined.</strong> "Your nervous system cannot tell the difference between an imagined experience and a 'real' experience" (p. 32). This is what makes change possible: you can practise success in your mind.</li>
+</ol>
+<p><strong>How the book is built.</strong> Fifteen chapters. Chapters 1–3 lay out the self-image, the success mechanism and imagination. Chapters 4–6 remove obstacles: false beliefs, poor reasoning and strain. Chapters 7–9 give two portraits, the SUCCESS-type and the FAILURE-type personality (each spelled out letter by letter), plus the habit of happiness. Chapters 10–13 deal with hurts, inhibition, stress and crisis. Chapter 14 brings it together in "that winning feeling", and Chapter 15 widens out to health and age.</p>
+<p><strong>How to use it.</strong> Maltz says the book is meant "not merely to be read but to be experienced" (p. xii). There are no chapter summaries. Instead you write your own key points and case histories at the end of each chapter, and you do the practice exercises regularly for at least <strong>21 days</strong> (p. xiii).</p>
+<h2 id="preface-the-secret-of-using-this-book-to">Preface — The Secret of Using This Book to Change Your Life (pp. v–xv)</h2>
+<p><strong>What he's saying.</strong> Changing a face often changes a future, but not always. When surgery failed to change a personality, something else was at work: a "face of personality" that could stay "scarred, distorted, 'ugly,' or inferior" whatever the mirror showed (p. vii). That is the self-image. It "sets the boundaries of individual accomplishment": "Expand the self-image and you expand the 'area of the possible'" (p. ix).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Experiencing is the secret.</strong> The self-image changes "not by intellect alone… but by 'experiencing'" (p. x). A child who has <em>experienced</em> love, not one taught about it, grows into a healthy adult (p. xi).</li>
+<li><strong>"Synthetic" experience.</strong> Real life can be "a hard and ruthless teacher" (p. xi). But psychologists have shown "the human nervous system cannot tell the difference between an 'actual' experience and an experience imagined vividly and in detail" (p. xii). So you can create experience "in the laboratory of our minds."</li>
+<li><strong>Reserve judgment for 21 days.</strong> It takes about 21 days for a new face to feel like yours, for a "phantom limb" to fade, for a new house to feel like home (p. xiii). Don't keep "looking over your shoulder" to measure progress, and keep playing the new role "even if you seem to yourself to be somewhat hypocritical" (p. xiv).</li>
+<li><strong>What is success?</strong> Not prestige symbols but "creative accomplishment": "no man should attempt to be 'a success,' but every man can and should attempt to be 'successful'" (p. xiv). He quotes Webster: "the satisfactory accomplishment of a goal sought for" (p. xv).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Read actively, write your own key points, do the exercises, and suspend argument for three weeks.</p>
+<p><strong>How it connects.</strong> Every later chapter assumes this: imagined experience is real to the nervous system, and change takes repeated practice.</p>
+<h2 id="chapter-1-the-self-image-your-key-to-a-b">Chapter 1 — The Self Image: Your Key to a Better Life (pp. 1–14)</h2>
+<p><strong>What he's saying.</strong> Each of us carries "a mental blueprint or picture of ourselves," built from beliefs formed by "our past experiences, our successes and failures, our humiliations, our triumphs" (p. 2). Once a belief enters the picture, "it becomes 'true'" for us. Two discoveries make this the key (pp. 2–3):</p>
+<ol>
+<li>Everything you do is consistent with the self-image. "The man who conceives himself to be a 'failure-type person' will find some way to fail" (p. 2). Experience then seems to "prove" the image, and a cycle sets in (p. 3).</li>
+<li>The self-image can be changed. Most efforts fail because they aim "to the circumference of the self… rather than to the center" (p. 3). "Positive thinking" used as "a patch" on the same self-image doesn't work (p. 4).</li>
+</ol>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Prescott Lecky's students.</strong> Lecky saw personality as "a system of ideas" that must feel consistent. Change the student's self-definition and learning changes: a boy who misspelled 55 words in 100 became one of the school's best spellers; a girl who failed Latin four times finished with 84 (pp. 4–5). Their trouble: they "identified" with failures. "Instead of saying 'I failed that test'… they concluded 'I am a failure'" (p. 5).</li>
+<li><strong>From Maltz's files.</strong> A man afraid of strangers who became a public speaker; a salesman with a resignation letter ready who became number one of 100 (p. 5).</li>
+<li><strong>The surgeon's puzzle.</strong> Easy successes: the boy told his ears made him look "like a taxi-cab with both doors open"; the salesman scarred in a car accident (p. 7). Hard failures: the Duchess who got "a classic nose" but kept acting "the ugly duckling" (pp. 7–8), and patients who insist "you didn't do a thing" (p. 8). And German duelling students who wore saber scars with pride (p. 8). The knife wasn't the magic.</li>
+<li><strong>Imaginary ugliness.</strong> 90 per cent of college co-eds surveyed were dissatisfied with their looks (p. 9).</li>
+<li><strong>The real secret.</strong> "To really 'live'… you must have an adequate and realistic self image that you can live with," one "neither more than you are, nor less than you are" (p. 10).</li>
+<li><strong>Your program.</strong> Inside each person is a "life instinct" working through a "Creative Mechanism." The so-called subconscious "is not a 'mind' at all, but a mechanism" (p. 12), and the "key goal-image is our Self-image" (p. 13).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Learn, practise and experience "new habits of thinking, imagining, remembering, and acting" (p. 14). It is simple: "If you can remember, worry, or tie your shoe, you will have no trouble applying this method" (p. 14).</p>
+<p><strong>How it connects.</strong> Chapter 2 explains the machine the self-image steers.</p>
+<h2 id="chapter-2-discovering-the-success-mechan">Chapter 2 — Discovering the Success Mechanism Within You (pp. 15–29)</h2>
+<p><strong>What he's saying.</strong> Every living thing has "a built-in guidance system." A squirrel stores nuts for a winter it has never seen, and birds navigate thousands of miles (pp. 16–17). Animals' goals are pre-set. Man has "Creative Imagination," so "man of all creatures is more than a creature, he is also a creator" (p. 17).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Two kinds of servo-mechanism</strong> (p. 19). (1) The target is known, like a torpedo. It moves forward, gets "negative feedback" when off course, corrects, and "gropes" its way by zigzags (p. 20). (2) The target is unknown, like a hand groping in the dark, or the "Scanner" that searches memory for a forgotten name (p. 21).</li>
+<li><strong>Picking up the cigarettes.</strong> Wiener's example: the forebrain only "select[s] the goal" and triggers it; an automatic mechanism does the rest (p. 20). A baby's hand zigzags; a learner driver over-corrects. Once a success is reached, the mechanism "remembers its successes, forgets its failures" (p. 21).</li>
+<li><strong>The recorder.</strong> Wilder Penfield touched a patient's cortex and she "relived" a forgotten childhood scene (p. 22). A center fielder computes a fly ball without thinking (p. 23).</li>
+<li><strong>The operator.</strong> A computer "does not have a forebrain, nor an 'I'… It cannot set goals for itself" (p. 24).</li>
+<li><strong>The answer exists now.</strong> Searching for an idea is like recalling a name you know is "there." Wiener: a scientist who knows the problem has an answer is "fifty per cent of his way" there (p. 25). Answers come "at an unguarded moment," as in Louis Agassiz's three dreams of a fossil fish (pp. 26–27).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> <em>Practice Exercise No. 1: Get a new mental picture of yourself</em> (p. 27). You can't adopt a new self-image by will power; you must see grounds for it, and the grounds are that every person is "engineered for success." Read the chapter three times a week for 21 days and memorize the operating principles (pp. 28–29):</p>
+<ol>
+<li>The mechanism needs a goal, thought of as "already in existence—now."</li>
+<li>It is goal-oriented: "Think in terms of the end result, and the means whereby will often take care of themselves."</li>
+<li>Don't fear mistakes; all servo-mechanisms reach goals through negative feedback.</li>
+<li>Skill is learned by trial and error, then by "forgetting the past errors, and remembering the successful response."</li>
+<li>Trust it: "let it" work rather than "make it" work, and act before you have proof. Emerson: "Do the thing and you will have the power" (p. 29).</li>
+</ol>
+<p><strong>How it connects.</strong> If the mechanism works on pictures, the next question is how pictures are made: imagination.</p>
+<h2 id="chapter-3-imagination-the-first-key-to-y">Chapter 3 — Imagination: The First Key to Your Success Mechanism (pp. 30–47)</h2>
+<p><strong>What he's saying.</strong> "We act, or fail to act, not because of 'will'… but because of imagination." A person "always acts and feels and performs in accordance with what he imagines to be true about himself and his environment" (p. 31).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The man who thought he was ugly</strong> (pp. 30–31). About 40, with a large nose and ears, he believed people laughed at him and hid at home. He needed no surgery, only to see that his imagination had built a failure mechanism.</li>
+<li><strong>Hypnosis and the bear.</strong> A hypnotized man told he is at the North Pole gets goose pimples (p. 31). A hiker who meets a bear, or a man in a bear suit, or a shaggy dog he takes for a bear, reacts the same way, because "you act, and feel, not according to what things are really like, but according to the image your mind holds of what they are like" (p. 34).</li>
+<li><strong>Mental practice works.</strong> Basketball free throws over 20 days: the group that practised improved 24 per cent, the group that only <em>imagined</em> practising improved 23 per cent (p. 35). Alekhine beat Capablanca after three months of playing chess "only in his mind" (pp. 35–36). Salesmen who role-played objections raised sales 100–400 per cent (pp. 36–37). Marston's "rehearsal practice" for job interviews (p. 37); Schnabel "practice[d] in my head" (p. 38); Ben Hogan rehearsed every shot (p. 38); Alex Morrison had Lew Lehr shoot par 36 after only five minutes a day in an easy chair (p. 39).</li>
+<li><strong>Finding your best self.</strong> "Before a person can change, he must 'see' himself in a new role" (p. 41). VA patients who answered a test "as a typical, well-adjusted person" improved (pp. 42–43).</li>
+<li><strong>Know the truth.</strong> The aim is not an inflated self — "there is no such thing as a 'superiority complex'," only a cover for inferiority (p. 43). A wise Creator "would not turn out inferior products" (pp. 43–44).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> <em>The 30-minute theater of the mind</em> (pp. 45–46). Daily, alone and relaxed, close your eyes and watch a motion picture of yourself on a large screen. Make it vivid through small details (one patient beat fear of the dentist only when she added the smell of antiseptic and the leather of the chair). See yourself "acting, feeling, 'being,' as you want to be." Don't promise how you'll act tomorrow; just say "I am going to imagine myself acting in this way now—for 30 minutes—today" (p. 46). Then write your key points and a case history from your own past (p. 47).</p>
+<p><strong>How it connects.</strong> Imagination built the old self-image too. Chapter 4 shows how false pictures were installed and how to remove them.</p>
+<h2 id="chapter-4-dehypnotize-yourself-from-fals">Chapter 4 — Dehypnotize Yourself from False Beliefs (pp. 48–63)</h2>
+<p><strong>What he's saying.</strong> Ideas accepted as true act on us exactly like a hypnotist's words. "It does not matter in the least how you got the idea or where it came from" (p. 49). "Every human being is hypnotized to some extent" (p. 53).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Alfred Adler</strong>, labelled "dumb in mathematics," until he saw how to solve a problem no one else could, walked to the blackboard and solved it (p. 48).</li>
+<li><strong>The $5,000 salesman.</strong> Whatever territory or commission he got, he made about $5,000; once he hit it he coasted, or once even fell ill (pp. 50–51).</li>
+<li><strong>"Mr. Russell"</strong> (pp. 51–53). After his lip surgery, a jilted girlfriend put a "Voodoo curse" on him. A small bump, really scar tissue, was called the "African Bug," and he aged 20 years. Maltz removed the bump in under 30 minutes and Russell grew young "overnight."</li>
+<li><strong>Dehypnosis.</strong> A hypnotized athlete's grip rises from 100 to 125 pounds. Hypnosis added no strength; it removed the belief limiting him (p. 54). "Within you right now is the power to do things you never dreamed possible" once you drop "I can't," "I'm not worthy," "I don't deserve it" (p. 55).</li>
+<li><strong>Inferiority.</strong> It comes from measuring yourself "against some other individual's 'norm'" (p. 56). "Inferiority and Superiority are reverse sides of the same coin. The cure lies in realizing that the coin itself is spurious… You are simply 'You'" (p. 57).</li>
+<li><strong>Relaxation is the method.</strong> Beliefs and habits were formed without effort, so new ones must be too. Coué's "Law of Reversed Effort": "When the will and the imagination are in conflict, the imagination invariably wins the day" (p. 59).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> <em>Mental pictures to relax</em>, at least 30 minutes a day (pp. 61–63). After five minutes of letting muscles go, use one of four pictures: (1) concrete legs and arms sinking into the mattress; (2) a marionette with loose strings; (3) deflating rubber balloons; (4) a relaxing scene from your past — a lake, a fireplace, a beach — rebuilt detail by detail.</p>
+<p><strong>How it connects.</strong> Relaxation loosens old beliefs. Chapter 5 uses reason to replace them.</p>
+<h2 id="chapter-5-how-to-utilize-the-power-of-ra">Chapter 5 — How to Utilize the Power of Rational Thinking (pp. 64–77)</h2>
+<p><strong>What he's saying.</strong> You don't need to dig up the unconscious. "It is conscious thinking which is the 'control knob' of your unconscious machine" (p. 64). Schindler: "There simply isn't any future in digging continually into the past" (p. 65).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Let sleeping dogs lie.</strong> Errors are useful feedback, but once corrected, "the error [should] be consciously forgotten, and the successful attempt remembered" (p. 66). A woman cured of a harelip stayed bitter until she stopped reliving her past (pp. 66–67).</li>
+<li><strong>Act as if.</strong> Dorothea Brande "act[ed] as if it were impossible to fail," and within a year her writing output and sales multiplied and she became a lecturer (p. 68). Bertrand Russell's method: examine an irrational feeling and "reject" it, never letting it "pass unchallenged" (pp. 69–70).</li>
+<li><strong>Ideas are changed by other ideas.</strong> A salesman scared of "big shots": "Would you physically get down on all fours and crawl into the man's office?… Then, why do you mentally cringe and crawl?" (p. 70).</li>
+<li><strong>Anger as a liberator.</strong> Clarence Darrow "got mad" when a lender's wife said he'd never repay a $2,000 mortgage (pp. 72–73).</li>
+<li><strong>Deep desire.</strong> Rational thought needs feeling. Use the worry process in reverse: picture a <em>desirable</em> outcome, dwell on it, and appropriate feelings follow (pp. 73–74).</li>
+<li><strong>What reason is for.</strong> To know the truth, to say "It ain't necessarily so" to negative suggestions (p. 75), to decide what you want (Eisenhower: "I never allow my mind to think in that way," p. 76), and to keep your eye on the ball — then "leave results to take care of themselves" (p. 77).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Trace the belief behind any negative behaviour by asking "Why?", then put it through four questions (p. 72):</p>
+<ol>
+<li>Is there any rational reason for such a belief?</li>
+<li>Could it be that I am mistaken in this belief?</li>
+<li>Would I come to the same conclusion about some other person in a similar situation?</li>
+<li>Why should I continue to act and feel as if this were true if there is no good reason to believe it?</li>
+</ol>
+<p>"Wrestle with them… Get emotional about them" (p. 72).</p>
+<p><strong>How it connects.</strong> Reason sets the goal; Chapter 6 says to then step back and let the mechanism work.</p>
+<h2 id="chapter-6-relax-and-let-your-success-mec">Chapter 6 — Relax and Let Your Success Mechanism Work for You (pp. 78–94)</h2>
+<p><strong>What he's saying.</strong> We wear ourselves out trying to solve everything by "forebrain thinking." The forebrain sets goals and gathers facts, "but the forebrain cannot create" (p. 78). William James: once a decision is made, "dismiss absolutely all responsibility and care about the outcome. Unclamp… and let it run free" (pp. 79–80).</p>
+<p><strong>How he builds it.</strong> Creative ideas arrive when the conscious mind lets go — after intense interest and fact-gathering. Edison napped; Darwin remembered "the very spot in the road" where his solution came; Bertrand Russell let work "proceed underground" (pp. 81–82). "We are all creative workers," housewives and salesmen included (p. 82). Skill too is natural only when we stop thinking about each finger (p. 83).</p>
+<p><strong>What he asks you to do.</strong> <em>Five rules for freeing your creative machinery</em> (pp. 84–93):</p>
+<ol>
+<li><strong>"Do your worrying before you place your bet, not after the wheel starts turning."</strong> A roulette-loving executive learned this in Las Vegas and applied it to the dentist, board meetings and parties: "if the decision was to go along physically, I might as well go along mentally" (pp. 84–86).</li>
+<li><strong>Respond to the present moment.</strong> Osler's "daytight compartments" (p. 87). When jittery, ask: "What is there here and now that I should respond to?" (p. 88). A man anxious in every group was still reacting to a teacher who humiliated him when he was ten (pp. 88–89).</li>
+<li><strong>Do one thing at a time.</strong> Gilkey's hourglass: the sand passes one grain at a time (p. 90).</li>
+<li><strong>Sleep on it.</strong> Like the shoemaker's elves, the mechanism works overnight; Walter Scott: "I shall have it at seven o'clock tomorrow morning" (p. 91).</li>
+<li><strong>Relax while you work.</strong> Several times a day, recall in detail how relaxation felt (p. 93).</li>
+</ol>
+<p><strong>How it connects.</strong> With the machinery free, Chapter 7 turns to what it should produce: happiness, as a habit.</p>
+<h2 id="chapter-7-you-can-acquire-the-habit-of-h">Chapter 7 — You Can Acquire the Habit of Happiness (pp. 95–110)</h2>
+<p><strong>What he's saying.</strong> Schindler's definition: happiness is "a state of mind in which our thinking is pleasant a good share of the time" (p. 95). We think, see and heal better when happy. We have the order backwards: not "be good and you'll be happy" but "Be happy—and you will be good, more successful, healthier" (p. 96).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Misconceptions.</strong> Happiness isn't earned or deserved and isn't selfish; William James calls unhappiness "mean and ugly" (pp. 96–98). It isn't in the future: patients live "on the deferred payment plan"; "you must be happy—period! not happy 'because of'" (p. 98). The Caliph who counted only fourteen happy days in fifty years (p. 98).</li>
+<li><strong>It's a habit.</strong> Lincoln: "Most people are about as happy as they make up their minds to be" (p. 99). We react to honking horns and rain on golf day as blows to self-esteem — out of habit.</li>
+<li><strong>Stop being pushed around.</strong> Like a TV audience obeying "applause" signs, we let events dictate our feelings (p. 100).</li>
+<li><strong>Facts vs opinions.</strong> A man who lost $200,000: "It is a fact that you lost $200,000. It is your opinion that you are ruined and disgraced" (p. 100). Epictetus: "Men are disturbed, not by things that happen, but by their opinion of the things that happen" (p. 101). Maltz's own "impossibles" were opinions; he pawned his overcoat for books (p. 101).</li>
+<li><strong>Goal-striving brings happiness.</strong> Edison, after his lab burned: "We will start rebuilding tomorrow morning" (p. 101). Maltz was happiest as a hungry medical student because he had a goal (p. 102).</li>
+<li><strong>Healthy-mindedness on purpose.</strong> Carl Erskine stored happy memories "like a squirrel" (p. 104); Gene Tunney stopped reading newspapers before Dempsey (pp. 104–105); a salesman did "surgery on his own thinking" for thirty days (p. 105); a scientist's one-month experiment ended his headaches (pp. 106–107).</li>
+<li><strong>Habits are garments.</strong> "Habit" once meant clothing: "Our habits are literally garments worn by our personalities" (p. 108).</li>
+</ul>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li>React to problems "aggressively and positively," in real life and in imagination (p. 103).</li>
+<li><em>The 21-day shoe exercise</em> (pp. 109–110). Put on the other shoe first and tie your laces a new way, saying "I am beginning the day in a new and better way." Then decide that today: (1) I will be as cheerful as possible; (2) a little more friendly; (3) a little less critical; (4) I will act as if success were inevitable; (5) I won't let opinion color facts; (6) I will smile at least three times; (7) I will react calmly; (8) I will ignore negative "facts" I can do nothing to change.</li>
+</ul>
+<p><strong>How it connects.</strong> Chapter 8 gives the target picture of the personality these habits build.</p>
+<h2 id="chapter-8-ingredients-of-the-success-typ">Chapter 8 — Ingredients of the "Success-Type" Personality and How to Acquire Them (pp. 111–128)</h2>
+<p><strong>What he's saying.</strong> Success and failure can be diagnosed like a disease, because people carry "their seeds around in [their] personality" (p. 111). Since the mechanism needs a target, he gives a clear picture of the successful personality, spelled S-U-C-C-E-S-S (p. 113). An executive who felt like "a small potatoes" after his promotion, and a housewife who snapped at her family, both needed a new self-image for a new role, not a new face (p. 112).</p>
+<p><strong>How he builds it.</strong> Each letter comes with a prescription:</p>
+<ol>
+<li><strong>Sense of direction</strong> (pp. 113–114). The executive had stopped asking what <em>he</em> wanted. "A man is somewhat like a bicycle," balanced only when moving forward. <em>Rx:</em> get a goal or project, develop "a nostalgia for the future," and have at least one impersonal "cause."</li>
+<li><strong>Understanding</strong> (pp. 114–117). People react to their own mental images, not to us. Separate fact ("He cracks his knuckles") from opinion ("He does it to annoy me") (p. 115). Hitler punished bearers of bad news (p. 116). <em>Rx:</em> seek true information, good or bad; "It doesn't matter who's right, but what's right."</li>
+<li><strong>Courage</strong> (pp. 117–119). Halsey, quoting Nelson: "No Captain can do very wrong if he places his Ship alongside that of an Enemy." Faith is "the COURAGE to do something regardless of the consequences" (p. 117). "A step in the wrong direction is better than staying 'on the spot' all your life" (p. 118). <em>Rx:</em> risk some mistakes; practise courage in little things.</li>
+<li><strong>Charity</strong> (pp. 119–120). How we feel about others matches how we feel about ourselves. <em>Rx:</em> see people as unique; "stop and think" of their feelings; act as if they are important.</li>
+<li><strong>Esteem</strong> (pp. 120–122). Carlyle: "the fearful Unbelief is unbelief in yourself." "Holding a low opinion of ourselves is not a virtue, but a vice" (p. 121). <em>Rx:</em> stop picturing yourself as defeated; the biggest secret is to appreciate other people more.</li>
+<li><strong>Self-confidence</strong> (pp. 122–124). Built on success; start small, like a boxer matched with easier opponents. A horseshoe pitcher misses ten times for every hit yet improves, because the brain keeps the hits (p. 123). <em>Rx:</em> use mistakes, then dismiss them; recall past successes when starting something new.</li>
+<li><strong>Self-acceptance</strong> (pp. 124–128). Changing your self-image is "self-realization," not changing your self (p. 124). "You may have made a mistake, but this does not mean that you are a mistake" (p. 125). The "Actual Self" is always imperfect and growing; the neurotic invents a perfect self — "a fictitious jet air-liner" that goes nowhere (p. 126). <em>Rx:</em> "Accept yourself as you are—and start from there"; separate your self from your behaviour.</li>
+</ol>
+<p><strong>What he asks you to do.</strong> Use the seven letters as your goal picture, and take each prescription as an assignment.</p>
+<p><strong>How it connects.</strong> Chapter 9 is the mirror image: the warning lights.</p>
+<h2 id="chapter-9-the-failure-mechanism-how-to-m">Chapter 9 — The Failure Mechanism: How to Make It Work for You Instead of Against You (pp. 129–148)</h2>
+<p><strong>What he's saying.</strong> Symptoms are signals, like a boiler's pressure gauge or the pain of appendicitis (p. 129). The failure-type personality also has symptoms, spelled F-A-I-L-U-R-E (p. 130). Each was originally adopted as a "way" to solve a problem, so they're cured "not by will power, but by understanding" — by seeing that they don't work (p. 131).</p>
+<p><strong>How he builds it.</strong></p>
+<ol>
+<li><strong>Frustration</strong> (pp. 131–133). Chronic frustration means unrealistic goals or an inadequate self-image. Jim S., a vice-president who should already be chairman; Maltz's advice from putting: aim at "an area the size of a washtub" (p. 132). Frustration is an infant's method — cry and a warm hand appears (p. 133).</li>
+<li><strong>Aggressiveness, misdirected</strong> (pp. 134–136). Aggression is needed to reach goals; blocked, it turns on the cat, the family or oneself. Ask: "Is this merely my own frustration at work?" Of a rude driver: "Maybe his wife burned the toast this morning" (p. 136). Outlets: brisk walks, hitting games, a furious letter you then burn — and best of all, work toward a goal.</li>
+<li><strong>Insecurity</strong> (pp. 136–138). Comes from measuring yourself against an ideal, absolute self. The man who thinks he has "arrived" is insecure because he must defend it. A champion boxer: "you aren't defending the championship—you're fighting for it" (p. 138).</li>
+<li><strong>Loneliness</strong> (pp. 138–140). Alienation from your real self. Force yourself to mix — "after the first cold plunge" — and come as a contributor, not a passive guest.</li>
+<li><strong>Uncertainty</strong> (pp. 140–141). Hubbard: "The greatest mistake a man can make is to be afraid of making one." Babe Ruth held the records for most home runs <em>and</em> most strike-outs. "Only 'little men' are 'never wrong'" (p. 141).</li>
+<li><strong>Resentment</strong> (pp. 141–144). From <em>re-sentire</em>, "to feel back": refighting the past. It leads to self-pity, "the worst possible emotional habit" (p. 143). "No one owes you anything" (p. 144).</li>
+<li><strong>Emptiness</strong> (pp. 144–147). Outward success with "the capacity to enjoy" lost. "It is the person who has no purpose of his own who pessimistically concludes, 'Life has no purpose'" (p. 145). The "success syndrome": success that feels stolen (p. 146).</li>
+</ol>
+<p><strong>What he asks you to do.</strong> Treat the seven like a car's dashboard warning lights: glance, don't stare, and look through the windshield at where you're going (p. 147). Use negative thinking correctly: (1) be sensitive enough to be alerted; (2) recognize the negative as unwanted; (3) take "immediate corrective action and substitute an opposite factor from the Success Mechanism" (pp. 147–148).</p>
+<p><strong>How it connects.</strong> Several of these symptoms grow from old hurts. Chapter 10 removes them.</p>
+<h2 id="chapter-10-how-to-remove-emotional-scars">Chapter 10 — How to Remove Emotional Scars, or How to Give Yourself an Emotional Face Lift (pp. 149–167)</h2>
+<p><strong>What he's saying.</strong> Physical scar tissue protects but can harm. George T., an attorney scarred in a car crash, began drinking and hiding; surgery restored his face and his life (pp. 150–151). Emotional scars work the same way: a wall built against one person cuts us off from everyone, "and from our real selves" (p. 151).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Three rules for immunizing yourself</strong> (pp. 153–158):</li>
+<li><strong>Be too big to feel threatened.</strong> The easily offended have the lowest self-esteem. Have an emotional "epidermis," tough enough for pin-pricks, not a turtle shell (p. 154).</li>
+<li><strong>A self-reliant, responsible attitude makes you less vulnerable.</strong> The gruff person is soft inside. Give love; don't demand it (pp. 155–156).</li>
+<li><strong>Relax away emotional hurts.</strong> A surgeon removes tension under an incision so no scar forms. "It is absolutely impossible to feel fear, anger, anxiety… while the muscles of the body are kept perfectly relaxed" (p. 157).</li>
+<li><strong>Removing old scars.</strong> You must be your own plastic surgeon (p. 159). The wife who says "I did forgive you—but I cannot forget" hasn't forgiven (p. 159). Beecher: forgiveness should be "like a cancelled note torn in two, and burned up" (p. 160). Real forgiveness is not a weapon of superiority; it recognizes "that there is and was nothing for us to forgive" (p. 162). Jesus never "forgave" the adulterous woman — he never condemned her (pp. 162–163).</li>
+<li><strong>Forgive yourself.</strong> Remorse and regret try to live emotionally in the past. Use verbs, not nouns: "I failed" can lead to success, "I am a failure" fixes the mistake (p. 164). Parents who call a child "a stutterer" can create a stutter (p. 165). "'You' make mistakes. Mistakes don't make 'You'—anything" (p. 166).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> The do-it-yourself face-lift kit (p. 167): relax away negative tension; forgive therapeutically; grow "a tough (but not a hard) epidermis instead of a shell"; live creatively; be willing to be "a little vulnerable" — "Who wants to be an oyster?" (p. 166); and keep "a nostalgia for the future instead of the past."</p>
+<p><strong>How it connects.</strong> Scars and shells lock the personality in. Chapter 11 unlocks it.</p>
+<h2 id="chapter-11-how-to-unlock-your-real-perso">Chapter 11 — How to Unlock Your Real Personality (pp. 168–186)</h2>
+<p><strong>What he's saying.</strong> Personality is "released, from within," not acquired (p. 168). Everyone loves a baby because he is fully himself. "Poor personality" and "inhibited personality" are the same thing (p. 169).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Excessive negative feedback = inhibition.</strong> Feedback should modify the course, not stop it. A woodsman 15 degrees off course corrects toward his tree; he doesn't decide walking is wrong (p. 171).</li>
+<li><strong>Stuttering.</strong> We monitor our voices by ear. Stutterers fed a loud tone so they couldn't hear themselves, or taught to "shadow-talk," spoke fluently (pp. 172–173).</li>
+<li><strong>Purpose tremor.</strong> Threading a needle, the hand shakes only as you try. "Excessive carefulness" and anxiety are close kin (pp. 173–174). William James to teachers: prepare well, "then in the class-room trust your spontaneity and fling away all further care" (p. 175).</li>
+<li><strong>"Self-consciousness" is "others-consciousness."</strong> James Mangan, ill at ease in a ritzy dining room, told himself "I'm going to eat with Ma and Pa." Poise is "the deliberate shunting aside of all fears arising from new and uncontrollable circumstances" (p. 178). Albert Wiggam cured shyness by becoming <em>more</em> self-conscious — acting as he did alone (pp. 178–179).</li>
+<li><strong>Conscience</strong> is learned feedback and can be "declinated" like a compass. Self-expression isn't a moral issue, though a child shamed for "showing off" learns that it is (pp. 179–182). Stage fright is that old fear of punishment (p. 182).</li>
+<li><strong>Who needs disinhibition</strong> (p. 184). Too little inhibition: rushing in, impulsive, can't admit error, "a loud-talker." Too much (most of us): shy, dreads new situations, worries, takes a back seat. For the second group: St. Paul's "Be careful in nothing" (p. 185).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Five disinhibition exercises (pp. 185–186): (1) Don't plan what you'll say — open your mouth and say it. (2) Don't think before you act; act and correct as you go. (3) Stop criticising yourself — self-analysis "perhaps once a year" is plenty. (4) Speak louder than usual. (5) Let people know when you like them: compliment at least three people a day, and tell your spouse "I love you" at least twice a day.</p>
+<p><strong>How it connects.</strong> Over-response causes inhibition; Chapter 12 deals with over-response to stress.</p>
+<h2 id="chapter-12-do-it-yourself-tranquilizers">Chapter 12 — Do-It-Yourself Tranquilizers Which Bring Peace of Mind (pp. 187–203)</h2>
+<p><strong>What he's saying.</strong> Tranquilizers don't change the world; they reduce our <em>response</em> to it (p. 187). We can do the same ourselves.</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The telephone.</strong> It rings and you jump — but "You do not have to answer the telephone" (p. 188). Not responding isn't effort; it's "doing nothing."</li>
+<li><strong>Conditioned bells.</strong> Pavlov's dog kept salivating at the bell without food (p. 189). Strangers, crowds or the boss can become our bells.</li>
+<li><strong>Extinguishing the response.</strong> Say: "The telephone is ringing, but I do not have to answer it. I can just let it ring" (p. 190). If you can't ignore it, delay it, like Scarlett O'Hara ("I'll worry about it tomorrow") or Mary S., who told herself she could leave a crowd, "but not this very minute" (pp. 190–191).</li>
+<li><strong>A quiet room in your mind.</strong> Truman: "I have a foxhole in my mind" (p. 192). Build a mental room in restful colours, with a favourite chair and a window onto a silent beach, and visit it daily — "now I am opening the door—now I am inside" (pp. 193–194). Picture Old Faithful letting off steam (p. 195).</li>
+<li><strong>Clear the machine.</strong> Emotions carry over: office tension to home, a fight to the car. One company had executives pause five seconds and smile before answering the phone (p. 197). Maltz visits his quiet room before and after surgery (p. 198).</li>
+<li><strong>Actor, not reactor.</strong> "If response of any kind gets us off course… then no response is the appropriate response" (p. 199). Stop fighting straw men; respond "only to what actually is, here and now" (p. 202).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Picture yourself letting the phone ring, and carry that picture into the day: "I am letting the telephone ring." Rehearse staying unmoved while an associate rants and while "hurry-bells" ring (p. 202). Use your "spiritual thermostat," steady as body temperature at 98.6° whatever the weather (pp. 202–203).</p>
+<p><strong>How it connects.</strong> Calm under small pressures prepares for big ones. Chapter 13 handles crisis.</p>
+<h2 id="chapter-13-how-to-turn-a-crisis-into-a-c">Chapter 13 — How to Turn a Crisis into a Creative Opportunity (pp. 204–222)</h2>
+<p><strong>What he's saying.</strong> Some people choke under pressure and some "come through in the clutch" (pp. 204–205). The difference is learned. A crisis "can either make you or break you" (p. 205).</p>
+<p><strong>How he builds it.</strong> Three keys (p. 206):</p>
+<ol>
+<li><strong>Practice without pressure.</strong> Rats over-motivated by hunger learn narrow "cognitive maps" (pp. 206–207); fire drills teach calm because there's no fire (p. 208). <em>Shadow-boxing:</em> Corbett jabbed at his mirror image 10,000 times; Tunney fought an imaginary Dempsey; Billy Graham preached to cypress stumps (p. 209). A woman practised a "grand entrance" in her empty living room a hundred times and sailed through the ball (p. 210). A boy who froze at bat watched ten pitches go by with his bat on his shoulder, then "let" the bat meet the ball (pp. 212–213). A salesman made "empty gun" calls with no intention of selling (pp. 213–214).</li>
+<li><strong>React aggressively, not defensively.</strong> Relief pitcher Hugh Casey thought about "what I want to happen… instead of what the batter is going to do" (p. 215). A man lifted a crushed truck cab off a trapped driver because "I hate fire" (p. 215). Lecky: excitement reinforces whichever tendency you choose; "Don't mistake excitement for fear" — Dempsey couldn't shave before a fight (pp. 217–218).</li>
+<li><strong>Keep perspective: "What is the worst that can possibly happen?"</strong> Bertrand Russell looked steadily at the worst until he could say "that would not matter so very much" (pp. 219–220). Carlyle's defiance: "Let it come, then: I will meet and defy it!" (p. 220). Most "crises" are "mountain-climbing over molehills" (p. 221). A salesman doubled his income by switching to "I have everything to gain and nothing to lose" (p. 222).</li>
+</ol>
+<p><strong>What he asks you to do.</strong> Rehearse calmly in private; meet the real moment with your goal in mind; and before it, ask what the worst outcome really is.</p>
+<p><strong>How it connects.</strong> All of this produces a feeling, and Chapter 14 makes that feeling the steering signal.</p>
+<h2 id="chapter-14-how-to-get-that-winning-feeli">Chapter 14 — How to Get "That Winning Feeling" (pp. 223–244)</h2>
+<p><strong>What he's saying.</strong> The mechanism needs a goal pictured as "a present possibility," so real that "the same feelings are evoked as would be present if the goal were already achieved" (p. 223). Worry does exactly this in reverse (p. 224). The secret: "call up, capture, evoke the feeling of success" (p. 225). The feeling is a thermometer, not the furnace: it shows the machine is "set for success."</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Winners describe it.</strong> Cary Middlecoff felt sure he'd win the Masters four days early: "a line to the cup just as clearly as if it had been tattooed on my brain" (pp. 225–226). J. C. Penney held on to his father's "I know Jim will make it," even after losing his fortune (pp. 226–227). Les Giblin, lying in bed, joined the confidence he felt talking to small groups to a picture of a big audience, and within three years was a sought-after lecturer (pp. 227–229).</li>
+<li><strong>The science.</strong> An "electronic mouse" learns a maze and replays the right turns (p. 229). The brain stores "engrams," patterns like magnetic tape; replay a success pattern and its feeling comes with it (pp. 230–231).</li>
+<li><strong>Gradualness.</strong> Harvard's President Eliot wanted children to get work they could succeed at, to build "the habit of success" (p. 231). Pavlov's dying advice: "Passion and gradualness" (p. 232). At a plateau, drop back: the world typing champion practised at half speed (p. 233).</li>
+<li><strong>Don't take counsel of your fears.</strong> Patton felt fear but never took its counsel (p. 236). Failure feelings "are not written in the stars"; they only mean you are underestimating yourself and overestimating the difficulty (p. 236).</li>
+<li><strong>Substitute, don't fight.</strong> Feelings can't be commanded "but they can be wooed" (p. 238). Use a worry as the cue to fill your mind with good pictures (Chappell, pp. 239–240). Maltz beat panic in oral exams by pretending he was looking into a microscope (p. 240).</li>
+<li><strong>The choice is yours.</strong> Engrams change each time they're replayed, so "the present clearly influences the past" (p. 242). "The past explains how you got here. But where you go from here is your responsibility" (p. 243). If you don't like the music, change the record (p. 243).</li>
+</ul>
+<p><strong>What he asks you to do.</strong></p>
+<ul>
+<li><em>Play back your success patterns</em> (pp. 233–234). Recall any past success — beating the school bully, a sack race, a prize cake — in full sensory detail until you feel as you felt then. Then picture the coming event as already done.</li>
+<li><em>Positive worry</em> (pp. 234–235). Start with "Suppose the best possible outcome did actually come about?" Then "it could happen." Then picture it in detail, over and over, until the winning feeling comes.</li>
+</ul>
+<p><strong>How it connects.</strong> The final chapter asks what this means for health and age.</p>
+<h2 id="chapter-15-more-years-of-life-and-more-l">Chapter 15 — More Years of Life and More Life in Your Years (pp. 245–268)</h2>
+<p><strong>What he's saying.</strong> Here Maltz speaks "not as an M.D., but as a man," sharing his "over-beliefs" (p. 246). Man is not the machine but what animates it. Hans Selye's "adaptation energy" — a life force distinct from food calories — is what heals wounds and resists ageing (pp. 247–249).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>His serum.</strong> An anti-growth serum (AGTS) made mice heal in about five days instead of eight; some human patients reported feeling younger (pp. 252–255). But the fastest healers without serum shared one trait: they were optimistic and had "something to get well for" (pp. 256–257).</li>
+<li><strong>Attitudes as medicine.</strong> Placebos often work as well as drugs (pp. 257–258). We may "think ourselves into old age" by expecting it at a set age and giving up activity (p. 259).</li>
+<li><strong>Needs.</strong> Schindler's six — love, security, creative expression, recognition, new experiences, self-esteem — and Maltz adds a seventh: "the need for more life," to look forward (pp. 260–261).</li>
+<li><strong>Look forward and live.</strong> Life adapts to need, so "create a need for more life." Creative workers stay productive: Michelangelo and Goethe past 80, Edison at 90, Grandma Moses starting at 79 (p. 262). "Retire from a job, but never retire from life" (p. 263). Exercise gradually: Cureton had men of 50 to 70 running five miles a day after two years (pp. 264–265).</li>
+<li><strong>One life, many channels.</strong> "The Surgeon dresses the wound, God heals it" (p. 266). Don't refuse help, whether it comes through science, faith or other people (p. 267).</li>
+</ul>
+<p><strong>What he asks you to do.</strong> Keep goals ahead of you at every age, stay physically and mentally active, and hold "the most adequate and realistic self-image of all": to "conceive of yourself as 'made in the image of God'" (p. 267).</p>
+<p><strong>How it connects.</strong> It returns to Chapter 1's point that what everyone wants is "more LIFE" (p. 11).</p>
+<div class="next"><a href="psycho-cybernetics-activity.html">Practice: 21-Day Self-Image Practice &rarr;</a><a href="psycho-cybernetics-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>Psycho-Cybernetics</em> by Maxwell Maltz, M.D. (Pocket Books, 1969 printing of the 1960 Prentice-Hall book). Page numbers refer to that edition. Short quotes are used for study.</p>
+  <p><a href="psycho-cybernetics-activity.html">21-Day Self-Image Practice</a> &middot; <a href="psycho-cybernetics-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>
