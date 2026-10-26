@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Psycho-Cybernetics Machine</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Young+Serif&display=swap">
+<style>
+/* Layout: one column of chapter "instrument bays"; each bay = quote, live scene, stories, key lines. Teal = success mechanism, rust = failure signals, blue = the torpedo. */
+:root{
+  --bg:#f2f6f5; --paper:#ffffff; --ink:#17302c; --muted:#4e6662; --line:#cddcd9;
+  --accent:#0f6e66; --accent-soft:#dcefeb; --warn:#a13d2d; --warn-soft:#f7e3dd;
+  --blue:#1f5f9e; --blue-soft:#e3eef9; --gold:#9a6a12; --gold-soft:#f8ecd2;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1817; --paper:#152220; --ink:#e2eeeb; --muted:#9fb5b1; --line:#2a3d3a;
+  --accent:#5cc3b7; --accent-soft:#1c3431; --warn:#ef9a88; --warn-soft:#3a2420;
+  --blue:#7fb3ea; --blue-soft:#1b2a3b; --gold:#e3b75c; --gold-soft:#3a2f17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1817; --paper:#152220; --ink:#e2eeeb; --muted:#9fb5b1; --line:#2a3d3a;
+  --accent:#5cc3b7; --accent-soft:#1c3431; --warn:#ef9a88; --warn-soft:#3a2420;
+  --blue:#7fb3ea; --blue-soft:#1b2a3b; --gold:#e3b75c; --gold-soft:#3a2f17; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,6vw,2.8rem);line-height:1.1}
+h2{font-size:1.5rem;line-height:1.2}
+p{margin:0}
+header.top{background:var(--paper);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:32px 20px;display:grid;gap:10px}
+.eyebrow{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.sub{color:var(--muted);max-width:62ch}
+nav.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav.chips .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:8px;scrollbar-width:thin}
+nav.chips a{flex:none;font-size:.82rem;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
+nav.chips a:hover,nav.chips a:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+main .wrap{padding-block:24px calc(80px + env(safe-area-inset-bottom,0px));display:grid;gap:44px}
+main .wrap>*{min-width:0}
+section.bay{display:grid;gap:14px}
+.bay-head{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;border-top:2px solid var(--accent);padding-top:14px}
+.num{font-family:var(--display);font-size:1.6rem;color:var(--accent);grid-row:span 2;font-variant-numeric:tabular-nums;min-width:1.6em}
+.pages{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+blockquote{margin:0;background:var(--paper);border-left:4px solid var(--accent);padding:12px 16px;font-family:var(--display);font-size:1.12rem;line-height:1.45}
+blockquote cite,.cite{display:block;font-family:var(--body);font-style:normal;font-size:.78rem;color:var(--muted);margin-top:6px}
+figure.scene{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:10px;min-width:0}
+figure.scene svg{width:100%;height:auto;display:block}
+.brace{font-size:.86rem;color:var(--muted);font-style:italic}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:inherit;font-size:.88rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.status{font-size:.95rem;min-height:2.6em;font-family:var(--display);line-height:1.45}
+.status.good{color:var(--accent)} .status.bad{color:var(--warn)}
+details.keys{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details.keys summary{cursor:pointer;font-weight:700;font-size:.92rem;color:var(--accent)}
+details.keys ul{margin:10px 0 0;padding-left:1.2em;display:grid;gap:8px;font-size:.95rem}
+.src{font-size:.76rem;color:var(--muted);white-space:nowrap}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.grid2>*{min-width:0}
+.tile{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:6px;align-content:start;text-align:left}
+.tile b{font-family:var(--display);font-weight:400;font-size:1.05rem}
+.tile .hide{font-size:.9rem;color:var(--muted)}
+.tile.open{border-color:var(--accent);background:var(--accent-soft)}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:.95rem}
+.check input{margin-top:.3em;accent-color:var(--accent)}
+.pill{display:inline-block;font-size:.75rem;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.story .tabs{display:flex;flex-wrap:wrap;gap:6px}
+.story .cap{font-family:var(--display);font-size:1.02rem;line-height:1.5;min-height:4.6em}
+.story .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.dot.on{background:var(--accent)}
+input[type=range]{accent-color:var(--accent);flex:1;min-width:140px}
+input[type=text]{font:inherit;font-size:.95rem;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);width:100%}
+.err{color:var(--warn);font-size:.82rem}
+.ticks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.tickbox{border-radius:8px;padding:10px 12px;font-size:.88rem;display:grid;gap:4px;align-content:start}
+.tickbox h3{font-size:1rem}
+.tickbox label{display:flex;gap:6px;align-items:flex-start;cursor:pointer}
+.tickbox input{accent-color:var(--accent);margin-top:.25em}
+.tb-up{background:var(--accent-soft)} .tb-sm{background:var(--blue-soft)} .tb-w{background:var(--warn-soft)}
+footer .wrap{padding-block:0 40px}
+/* SVG text + strokes from tokens */
+svg .t{fill:var(--ink);font-family:var(--body);font-size:13px}
+svg .tb{fill:var(--ink);font-family:var(--body);font-size:14px;font-weight:700}
+svg .tm{fill:var(--muted);font-family:var(--body);font-size:12px}
+svg .ta{fill:var(--accent);font-family:var(--body);font-size:12px;font-weight:700}
+svg .tw{fill:var(--warn);font-family:var(--body);font-size:12px;font-weight:700}
+svg .st{stroke:var(--muted);fill:none;stroke-width:1.3}
+svg .sa{stroke:var(--accent);fill:none;stroke-width:2}
+svg .sw{stroke:var(--warn);fill:none;stroke-width:2}
+svg .fa{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.3}
+svg .fw{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.3}
+svg .fb{fill:var(--blue)}
+svg .fp{fill:var(--paper);stroke:var(--line);stroke-width:1.3}
+svg .trail{stroke:var(--accent);fill:none;stroke-width:2.2;stroke-linejoin:round}
+.inner{transition:r .9s ease}
+.slide{transition:transform .9s ease}
+.fade{transition:opacity .6s}
+@media (prefers-reduced-motion: reduce){.inner,.slide,.fade{transition:none}}
+@media (max-width:560px){body{font-size:16px} figure.scene{grid-template-columns:minmax(0,1fr);overflow-x:auto} figure.scene>svg{min-width:600px}}
+</style>
+
+<header class="top"><div class="wrap">
+  <span class="eyebrow">Maxwell Maltz · Psycho-Cybernetics (1960)</span>
+  <h1>The Psycho-Cybernetics Machine</h1>
+  <p class="sub">The whole book as moving pictures, from the definition to chapter 15. Every quote is Maltz's own, with the printed page of the Pocket Books edition (PC). Tap, slide and play; the reading is in the pictures.</p>
+</div></header>
+
+<nav class="chips" aria-label="Chapters"><div class="wrap">
+  <a href="#machine">Machine</a><a href="#def">Definition</a>
+  <a href="#c1">1 Self image</a><a href="#c2">2 Success mechanism</a><a href="#c3">3 Imagination</a><a href="#c4">4 Dehypnotize</a><a href="#c5">5 Rational thinking</a><a href="#c6">6 Relax</a><a href="#c7">7 Happiness</a><a href="#c8">8 SUCCESS</a><a href="#c9">9 FAILURE</a><a href="#c10">10 Face lift</a><a href="#c11">11 Unlock</a><a href="#c12">12 Tranquilizers</a><a href="#c13">13 Crisis</a><a href="#c14">14 Winning feeling</a><a href="#c15">15 More life</a>
+</div></nav>
+
+<main><div class="wrap">
+
+<!-- ================= MACHINE ================= -->
+<section class="bay" id="machine">
+  <div class="bay-head"><span class="num">◎</span><h2>The whole machine</h2><span class="pages">All 15 chapters in one picture</span></div>
+  <figure class="scene">
+    <svg viewBox="0 0 680 460" role="img" aria-labelledby="mT mD"><title id="mT">Self-image machine</title><desc id="mD">Theater of the mind feeds the face of personality, which sets the thermostat, the ceiling and the figure's size; the success-mechanism torpedo zigzags toward the goal; the FAILURE gauge warns below.</desc>
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker></defs>
+      <g id="mCeil" class="slide"><line x1="40" x2="640" y1="0" y2="0" class="sw" stroke-dasharray="6 4"/><text class="tw" x="40" y="-7">Ceiling set by the self-image · PC 13</text></g>
+      <path d="M77 215A28 28 0 0 1 133 215" class="st"/><line id="mNeedle" x1="105" y1="215" x2="83" y2="215" class="sw" stroke-linecap="round"/>
+      <text class="tm" x="105" y="234" text-anchor="middle">Thermostat · CF 106</text>
+      <rect x="40" y="252" width="140" height="70" rx="6" class="fa"/><text class="tb" x="110" y="282" text-anchor="middle">Theater of mind</text><text class="tm" x="110" y="302" text-anchor="middle">Ch 3 · PC 45</text>
+      <line x1="182" y1="287" x2="230" y2="287" class="st" marker-end="url(#ar)"/>
+      <circle cx="290" cy="290" r="55" class="st"/>
+      <circle id="mInner" class="fa inner" cx="290" cy="290" r="34" stroke-dasharray="4 3"/>
+      <text class="t" x="290" y="294" text-anchor="middle">Self-image</text>
+      <text class="tm" x="290" y="362" text-anchor="middle">Face of personality · PC vii</text>
+      <polygon points="277,235 303,235 308,219 272,219" class="st"/><text class="tm" x="316" y="230">Keystone · PC 4</text>
+      <path id="mPath" class="trail"/>
+      <g id="mTorp"><ellipse rx="9" ry="4" class="fb"/><polygon points="-9,0 -14,-4 -14,4" class="fb"/></g>
+      <circle cx="600" cy="100" r="13" class="sa"/><circle cx="600" cy="100" r="4" fill="var(--accent)"/>
+      <text class="tm" x="590" y="78" text-anchor="middle">Goal → more life · Ch 15</text>
+      <text class="tm" x="500" y="322" text-anchor="middle">Torpedo = success mechanism · PC 18–20</text>
+      <path d="M255 420A35 35 0 0 1 325 420" class="st"/><path d="M307 391A35 35 0 0 1 325 420" class="sw" stroke-width="3"/>
+      <line id="mFail" x1="290" y1="420" x2="262" y2="420" class="sw" stroke-linecap="round"/>
+      <text class="tm" x="290" y="442" text-anchor="middle">FAILURE gauge · PC 129</text>
+      <rect x="430" y="340" width="46" height="70" rx="20" class="st"/><text class="tm" x="453" y="430" text-anchor="middle">Mirror · CLT 15</text>
+      <g id="mFig" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"></g>
+      <text class="tm" x="575" y="430" text-anchor="middle">Small / tall · CLT 117</text>
+    </svg>
+    <div class="row"><span class="cite" style="margin:0">Little self</span><input type="range" id="mS" min="0" max="100" step="1" value="10" aria-label="Self-image size"><span class="cite" style="margin:0">Big self</span><button id="mPlay">Play</button></div>
+    <p class="status" id="mSt"></p>
+    <div class="ticks">
+      <div class="tickbox tb-up"><h3>Raise the self-image</h3><div id="tkR"></div></div>
+      <div class="tickbox tb-sm"><h3>Smooth the path</h3><div id="tkM"></div></div>
+      <div class="tickbox tb-w"><h3>Warning gauge</h3><p>Ch 9 · FAILURE signals read high when the self-image is small: a signal to correct course <span class="src">PC 129–130</span></p></div>
+    </div>
+    <p class="brace">{Image: Theater of the mind feeds the face of personality, the self-image, with the keystone on top. The self-image sets the thermostat, the ceiling and the height of the figure. A blue torpedo zigzags toward the goal under the ceiling; the FAILURE pressure gauge sits below. Ticking chapters raises the self-image (ch 3, 4, 5, 7, 8, 10, 14) or calms the zigzag (ch 6, 11, 12, 13). Your ticks are kept on this device.}</p>
+  </figure>
+</section>
+
+<!-- ================= DEFINITION ================= -->
+<section class="bay" id="def">
+  <div class="bay-head"><span class="num">0</span><h2>What psycho-cybernetics means</h2><span class="pages">Preface · PC viii–xv, 11, 18–19</span></div>
+  <blockquote>“I choose to call this new concept ‘Psycho-Cybernetics’: the principles of Cybernetics as applied to the human brain.”<cite>PC 19</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 250" role="img" aria-labelledby="dT"><title id="dT">The steersman steers the machine to port</title>
+      <g id="dWheel" transform="translate(90 125)"><circle r="38" class="st" stroke-width="3"/><circle r="8" class="st"/>
+        <g class="st"><line x1="0" y1="-38" x2="0" y2="38"/><line x1="-33" y1="-19" x2="33" y2="19"/><line x1="-33" y1="19" x2="33" y2="-19"/></g></g>
+      <text class="tb" x="90" y="190" text-anchor="middle">You</text><text class="tm" x="90" y="207" text-anchor="middle">the steersman · PC 18</text>
+      <rect x="170" y="100" width="150" height="50" rx="6" class="fa"/><text class="t" x="245" y="121" text-anchor="middle">Brain + nervous system</text><text class="tm" x="245" y="139" text-anchor="middle">the machine · PC 19</text>
+      <line x1="130" y1="125" x2="166" y2="125" class="st" marker-end="url(#ar)"/>
+      <path id="dPath" class="trail"/>
+      <g id="dBoat"><path d="M-12 -3 L12 -3 L7 5 L-7 5 Z" class="fb"/><line x1="0" y1="-3" x2="0" y2="-16" stroke="var(--blue)" stroke-width="1.5"/><path d="M0 -15 L9 -6 L0 -6 Z" class="fb"/></g>
+      <rect x="582" y="40" width="70" height="36" rx="6" class="fp"/><text class="t" x="617" y="63" text-anchor="middle">Port</text>
+      <text class="tm" x="617" y="92" text-anchor="middle">a useful goal</text>
+    </svg>
+    <div class="row"><button id="dPlay">Steer to port</button><span class="cite" style="margin:0">Is man a machine?</span><button data-ans="y">Yes</button><button data-ans="n">No</button></div>
+    <p class="status" id="dSt">“The word ‘Cybernetics’ comes from a Greek word which means literally, ‘the steersman.’” (PC 18)</p>
+    <p class="brace">{Image: A steering wheel labelled You, the steersman, turns the machine (brain and nervous system), which steers a small boat along a zigzag course to Port, a useful goal.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Cybernetics “has to do with teleology—goal-striving, goal-oriented behavior of mechanical systems” <span class="src">PC viii</span></li>
+    <li>“Psycho-Cybernetics does not say that man is a machine. Rather, it says that man has a machine which he uses” <span class="src">PC 19</span></li>
+    <li>“What each of us really wants, deep down, is more LIFE” <span class="src">PC 11</span></li>
+    <li>The self-image is changed “not by intellect alone, nor by intellectual knowledge alone, but by ‘experiencing’” <span class="src">PC x</span></li>
+    <li>The book is meant “not merely to be read but to be experienced” <span class="src">PC xii</span></li>
+    <li>“It usually requires a minimum of about 21 days to effect any perceptible change in a mental image” <span class="src">PC xiii</span></li>
+    <li>“Man is by nature a goal-striving being” <span class="src">PC xv</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 1 ================= -->
+<section class="bay" id="c1">
+  <div class="bay-head"><span class="num">1</span><h2>The self image: your key to a better life</h2><span class="pages">PC 1–14 · Preface vii</span></div>
+  <blockquote>“Each of us carries about with us a mental blueprint or picture of ourselves… But it is there, complete down to the last detail.”<cite>PC 2</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 450" role="img" aria-labelledby="sT"><title id="sT">The self-image as rings</title>
+      <circle id="sOut" cx="340" cy="210" r="150" class="fp"/>
+      <text class="tm" x="340" y="88" text-anchor="middle">Actions · feelings</text>
+      <text class="tm" x="340" y="336" text-anchor="middle">Behavior · abilities</text>
+      <circle cx="340" cy="210" r="104" class="fp" style="fill:var(--blue-soft)"/>
+      <text class="tm" x="340" y="128" text-anchor="middle">My beliefs</text>
+      <text class="tm" x="340" y="296" text-anchor="middle">taken as “true”</text>
+      <circle id="sIn" cx="340" cy="210" r="64" class="fa"/>
+      <text class="tb" x="340" y="206" text-anchor="middle">Self-image</text>
+      <text class="tm" x="340" y="225" text-anchor="middle">sort of person I am</text>
+      <g class="tm"><text x="20" y="140">Past experiences</text><text x="20" y="180">Successes, failures</text><text x="20" y="220">Humiliations, triumphs</text><text x="20" y="260">Others’ reactions</text><text x="20" y="276">(early childhood)</text></g>
+      <path d="M130 136Q220 150 278 195M140 176Q220 186 276 204M160 216L274 214M130 256Q220 250 278 226" class="st" marker-end="url(#ar)"/>
+      <line x1="492" y1="210" x2="516" y2="210" class="st" marker-end="url(#ar)"/>
+      <g class="tm"><text x="522" y="196">You “act like”</text><text x="522" y="212">that person,</text><text x="522" y="228">despite will power</text><text x="522" y="246">PC 2</text></g>
+      <path id="sCyc" d="M580 258V398H90V296" class="st" stroke-width="1.6" marker-end="url(#ar)"/>
+      <text class="tm" x="340" y="424" text-anchor="middle">Experiences “prove” the image: a vicious or beneficent cycle · PC 3</text>
+    </svg>
+    <div class="row"><button data-s="o">Change at the circumference</button><button data-s="c">Change at the center</button></div>
+    <p class="status" id="sSt">Tap a button to see what Maltz says happens.</p>
+    <p class="brace">{Image: Four inputs (past experiences; successes and failures; humiliations and triumphs; others’ reactions in early childhood) feed the center circle, the self-image, “sort of person I am”. Around it, a ring of beliefs taken as true; outside, actions, feelings, behavior and abilities. You act like that person despite will power. A loop shows experience “proving” the image.}</p>
+  </figure>
+  <div class="story" id="st1"></div>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>“All your actions, feelings, behavior—even your abilities—are always consistent with this self-image” <span class="src">PC 2</span></li>
+    <li>“The self-image can be changed… one is never too young nor too old to change his self-image” <span class="src">PC 3</span></li>
+    <li>Efforts at change go “to the circumference of the self, so to speak, rather than to the center” <span class="src">PC 3</span></li>
+    <li>At the center of the system of ideas, “the keystone… is the individual’s ‘ego ideal,’ his ‘self-image’” <span class="src">PC 4</span></li>
+    <li>The self-image must be “a reasonable approximation of ‘you,’ being neither more than you are, nor less than you are” <span class="src">PC 10</span></li>
+    <li>“The key goal-image is our Self-image” <span class="src">PC 13</span></li>
+    <li>“If you can remember, worry, or tie your shoe, you can succeed” <span class="src">PC 14</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 2 ================= -->
+<section class="bay" id="c2">
+  <div class="bay-head"><span class="num">2</span><h2>Discovering the success mechanism within you</h2><span class="pages">PC 15–29</span></div>
+  <blockquote>“Your brain and nervous system constitute a goal-striving mechanism which operates automatically to achieve a certain goal, very much as a self-aiming torpedo or missile seeks out its target and steers its way to it.”<cite>PC 18</cite></blockquote>
+  <figure class="scene">
+    <div class="row"><button class="on" data-m="t">Target known: the torpedo</button><button data-m="s">Answer unknown: scanning</button></div>
+    <svg viewBox="0 0 680 230" role="img" aria-labelledby="tT"><title id="tT">Two kinds of servo-mechanism</title>
+      <g id="tA">
+        <path id="tPath" class="trail"/>
+        <g id="tTorp"><ellipse rx="9" ry="4" class="fb"/><polygon points="-9,0 -14,-4 -14,4" class="fb"/></g>
+        <circle cx="620" cy="115" r="14" class="sa"/><circle cx="620" cy="115" r="4" fill="var(--accent)"/>
+        <text class="tm" x="620" y="92" text-anchor="middle">Target</text>
+        <text class="tm" x="340" y="214" text-anchor="middle">Off course → negative feedback → correct · PC 19–20</text>
+      </g>
+      <g id="sA" opacity="0">
+        <g id="sBoxes"></g>
+        <rect id="sBeam" x="60" y="70" width="70" height="70" rx="8" fill="none" stroke="var(--blue)" stroke-width="3"/>
+        <text class="tm" x="340" y="214" text-anchor="middle">Scans stored memories until the right one is “recognized” · PC 21–22</text>
+      </g>
+    </svg>
+    <div class="row"><button id="tPlay">Play</button></div>
+    <p class="status" id="tSt">“The torpedo accomplishes its goal by going forward, making errors, and continually correcting them. By a series of zigzags it literally ‘gropes’ its way to the goal.” (PC 20)</p>
+    <p class="brace">{Image: Mode 1, a torpedo zigzags toward a known target, correcting each time it drifts off course. Mode 2, a blue search frame scans across a row of stored memories, rejecting each one until it lands on the forgotten name.}</p>
+  </figure>
+  <div class="story" id="st2"></div>
+  <div class="grid2" id="pr2"></div>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>The “subconscious mind” “is not a ‘mind’ at all, but a mechanism—a goal-striving ‘servo-mechanism’” <span class="src">PC 12</span></li>
+    <li>“Present it with ‘success goals’ and it functions as a ‘Success Mechanism.’ Present it with negative goals, and it operates just as impersonally… as a ‘Failure Mechanism’” <span class="src">PC 13</span></li>
+    <li>Animals’ goals are pre-set; “man of all creatures is more than a creature, he is also a creator” <span class="src">PC 16–17</span></li>
+    <li>“All that the forebrain does is to select the goal, trigger it into action by desire, and feed information to the automatic mechanism” <span class="src">PC 20</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 3 ================= -->
+<section class="bay" id="c3">
+  <div class="bay-head"><span class="num">3</span><h2>Imagination: the first key</h2><span class="pages">PC 30–47</span></div>
+  <blockquote>“Your nervous system cannot tell the difference between an imagined experience and a ‘real’ experience.”<cite>PC 32</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 250" role="img" aria-labelledby="fT"><title id="fT">Free-throw experiment</title>
+      <line x1="200" y1="200" x2="640" y2="200" class="st"/>
+      <g class="tm"><text x="190" y="64" text-anchor="end">Practised daily</text><text x="190" y="124" text-anchor="end">No practice</text><text x="190" y="184" text-anchor="end">Imagined only</text></g>
+      <rect id="f1" x="200" y="46" height="28" width="0" rx="4" class="fa" style="transition:width 1.2s ease"/>
+      <rect id="f2" x="200" y="106" height="28" width="2" rx="2" class="fp"/>
+      <rect id="f3" x="200" y="166" height="28" width="0" rx="4" style="fill:var(--blue-soft);stroke:var(--blue);transition:width 1.2s ease 0.3s"/>
+      <text id="f1t" class="ta" x="210" y="65"></text><text class="tm" x="212" y="125">0%</text><text id="f3t" class="ta" x="210" y="185" style="fill:var(--blue)"></text>
+      <g class="tm"><text x="200" y="220">0</text><text x="420" y="220" text-anchor="middle">12%</text><text x="640" y="220" text-anchor="end">24% better</text></g>
+      <text class="tm" x="420" y="242" text-anchor="middle">Improvement in sinking free throws after 20 days · PC 35</text>
+    </svg>
+    <div class="row"><button id="fPlay">Run the 20 days</button></div>
+    <p class="status" id="fSt">Three groups of students, scored on day 1 and day 20.</p>
+    <p class="brace">{Image: Bar chart. Students who practised free throws 20 minutes a day improved 24 per cent. Students who did not practise showed no improvement. Students who only imagined throwing, correcting their aim when they “missed”, improved 23 per cent.}</p>
+  </figure>
+  <figure class="scene">
+    <svg viewBox="0 0 680 210" role="img" aria-labelledby="thT"><title id="thT">Theater of the mind</title>
+      <rect x="150" y="20" width="380" height="140" rx="6" class="fp" style="fill:var(--ink)"/>
+      <g id="thFace" transform="translate(340 90)"><circle r="44" fill="var(--paper)"/><circle cx="-15" cy="-10" r="4" fill="var(--ink)"/><circle cx="15" cy="-10" r="4" fill="var(--ink)"/><path id="thMouth" d="M-18 18 Q0 4 18 18" stroke="var(--ink)" stroke-width="3" fill="none"/></g>
+      <path d="M300 200 L340 165 L380 200" class="st"/>
+      <text class="tm" x="340" y="186" text-anchor="middle">30 minutes · PC 45</text>
+    </svg>
+    <div class="row"><button id="thPlay">Play the film of you</button></div>
+    <p class="status" id="thSt">“Imagine how you would feel if you were already the sort of personality you want to be.” (PC 46)</p>
+    <p class="brace">{Image: A motion-picture screen in the theater of your mind. The film shows your own face; playing the film turns the tense face into a relaxed, smiling one.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>“A human being always acts and feels and performs in accordance with what he imagines to be true about himself and his environment” <span class="src">PC 31</span></li>
+    <li>“We act, or fail to act, not because of ‘will,’ as is so commonly believed, but because of imagination” <span class="src">PC 31</span></li>
+    <li>“You act, and feel, not according to what things are really like, but according to the image your mind holds of what they are like” <span class="src">PC 34</span></li>
+    <li>“Before a person can change, he must ‘see’ himself in a new role” <span class="src">PC 41</span></li>
+    <li>Practice: 30 minutes a day, alone, relaxed, eyes closed; a motion-picture screen of yourself, “as vivid and as detailed as possible” <span class="src">PC 45–46</span></li>
+    <li>A patient overcame her fear of the dentist only when she added the smell of antiseptic and the feel of the chair <span class="src">PC 45–46</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 4 ================= -->
+<section class="bay" id="c4">
+  <div class="bay-head"><span class="num">4</span><h2>Dehypnotize yourself from false beliefs</h2><span class="pages">PC 48–63</span></div>
+  <blockquote>“Every human being is hypnotized to some extent, either by ideas he has uncritically accepted from others, or ideas he has repeated to himself.”<cite>PC 53</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 230" role="img" aria-labelledby="gT"><title id="gT">Grip-strength dynamometer</title>
+      <path d="M200 190 A140 140 0 0 1 480 190" class="st" stroke-width="2"/>
+      <g id="gTicks" class="tm"></g>
+      <line id="gNeedle" x1="340" y1="190" x2="340" y2="70" class="sw" stroke-width="3" stroke-linecap="round" style="transition:transform 1s ease;transform-origin:340px 190px"/>
+      <circle cx="340" cy="190" r="6" fill="var(--warn)"/>
+      <text id="gVal" class="tb" x="340" y="222" text-anchor="middle">Grip: 100 lb</text>
+    </svg>
+    <div class="row"><button data-g="100" class="on">Awake, own belief</button><button data-g="125">Hypnotized: “very, very strong”</button></div>
+    <p class="status" id="gSt">“All his effort and straining cannot budge the needle beyond the 100 pound mark.” (PC 53–54)</p>
+    <p class="brace">{Image: A grip-strength dial from 0 to 150 pounds. Awake, the athlete grips 100 pounds. Hypnotized and told he is very strong, he easily pulls 125. Hypnosis added nothing; it removed a limiting belief.}</p>
+  </figure>
+  <figure class="scene">
+    <svg viewBox="0 0 680 200" role="img" aria-labelledby="salT"><title id="salT">The $5,000 salesman</title>
+      <line x1="80" y1="160" x2="640" y2="160" class="st"/>
+      <line id="salCap" x1="80" x2="640" y1="90" y2="90" class="sw" stroke-dasharray="6 4"/>
+      <text class="tw" x="640" y="82" text-anchor="end">Self-image: “a $5,000-per-year man”</text>
+      <rect id="salPot" x="300" y="50" width="80" height="110" rx="4" class="fp" style="transition:all .8s ease"/>
+      <rect id="salEarn" x="300" y="90" width="80" height="70" rx="4" class="fa"/>
+      <text class="tm" x="390" y="130">Earned: $5,000</text>
+      <text id="salLab" class="tm" x="290" y="130" text-anchor="end">Small territory</text>
+      <text class="tm" x="340" y="186" text-anchor="middle">Territory potential (outline) vs earnings (teal) · PC 50–51</text>
+    </svg>
+    <div class="row"><button data-t="0" class="on">Small territory</button><button data-t="1">Larger, better one</button><button data-t="2">Higher commission</button><button data-t="3">Poorest territory</button></div>
+    <p class="status" id="salSt">“A certain salesman always managed to make almost exactly $5,000 per year, regardless of the territory they assigned to him or the commission he was paid.” (PC 50)</p>
+    <p class="brace">{Image: Whatever territory the salesman is given, small, large, better paid or poorest, the outline of what is possible changes but his earnings stop at the same dashed line: his self-image as a $5,000-per-year man.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Adler, told he was “dumb in mathematics”, accepted it until he worked a problem no one else could, and “went on to become a good math student” <span class="src">PC 48</span></li>
+    <li>Told he cannot lift a pencil, a weight-lifter who can hoist 400 pounds “now actually cannot lift the pencil” <span class="src">PC 53</span></li>
+    <li>“The hypnotist merely removed this mental block” <span class="src">PC 54</span></li>
+    <li>“Inferiority and Superiority are reverse sides of the same coin.” “You are not ‘inferior.’ You are not ‘superior.’ You are simply ‘You’” <span class="src">PC 56–58</span></li>
+    <li>Beliefs change in a relaxed state, the way they were formed, not by effort or will power <span class="src">PC 59–60</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 5 ================= -->
+<section class="bay" id="c5">
+  <div class="bay-head"><span class="num">5</span><h2>The power of rational thinking</h2><span class="pages">PC 64–77</span></div>
+  <blockquote>“It is conscious thinking which is the ‘control knob’ of your unconscious machine.”<cite>PC 64</cite></blockquote>
+  <figure class="scene">
+    <label for="qIn" class="cite" style="margin:0">Write one “I can’t” belief of yours</label>
+    <input type="text" id="qIn" value="I can't speak in front of strangers">
+    <span class="err" id="qErr" hidden>Write a belief first.</span>
+    <div class="row"><button id="qGo">Ask the four questions</button><span id="qDots"></span></div>
+    <p class="status" id="qSt">Maltz gives four questions for any belief that holds you back. (PC 72)</p>
+    <p class="brace">{Image: A text box holds your “I can’t” belief; the button steps through Maltz’s four questions one at a time, ending with his line on deep feeling and desire.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>“Ideas Are Changed, Not by ‘Will,’ But by Other Ideas” <span class="src">PC 70</span></li>
+    <li>Once an error is corrected, “the error be consciously forgotten, and the successful attempt remembered and ‘dwelt upon’” <span class="src">PC 66</span></li>
+    <li>Worry is the same process aimed at a negative goal; change the goal picture <span class="src">PC 73–74</span></li>
+    <li>“It ain’t necessarily so” is a good motto for negative suggestions <span class="src">PC 75</span></li>
+    <li>“Decide What You Want—Not What You Don’t Want” <span class="src">PC 76</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 6 ================= -->
+<section class="bay" id="c6">
+  <div class="bay-head"><span class="num">6</span><h2>Relax and let your success mechanism work</h2><span class="pages">PC 78–94</span></div>
+  <blockquote>“Your creative mechanism cannot function or work tomorrow. It can only function in the present—today.”<cite>PC 86</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 150" role="img" aria-labelledby="nT"><title id="nT">Past, today, tomorrow</title>
+      <rect id="n0" x="40" y="30" width="180" height="80" rx="8" class="fp"/><text class="tb" x="130" y="76" text-anchor="middle">Yesterday</text>
+      <rect id="n1" x="250" y="30" width="180" height="80" rx="8" class="fa"/><text class="tb" x="340" y="76" text-anchor="middle">Today</text>
+      <rect id="n2" x="460" y="30" width="180" height="80" rx="8" class="fp"/><text class="tb" x="550" y="76" text-anchor="middle">Tomorrow</text>
+      <text class="tm" x="340" y="136" text-anchor="middle">Tap a box · PC 86–89</text>
+    </svg>
+    <div class="row"><button data-n="0">Yesterday</button><button data-n="1">Today</button><button data-n="2">Tomorrow</button></div>
+    <p class="status" id="nSt">Live in “daytight compartments” (Osler). (PC 87)</p>
+    <p class="brace">{Image: Three boxes, Yesterday, Today and Tomorrow. Only Today is lit: the creative mechanism works only in the present.}</p>
+  </figure>
+  <p class="cite" style="margin:0">Five rules for freeing your creative machinery (PC 84–93). Tap each card.</p>
+  <div class="grid2" id="r6"></div>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Ask, “What is there here and now that I should respond to?” Much anxiety is reacting to a past situation instead of the present <span class="src">PC 88–89</span></li>
+    <li>“The forebrain cannot create” <span class="src">PC 78</span></li>
+    <li>Creative answers come when you stop straining, “often at an unguarded moment” <span class="src">PC 80–82</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 7 ================= -->
+<section class="bay" id="c7">
+  <div class="bay-head"><span class="num">7</span><h2>The habit of happiness</h2><span class="pages">PC 95–110</span></div>
+  <blockquote>“Happiness is native to the human mind and its physical machine. We think better, perform better, feel better, and are healthier when we are happy.”<cite>PC 95</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 150" role="img" aria-labelledby="oT"><title id="oT">Fact versus opinion</title>
+      <rect x="40" y="30" width="270" height="80" rx="8" class="fa"/><text class="tm" x="175" y="56" text-anchor="middle">FACT</text><text class="tb" x="175" y="84" text-anchor="middle">I lost money</text>
+      <g id="oOp" class="fade"><rect x="370" y="30" width="270" height="80" rx="8" class="fw"/><text class="tm" x="505" y="56" text-anchor="middle">YOUR OPINION ADDED</text><text class="tb" x="505" y="84" text-anchor="middle">“I am ruined and disgraced”</text></g>
+      <text class="tm" x="340" y="138" text-anchor="middle">PC 100–101</text>
+    </svg>
+    <div class="row"><button id="oBtn">Drop the opinion</button></div>
+    <p class="status" id="oSt">Don’t add your opinion to the facts. (PC 100–101)</p>
+    <p class="brace">{Image: Left, the fact: “I lost money”. Right, the opinion we add: “I am ruined and disgraced”. Dropping the opinion leaves only the fact.}</p>
+  </figure>
+  <figure class="scene">
+    <p class="cite" style="margin:0">Eight daily resolutions (PC 109–110, close paraphrase). “Act them out for 21 days.”</p>
+    <div id="h7" style="display:grid;gap:6px"></div>
+    <div class="row"><button id="hDay">Mark today done</button><button id="hReset">Reset</button><span class="pill" id="hCount">Day 0 of 21</span></div>
+    <p class="brace">{Image: A checklist of the eight resolutions and a day counter up to 21. Kept on this device.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Many live “on the deferred payment plan”; happiness is in the present <span class="src">PC 98</span></li>
+    <li>“Most people are about as happy as they make up their minds to be” (Lincoln) <span class="src">PC 99</span></li>
+    <li>“Our self-image and our habits tend to go together. Change one and you will automatically change the other” <span class="src">PC 108</span></li>
+    <li>“Fully 95 per cent of our behavior, feeling, and response is habitual” <span class="src">PC 109</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 8 ================= -->
+<section class="bay" id="c8">
+  <div class="bay-head"><span class="num">8</span><h2>The success-type personality</h2><span class="pages">PC 111–127</span></div>
+  <blockquote>“Functionally, a man is somewhat like a bicycle.” It keeps its balance only while going forward toward something.<cite>PC 113–114</cite></blockquote>
+  <p class="cite" style="margin:0">Tap each letter to reveal Maltz’s prescription.</p>
+  <div class="grid2" id="s8"></div>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>“Holding a low opinion of ourselves is not a virtue, but a vice” <span class="src">PC 121</span></li>
+    <li>“Confidence is built upon an experience of success” <span class="src">PC 122</span></li>
+    <li>“It doesn’t matter how many times you have failed in the past. What matters is the successful attempt” <span class="src">PC 123</span></li>
+    <li>“Changing your self-image does not mean changing your self… but changing your own mental picture” <span class="src">PC 124</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 9 ================= -->
+<section class="bay" id="c9">
+  <div class="bay-head"><span class="num">9</span><h2>The failure mechanism</h2><span class="pages">PC 129–148</span></div>
+  <blockquote>“Steam boilers have pressure gauges which show when the pressure is reaching the danger point. By recognizing the potential danger, corrective action can be taken—and safety assured.”<cite>PC 129</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 220" role="img" aria-labelledby="pT"><title id="pT">FAILURE pressure gauge</title>
+      <path d="M220 190 A120 120 0 0 1 460 190" class="st" stroke-width="2"/>
+      <path d="M400 86 A120 120 0 0 1 460 190" class="sw" stroke-width="6"/>
+      <line id="pNeedle" x1="340" y1="190" x2="340" y2="90" class="sw" stroke-width="3" stroke-linecap="round" style="transition:transform .7s ease;transform-origin:340px 190px;transform:rotate(-85deg)"/>
+      <circle cx="340" cy="190" r="6" fill="var(--warn)"/>
+      <text class="tm" x="215" y="210">calm</text><text class="tw" x="465" y="210" text-anchor="end">danger</text>
+    </svg>
+    <div class="row" id="p9"></div>
+    <div class="row"><button id="pFix">Recognize it and correct course</button></div>
+    <p class="status" id="pSt">Tap the signals you notice in yourself today.</p>
+    <p class="brace">{Image: A pressure gauge. Each FAILURE signal you tap (Frustration, Aggressiveness, Insecurity, Loneliness, Uncertainty, Resentment, Emptiness) pushes the needle toward danger. Recognizing them and correcting course brings it back to calm.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>“When we learn to recognize certain personality traits as signposts to failure, these symptoms then act automatically as ‘negative feedback’” <span class="src">PC 130</span></li>
+    <li>“We can cure these failure symptoms, not by will power, but by understanding” <span class="src">PC 131</span></li>
+    <li>“Chronic frustration usually means that the goals we have set for ourselves are unrealistic, or the image we have of ourselves is inadequate, or both” <span class="src">PC 131</span></li>
+    <li>“Resentment Creates an Inferior Self-image”; it is caused by your own response, not by others <span class="src">PC 143</span></li>
+    <li>“Emptiness and an Inadequate Self-image Go Together” <span class="src">PC 145</span></li>
+    <li>“Glance at Negatives, But Focus on Positives” <span class="src">PC 146</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 10 ================= -->
+<section class="bay" id="c10">
+  <div class="bay-head"><span class="num">10</span><h2>Remove emotional scars: an emotional face lift</h2><span class="pages">PC 149–167</span></div>
+  <blockquote>“You must become your own plastic surgeon.”<cite>PC 159</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 220" role="img" aria-labelledby="xT"><title id="xT">Emotional scars on the face of personality</title>
+      <circle cx="340" cy="110" r="80" class="fa" stroke-dasharray="5 4"/>
+      <circle cx="312" cy="92" r="6" fill="var(--ink)"/><circle cx="368" cy="92" r="6" fill="var(--ink)"/>
+      <path id="xMouth" d="M310 145 Q340 130 370 145" stroke="var(--ink)" stroke-width="3" fill="none"/>
+      <g id="xScars">
+        <path class="sw fade" d="M280 70l8 8l-8 8l8 8"/>
+        <path class="sw fade" d="M392 120l8 8l-8 8l8 8"/>
+        <path class="sw fade" d="M330 40l8 8l-8 8"/>
+        <path class="sw fade" d="M285 140l8 8l-8 8"/>
+      </g>
+      <text class="tm" x="340" y="212" text-anchor="middle">Face of personality with emotional scar tissue · PC 149–153</text>
+    </svg>
+    <div class="row"><button id="xPart">Forgive partly</button><button id="xAll">Forgive completely, and forget</button><button id="xHurt">New hurt</button></div>
+    <p class="status" id="xSt">Emotional scars “create a marred and ugly self-image.” (PC 149–153)</p>
+    <p class="brace">{Image: The face of personality carries four rust-colored scars. Partial forgiveness removes one and leaves the rest; complete forgiveness removes them all and the face smiles. “New hurt” adds the scars back.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Three rules: be too big to feel threatened (“Healthy Self-Images Do Not Bruise Easily”); a self-reliant, responsible attitude; relax away emotional hurts <span class="src">PC 153–158</span></li>
+    <li>“It is our own responses that we have to be concerned about—not other people’s” <span class="src">PC 157</span></li>
+    <li>“It is absolutely impossible to feel fear, anger, anxiety, or negative emotions of any kind while the muscles of the body are kept perfectly relaxed” <span class="src">PC 157</span></li>
+    <li>“Forgiveness, when it is real and genuine and complete, and forgotten—is the scalpel” <span class="src">PC 160</span></li>
+    <li>Forgive yourself too: we wound ourselves with self-condemnation, remorse and regret <span class="src">PC 163–164</span></li>
+    <li>Say “I failed”, not “I am a failure” <span class="src">PC 164</span></li>
+    <li>“To live creatively, we must be willing to be a little vulnerable” <span class="src">PC 166</span></li>
+    <li>“So remember ‘You’ make mistakes. Mistakes don’t make ‘You’—anything” <span class="src">PC 166</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 11 ================= -->
+<section class="bay" id="c11">
+  <div class="bay-head"><span class="num">11</span><h2>Unlock your real personality</h2><span class="pages">PC 168–186</span></div>
+  <blockquote>“Inhibition and excessive negative feedback are one and the same.”<cite>PC 170</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 230" role="img" aria-labelledby="uT"><title id="uT">Feedback sensitivity and the torpedo</title>
+      <path id="uPath" class="trail"/>
+      <g id="uTorp"><ellipse rx="9" ry="4" class="fb"/><polygon points="-9,0 -14,-4 -14,4" class="fb"/></g>
+      <circle cx="620" cy="115" r="14" class="sa"/><circle cx="620" cy="115" r="4" fill="var(--accent)"/>
+      <text class="tm" x="620" y="92" text-anchor="middle">Target</text>
+    </svg>
+    <div class="row"><span class="cite" style="margin:0">Relaxed</span><input type="range" id="uS" min="0" max="100" step="1" value="25" aria-label="Sensitivity to negative feedback"><span class="cite" style="margin:0">Too careful</span><button id="uPlay">Play</button></div>
+    <p class="status" id="uSt"></p>
+    <p class="brace">{Image: The slider sets how sensitive the torpedo is to criticism. Low: small corrections and it reaches the target. High: exaggerated zigzags, and at the top it stops all forward progress.}</p>
+  </figure>
+  <div class="story" id="st11"></div>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Conscious self-criticism makes you do worse <span class="src">PC 172–173</span></li>
+    <li>“Excessive carefulness, or being too anxious not to make an error is a form of excessive negative feedback” <span class="src">PC 174</span></li>
+    <li>Don’t wonder in advance what you are going to say; act, and correct as you go <span class="src">PC 185</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 12 ================= -->
+<section class="bay" id="c12">
+  <div class="bay-head"><span class="num">12</span><h2>Do-it-yourself tranquilizers</h2><span class="pages">PC 187–203</span></div>
+  <blockquote>“Each of us needs a quiet room inside his own mind—a quiet center within him, like the deep of the ocean that is never disturbed, no matter how rough the waves may become upon the surface.”<cite>PC 193</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 220" role="img" aria-labelledby="kT"><title id="kT">Telephone and quiet room</title>
+      <g id="kPhone" transform="translate(130 110)"><rect x="-30" y="-20" width="60" height="44" rx="8" class="fp"/><path d="M-36 -18 Q0 -46 36 -18" class="st" stroke-width="6"/><circle r="8" class="st"/>
+        <g id="kRing" class="fade" opacity="0"><path d="M-48 -30 Q-56 -10 -48 10M48 -30 Q56 -10 48 10" class="sw"/></g></g>
+      <text class="tm" x="130" y="160" text-anchor="middle">The telephone · PC 187</text>
+      <g id="kMan" class="slide"><circle cx="340" cy="70" r="16" class="fa"/><line x1="340" y1="86" x2="340" y2="130" class="st" stroke-width="2"/><line x1="340" y1="130" x2="326" y2="170" class="st" stroke-width="2"/><line x1="340" y1="130" x2="354" y2="170" class="st" stroke-width="2"/><line x1="320" y1="104" x2="360" y2="104" class="st" stroke-width="2"/></g>
+      <rect x="300" y="170" width="80" height="12" rx="3" class="fp"/>
+      <g id="kSteam" class="fade" opacity="0"><path d="M334 50 q-8 -14 0 -26 q8 -12 0 -22M346 50 q8 -14 0 -26 q-8 -12 0 -22" class="st" stroke-width="2"/></g>
+      <rect x="470" y="40" width="170" height="130" rx="8" class="fa" opacity=".6"/>
+      <text class="tb" x="555" y="100" text-anchor="middle">Quiet room</text><text class="tm" x="555" y="120" text-anchor="middle">in your mind · PC 193–195</text>
+    </svg>
+    <div class="row"><button id="kRingB">Phone rings</button><button id="kAns">Jump to answer</button><button id="kLet">Let it ring</button><button id="kRoom">Retire to the quiet room</button></div>
+    <p class="status" id="kSt">“You do not have to answer the telephone. You do not have to obey.” (PC 188)</p>
+    <p class="brace">{Image: A ringing telephone, a seated figure and a quiet room. Jumping to answer pulls the figure off its seat; letting it ring keeps it still; retiring to the quiet room lets steam rise off the head like the geyser Old Faithful.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Key thought: “The telephone is ringing, but I do not have to answer it. I can just let it ring” <span class="src">PC 190</span></li>
+    <li>If you cannot ignore the response, delay it <span class="src">PC 190</span></li>
+    <li>The quiet room “works as a mental and emotional decompression chamber” <span class="src">PC 193</span></li>
+    <li>“A Little Vacation Every Day”: between appointments, retire into your quiet room for a few moments; “It is not time wasted, but time invested” <span class="src">PC 194</span></li>
+    <li>Old Faithful: picture emotional steam “coming out the top of my head and evaporating harmlessly” <span class="src">PC 195</span></li>
+    <li>Build your own psychic umbrellas <span class="src">PC 198–202</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 13 ================= -->
+<section class="bay" id="c13">
+  <div class="bay-head"><span class="num">13</span><h2>Turn a crisis into a creative opportunity</h2><span class="pages">PC 204–222</span></div>
+  <blockquote>“A ‘crisis’ is a situation which can either make you or break you.”<cite>PC 205</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 260" role="img" aria-labelledby="jT"><title id="jT">John Thomas high jump</title>
+      <line x1="80" y1="220" x2="620" y2="220" class="st"/>
+      <g class="tm"><text x="70" y="224" text-anchor="end">0</text></g>
+      <rect id="j1" x="170" y="220" width="120" height="0" rx="4" class="fp" style="transition:all 1s ease"/>
+      <rect id="j2" x="390" y="220" width="120" height="0" rx="4" class="fa" style="transition:all 1s ease .3s"/>
+      <text id="j1t" class="tb" x="230" y="210" text-anchor="middle"></text><text id="j2t" class="tb" x="450" y="210" text-anchor="middle" style="fill:var(--accent)"></text>
+      <text class="tm" x="230" y="242" text-anchor="middle">Best in practice</text><text class="tm" x="450" y="242" text-anchor="middle">In competition, Feb 1960</text>
+    </svg>
+    <div class="row"><button id="jPlay">Raise the bar</button></div>
+    <p class="status" id="jSt">John Thomas, the record-breaking high-jumper from Boston University, “often performs better in competition than in practice.” (PC 204)</p>
+    <p class="brace">{Image: Two bars drawn to scale. Best jump in practice, 6 feet 9¼ inches. In competition, a world record of 7 feet 1¼ inches.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>To perform well in a crisis: (1) practice without pressure; (2) react aggressively, not defensively, keeping your positive goal in mind; (3) evaluate the situation in its true perspective <span class="src">PC 206</span></li>
+    <li>“If you react properly to the situation, a ‘crisis’ can give you strength, power, wisdom you do not ordinarily possess” <span class="src">PC 205–206</span></li>
+    <li>Ask, “What is the worst that can possibly happen if I fail?” <span class="src">PC 221</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 14 ================= -->
+<section class="bay" id="c14">
+  <div class="bay-head"><span class="num">14</span><h2>That winning feeling</h2><span class="pages">PC 223–244</span></div>
+  <blockquote>When your creative mechanism is “set for success” you experience “that winning feeling.”<cite>PC 224</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 220" role="img" aria-labelledby="wT"><title id="wT">Change the record</title>
+      <g id="wDisc" transform="translate(220 110)"><circle r="80" fill="var(--ink)"/><circle r="70" fill="none" stroke="var(--muted)" stroke-width=".6"/><circle r="56" fill="none" stroke="var(--muted)" stroke-width=".6"/><circle id="wLabel" r="26" class="fa"/><circle r="3" fill="var(--paper)"/></g>
+      <path d="M330 30 L330 60 L280 120" class="st" stroke-width="3"/>
+      <rect x="420" y="40" width="200" height="22" rx="11" class="fp"/>
+      <rect id="wBar" x="420" y="40" width="160" height="22" rx="11" class="fa" style="transition:width .8s ease"/>
+      <text class="tm" x="520" y="82" text-anchor="middle">Winning feeling</text>
+      <text id="wName" class="tb" x="520" y="130" text-anchor="middle">Playing: a past success</text>
+    </svg>
+    <div class="row"><button id="wS" class="on">Play a past success</button><button id="wF">Play a past failure</button></div>
+    <p class="status" id="wSt">Reactivating past success patterns reactivates the feeling, and the feeling evokes the “winning actions.” (PC 231)</p>
+    <p class="brace">{Image: A record player. The success record fills the winning-feeling bar; the failure record empties it. You don’t bang the phonograph, you change the record.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>Relive any past success, however small, in full detail: sights, sounds, how you felt. Then picture the coming task as if you had already succeeded <span class="src">PC 233–234</span></li>
+    <li>“I never take counsel of my fears” (General Patton). Failure feelings originate in your own mind, so you are free to accept or ignore them <span class="src">PC 236</span></li>
+    <li>Engrams strengthen with use and weaken with disuse, so concentrate on the happy and pleasant <span class="src">PC 242–243</span></li>
+    <li>You don’t bang the phonograph; you change the record <span class="src">PC 243</span></li>
+  </ul></details>
+</section>
+
+<!-- ================= 15 ================= -->
+<section class="bay" id="c15">
+  <div class="bay-head"><span class="num">15</span><h2>More years of life and more life in your years</h2><span class="pages">PC 245–267</span></div>
+  <blockquote>“A stored automobile needs no gasoline in the tank. And a goal-striver with no goal doesn’t really need much Life Force.”<cite>PC 261</cite></blockquote>
+  <figure class="scene">
+    <svg viewBox="0 0 680 210" role="img" aria-labelledby="lT"><title id="lT">Life force fuel gauge</title>
+      <path d="M200 170 A140 140 0 0 1 480 170" class="st" stroke-width="2"/>
+      <text class="tw" x="200" y="192" text-anchor="middle">E</text><text class="ta" x="480" y="192" text-anchor="middle">F</text>
+      <line id="lNeedle" x1="340" y1="170" x2="340" y2="50" class="sa" stroke-width="3" stroke-linecap="round" style="transition:transform 1s ease;transform-origin:340px 170px;transform:rotate(60deg)"/>
+      <circle cx="340" cy="170" r="6" fill="var(--accent)"/>
+      <text class="tm" x="340" y="200" text-anchor="middle">Life Force · PC 261–262</text>
+    </svg>
+    <div class="row"><button id="lOn" class="on">Something to look forward to</button><button id="lOff">Retired from life</button></div>
+    <p class="status" id="lSt">“Develop an enthusiasm for life, create a need for more life, and you will receive more life.” (PC 262)</p>
+    <p class="brace">{Image: A fuel gauge for Life Force. With a goal, something to look forward to, the needle sits near full. Retired from life, with nothing to look forward to, it drops toward empty, like a stored car that needs no gasoline.}</p>
+  </figure>
+  <details class="keys"><summary>Key lines from the book</summary><ul>
+    <li>The “rapid-healers” “not only expected to ‘get well’ in a hurry, but invariably had some compelling reason or need to get well quick” <span class="src">PC 256</span></li>
+    <li>“Develop a nostalgia for the future,” instead of for the past <span class="src">PC 262</span></li>
+    <li>“Retire from a Job, But Never Retire from Life.” “It is not retiring from a job that kills these men, it is retiring from life” <span class="src">PC 263</span></li>
+    <li>“Everyone’s real goal… is for more life—more living” <span class="src">PC 267</span></li>
+  </ul></details>
+</section>
+
+<blockquote>“If you can remember, worry, or tie your shoe, you can succeed.”<cite>PC 14</cite></blockquote>
+</div></main>
+<footer><div class="wrap"><p class="cite">Source: Maxwell Maltz, Psycho-Cybernetics (Prentice-Hall, 1960; Pocket Books edition), printed page numbers. Machine labels also cite CF (The Conquest of Frustration, 1969), CLT (Creative Living for Today, 1967). Paraphrases are marked by the absence of quotation marks. Religious passages are left out.</p></div></footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store={get(k,d){try{const v=localStorage.getItem('pcm.'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('pcm.'+k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- generic torpedo along a zigzag ---------- */
+function zig(o){ // o: x0,y0,x1,y1,amp,step,ceil,stopX,reach
+  const pts=[];let i=0;const st=o.step||20;
+  for(let x=o.x0;x<=o.x1;x+=st,i++){
+    let t=(x-o.x0)/(o.x1-o.x0), y=o.y0+(o.y1-o.y0)*t+(i? (i%2?o.amp:-o.amp):0);
+    if(o.ceil!=null)y=Math.max(y,o.ceil+8);
+    pts.push([x,Math.round(y)]); if(o.stopX&&x>=o.stopX)break;
+  }
+  if(o.reach)pts.push([o.x1,o.y1]);
+  return 'M'+pts.map(p=>p.join(',')).join('L');
+}
+function fly(path,torp,dur,onEnd){
+  if(path._raf)cancelAnimationFrame(path._raf);
+  const L=path.getTotalLength();path.style.strokeDasharray=L;
+  const place=l=>{const a=path.getPointAtLength(l),b=path.getPointAtLength(Math.min(l+2,L));
+    const ang=l>=L-1?0:Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;torp.setAttribute('transform',`translate(${a.x},${a.y}) rotate(${ang})`)};
+  if(RM){path.style.strokeDashoffset=0;place(L);onEnd&&onEnd();return}
+  let t0=null;const f=ts=>{if(!t0)t0=ts;const k=Math.min((ts-t0)/(dur||3000),1);path.style.strokeDashoffset=L*(1-k);place(L*k);if(k<1)path._raf=requestAnimationFrame(f);else onEnd&&onEnd()};
+  path._raf=requestAnimationFrame(f);
+}
+function rest(path,torp){const L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=0;const a=path.getPointAtLength(L);torp.setAttribute('transform',`translate(${a.x},${a.y})`)}
+function status(el,txt,cls){el.textContent=txt;el.className='status'+(cls?' '+cls:'')}
+function group(btns,on){btns.forEach(b=>b.classList.toggle('on',b===on))}
+
+/* ---------- MACHINE ---------- */
+const R=[[3,'Imagination',30],[4,'Dehypnotize',48],[5,'Rational thinking',64],[7,'Happiness habit',95],[8,'SUCCESS personality',111],[10,'Emotional face lift',149],[14,'Winning feeling',223]];
+const M=[[6,'Relax',78],[11,'Unlock personality',168],[12,'Tranquilizers',187],[13,'Crisis to opportunity',204]];
+const ticked=store.get('ticks',{});
+const mk=(arr,k)=>arr.map(([n,t,p])=>`<label><input type="checkbox" id="tk${n}" data-k="${k}" ${ticked[n]?'checked':''}> <span><a href="#c${n}" style="color:inherit">Ch ${n} · ${t}</a> <span class="src">PC ${p}</span></span></label>`).join('');
+$('#tkR').innerHTML=mk(R,'r');$('#tkM').innerHTML=mk(M,'m');
+let amp=11;
+function mDraw(play){
+  const v=+$('#mS').value,cy=200-v*1.4,a=Math.PI*(1-v/100),f=Math.PI*(v/100);
+  $('#mCeil').style.transform=`translateY(${cy}px)`;
+  $('#mNeedle').setAttribute('x2',105+22*Math.cos(a));$('#mNeedle').setAttribute('y2',215-22*Math.sin(a));
+  $('#mFail').setAttribute('x2',290+28*Math.cos(f));$('#mFail').setAttribute('y2',420-28*Math.sin(f));
+  $('#mInner').setAttribute('r',18+v*0.32);
+  const ok=cy<92;
+  $('#mPath').setAttribute('d',zig({x0:350,y0:287,x1:600,y1:100,amp,step:21,ceil:cy,stopX:ok?null:560,reach:ok}));
+  const h=30+v*0.75,b=410;
+  $('#mFig').innerHTML=`<circle cx="575" cy="${b-h}" r="${4+h*0.06}"/><line x1="575" y1="${b-h+5+h*0.06}" x2="575" y2="${b-h*0.4}"/><line x1="575" y1="${b-h*0.4}" x2="565" y2="${b}"/><line x1="575" y1="${b-h*0.4}" x2="585" y2="${b}"/><line x1="563" y1="${b-h*0.7}" x2="587" y2="${b-h*0.7}"/>`;
+  status($('#mSt'),ok?'Goal reached: the ceiling is above the goal.':'Blocked: the path hits the ceiling. Tick chapters to raise it.',ok?'good':'bad');
+  play?fly($('#mPath'),$('#mTorp'),3000):rest($('#mPath'),$('#mTorp'));
+}
+function mTick(){const t={};$$('#tkR input,#tkM input').forEach(i=>{if(i.checked)t[i.id.slice(2)]=1});store.set('ticks',t);
+  const r=$$('#tkR input:checked').length,m=$$('#tkM input:checked').length;$('#mS').value=Math.round(10+r*12.9);amp=11-m*2.5;mDraw(true)}
+$$('#tkR input,#tkM input').forEach(i=>i.addEventListener('change',mTick));
+$('#mS').addEventListener('input',()=>mDraw(false));$('#mPlay').addEventListener('click',()=>mDraw(true));
+(function(){const r=$$('#tkR input:checked').length,m=$$('#tkM input:checked').length;$('#mS').value=Math.round(10+r*12.9);amp=11-m*2.5;mDraw(false)})();
+
+/* ---------- DEFINITION ---------- */
+const dP=$('#dPath');dP.setAttribute('d',zig({x0:340,y0:200,x1:600,y1:90,amp:10,step:22,reach:true}));rest(dP,$('#dBoat'));
+$('#dPlay').addEventListener('click',()=>{let r=0;const w=$('#dWheel');const spin=()=>{r+=4;w.setAttribute('transform',`translate(90 125) rotate(${Math.sin(r/20)*35})`);if(r<300&&!RM)requestAnimationFrame(spin)};spin();fly(dP,$('#dBoat'),3200)});
+$$('[data-ans]').forEach(b=>b.addEventListener('click',()=>{group($$('[data-ans]'),b);
+  status($('#dSt'),b.dataset.ans==='n'?'Right. “Psycho-Cybernetics does not say that man is a machine. Rather, it says that man has a machine which he uses.” (PC 19)':'Maltz says no: “Psycho-Cybernetics does not say that man is a machine. Rather, it says that man has a machine which he uses.” (PC 19)',b.dataset.ans==='n'?'good':'bad')}));
+
+/* ---------- CH1 rings ---------- */
+$$('[data-s]').forEach(b=>b.addEventListener('click',()=>{group($$('[data-s]'),b);const o=b.dataset.s==='o';
+  $('#sCyc').style.stroke=o?'var(--warn)':'var(--accent)';$('#sIn').style.strokeWidth=o?1.3:4;$('#sOut').style.strokeWidth=o?4:1.3;
+  status($('#sSt'),o?'“‘Positive thinking’ cannot be used effectively as a patch or a crutch to the same self image.” (PC 4) The old cycle keeps running.':'“Numerous experiments have shown that once the concept of self is changed, other things consistent with the new concept of self, are accomplished easily and without strain.” (PC 4)',o?'bad':'good')}));
+
+/* ---------- STORY ENGINE ---------- */
+function storyBox(id,stories){
+  const root=document.getElementById(id);if(!root)return;
+  root.innerHTML=`<figure class="scene"><div class="tabs"></div>
+  <svg viewBox="0 0 680 320" role="img"><title>Story: face of personality and torpedo</title>
+   <circle cx="130" cy="150" r="72" class="st"/><circle class="fa inner" cx="130" cy="150" r="40" stroke-dasharray="4 3"/>
+   <path class="sw fade sc" d="M172 166l6 6l-6 6l6 6l-6 6" opacity="0"/><path class="sw fade bp" d="M112 80q18 -24 36 0" stroke-width="3" opacity="0"/>
+   <text class="tm" x="130" y="248" text-anchor="middle">Outer face (solid)</text><text class="tm" x="130" y="266" text-anchor="middle">Face of personality (dashed)</text>
+   <g class="slide cg"><line x1="250" x2="640" y1="0" y2="0" class="sw" stroke-dasharray="6 4"/><text class="tw" x="250" y="-6">Ceiling set by the self-image</text></g>
+   <circle cx="610" cy="60" r="12" class="sa"/><circle cx="610" cy="60" r="4" fill="var(--accent)"/><text class="tm" x="610" y="38" text-anchor="middle">Goal</text>
+   <path class="trail tr"/><g class="tp"><ellipse rx="9" ry="4" class="fb"/><polygon points="-9,0 -14,-4 -14,4" class="fb"/></g>
+   <text class="tb res" x="445" y="306" text-anchor="middle"></text></svg>
+  <p class="cap"></p>
+  <div class="nav"><button class="pv" aria-label="Previous stage">←</button><span class="dots"></span><button class="nx" aria-label="Next stage">→</button><button class="rp">Replay</button><span class="lab" style="margin-left:auto"></span></div>
+  <p class="brace">{Image: Choose a story. Left, the outer face and the dashed face of personality, which grows or shrinks with the self-image; marks show a scar or a nose hump. Right, a torpedo zigzags toward the goal under a ceiling set by the self-image. Each stage shows Maltz’s own words with the page.}</p></figure>`;
+  const q=s=>root.querySelector(s);let si=0,st=0;
+  q('.tabs').innerHTML=stories.map((s,k)=>`<button data-k="${k}">${s[0]}</button>`).join('');
+  q('.tabs').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{si=+b.dataset.k;st=0;show(true)}));
+  q('.pv').onclick=()=>{const n=stories[si][1].length;st=(st-1+n)%n;show(true)};
+  q('.nx').onclick=()=>{const n=stories[si][1].length;st=(st+1)%n;show(true)};
+  q('.rp').onclick=()=>show(true);
+  function show(play){
+    q('.tabs').querySelectorAll('button').forEach((b,j)=>b.classList.toggle('on',j===si));
+    const stages=stories[si][1],[lb,p,txt]=stages[st];
+    q('.dots').innerHTML=stages.map((_,j)=>`<span class="dot${j===st?' on':''}"></span>`).join(' ');
+    q('.lab').textContent=stories[si][0]+' · '+lb;q('.cap').textContent=txt;
+    q('.inner').setAttribute('r',12+48*p.i);q('.sc').setAttribute('opacity',p.sc?1:0);q('.bp').setAttribute('opacity',p.bp?1:0);
+    const cy=290-p.i*235;q('.cg').style.transform=`translateY(${cy}px)`;
+    const blocked=cy>54,stall=!!p.st;
+    q('.tr').setAttribute('d',zig({x0:262,y0:280,x1:610,y1:60,amp:p.a,step:18,ceil:cy,stopX:stall?400:(blocked?560:null),reach:!blocked&&!stall}));
+    const r=q('.res');r.textContent=stall?'Stalled: over-correction stops progress':blocked?'Blocked under the ceiling':'Goal reached';
+    r.style.fill=(stall||blocked)?'var(--warn)':'var(--accent)';
+    play?fly(q('.tr'),q('.tp'),3000):rest(q('.tr'),q('.tp'));
+  }
+  show(false);
+}
+storyBox('st1',[
+ ["Lecky's speller",[
+  ["Before",{i:.25,a:10},"“‘I don’t have a mathematical mind’; ‘I’m just naturally a poor speller’… They ‘identified’ with their mistakes and failures.” (PC 5)"],
+  ["Self-definition changes",{i:.6,a:9},"“If the student could be induced to change his self-definition, his learning ability should also change. This proved to be the case.” (PC 5)"],
+  ["After",{i:.95,a:8},"“One student who misspelled 55 words out of a hundred… made a general average of 91 the next year and became one of the best spellers in school.” (PC 5)"]]],
+ ["The salesman's scar",[
+  ["Before the accident",{i:.85,a:9},"“Or consider the salesman who suffered a facial disfigurement as the result of an automobile accident.” (PC 7)"],
+  ["The scar",{i:.22,a:13,sc:1},"“Soon his ego was even more mutilated than his face. He began to lose confidence in himself. He became bitter and hostile.” (PC 7)"],
+  ["Face restored",{i:.9,a:8},"“…the restoration of a ‘normal’ face would overnight change this man’s entire attitude and outlook, his feelings about himself, and result in greater success in his work.” (PC 7)"]]],
+ ["The Duchess",[
+  ["The nose",{i:.2,a:10,bp:1},"“The Duchess who all her life had been terribly shy and self-conscious because of a tremendous hump in her nose?” (PC 7)"],
+  ["New nose, same inner face",{i:.2,a:10},"“Although surgery gave her a classic nose and a face that was truly beautiful, she still continued to act the part of the ugly duckling…” (PC 7)"],
+  ["Why",{i:.2,a:10},"“If it remained scarred, distorted, ‘ugly,’ or inferior, the person himself acted out this role in his behavior regardless of the changes in physical appearance.” (PC vii)"]]]
+]);
+storyBox('st2',[
+ ["The baby and the learner driver",[
+  ["Baby reaching",{i:.95,a:30},"“In a baby, just learning to use its muscles… Its hand zigzags back and forth and gropes obviously as it reaches.” (PC 21)"],
+  ["Learner driver",{i:.95,a:18},"“We see this in a person just learning to drive a car, who ‘over-corrects’ and zigzags back and forth across the street.” (PC 21)"],
+  ["Habit",{i:.95,a:4},"“It ‘remembers’ its successes, forgets its failures, and repeats the successful action without any further conscious ‘thought’—or as a habit.” (PC 21)"]]]
+]);
+storyBox('st11',[
+ ["The door key",[
+  ["Feedback working",{i:.95,a:10},"“If negative feedback is working properly, a missile or a torpedo reacts to ‘criticism’ just enough to correct course and keeps going forward toward the target.” (PC 170)"],
+  ["Too careful",{i:.95,a:40,st:1},"“…let him try to insert his door-key into the lock on his front door, and his hand may ‘zigzag’ back and forth as much as six to ten inches.” (PC 174)"],
+  ["Relaxed",{i:.95,a:6},"“These people can be helped, and often remarkably, by training in relaxation techniques where they learn to relax from excessive effort and ‘purposing’…” (PC 174)"]]],
+ ["The stutterer",[
+  ["Over-careful",{i:.95,a:34,st:1},"“As in the case of the stutterer, who attempts to anticipate possible errors and be overly-careful not to make them—the result is inhibition and deterioration of performance.” (PC 174)"],
+  ["Less carefulness",{i:.95,a:7},"Excessive carefulness and anxiety are close kin: “Both have to do with too much concern for possible failure.” (PC 174)"]]]
+]);
+
+/* ---------- CH2 modes ---------- */
+const tP=$('#tPath');tP.setAttribute('d',zig({x0:60,y0:180,x1:620,y1:115,amp:16,step:28,reach:true}));rest(tP,$('#tTorp'));
+const mem=['Cold','Table','Book','Window','Smith','Brown'];
+$('#sBoxes').innerHTML=mem.map((m,i)=>`<rect x="${60+i*95}" y="70" width="70" height="70" rx="8" class="${m==='Brown'?'fa':'fp'}"/><text class="t" x="${95+i*95}" y="110" text-anchor="middle">${m}</text>`).join('');
+let mode='t';
+$$('[data-m]').forEach(b=>b.addEventListener('click',()=>{group($$('[data-m]'),b);mode=b.dataset.m;
+  $('#tA').setAttribute('opacity',mode==='t'?1:0);$('#sA').setAttribute('opacity',mode==='s'?1:0);
+  status($('#tSt'),mode==='t'?'“The torpedo accomplishes its goal by going forward, making errors, and continually correcting them. By a series of zigzags it literally ‘gropes’ its way to the goal.” (PC 20)':'“Recalling a name temporarily forgotten is another example. A ‘Scanner’ in your brain scans back through your stored memories until the correct name is ‘recognized.’” (PC 21)')}));
+$('#tPlay').addEventListener('click',()=>{
+  if(mode==='t'){fly(tP,$('#tTorp'),3000);return}
+  const beam=$('#sBeam');const seq=[0,1,2,3,4,3,4,5];let k=0;
+  const step=()=>{beam.setAttribute('x',60+seq[k]*95);k++;if(k<seq.length)setTimeout(step,RM?0:380)};step();
+});
+const PR=[["A goal or target","It must have a goal, conceived of as “already in existence—now” in actual or potential form."],["Think of the end result","“The means whereby will often take care of themselves.”"],["Don’t fear mistakes","“Do not be afraid of making mistakes, or of temporary failures.”"],["Correct as you go","It reaches goals by going forward, making mistakes and correcting course."],["Remember the hits","Skill comes by “forgetting the past errors, and remembering the successful response.”"],["Let it work","“You must ‘let it’ work, rather than ‘make it’ work.”"],["Act first","“Do the thing and you will have the power” (Emerson)."]];
+$('#pr2').innerHTML='<p class="cite" style="grid-column:1/-1;margin:0">The principles Maltz asks you to memorize (PC 28–29). Tap to reveal.</p>'+PR.map(([h,t])=>`<button class="tile"><b>${h}</b><span class="hide" hidden>${t}</span></button>`).join('');
+function flips(sel){$$(sel+' .tile').forEach(b=>b.addEventListener('click',()=>{const s=b.querySelector('.hide');s.hidden=!s.hidden;b.classList.toggle('open',!s.hidden)}))}
+flips('#pr2');
+
+/* ---------- CH3 ---------- */
+$('#fPlay').addEventListener('click',()=>{const W=440/24;$('#f1').setAttribute('width',24*W);$('#f3').setAttribute('width',23*W);
+  setTimeout(()=>{$('#f1t').textContent='24%';$('#f1t').setAttribute('x',200+24*W-40);$('#f3t').textContent='23%';$('#f3t').setAttribute('x',200+23*W-40);},RM?0:1300);
+  status($('#fSt'),'The third group, which practiced in their imagination, “improved in scoring 23 per cent!” (PC 35)','good')});
+$('#thPlay').addEventListener('click',()=>{const m=$('#thMouth');m.setAttribute('d','M-18 18 Q0 4 18 18');let k=0;
+  const f=()=>{k+=0.03;const y=4+ (34-4)*Math.min(k,1);m.setAttribute('d',`M-18 14 Q0 ${y} 18 14`);if(k<1&&!RM)requestAnimationFrame(f);else m.setAttribute('d','M-18 14 Q0 34 18 14')};f();
+  status($('#thSt'),'See yourself “acting and reacting appropriately, successfully, ideally.” This builds “new ‘memories’” into your nervous system. (PC 46)','good')});
+
+/* ---------- CH4 gauge ---------- */
+const gT=$('#gTicks');for(let v=0;v<=150;v+=25){const a=Math.PI*(1-v/150),x=340+152*Math.cos(a),y=190-152*Math.sin(a);gT.innerHTML+=`<text x="${x}" y="${y}" text-anchor="middle">${v}</text>`}
+function gSet(v){$('#gNeedle').style.transform=`rotate(${-90+180*v/150}deg)`;$('#gVal').textContent='Grip: '+v+' lb'}
+gSet(100);
+$$('[data-g]').forEach(b=>b.addEventListener('click',()=>{group($$('[data-g]'),b);const v=+b.dataset.g;gSet(v);
+  status($('#gSt'),v===100?'“All his effort and straining cannot budge the needle beyond the 100 pound mark.” (PC 53–54)':'“This time he easily pulls the needle to the 125 pound mark… hypnosis has not added anything to his actual strength.” (PC 54)',v===100?'bad':'good')}));
+const TER=[[110,'Small territory'],[145,'Larger, better one'],[130,'Higher commission'],[60,'Poorest territory']];
+$$('[data-t]').forEach(b=>b.addEventListener('click',()=>{group($$('[data-t]'),b);const [h,l]=TER[+b.dataset.t];const p=$('#salPot');p.setAttribute('height',h);p.setAttribute('y',160-h);$('#salLab').textContent=l;
+  status($('#salSt'),+b.dataset.t===1?'He found “all sorts of excuses to coast when the $5,000 was in sight.” (PC 51)':+b.dataset.t===3?'“When he was assigned a poor territory, he worked hard to make that $5,000.” (PC 51)':'“He thought of himself as a $5,000-per-year man and as long as he held that concept of himself, outside conditions didn’t seem to matter much.” (PC 51)')}));
+
+/* ---------- CH5 questions ---------- */
+const Q=["Is there any rational reason for such a belief?","Could it be that I am mistaken in this belief?","Would I come to the same conclusion about some other person in a similar situation?","Why should I continue to act and feel as if this were true if there is no good reason to believe it?"];
+let qi=-1;const qDots=()=>$('#qDots').innerHTML=Q.map((_,j)=>`<span class="dot${j<=qi?' on':''}"></span>`).join(' ');qDots();
+$('#qIn').addEventListener('input',()=>{$('#qErr').hidden=true;qi=-1;qDots();$('#qGo').textContent='Ask the four questions'});
+$('#qGo').addEventListener('click',()=>{const v=$('#qIn').value.trim();if(!v){$('#qErr').hidden=false;return}
+  qi++;if(qi<Q.length){status($('#qSt'),`“${v}” — ${qi+1}. ${Q[qi]} (PC 72)`);$('#qGo').textContent=qi<Q.length-1?'Next question':'Finish'}
+  else{status($('#qSt'),'“Rational thought, to be effective in changing belief and behavior, must be accompanied by deep feeling and desire.” (PC 73)','good');qi=-1;$('#qGo').textContent='Ask again'}
+  qDots()});
+
+/* ---------- CH6 ---------- */
+const NT=['“There simply isn’t any future in digging continually into the past” (Schindler). (PC 65)','“Your creative mechanism cannot function or work tomorrow. It can only function in the present—today.” (PC 86)','Ask, “What is there here and now that I should respond to?” (PC 88)'];
+$$('[data-n]').forEach(b=>b.addEventListener('click',()=>{group($$('[data-n]'),b);const n=+b.dataset.n;[0,1,2].forEach(j=>$('#n'+j).setAttribute('class',j===n?(n===1?'fa':'fw'):'fp'));status($('#nSt'),NT[n],n===1?'good':'bad')}));
+const R6=[["Worry before the bet","“Do your worrying before you place your bet, not after the wheel starts turning.”"],["Respond to now","“Form the habit of consciously responding to the present moment.”"],["One thing at a time","“Try to do only one thing at a time.”"],["Sleep on it","“Sleep on it.”"],["Relax while you work","“Relax while you work.”"]];
+$('#r6').innerHTML=R6.map(([h,t])=>`<button class="tile"><b>${h}</b><span class="hide" hidden>${t} <span class="src">PC 84–93</span></span></button>`).join('');flips('#r6');
+
+/* ---------- CH7 ---------- */
+let opOn=true;$('#oBtn').addEventListener('click',()=>{opOn=!opOn;$('#oOp').setAttribute('opacity',opOn?1:0.12);$('#oBtn').textContent=opOn?'Drop the opinion':'Add the opinion back';
+  status($('#oSt'),opOn?'Don’t add your opinion to the facts. (PC 100–101)':'Only the fact is left: losing money is a fact; “ruined and disgraced” was an opinion. (PC 100–101)',opOn?'':'good')});
+const H=['Be as cheerful as possible','Be a little friendlier toward others','Be a little less critical and more tolerant','Act as if success were inevitable, as the person you want to be','Don’t let your opinion color facts pessimistically','Smile at least three times a day','React calmly and intelligently','Ignore negative “facts” you can do nothing about'];
+const hs=store.get('happy',{c:{},d:0});
+$('#h7').innerHTML=H.map((t,j)=>`<label class="check"><input type="checkbox" id="h${j}" ${hs.c[j]?'checked':''}> <span>${t}</span></label>`).join('');
+const hUpd=()=>{$('#hCount').textContent=`Day ${hs.d} of 21`;store.set('happy',hs)};hUpd();
+$$('#h7 input').forEach((i,j)=>i.addEventListener('change',()=>{hs.c[j]=i.checked?1:0;hUpd()}));
+$('#hDay').addEventListener('click',()=>{hs.d=Math.min(21,hs.d+1);hs.c={};$$('#h7 input').forEach(i=>i.checked=false);hUpd()});
+$('#hReset').addEventListener('click',()=>{hs.d=0;hs.c={};$$('#h7 input').forEach(i=>i.checked=false);hUpd()});
+
+/* ---------- CH8 SUCCESS ---------- */
+const S8=[["S","Sense of direction","Have a goal that means something to you; we are built as goal-seeking mechanisms. PC 113–114"],["U","Understanding","Seek true information about yourself and others, good news or bad. PC 114–117"],["C","Courage","The courage to act; practice boldness in little things. PC 117–119"],["C","Charity","Our feelings about ourselves tend to correspond to our feelings about others. PC 119–120"],["E","Esteem","Stop carrying a picture of yourself as defeated and worthless. PC 120–122"],["S","Self-confidence","Remember successes, forget failures. PC 122–123"],["S","Self-acceptance","“Accept yourself as you are—and start from there.” PC 124–127"]];
+$('#s8').innerHTML=S8.map(([l,h,t])=>`<button class="tile"><b><span style="font-size:1.6rem;color:var(--accent)">${l}</span> ${h}</b><span class="hide" hidden>${t}</span></button>`).join('');flips('#s8');
+
+/* ---------- CH9 FAILURE ---------- */
+const F9=[["F","Frustration, hopelessness, futility"],["A","Aggressiveness (misdirected)"],["I","Insecurity"],["L","Loneliness (lack of “oneness”)"],["U","Uncertainty"],["R","Resentment"],["E","Emptiness"]];
+$('#p9').innerHTML=F9.map(([l,t],j)=>`<button data-f="${j}" title="${t}"><b>${l}</b> ${t.split(' (')[0].split(',')[0]}</button>`).join('');
+const fOn=new Set();const pSet=()=>{$('#pNeedle').style.transform=`rotate(${-85+fOn.size*24}deg)`};
+$$('[data-f]').forEach(b=>b.addEventListener('click',()=>{const j=+b.dataset.f;fOn.has(j)?fOn.delete(j):fOn.add(j);b.classList.toggle('on',fOn.has(j));pSet();
+  status($('#pSt'),fOn.size?`${F9[j][0]}—${F9[j][1]}. ${fOn.size} of 7 signals showing. (PC 130)`:'Tap the signals you notice in yourself today.',fOn.size>3?'bad':'')}));
+$('#pFix').addEventListener('click',()=>{fOn.clear();$$('[data-f]').forEach(b=>b.classList.remove('on'));pSet();
+  status($('#pSt'),'“The important thing is to recognize them for what they are, and take positive action to correct course.” (PC 130)','good')});
+
+/* ---------- CH10 ---------- */
+const scars=()=>$$('#xScars path');
+const xFace=s=>$('#xMouth').setAttribute('d',s?'M310 140 Q340 162 370 140':'M310 145 Q340 130 370 145');
+$('#xPart').addEventListener('click',()=>{scars()[0].setAttribute('opacity',0);xFace(false);status($('#xSt'),'Forgiveness must be complete, not partial or pretended, and not a weapon. (PC 160–161)','bad')});
+$('#xAll').addEventListener('click',()=>{scars().forEach(s=>s.setAttribute('opacity',0));xFace(true);status($('#xSt'),'“Forgiveness, when it is real and genuine and complete, and forgotten—is the scalpel.” (PC 160)','good')});
+$('#xHurt').addEventListener('click',()=>{scars().forEach(s=>s.setAttribute('opacity',1));xFace(false);status($('#xSt'),'Emotional scars “create a marred and ugly self-image.” (PC 149–153)')});
+
+/* ---------- CH11 slider ---------- */
+const uP=$('#uPath');
+function uDraw(play){const v=+$('#uS').value,a=4+v*0.4,stall=v>85;
+  uP.setAttribute('d',zig({x0:60,y0:180,x1:620,y1:115,amp:a,step:28,stopX:stall?330:null,reach:!stall}));
+  status($('#uSt'),stall?'“Instead of progressing toward the target, it will perform exaggerated lateral zig-zags, or stop all forward progress altogether.” (PC 170)':v>50?'“If the mechanism is too sensitive to negative feedback, the servo-mechanism overcorrects.” (PC 170)':'“…a missile or a torpedo reacts to ‘criticism’ just enough to correct course and keeps going forward toward the target.” (PC 170)',stall||v>50?'bad':'good');
+  play?fly(uP,$('#uTorp'),2800):rest(uP,$('#uTorp'))}
+$('#uS').addEventListener('input',()=>uDraw(false));$('#uPlay').addEventListener('click',()=>uDraw(true));uDraw(false);
+
+/* ---------- CH12 ---------- */
+let ringT;const ring=on=>{$('#kRing').setAttribute('opacity',on?1:0)};
+$('#kRingB').addEventListener('click',()=>{ring(true);$('#kMan').style.transform='';$('#kSteam').setAttribute('opacity',0);status($('#kSt'),'The bell is a signal you have learned to obey. (PC 187–188)')});
+$('#kAns').addEventListener('click',()=>{ring(false);$('#kMan').style.transform='translate(-150px,-20px)';status($('#kSt'),'“The outside stimulus has had the effect of ‘moving’ you.” (PC 188)','bad')});
+$('#kLet').addEventListener('click',()=>{ring(true);$('#kMan').style.transform='';status($('#kSt'),'“The telephone is ringing, but I do not have to answer it. I can just let it ring.” (PC 190)','good')});
+$('#kRoom').addEventListener('click',()=>{ring(false);$('#kMan').style.transform='';$('#kSteam').setAttribute('opacity',1);setTimeout(()=>$('#kSteam').setAttribute('opacity',0),RM?0:2500);
+  status($('#kSt'),'Picture emotional steam “coming out the top of my head and evaporating harmlessly.” (PC 195)','good')});
+
+/* ---------- CH13 ---------- */
+$('#jPlay').addEventListener('click',()=>{const sc=h=>h*2.2; // px per inch, from 0
+  const a=81.25,b=85.25;$('#j1').setAttribute('height',sc(a)*0.9);$('#j1').setAttribute('y',220-sc(a)*0.9);$('#j2').setAttribute('height',sc(b)*0.9);$('#j2').setAttribute('y',220-sc(b)*0.9);
+  setTimeout(()=>{$('#j1t').textContent='6 ft 9¼ in';$('#j1t').setAttribute('y',220-sc(a)*0.9-8);$('#j2t').textContent='7 ft 1¼ in';$('#j2t').setAttribute('y',220-sc(b)*0.9-8)},RM?0:1300);
+  status($('#jSt'),'“If you react properly to the situation, a ‘crisis’ can give you strength, power, wisdom you do not ordinarily possess.” (PC 205–206)','good')});
+
+/* ---------- CH14 ---------- */
+let wr=0,wSpin=true;(function spin(){if(RM)return;wr+=1.2;$('#wDisc').setAttribute('transform',`translate(220 110) rotate(${wr})`);requestAnimationFrame(spin)})();
+$('#wS').addEventListener('click',()=>{group([$('#wS'),$('#wF')],$('#wS'));$('#wBar').setAttribute('width',190);$('#wLabel').setAttribute('class','fa');$('#wName').textContent='Playing: a past success';
+  status($('#wSt'),'Reactivating past success patterns reactivates the feeling, and the feeling evokes the “winning actions.” (PC 231)','good')});
+$('#wF').addEventListener('click',()=>{group([$('#wS'),$('#wF')],$('#wF'));$('#wBar').setAttribute('width',24);$('#wLabel').setAttribute('class','fw');$('#wName').textContent='Playing: a past failure';
+  status($('#wSt'),'You don’t bang the phonograph; you change the record. (PC 243)','bad')});
+
+/* ---------- CH15 ---------- */
+$('#lOn').addEventListener('click',()=>{group([$('#lOn'),$('#lOff')],$('#lOn'));$('#lNeedle').style.transform='rotate(60deg)';
+  status($('#lSt'),'“Develop an enthusiasm for life, create a need for more life, and you will receive more life.” (PC 262)','good')});
+$('#lOff').addEventListener('click',()=>{group([$('#lOn'),$('#lOff')],$('#lOff'));$('#lNeedle').style.transform='rotate(-70deg)';
+  status($('#lSt'),'“They have nothing to look forward to; become bored, inactive—and often suffer a loss of self-esteem.” (PC 263)','bad')});
+})();
+</script>
+
+</html>

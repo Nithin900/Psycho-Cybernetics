@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Self-Image Ladder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Young+Serif&display=swap">
+<style>
+/* Layout: a vertical ladder of 7 rungs (Nithin's Learning Ladder). Each rung = the question it asks, then one live scene answered only from Maltz's 7 books. Teal builds the self-image, rust shrinks it. */
+:root{
+  --bg:#f2f6f5; --paper:#ffffff; --ink:#17302c; --muted:#4e6662; --line:#cddcd9;
+  --accent:#0f6e66; --accent-soft:#dcefeb; --warn:#a13d2d; --warn-soft:#f7e3dd;
+  --blue:#1f5f9e; --blue-soft:#e3eef9; --gold:#8a5d0c; --gold-soft:#f8ecd2;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1817; --paper:#152220; --ink:#e2eeeb; --muted:#9fb5b1; --line:#2a3d3a;
+  --accent:#5cc3b7; --accent-soft:#1c3431; --warn:#ef9a88; --warn-soft:#3a2420;
+  --blue:#7fb3ea; --blue-soft:#1b2a3b; --gold:#e3b75c; --gold-soft:#3a2f17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1817; --paper:#152220; --ink:#e2eeeb; --muted:#9fb5b1; --line:#2a3d3a;
+  --accent:#5cc3b7; --accent-soft:#1c3431; --warn:#ef9a88; --warn-soft:#3a2420;
+  --blue:#7fb3ea; --blue-soft:#1b2a3b; --gold:#e3b75c; --gold-soft:#3a2f17; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,6vw,2.8rem);line-height:1.1}
+h2{font-size:1.45rem;line-height:1.2}
+h3{font-size:1.08rem}
+p{margin:0}
+header.top{background:var(--paper);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:30px 22px;display:grid;gap:12px}
+.eyebrow{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.core{font-family:var(--display);font-size:1.25rem;line-height:1.4;border-left:4px solid var(--accent);padding-left:14px}
+.core cite,.cite{display:block;font-family:var(--body);font-style:normal;font-size:.78rem;color:var(--muted);margin-top:4px}
+.keyline{font-size:.82rem;color:var(--muted)}
+nav.rungs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav.rungs .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:8px}
+nav.rungs a{flex:none;font-size:.82rem;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+nav.rungs a b{color:var(--accent)}
+nav.rungs a:hover,nav.rungs a:focus-visible{border-color:var(--accent);outline:none}
+main .wrap{padding-block:22px calc(80px + env(safe-area-inset-bottom,0px));display:grid;gap:46px}
+main .wrap>*{min-width:0}
+section.rung{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.rh{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:baseline;border-top:2px solid var(--accent);padding-top:14px}
+.rn{grid-row:span 3;font-family:var(--display);font-size:2rem;color:var(--accent);line-height:1;min-width:1.2em;font-variant-numeric:tabular-nums}
+.rk{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.rq{color:var(--muted);font-size:.95rem}
+figure.scene{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+figure.scene svg{width:100%;height:auto;display:block}
+.brace{font-size:.86rem;color:var(--muted);font-style:italic}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:inherit;font-size:.88rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+button.bad.on{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.say{font-family:var(--display);font-size:1.05rem;line-height:1.5;min-height:3em}
+.say .src{font-family:var(--body)}
+.src{font-size:.76rem;color:var(--muted);white-space:nowrap}
+.good{color:var(--accent)} .badc{color:var(--warn)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.grid>*{min-width:0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:8px;align-content:start}
+.card h3{font-size:1rem}
+.pill{display:inline-block;font-size:.74rem;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:700}
+.pill.w{background:var(--warn-soft);color:var(--warn)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font-size:.82rem;padding:4px 10px;border-radius:999px}
+.chips button.g{border-color:var(--accent)} .chips button.r{border-color:var(--warn)}
+.chips button.g.on{background:var(--accent-soft)} .chips button.r.on{background:var(--warn-soft);color:var(--warn)}
+textarea{font:inherit;font-size:.95rem;width:100%;min-height:96px;padding:10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);resize:vertical}
+.err{color:var(--warn);font-size:.82rem}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:.95rem}
+.check input{margin-top:.3em;accent-color:var(--accent)}
+.steps{margin:0;padding-left:1.3em;display:grid;gap:6px;font-size:.95rem}
+.score{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent)}
+.hyp{display:grid;gap:8px}
+.hyp .claim{font-family:var(--display);font-size:1.02rem;line-height:1.4}
+.hyp .ans{font-size:.93rem;border-top:1px dashed var(--line);padding-top:8px}
+details.more{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details.more summary{cursor:pointer;font-weight:700;font-size:.92rem;color:var(--accent)}
+details.more ul{margin:10px 0 0;padding-left:1.2em;display:grid;gap:8px;font-size:.95rem}
+.keys{display:grid;gap:4px;font-size:.84rem;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.keys b{color:var(--accent);display:inline-block;min-width:3.2em}
+input[type=range]{accent-color:var(--accent);flex:1;min-width:140px}
+svg .t{fill:var(--ink);font-family:var(--body);font-size:13px}
+svg .tb{fill:var(--ink);font-family:var(--body);font-size:14px;font-weight:700}
+svg .tm{fill:var(--muted);font-family:var(--body);font-size:12px}
+svg .ta{fill:var(--accent);font-family:var(--body);font-size:12px;font-weight:700}
+svg .tw{fill:var(--warn);font-family:var(--body);font-size:12px;font-weight:700}
+svg .st{stroke:var(--muted);fill:none;stroke-width:1.3}
+svg .sa{stroke:var(--accent);fill:none;stroke-width:2}
+svg .sw{stroke:var(--warn);fill:none;stroke-width:2}
+svg .fa{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.3}
+svg .fw{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.3}
+svg .fp{fill:var(--paper);stroke:var(--line);stroke-width:1.3}
+svg .fb{fill:var(--blue)}
+.grow{transition:opacity .6s ease, transform .6s ease;transform-box:fill-box;transform-origin:center}
+.anim{transition:all .8s ease}
+@media (prefers-reduced-motion: reduce){.grow,.anim{transition:none}}
+@media (max-width:560px){body{font-size:16px} figure.scene{overflow-x:auto} figure.scene>svg{min-width:600px} figure.scene>svg.strip{min-width:0}}
+</style>
+
+<header class="top"><div class="wrap">
+  <span class="eyebrow">Maxwell Maltz · 7 books · the self-image only</span>
+  <h1>Self-Image Ladder</h1>
+  <p class="core">“Each of us carries about with us a mental blueprint or picture of ourselves.” You “will ‘act like’ the sort of person you conceive yourself to be.”<cite>PC 2 · the core sentence</cite></p>
+  <div class="keys">
+    <span><b>PC</b> Psycho-Cybernetics, 1960</span><span><b>CLT</b> Creative Living for Today, 1967</span><span><b>CF</b> The Conquest of Frustration, 1969 (Maltz’s chapters)</span><span><b>PCSF</b> Psycho-Cybernetics &amp; Self-Fulfillment, 1970</span><span><b>PCY</b> Power Psycho-Cybernetics for Youth</span><span><b>SSR</b> The Search for Self-Respect, 1973</span><span><b>LBF</b> Live and Be Free Thru Psycho-Cybernetics, 1975</span>
+  </div>
+  <p class="keyline">Climb your Learning Ladder, one rung at a time. Words in quotation marks are Maltz’s own; the rest is close paraphrase of the cited page. Religious passages are left out.</p>
+</div></header>
+
+<nav class="rungs" aria-label="Rungs"><div class="wrap">
+  <a href="#r1"><b>1</b> First principles · parts</a><a href="#r2"><b>2</b> Experiment</a><a href="#r3"><b>3</b> Trade-offs</a><a href="#r4"><b>4</b> Second-order · factors</a><a href="#r5"><b>5</b> Systems</a><a href="#r6"><b>6</b> Feynman</a><a href="#r7"><b>7</b> Practice · solutions</a>
+</div></nav>
+
+<main><div class="wrap">
+
+<!-- ============ 1 FIRST PRINCIPLES ============ -->
+<section class="rung" id="r1">
+  <div class="rh"><span class="rn">1</span><span class="rk">First principles</span><h2>What is the self-image made of?</h2><span class="rq">Start from one dot. Each tap grows one part Maltz names, from the center out.</span></div>
+  <figure class="scene">
+    <svg viewBox="0 0 680 420" role="img" aria-labelledby="aT aD"><title id="aT">Parts of the self-image</title><desc id="aD">Seven layers grow from a single dot, each a part of the self-image Maltz describes.</desc>
+      <g id="L7" class="grow" opacity="0"><circle cx="250" cy="210" r="185" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="7 5"/><circle cx="402" cy="104" r="10" fill="var(--paper)" stroke="var(--warn)" stroke-width="1.5"/><text class="tb" x="402" y="109" text-anchor="middle" style="font-size:12px">7</text></g>
+      <g id="L6" class="grow" opacity="0"><circle cx="250" cy="210" r="160" class="fp" style="fill:var(--gold-soft);stroke:var(--gold)"/><circle cx="381" cy="118" r="10" fill="var(--paper)" stroke="var(--gold)" stroke-width="1.5"/><text class="tb" x="381" y="123" text-anchor="middle" style="font-size:12px">6</text></g>
+      <g id="L5" class="grow" opacity="0"><circle cx="250" cy="210" r="132" class="fp" style="fill:var(--blue-soft);stroke:var(--blue)"/><circle cx="358" cy="134" r="10" fill="var(--paper)" stroke="var(--blue)" stroke-width="1.5"/><text class="tb" x="358" y="139" text-anchor="middle" style="font-size:12px">5</text></g>
+      <g id="L4" class="grow" opacity="0"><circle cx="250" cy="210" r="104" class="fp"/><circle cx="335" cy="150" r="10" fill="var(--paper)" stroke="var(--muted)" stroke-width="1.5"/><text class="tb" x="335" y="155" text-anchor="middle" style="font-size:12px">4</text></g>
+      <g id="L3" class="grow" opacity="0"><circle cx="250" cy="210" r="78" class="fa"/><circle cx="314" cy="165" r="10" fill="var(--paper)" stroke="var(--accent)" stroke-width="1.5"/><text class="tb" x="314" y="170" text-anchor="middle" style="font-size:12px">3</text></g>
+      <g id="L2" class="grow" opacity="0"><circle cx="250" cy="210" r="50" class="fa" style="fill:var(--paper)" stroke-dasharray="4 3"/><circle cx="291" cy="181" r="10" fill="var(--paper)" stroke="var(--accent)" stroke-width="1.5"/><text class="tb" x="291" y="186" text-anchor="middle" style="font-size:12px">2</text></g>
+      <circle id="L1" cx="250" cy="210" r="9" fill="var(--accent)"/>
+      <text class="tb" x="250" y="236" text-anchor="middle" id="L1t">1</text>
+      <g id="side" class="tm"></g>
+    </svg>
+    <div class="row"><button id="aGrow">Grow one part</button><button id="aAll">Show all</button><button id="aReset">Back to the dot</button><span class="src" id="aCount">1 of 7</span></div>
+    <p class="say" id="aSay"></p>
+    <p class="brace">{Image: A single dot grows into seven rings. 1, the picture, “the sort of person I am”. 2, your opinion of yourself. 3, beliefs that become “true” once they enter the picture. 4, the system of ideas whose keystone is the self-image. 5, many areas averaged into one image. 6, the comfort zone, where performing outside it brings tension. 7, the dashed ceiling on how much of your true potential you can use.}</p>
+  </figure>
+  <div class="grid">
+    <div class="card"><h3>Its size</h3><p>In Dalí’s painting for Maltz it is either “a shrunken image” or “very tall” <span class="src">CLT 117–118</span>; “the size of a small potato” or “ten feet tall” <span class="src">PCSF 204</span>. A three-foot bellhop’s “self-image is as tall as that twenty-six-foot Christmas tree” <span class="src">SSR 223</span>.</p></div>
+    <div class="card"><h3>Its right size</h3><p>“A reasonable approximation of ‘you,’ being neither more than you are, nor less than you are” <span class="src">PC 10</span>. Not “a fictitious self which is all-powerful, arrogant, egoistic” <span class="src">PC 43</span>.</p></div>
+    <div class="card"><h3>What it is not</h3><p>“There is no color to a self-image” <span class="src">PCY 203</span>. It is invisible but “as real as the chair you sit on” <span class="src">PCSF 22</span>.</p></div>
+    <div class="card"><h3>Its other names</h3><p>Your “best friend” <span class="src">CLT 10</span> · “your emotional and spiritual thermostat” <span class="src">CF 106</span> · your “pacemaker” <span class="src">CLT 52</span> · conscience: “your opinion of yourself as you look in the mirror” <span class="src">CF 70</span> · “the blueprint of what you think of yourself… the road map of where you want to move” <span class="src">PCY 206</span>.</p></div>
+  </div>
+</section>
+
+<!-- ============ 2 EXPERIMENT ============ -->
+<section class="rung" id="r2">
+  <div class="rh"><span class="rn">2</span><span class="rk">Experiment</span><h2>Predict first, then see Maltz’s evidence</h2><span class="rq">Pick True or False before the answer opens. <span class="score" id="hScore">0 of 0 right</span></span></div>
+  <div class="grid" id="hyp"></div>
+  <p class="brace">{Image: Seven claim cards. Each shows a claim, two buttons, True and False, and after your choice opens Maltz’s case and page. Your picks are kept on this device.}</p>
+</section>
+
+<!-- ============ 3 TRADE-OFFS ============ -->
+<section class="rung" id="r3">
+  <div class="rh"><span class="rn">3</span><span class="rk">Trade-offs</span><h2>Too small, too big, or real size? And where to aim?</h2><span class="rq">Slide the self-image, then slide the goal. Maltz says what each choice costs.</span></div>
+  <figure class="scene">
+    <svg viewBox="0 0 680 300" role="img" aria-labelledby="zT"><title id="zT">Self-image size and goal distance</title>
+      <line x1="60" y1="250" x2="640" y2="250" class="st"/>
+      <rect id="zBand" x="0" y="40" width="0" height="210" rx="6" class="anim" style="fill:var(--gold-soft)"/>
+      <line id="zReal" x1="380" x2="380" y1="40" y2="250" stroke="var(--accent)" stroke-dasharray="3 4" stroke-width="1.5"/>
+      <text class="ta" x="380" y="32" text-anchor="middle">your real size · PC 10</text>
+      <g id="zFig" class="anim"></g>
+      <g id="zGoal" class="anim"><circle r="12" class="sa"/><circle r="4" fill="var(--accent)"/></g>
+      <text id="zGoalT" class="tm" text-anchor="middle">goal</text>
+      <text class="tm" x="60" y="274">smaller</text><text class="tm" x="640" y="274" text-anchor="end">bigger</text>
+      <text class="tm" x="350" y="292" text-anchor="middle" style="fill:var(--gold)">shaded band = comfort zone around the self-image · LBF 36</text>
+    </svg>
+    <div class="row"><span class="src">Self-image</span><input type="range" id="zS" min="0" max="100" step="1" value="30" aria-label="Self-image size"></div>
+    <div class="row"><span class="src">Goal</span><input type="range" id="zG" min="0" max="100" step="1" value="80" aria-label="Goal distance"></div>
+    <p class="say" id="zSay"></p>
+    <p class="brace">{Image: A figure stands on a line from smaller to bigger, with a dashed mark for your real size. A shaded comfort zone surrounds the figure. A goal marker can be set inside the zone, at its outer edge, or far beyond. Maltz’s verdict for both sliders appears underneath.}</p>
+  </figure>
+  <div class="grid">
+    <div class="card"><h3><span class="pill w">costs</span> Willpower and patches</h3><p>“‘Positive thinking’ cannot be used effectively as a patch or a crutch to the same self image” <span class="src">PC 4</span>. When incompatible with the self-image, “it absolutely will not work” <span class="src">LBF 37</span>.</p></div>
+    <div class="card"><h3><span class="pill">pays</span> Change the center</h3><p>“Once the concept of self is changed, other things consistent with the new concept of self, are accomplished easily and without strain” <span class="src">PC 4</span>. “When the self-image is changed, everything else is affected” <span class="src">LBF 38</span>.</p></div>
+    <div class="card"><h3><span class="pill w">costs</span> Imitating others</h3><p>“In trying to imitate the President, out of respect, I betrayed my self-image” <span class="src">CLT 54</span>. “Nourish your self-image, not someone else’s” <span class="src">CF 168</span>.</p></div>
+    <div class="card"><h3><span class="pill">pays</span> Building on happiness</h3><p>“You build your self-image not on vanity or money—but on happiness” <span class="src">CF 71</span>. “You will not be a success if you make a million dollars but leave your self-image impoverished” <span class="src">CF 163</span>.</p></div>
+  </div>
+</section>
+
+<!-- ============ 4 SECOND ORDER ============ -->
+<section class="rung" id="r4">
+  <div class="rh"><span class="rn">4</span><span class="rk">Second-order effects</span><h2>What builds it, what shrinks it, and what follows</h2><span class="rq">Tap any factor. Watch the self-image change and read the knock-on effect.</span></div>
+  <figure class="scene">
+    <svg viewBox="0 0 680 280" role="img" aria-labelledby="fT"><title id="fT">Factors acting on the self-image</title>
+      <circle cx="340" cy="140" r="118" class="fp" stroke-dasharray="4 4"/>
+      <circle id="fCore" cx="340" cy="140" r="60" class="fa anim"/>
+      <text class="tb" x="340" y="136" text-anchor="middle">Self-image</text>
+      <text id="fPct" class="tm" x="340" y="156" text-anchor="middle"></text>
+      <g id="fArrow" class="anim" opacity="0"><line id="fLine" x1="60" y1="140" x2="210" y2="140" stroke-width="3" stroke-linecap="round"/><text id="fLab" class="tb" x="40" y="128"></text></g>
+      <text class="ta" x="40" y="262">builds it</text><text class="tw" x="640" y="262" text-anchor="end">shrinks it</text>
+    </svg>
+    <div class="chips" id="fG"></div>
+    <div class="chips" id="fR"></div>
+    <div class="say" id="fSay">Tap a factor.</div>
+    <div class="say" id="fNext" style="font-size:.95rem"></div>
+    <div class="row"><button id="fReset">Reset</button></div>
+    <p class="brace">{Image: The self-image as a circle. Teal factors (experiencing success, imagination, forgiveness, compassion, a goal every day, self-acceptance, good habits) push it larger. Rust factors (past humiliations, a parent’s judgment, a spouse’s sarcasm, identifying with mistakes, comparing to others, imitation, emotional scars, resentment, withdrawal, feeling useless, self-criticism) push it smaller. Each tap shows Maltz’s line and the second-order effect.}</p>
+  </figure>
+  <details class="more"><summary>Second-order effects Maltz names</summary><ul>
+    <li>The cycle: experience then seems to “prove” the image, setting up “a vicious or a beneficent cycle” <span class="src">PC 2–3</span></li>
+    <li>“If your self-image is weak, your positive qualities do not matter—they’re irrelevant; you will find ways to torture yourself. Nothing you do will be good enough” <span class="src">CLT 52</span></li>
+    <li>“Our self-image and our habits tend to go together. Change one and you will automatically change the other” <span class="src">PC 108</span>; “Your habits are spontaneously altered when you change your self-image” <span class="src">LBF 143–144</span></li>
+    <li>“Our feelings about ourselves tend to correspond to our feelings about other people” <span class="src">PC 120</span></li>
+    <li>“Emptiness is symptomatic of a weak self-image” <span class="src">CLT 86</span></li>
+    <li>“The two major pitfalls of people: (1) withdrawal from life and (2) reliance upon factors outside of one’s concept of one’s own worth” <span class="src">CLT 61</span></li>
+    <li>Most people’s self-images are “reluctant, reluctant to change” <span class="src">CLT 141</span></li>
+  </ul></details>
+</section>
+
+<!-- ============ 5 SYSTEMS ============ -->
+<section class="rung" id="r5">
+  <div class="rh"><span class="rn">5</span><span class="rk">Systems</span><h2>Where the self-image sits in the machine</h2><span class="rq">Step around the loop. The dot carries one experience through the whole system.</span></div>
+  <figure class="scene">
+    <svg viewBox="0 0 680 300" role="img" aria-labelledby="yT"><title id="yT">The self-image loop</title>
+      <path id="yLoop" d="M120 70 H560 Q620 70 620 130 V170 Q620 230 560 230 H120 Q60 230 60 170 V130 Q60 70 120 70 Z" class="st" stroke-dasharray="5 5"/>
+      <g id="yNodes"></g>
+      <circle id="yDot" r="9" class="fb anim"/>
+    </svg>
+    <div class="row"><button id="yPrev" aria-label="Previous step">←</button><button id="yNext">Next step →</button><span class="src" id="yN"></span></div>
+    <p class="say" id="ySay"></p>
+    <p class="brace">{Image: A loop of five stations: stored experience in the subconscious, the self-image, the goal and ceiling it sets, the servo-mechanism that acts, and results that seem to “prove” the image, which are stored again. A dot moves station to station.}</p>
+  </figure>
+</section>
+
+<!-- ============ 6 FEYNMAN ============ -->
+<section class="rung" id="r6">
+  <div class="rh"><span class="rn">6</span><span class="rk">Feynman</span><h2>Explain it in three plain sentences</h2><span class="rq">Write first. Then compare with Maltz and tick what you covered.</span></div>
+  <figure class="scene">
+    <label for="fy" class="src" style="white-space:normal">Explain the self-image to a 12-year-old</label>
+    <textarea id="fy" placeholder="The self-image is…"></textarea>
+    <span class="err" id="fyErr" hidden>Write your explanation first.</span>
+    <div class="row"><button id="fyGo">Compare with Maltz</button><span class="src" id="fyScore"></span></div>
+    <div id="fyOut" hidden style="display:grid;gap:10px"></div>
+    <p class="brace">{Image: A writing box for your own explanation, kept on this device. Comparing opens Maltz’s simplest lines and a checklist of five ideas a full explanation contains.}</p>
+  </figure>
+</section>
+
+<!-- ============ 7 PRACTICE ============ -->
+<section class="rung" id="r7">
+  <div class="rh"><span class="rn">7</span><span class="rk">Deliberate practice</span><h2>Your problem → Maltz’s solution</h2><span class="rq">Pick the problem you have today. Get Maltz’s fix, the steps, and a 21-day counter.</span></div>
+  <div class="chips" id="pList"></div>
+  <figure class="scene" id="pCard"></figure>
+  <div class="card">
+    <h3>Why 21 days</h3>
+    <p>“It usually requires a minimum of about 21 days to effect any perceptible change in a mental image.” So “reserve judgment—and go on practicing—for a minimum period of 21 days” <span class="src">PC xiii–xiv</span>. “The building of an adequate self image is something that should continue throughout a lifetime” <span class="src">PC xiv</span>.</p>
+  </div>
+</section>
+
+<p class="core">“If you can remember, worry, or tie your shoe, you can succeed.”<cite>PC 14</cite></p>
+</div></main>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store={get(k,d){try{const v=localStorage.getItem('sil.'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('sil.'+k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+/* ---------- 1 parts ---------- */
+const PARTS=[
+ ["Picture","“Whether we realize it or not, each of us carries about with us a mental blueprint or picture of ourselves… This self-image is our own conception of the ‘sort of person I am.’”","PC 2","SELF-IMAGE—“The picture we have of ourselves.”","LBF 42"],
+ ["Opinion","“Your image is your opinion of yourself.”","PCY 203","“The self-image—the way you really appear to yourself in your own thinking—governs what happens in your life.”","CF 19"],
+ ["Beliefs taken as true","“Once an idea or belief about ourselves goes into this picture it becomes ‘true,’ as far as we personally are concerned. We do not question its validity, but proceed to act upon it just as if it were true.”","PC 2","It is built from beliefs formed by past experiences, successes, failures, humiliations, triumphs and how others reacted to us, especially in early childhood.","PC 2"],
+ ["System of ideas","Personality is “a ‘system of ideas,’ all of which must seem to be consistent with each other.” “At the very center of this system of ideas—the keystone—the base upon which all else is built, is the individual’s… ‘self-image.’”","PC 4","“The self-image is a ‘premise,’ a base, or a foundation upon which your entire personality, your behavior, and even your circumstances are built.”","PC 2"],
+ ["Many areas, one average","“The self-image is the overall average of the various attitudes which we hold towards our capabilities in a multitude of areas.”","LBF 35","LBF asks you to rate each area and work out a composite Self-Image rating.","LBF 83"],
+ ["Comfort zone","Performance outside the self-image produces tension; it is “our comfort zone.”","LBF 36","“The data in the subconscious mind governs the self-image and the self-image controls our effectiveness.”","LBF 35"],
+ ["Ceiling","It is “the ceiling on the effectiveness with which we can use our true potential.” “We cannot be any more effective… than what our self-image says we are.”","LBF 35","It “prescribes the limits for the accomplishment of any particular goals. It prescribes the ‘area of the possible.’” “Expand the self-image and you expand the ‘area of the possible.’”","PC 13; PC ix"]];
+let shown=1;
+function aShow(n){shown=n;for(let i=2;i<=7;i++){const g=$('#L'+i);g.setAttribute('opacity',i<=n?1:0);g.style.transform=i<=n?'scale(1)':'scale(.85)'}
+  
+  $('#aCount').textContent=n+' of 7';const p=PARTS[n-1];
+  $('#aSay').innerHTML=`<b>${n} · ${p[0]}.</b> ${p[1]} <span class="src">${p[2]}</span><br><span style="font-size:.95rem">${p[3]} <span class="src">${p[4]}</span></span>`;
+  $('#side').innerHTML=PARTS.slice(0,n).map((q,i)=>`<text x="470" y="${70+i*42}" class="${i===n-1?'ta':'tm'}">${i+1} · ${q[0]}</text>`).join('')}
+$('#aGrow').onclick=()=>aShow(shown>=7?1:shown+1);$('#aAll').onclick=()=>aShow(7);$('#aReset').onclick=()=>aShow(1);aShow(1);
+
+/* ---------- 2 hypotheses ---------- */
+const HY=[
+ ["Fixing the outer face always changes the person.",false,"Some patients changed; others “continued to feel, act and behave just as if they still had an ugly face.” The Duchess got “a face that was truly beautiful” yet “still continued to act the part of the ugly duckling.”","PC vi–vii, 7"],
+ ["Imagining practice can improve a skill almost as much as real practice.",true,"Free throws: real practice for 20 days improved 24 per cent; practice “in their imagination” improved 23 per cent.","PC 35"],
+ ["Give the $5,000 salesman a richer territory and he earns more.",false,"Small, larger, higher commission or poorest territory: always about $5,000, because “he thought of himself as a $5,000-per-year man.”","PC 50–51"],
+ ["Positive thinking works even when it contradicts your self-image.",false,"“When it is compatible with a person’s self-image, positive thinking does undoubtedly function, but when it is incompatible with the self-image, it absolutely will not work.”","LBF 37"],
+ ["To change your self-image you must first improve your skills.",false,"“In order to change your self-image it is not necessary actually to improve yourself.” A person “only puts to use the talents he already possesses.”","LBF 36"],
+ ["Lecky’s students failed because they lacked ability.",false,"“The trouble with these students was not that they were dumb, or lacking in basic aptitudes. The trouble was an inadequate self-image.”","PC 5"],
+ ["A noticeable change in the self-image takes at least about three weeks.",true,"“It usually requires a minimum of about 21 days to effect any perceptible change in a mental image.”","PC xiii"]];
+const hp=store.get('hyp',{});
+function hRender(){$('#hyp').innerHTML=HY.map((h,i)=>{const p=hp[i];const done=p!==undefined;const right=done&&(p===h[1]);
+  return `<div class="card hyp"><span class="src">Claim ${i+1}</span><p class="claim">${h[0]}</p>
+  <div class="row"><button data-h="${i}" data-v="1" class="${done&&p===true?'on'+(right?'':' bad'):''}">True</button><button data-h="${i}" data-v="0" class="${done&&p===false?'on'+(right?'':' bad'):''}">False</button></div>
+  ${done?`<p class="ans"><b class="${right?'good':'badc'}">${right?'You predicted right.':'Not what Maltz found.'}</b> It is <b>${h[1]?'true':'false'}</b>. ${h[2]} <span class="src">${h[3]}</span></p>`:''}</div>`}).join('');
+  const n=Object.keys(hp).length,r=Object.keys(hp).filter(i=>hp[i]===HY[i][1]).length;$('#hScore').textContent=`${r} of ${n} right`;
+  $$('[data-h]').forEach(b=>b.onclick=()=>{hp[b.dataset.h]=b.dataset.v==='1';store.set('hyp',hp);hRender()})}
+hRender();
+
+/* ---------- 3 trade-offs ---------- */
+const X=v=>60+v*5.8;
+function zDraw(){const s=+$('#zS').value,g=+$('#zG').value,x=X(s),h=40+s*1.4,b=250;
+  const w=110;$('#zBand').setAttribute('x',x-w/2+20);$('#zBand').setAttribute('width',w);
+  $('#zFig').innerHTML=`<g stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="${x}" cy="${b-h}" r="${5+h*.06}"/><line x1="${x}" y1="${b-h+5+h*.06}" x2="${x}" y2="${b-h*.4}"/><line x1="${x}" y1="${b-h*.4}" x2="${x-10}" y2="${b}"/><line x1="${x}" y1="${b-h*.4}" x2="${x+10}" y2="${b}"/><line x1="${x-14}" y1="${b-h*.7}" x2="${x+14}" y2="${b-h*.7}"/></g>`;
+  const gx=X(g);$('#zGoal').setAttribute('transform',`translate(${gx} 120)`);$('#zGoalT').setAttribute('x',gx);$('#zGoalT').setAttribute('y',100);
+  let a,cls;
+  if(s<45){a='Too small. “Holding a low opinion of ourselves is not a virtue, but a vice” (PC 121). Don’t reduce your self-image “to the size of a microbe” (SSR 120).';cls='badc'}
+  else if(s>80){a='Too big is also false. The aim “is not to create a fictitious self which is all-powerful, arrogant, egoistic” (PC 43). “Inferiority and Superiority are reverse sides of the same coin” (PC 57).';cls='badc'}
+  else{a='Real size: “neither more than you are, nor less than you are” (PC 10). “Our aim is to find the ‘real self’” (PC 43).';cls='good'}
+  const d=g-s;let b2,c2;
+  if(d<=8){b2='Goal inside the comfort zone: “It is just as wrong to set a goal so low that you can reach out and have it without any effort at all…” (LBF 75)';c2='badc'}
+  else if(d<=22){b2='Goal at the edge: “Set goals at the outer edge of your self-image” (LBF 75).';c2='good'}
+  else{b2='Goal far beyond the image: “…as to set one so far beyond your present self-image” (LBF 75). Outside the comfort zone you feel tension (LBF 36).';c2='badc'}
+  $('#zSay').innerHTML=`<span class="${cls}">${a}</span><br><span class="${c2}" style="font-size:.95rem">${b2}</span>`}
+$('#zS').oninput=zDraw;$('#zG').oninput=zDraw;zDraw();
+
+/* ---------- 4 factors ---------- */
+const FG=[
+ ["Experiencing success",9,"“We learn to function successfully by experiencing success (nothing succeeds like success).”","LBF 93","Confidence follows: “Confidence is built upon an experience of success” (PC 122)."],
+ ["Imagination",8,"“Imagine how you would feel if you were already the sort of personality you want to be.” It builds “new ‘memories’” into your nervous system.","PC 46","Your nervous system “cannot tell the difference between an imagined experience and a ‘real’ experience” (PC 32), so the new picture counts as experience."],
+ ["Forgiveness",8,"“Forgiveness, when it is real and genuine and complete, and forgotten—is the scalpel.”","PC 160","As your own plastic surgeon “you can compassionately cut away self-hatred and improve your self-image” (CLT 185)."],
+ ["Compassion for yourself",6,"When you make a mistake, you can feel compassion for yourself, “refusing to condemn yourself and to reduce your self-image to the size of a microbe.”","SSR 120","“You keep your self-image well oiled—with a little bit of compassion” (CF 135)."],
+ ["A goal every day",7,"“To enjoy yourself, you must have goals.”","CLT 24","A goal-striver is like a bicycle: balanced only while going forward toward something (PC 113–114)."],
+ ["Self-acceptance",7,"“Accept yourself as you are—and start from there.”","PC 124–127","“It is your basic acceptance of yourself, the strength of your self-image, that will enable you to combat the emotional scars of a lifetime” (CLT 139)."],
+ ["Good habits",6,"“Our self-image and our habits tend to go together. Change one and you will automatically change the other.”","PC 108","Act out the eight happiness resolutions for 21 days (PC 109–110)."]];
+const FR=[
+ ["Past humiliations",-8,"Most beliefs about ourselves “have unconsciously been formed from our past experiences, our successes and failures, our humiliations, our triumphs.”","PC 2","Experience then seems to “prove” the image: a vicious cycle (PC 3)."],
+ ["A parent’s judgment",-8,"“Perhaps you didn’t even build this self-image.” Many sons and daughters have accepted a parent’s judgment as their own and built their self-images around it.","CF 20","Discipline yourself “so that the negative feelings of your family do not do damage to your own self-image” (PCY 169)."],
+ ["A spouse’s sarcasm",-7,"Unkind or derogatory remarks “are projected into the other person’s mind as a self-image, a very wrong self-image, but one that may be hard to uproot.”","CF 21","Maltz’s answer: “Wrong self-image in my subconscious, you stop!” (CF 21)."],
+ ["“I am a failure”",-9,"Lecky’s students “‘identified’ with their mistakes and failures. Instead of saying ‘I failed that test’… they concluded ‘I am a failure.’”","PC 5","If we keep berating ourselves, “the error or failure itself becomes the ‘goal’” (PC 66)."],
+ ["Comparing to others",-7,"Inferiority comes from measuring ourselves against “some other individual’s ‘norm.’” “You are simply ‘You.’”","PC 56–58","“Keep up with yourself, not with someone else” (CF 168)."],
+ ["Imitating others",-5,"“In trying to imitate the President, out of respect, I betrayed my self-image.”","CLT 54","A success in other people’s eyes that you do not initiate yourself is one of the most common pitfalls (CLT 54)."],
+ ["Emotional scars",-9,"Emotional scars “create a marred and ugly self-image” and an image of the world as hostile.","PC 149–153","Most people’s self-images become “reluctant, reluctant to change” (CLT 141)."],
+ ["Resentment",-7,"“Resentment Creates an Inferior Self-image.” You picture yourself “as a pitiful person, a victim.”","PC 143","Our feelings about ourselves correspond to our feelings about others (PC 120)."],
+ ["Withdrawal from life",-8,"One of “the two major pitfalls of people: (1) withdrawal from life.”","CLT 61","“Emptiness is symptomatic of a weak self-image” (CLT 86)."],
+ ["Feeling useless",-7,"Retired men “develop a self-image of a useless, worthless, ‘worn out’ hanger-on.”","PC 263","“It is not retiring from a job that kills these men, it is retiring from life” (PC 263)."],
+ ["Self-criticism",-8,"“If your self-image is weak, your positive qualities do not matter—they’re irrelevant; you will find ways to torture yourself.”","CLT 52","Torturing yourself for imperfections distorts your self-image “fun-mirror” style (SSR 236)."]];
+let fv=50;
+function fPaint(){$('#fCore').setAttribute('r',22+fv*0.85);$('#fPct').textContent=fv<35?'shrinking':fv>65?'growing':'steady'}
+function fChips(id,arr,cls){$(id).innerHTML=arr.map((f,i)=>`<button class="${cls}" data-f="${cls}${i}">${f[0]}</button>`).join('')}
+fChips('#fG',FG,'g');fChips('#fR',FR,'r');fPaint();
+$$('[data-f]').forEach(b=>b.onclick=()=>{const g=b.dataset.f[0]==='g',f=(g?FG:FR)[+b.dataset.f.slice(1)];
+  $$('[data-f]').forEach(x=>x.classList.toggle('on',x===b));fv=Math.max(5,Math.min(95,fv+f[1]*2));fPaint();
+  const L=$('#fLine'),A=$('#fArrow');L.setAttribute('stroke',g?'var(--accent)':'var(--warn)');
+  if(g){L.setAttribute('x1',60);L.setAttribute('x2',200);$('#fLab').setAttribute('x',40);$('#fLab').removeAttribute('text-anchor')}
+  else{L.setAttribute('x1',620);L.setAttribute('x2',480);$('#fLab').setAttribute('x',640);$('#fLab').setAttribute('text-anchor','end')}
+  $('#fLab').textContent=f[0];$('#fLab').style.fill=g?'var(--accent)':'var(--warn)';A.setAttribute('opacity',1);
+  $('#fSay').innerHTML=`<span class="${g?'good':'badc'}">${f[2]}</span> <span class="src">${f[3]}</span>`;
+  $('#fNext').innerHTML=`<b>Then:</b> ${f[4]}`});
+$('#fReset').onclick=()=>{fv=50;fPaint();$('#fArrow').setAttribute('opacity',0);$$('[data-f]').forEach(x=>x.classList.remove('on'));$('#fSay').textContent='Tap a factor.';$('#fNext').textContent=''};
+
+/* ---------- 5 systems ---------- */
+const SY=[
+ [120,70,"Stored experience","“The data in the subconscious mind governs the self-image.”","LBF 35"],
+ [340,70,"Self-image","“The key goal-image is our Self-image.”","PC 13"],
+ [560,70,"Goal + ceiling","It “prescribes the limits for the accomplishment of any particular goals. It prescribes the ‘area of the possible.’”","PC 13"],
+ [560,230,"Servo-mechanism acts","“Present it with ‘success goals’ and it functions as a ‘Success Mechanism.’ Present it with negative goals, and it operates just as impersonally… as a ‘Failure Mechanism.’”","PC 13"],
+ [120,230,"Results “prove” it","Experiences “seem to verify, and thereby strengthen our self images, and a vicious or a beneficent cycle, as the case may be, is set up.”","PC 2–3"]];
+$('#yNodes').innerHTML=SY.map(([x,y,t])=>`<rect x="${x-86}" y="${y-22}" width="172" height="44" rx="8" class="fa"/><text class="tb" x="${x}" y="${y+5}" text-anchor="middle">${t}</text>`).join('')+
+ `<text class="tm" x="340" y="150" text-anchor="middle">Change the self-image here and every station changes · LBF 38</text>`;
+let yi=0;function yShow(){const s=SY[yi];$('#yDot').setAttribute('cx',s[0]);$('#yDot').setAttribute('cy',s[1]+(s[1]<150?-30:30));$('#yN').textContent=`Station ${yi+1} of 5`;
+  $('#ySay').innerHTML=`<b>${s[2]}.</b> ${s[3]} <span class="src">${s[4]}</span>`}
+$('#yNext').onclick=()=>{yi=(yi+1)%5;yShow()};$('#yPrev').onclick=()=>{yi=(yi+4)%5;yShow()};yShow();
+
+/* ---------- 6 feynman ---------- */
+const FY=["It is a picture of yourself you carry (PC 2)","You act like that picture, whatever your willpower (PC 2)","Beliefs in it are taken as true (PC 2)","It sets a ceiling on what you can do (LBF 35; PC 13)","It can be changed, at any age, in about 21 days of practice (PC 3; PC xiii)"];
+$('#fy').value=store.get('fy','');
+$('#fy').oninput=()=>{$('#fyErr').hidden=true;store.set('fy',$('#fy').value)};
+const fyc=store.get('fyc',{});
+$('#fyGo').onclick=()=>{if(!$('#fy').value.trim()){$('#fyErr').hidden=false;return}
+  const o=$('#fyOut');o.hidden=false;o.style.display='grid';
+  o.innerHTML=`<div class="card"><h3>Maltz’s simplest lines</h3>
+  <p>“The point to remember is that your self-image is the blueprint of what you think of yourself.” <span class="src">PCY 206</span></p>
+  <p>SELF-IMAGE—“The picture we have of ourselves.” PERSONALITY—“Outer expression of inner attitude or self-image.” <span class="src">LBF 42–43</span></p>
+  <p>“Your best friend is your self-image.” <span class="src">CLT 10</span></p></div>
+  <div class="card"><h3>Did you say these five?</h3>${FY.map((t,i)=>`<label class="check"><input type="checkbox" id="fyc${i}" ${fyc[i]?'checked':''}> <span>${t}</span></label>`).join('')}</div>`;
+  const sc=()=>$('#fyScore').textContent=`${Object.values(fyc).filter(Boolean).length} of 5 covered`;sc();
+  FY.forEach((_,i)=>$('#fyc'+i).onchange=e=>{fyc[i]=e.target.checked;store.set('fyc',fyc);sc()})};
+
+/* ---------- 7 problems → solutions ---------- */
+const P=[
+ ["I see myself as small","Dehypnotize the false belief",
+  "“Every human being is hypnotized to some extent, either by ideas he has uncritically accepted from others, or ideas he has repeated to himself.”","PC 53",
+  ["Write the “I can’t” belief down.","Ask: Is there any rational reason for such a belief? Could I be mistaken? Would I conclude the same about another person in my situation? Why act as if it were true if there is no good reason? (PC 72)","Stop measuring yourself against “their” standards: “You are simply ‘You’” (PC 56–58).","Do it relaxed; beliefs change the way they were formed, not by will power (PC 59–60)."]],
+ ["Old hurts still sting","Emotional face lift: forgive completely",
+  "“You must become your own plastic surgeon.”","PC 159",
+  ["Forgive others, and forget: forgiveness “is the scalpel” (PC 160).","Forgive completely, not partly, and never as a weapon (PC 160–161).","Forgive yourself for self-condemnation, remorse and regret (PC 163–164).","Relax away the hurt: “It is our own responses that we have to be concerned about—not other people’s” (PC 157)."]],
+ ["I always stop at the same level","Raise the ceiling, not the effort",
+  "The $5,000 salesman: “the trouble was not in the territory but in the salesman’s own valuation of himself.”","PC 51",
+  ["Change the self-image first: “When the self-image is changed, everything else is affected” (LBF 38).","Set the goal at the outer edge of your self-image (LBF 75).","Run the theater of the mind 30 minutes a day: see yourself acting the new level (PC 45–46).","Practise 21 days before judging (PC xiii–xiv)."]],
+ ["I identify with my mistakes","Say “I failed,” never “I am a failure”",
+  "“So remember ‘You’ make mistakes. Mistakes don’t make ‘You’—anything.”","PC 166",
+  ["Use the verb, not the noun: “I failed”, not “I am a failure” (PC 164).","Correct the error, then consciously forget it and dwell on the successful attempt (PC 66).","Form the habit of remembering past successes and forgetting failures (PC 122–123).","“To improve your self-image, you must understand that a mistake doesn’t make you a failure” (CF 163)."]],
+ ["I feel empty or frustrated","A goal every day; read the FAILURE gauge",
+  "“Emptiness is symptomatic of a weak self-image.”","CLT 86",
+  ["Set one goal each morning, even “improvement” (PCSF 13–14).","Treat F-A-I-L-U-R-E feelings as warning signals and correct course (PC 129–130).","“No one can fill you with frustration without your consent” (CF 6).","Chronic frustration means unrealistic goals or an inadequate self-image, or both (PC 131)."]],
+ ["Others’ words shaped me","Stop the wrong self-image",
+  "“Wrong self-image in my subconscious, you stop!”","CF 21",
+  ["Notice whose judgment it is: perhaps you didn’t even build this self-image (CF 20).","Talk back to it, out loud if you need to (CF 21).","Don’t let your family’s negative feelings damage your own self-image (PCY 169).","“You must never resign from your self-image or turn over your destiny to others” (PCY 163)."]],
+ ["Pressure shrinks me","The quiet room, every day",
+  "“Each of us needs a quiet room inside his own mind.”","PC 193",
+  ["When the bell rings, say: “The telephone is ringing, but I do not have to answer it. I can just let it ring” (PC 190).","Between tasks, retire into your quiet room for a few moments; picture Old Faithful letting off steam (PC 194–195).","Take ten or fifteen minutes every day “to return to our realistic self-image” (CLT 184).","Ask, “How is my self-image today?” (CLT 16)."]],
+ ["Positive thinking doesn’t work for me","Change the center, then experience success",
+  "Efforts at change go “to the circumference of the self… rather than to the center.”","PC 3",
+  ["Aim at the self-image, not the habit or the outside situation (PC 3–4).","Experience success in small steps: “nothing succeeds like success” (LBF 93).","Act as if: “Act the way you want to be (in your imagination), and you’ll be the way you act” (LBF 157).","Use imagination, not will: “When the will and the imagination are in conflict, the imagination invariably wins the day” (PC 59)."]],
+ ["I lost confidence","Play back a past success",
+  "“Confidence is built upon an experience of success.”","PC 122",
+  ["Relive any past success, however small, in full detail: sights, sounds, how you felt (PC 233–234).","Then picture the coming task as if you had already succeeded (PC 234).","Change the record, don’t bang the phonograph (PC 243).","Each morning, look in the mirror and get reacquainted with yourself (CLT 15–17)."]],
+ ["I’m at odds with people","Be a friend to yourself first",
+  "“You can’t be a friend to others unless you are a friend to yourself.”","CF 5",
+  ["Each morning ask the mirror: “Am I a friend to myself?” (LBF 157).","Practise compassion for yourself, then for others (PCSF 175–176).","Our feelings about ourselves tend to correspond to our feelings about others (PC 120).","Force yourself to mix with other people; loneliness is “a loneliness from your real self” (PC 138–139)."]]];
+const pc=store.get('p',{sel:0,days:{}});
+$('#pList').innerHTML=P.map((p,i)=>`<button class="r" data-p="${i}">${p[0]}</button>`).join('');
+function pShow(i){pc.sel=i;store.set('p',pc);$$('[data-p]').forEach(b=>b.classList.toggle('on',+b.dataset.p===i));const p=P[i],d=pc.days[i]||0;
+  $('#pCard').innerHTML=`<div class="row"><span class="pill w">Problem</span><b>${p[0]}</b></div>
+  <div class="row"><span class="pill">Maltz’s solution</span><h3>${p[1]}</h3></div>
+  <p class="say">${p[2]} <span class="src">${p[3]}</span></p>
+  <ol class="steps">${p[4].map(s=>`<li>${s}</li>`).join('')}</ol>
+  <svg class="strip" viewBox="0 0 680 60" role="img" aria-label="21-day progress"><title>Days practised</title>${Array.from({length:21},(_,k)=>`<rect x="${10+k*31.5}" y="14" width="26" height="26" rx="5" class="${k<d?'fa':'fp'}"/>`).join('')}<text class="tm" x="10" y="56">Day ${d} of 21</text></svg>
+  <div class="row"><button id="pDay">I practised today</button><button id="pUndo">Undo a day</button></div>
+  <p class="brace">{Image: The problem, Maltz’s solution with its page, four steps, and 21 squares that fill one per day practised. Kept on this device.}</p>`;
+  $('#pDay').onclick=()=>{pc.days[i]=Math.min(21,(pc.days[i]||0)+1);store.set('p',pc);pShow(i)};
+  $('#pUndo').onclick=()=>{pc.days[i]=Math.max(0,(pc.days[i]||0)-1);store.set('p',pc);pShow(i)}}
+$$('[data-p]').forEach(b=>b.onclick=()=>pShow(+b.dataset.p));pShow(pc.sel||0);
+})();
+</script>
+
+</html>

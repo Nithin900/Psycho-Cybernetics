@@ -5,6 +5,8 @@ Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including 
 | Page | Book | What it is |
 |---|---|---|
 | [`index.html`](index.html) | All | **Home**: every page in one place, grouped by book |
+| [`self-image-ladder.html`](self-image-ladder.html) | All seven Maltz books | **Self-Image Ladder**: the self-image on a seven-rung learning ladder (parts, predictions, trade-offs, factors that build or shrink it, the system loop, a Feynman check, problem-to-solution practice with a 21-day counter). Progress is saved in your browser |
+| [`psycho-cybernetics-machine.html`](psycho-cybernetics-machine.html) | *Psycho-Cybernetics* (1960) | **The Psycho-Cybernetics Machine**: the definition and all 15 chapters as animated, tappable scenes with Maltz's stories and page-cited quotes |
 | [`self-image-day.html`](self-image-day.html) | *Psycho-Cybernetics & Self-Fulfillment* (1970) | **Self-Image Day**: an activity page of seven exercises from the book (morning mirror, Loser's List to Winner's List, the double feature, the 13 dual forces of YOUR SELF IMAGE, the four points against a resentment, two quiet minutes, and the evening NOT GUILTY verdict). Entries are saved in your browser |
 | [`self-fulfillment-reading-guide.html`](self-fulfillment-reading-guide.html) | *Psycho-Cybernetics & Self-Fulfillment* | **Reading guide**: the book chapter by chapter, Part Two grouped by idea, the threads through the book, and check-yourself questions |
 | [`self-fulfillment-reference.html`](self-fulfillment-reference.html) | *Psycho-Cybernetics & Self-Fulfillment* | **Reference**: all 35 Q&A topics, a glossary of Maltz's terms, the 11 spelled-out word lists, and an index of 53 stories, with page numbers |
