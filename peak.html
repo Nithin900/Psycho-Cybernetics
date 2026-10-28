@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peak — Book Report &amp; Reader Notes</title>
+<meta name="description" content="Book report, chapter-by-chapter reader notes, practice toolkit and pocket cards for Peak by Anders Ericsson and Robert Pool, with page numbers.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;600&display=swap">
+<style>
+/* Layout: a single reading column with a sticky tab bar; reader notes styled like a pencilled notebook beside the text (same family as the earlier book pages) */
+:root{
+  --bg:#f3f7f6; --paper:#ffffff; --ink:#18302d; --muted:#4f6764; --line:#cfdedb;
+  --accent:#0f6e66; --accent-soft:#dcefeb; --pencil:#7a4a1c; --mark:#fbeaa0; --margin:#e0a3a3;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --hand:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1918; --paper:#162321; --ink:#e3eeec; --muted:#9db3af; --line:#2b3d3a;
+  --accent:#5cc3b7; --accent-soft:#1d3532; --pencil:#e3b07a; --mark:#5a4d17; --margin:#7a3f3f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1918; --paper:#162321; --ink:#e3eeec; --muted:#9db3af; --line:#2b3d3a;
+  --accent:#5cc3b7; --accent-soft:#1d3532; --pencil:#e3b07a; --mark:#5a4d17; --margin:#7a3f3f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--paper);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:36px 22px;display:grid;gap:8px}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,8vw,3.4rem);line-height:1.05;margin:0;text-wrap:balance}
+.byline{color:var(--muted);margin:0}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+nav.tabs button{font:inherit;font-weight:700;font-size:.95rem;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:12px 12px 9px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav.tabs button:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main .wrap{padding-block:28px 64px}
+section.view{display:grid;gap:28px}
+h2{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.2;margin:0 0 4px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:400;font-size:1.2rem;margin:0;text-wrap:balance}
+p{margin:0}
+.stack{display:grid;gap:12px}
+.lead{font-size:1.12rem}
+.pg{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.facts div{background:var(--paper);padding:12px 14px;display:grid;gap:2px}
+.facts b{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.thesis{background:var(--accent-soft);border-radius:6px;padding:18px 20px;font-family:var(--display);font-size:1.25rem;line-height:1.4}
+ul,ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
+.chap{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:10px}
+.chap-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.num{font-family:var(--display);color:var(--accent);font-size:1.4rem;min-width:1.6em}
+.chap-head h3{flex:1;min-width:0}
+.k{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.note-scan{font-size:.9rem;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
+
+/* Practice ladder */
+.ladder{display:grid;gap:8px}
+.rung{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.rung .lv{font-family:var(--display);font-size:1.15rem;grid-row:span 2;color:var(--accent);min-width:6.5em}
+.rung.top{border-color:var(--accent);background:var(--accent-soft)}
+@media (max-width:520px){.rung{grid-template-columns:minmax(0,1fr)}.rung .lv{grid-row:auto}}
+
+/* Reader notes: notebook look */
+details.nb{background:var(--paper);border:1px solid var(--line);border-radius:6px}
+details.nb>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;gap:12px;align-items:baseline}
+details.nb>summary::-webkit-details-marker{display:none}
+details.nb>summary h3{flex:1;min-width:0}
+details.nb>summary::after{content:"+";font-family:var(--display);color:var(--accent);font-size:1.3rem;line-height:1}
+details.nb[open]>summary::after{content:"\2212"}
+.nb-body{padding:0 16px 18px;display:grid;gap:16px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--line) 31px,var(--line) 32px);background-position:0 6px}
+.hl{display:grid;gap:4px}
+.hl q{quotes:none;background:linear-gradient(transparent 52%,var(--mark) 52%);padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.margin{font-family:var(--hand);font-size:1.35rem;line-height:1.25;color:var(--pencil)}
+.margin p{margin:0 0 4px}
+.qs{font-family:var(--hand);font-size:1.3rem;line-height:1.25;color:var(--pencil)}
+.try{background:var(--accent-soft);border-radius:4px;padding:10px 12px}
+.idx{columns:2 220px;column-gap:28px;font-size:.95rem}
+.idx div{break-inside:avoid;display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line);padding:3px 0}
+.idx span:last-child{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+/* Toolkit */
+.tool{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:10px}
+.tool ol li::marker{color:var(--accent);font-weight:700}
+.say{font-family:var(--display);font-size:1.15rem;border-left:3px solid var(--accent);padding-left:14px}
+.toolhead{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+@media (max-width:480px){body{font-size:16px}.margin,.qs{font-size:1.25rem}}
+
+/* Notepad */
+.pads{display:grid;gap:18px}
+.pad{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px 14px 30px;
+  background-image:linear-gradient(to right,transparent 20px,var(--margin) 20px,var(--margin) 21px,transparent 21px),
+  repeating-linear-gradient(to bottom,transparent 0,transparent 21px,var(--line) 21px,var(--line) 22px);background-position:0 15px}
+.pad pre{margin:0;font-family:var(--mono);font-size:13px;line-height:22px;white-space:pre-wrap;color:var(--ink)}
+.pad .copy{position:absolute;top:8px;right:8px;font:inherit;font-size:.75rem;font-weight:700;color:var(--accent);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:3px 8px;cursor:pointer}
+.np-actions{display:flex;gap:8px;flex-wrap:wrap}
+.np-actions button{font:inherit;font-weight:700;font-size:.9rem;color:var(--paper);background:var(--accent);border:0;border-radius:4px;padding:8px 14px;cursor:pointer}
+.np-status{font-size:.85rem;color:var(--muted);min-height:1.2em}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+.home{display:inline-block;font-size:.9rem;font-weight:700;color:var(--accent);text-decoration:none}
+.home:hover{text-decoration:underline}
+.home:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+footer.site{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--muted);font-size:.9rem;display:grid;gap:6px}
+footer.site a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="home" href="index.html">&larr; All pages</a>
+  <span class="eyebrow">Book report &amp; reader notes</span>
+  <h1>Peak</h1>
+  <p class="byline">Anders Ericsson &amp; Robert Pool · <i>Secrets from the New Science of Expertise</i> · 2016</p>
+</div></header>
+
+<nav class="tabs" aria-label="Sections"><div class="wrap" role="tablist">
+  <button role="tab" id="t-report" aria-controls="report" aria-selected="true">Report</button>
+  <button role="tab" id="t-notes" aria-controls="notes" aria-selected="false">Reader notes</button>
+  <button role="tab" id="t-toolkit" aria-controls="toolkit" aria-selected="false">Toolkit</button>
+  <button role="tab" id="t-notepad" aria-controls="notepad" aria-selected="false">Notepad</button>
+</div></nav>
+
+<main><div class="wrap">
+
+<!-- ================= REPORT ================= -->
+<section class="view" id="report" role="tabpanel" aria-labelledby="t-report">
+
+  <div class="stack">
+    <h2>What this book is</h2>
+    <p class="lead">A book by the psychologist who spent more than thirty years studying the best performers in the world: chess players, violinists, athletes, doctors, memory experts. It explains how they got that good and how anyone can use the same method. Ericsson calls the method <b>deliberate practice</b>, a name he coined in the early 1990s (p. 10).</p>
+    <p>It is written from Ericsson's point of view. The "I" in the book is him, while Robert Pool, a science writer, co-wrote it (Authors' Note).</p>
+    <div class="facts">
+      <div><b>Authors</b>Anders Ericsson, Robert Pool</div>
+      <div><b>Published</b>2016 (Houghton Mifflin Harcourt; The Bodley Head in the UK)</div>
+      <div><b>Length</b>Introduction + 9 chapters, 259 pages of text</div>
+      <div><b>Key idea</b>Deliberate practice and mental representations</div>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h2>The book in one sentence</h2>
+    <p class="thesis">Extraordinary ability is built, not born: the right kind of practice, kept up over time, reshapes the brain and body, and the most important thing it builds is better mental representations.</p>
+    <p>Ericsson's own words: "Learning isn't a way of reaching one's potential but rather a way of developing it. We can create our own potential" (p. xx). And: "The right sort of practice carried out over a sufficient period of time leads to improvement. Nothing else" (p. xxi).</p>
+  </div>
+
+  <div class="stack">
+    <h2>"The gift"</h2>
+    <p>The introduction sets up the whole argument with perfect pitch. Mozart could name any note at age seven, and only about one person in ten thousand has this ability, so it looks like a rare gift (pp. xi–xiii). But in 2014 the Japanese psychologist Ayako Sakakibara trained twenty-four children aged two to six to recognize chords, a few minutes at a time, several times a day. <b>Every one of them</b> developed perfect pitch (pp. xiv–xv).</p>
+    <p>So perfect pitch is not the gift. The gift is the brain's ability to develop it, and nearly everyone is born with that (p. xvi). The old view treats potential like a cup with a fixed size. Ericsson's view treats it as "an expandable vessel, shaped by the various things we do throughout our lives" (p. xx).</p>
+  </div>
+
+  <div class="stack">
+    <h2>Three kinds of practice</h2>
+    <p>The book's main tool is a ladder of practice. Most of what people call practice is on the bottom rung.</p>
+    <div class="ladder">
+      <div class="rung"><span class="lv">Naive practice</span><p><b>"I just played it."</b> Doing something again and again and expecting to get better. Once a skill feels automatic, improvement stops, and it can slowly get worse.</p><span class="pg">pp. 11–14</span></div>
+      <div class="rung"><span class="lv">Purposeful practice</span><p><b>Specific goals, full focus, feedback, and getting out of your comfort zone.</b> This is how Steve Faloon went from 8 to 82 digits. It works, but on its own it can stall, as it did for Renée at about 20 digits.</p><span class="pg">pp. 14–25</span></div>
+      <div class="rung top"><span class="lv">Deliberate practice</span><p><b>Purposeful practice that "knows where it is going and how to get there."</b> It needs a field with clear standards and a teacher who knows how experts got there. Its main product is better mental representations.</p><span class="pg">pp. 97–100</span></div>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h2>How the book is built</h2>
+    <ol>
+      <li><b>Chapters 1–4: what deliberate practice is</b> and why it works: purposeful practice, how the brain adapts, mental representations, and the "gold standard."</li>
+      <li><b>Chapters 5–6: using it</b> at work and in everyday life, including when you have no teacher.</li>
+      <li><b>Chapter 7: the road to extraordinary</b>: the stages people go through on the way to world-class.</li>
+      <li><b>Chapter 8: the talent question</b>, described by the authors as "a brief interlude" on prodigies, savants and IQ (p. xxii).</li>
+      <li><b>Chapter 9: what's next</b>: schools, training and a society of "Homo exercens."</li>
+    </ol>
+  </div>
+
+  <div class="stack">
+    <h2>Chapter by chapter</h2>
+
+    <div class="chap"><div class="chap-head"><span class="num">0</span><h3>Introduction: The Gift</h3><span class="pg">pp. xi–xxiii</span></div>
+      <p>Why are some people so good at what they do? Not because of a special inborn gift, but because they made more use of the gift everyone has: an adaptable brain and body (p. xviii).</p>
+      <ul>
+        <li>Since the 1990s, researchers have found that even the adult brain rewires itself in response to training (p. xvi).</li>
+        <li>Genes do matter for a few things like height. The main gift, though, is adaptability (p. xviii).</li>
+        <li>Deliberate practice is "the most powerful approach to learning that has ever been discovered" (p. xxiii). Ericsson compares it to having a guide who knows the best route up a mountain.</li>
+      </ul>
+      <p><span class="k">Key stories</span> Mozart's perfect pitch (p. xi). Sakakibara's 24 children (p. xiv). Ray Allen, the NBA's top three-point shooter, rejecting the idea that he was born with a jump shot: "Don't undermine the work I've put in every day. Not some days. Every day" (p. xviii). His high school coach says his jump shot was poor back then (p. xix).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">1</span><h3>The Power of Purposeful Practice</h3><span class="pg">pp. 1–25</span></div>
+      <p>Steve Faloon, a Carnegie Mellon student, could at first hold seven or eight digits read one per second, the normal limit of short-term memory. After more than two hundred sessions he could recall <b>82</b> (pp. 1–5).</p>
+      <ul>
+        <li>The training rule: get a string right, the next one is one digit longer. Get it wrong, it drops by two. That kept Steve right at the edge of his ability (p. 4).</li>
+        <li>Performance keeps rising across fields: the 1908 marathon record (2:55:18) would barely qualify for today's Boston Marathon; the double somersault went from "too dangerous" to an entry-level dive (p. 6).</li>
+        <li>The usual approach (learn until it's automatic, then stop) leads to a plateau. Doctors with twenty years in practice can be worse than recent graduates (pp. 11–13).</li>
+        <li><b>Four traits of purposeful practice:</b> well-defined specific goals; focus; feedback; getting out of your comfort zone (pp. 15–18).</li>
+        <li>When you hit a wall, "the solution is not 'try harder' but rather 'try differently'" (p. 19).</li>
+        <li>Trying hard is not enough. Renée, a second subject, worked out her own system and stalled near 20 digits. Dario, who started from Steve's method and then built his own, passed 100 (pp. 22–25).</li>
+      </ul>
+      <p><span class="k">Key stories</span> Ben Franklin played chess for over fifty years, sometimes from 6 p.m. until sunrise, but never got much better because he never pushed past his comfort zone (pp. 18–19). Dorothy DeLay's student, who played faster than Itzhak Perlman by raising the metronome a little at a time (p. 20).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">2</span><h3>Harnessing Adaptability</h3><span class="pg">pp. 26–49</span></div>
+      <p>The brain changes with training the way muscles do. You just can't see it in the mirror.</p>
+      <ul>
+        <li>London cabbies learn "the Knowledge": about 25,000 streets within six miles of Charing Cross (p. 29).</li>
+        <li>Eleanor Maguire found licensed cabbies had a larger posterior hippocampus. In her 2011 study the trainees who passed grew it; those who dropped out did not (pp. 30–32).</li>
+        <li>Middle-aged people trained their vision for three months and could read letters 60 percent smaller, without glasses (p. 36).</li>
+        <li><b>Homeostasis:</b> the body only changes when pushed past what it can comfortably handle. Push too little and nothing changes; push too much and you burn out or get injured. The sweet spot is just outside your comfort zone (pp. 37–41).</li>
+        <li>Training that starts young has bigger effects ("the bent-twig effect"), skills need upkeep, and specializing can cost you elsewhere (pp. 45–47).</li>
+      </ul>
+      <p><span class="k">Key idea</span> Traditional learning assumes you are filling a fixed potential. "With deliberate practice, however, the goal is not just to reach your potential but to build it" (p. 48).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">3</span><h3>Mental Representations</h3><span class="pg">pp. 50–83</span></div>
+      <p>The center of the book. A mental representation is a structure in long-term memory that holds the patterns of a field (facts, images, rules, relationships) so you can respond quickly without overloading short-term memory (pp. 58–61).</p>
+      <ul>
+        <li>Grandmasters remember real board positions almost perfectly but random ones no better than novices. They see patterns ("chunks"), roughly 50,000 of them (pp. 55–57).</li>
+        <li>Representations are domain-specific: "there is no such thing as developing a general skill" (p. 60).</li>
+        <li>"What sets expert performers apart from everyone else is the quality and quantity of their mental representations" (p. 62).</li>
+        <li>They help you <b>see patterns</b> (soccer players, quarterbacks, climbers), <b>make sense of information</b> (people who know baseball remember a baseball story better), <b>find answers</b> (a doctor linking ear pain and a small pupil to a torn artery), and <b>plan</b> (surgeons, climbers, writers) (pp. 63–76).</li>
+        <li>They help you learn: a beginner saxophonist fixed 8 in 10 of his mistakes on the second try, while a beginner cornet player fixed 3 in 10. The difference was mainly how clearly each could hear what the piece should sound like (pp. 77–78).</li>
+        <li>Skill and representations feed each other: "like a staircase that you climb as you build it" (p. 83).</li>
+      </ul>
+      <p><span class="k">Key stories</span> Alekhine playing twenty-six blindfold games at once in 1924 (p. 50). Ericsson and Pool rewriting this book until mental representations became its "keystone" (pp. 73–76).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">4</span><h3>The Gold Standard</h3><span class="pg">pp. 84–114</span></div>
+      <p>What separates the best from the very good? Ericsson's Berlin study of violin students answers it.</p>
+      <ul>
+        <li>By age 18 the best students had averaged about <b>7,410</b> hours of solitary practice, the better ones 5,301 and the future music teachers 3,420. Nobody found the practice fun (pp. 93–94).</li>
+        <li>Deliberate practice adds two things to purposeful practice: a well-developed field with clear standards, and a teacher who knows how experts got there (p. 98).</li>
+        <li>Its seven traits are listed on pp. 99–100 (see Toolkit).</li>
+        <li>In fields without that structure: "get as close to deliberate practice as you can." Identify the real experts, find out what they do differently, and design training to match (p. 103).</li>
+        <li>Be careful naming experts. Wine judges gave the same wine scores that varied by up to four points either way (pp. 104–105).</li>
+        <li><b>The ten-thousand-hour rule is not a rule.</b> The number isn't magic, it was an average, performing is not practice (the Beatles' Hamburg hours were closer to 1,100), and it was never a promise (pp. 109–112).</li>
+      </ul>
+      <p><span class="k">Key idea</span> "There is no point at which performance maxes out and additional practice does not lead to further improvement" (p. 113).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">5</span><h3>Principles of Deliberate Practice on the Job</h3><span class="pg">pp. 115–144</span></div>
+      <p>How do you improve people who are already trained and working?</p>
+      <ul>
+        <li><b>Top Gun.</b> In early 1968 Navy pilots were trading planes about one for one with North Vietnamese fighters. The Navy built a school where the best pilots played the enemy, then grilled students after every flight. From 1970 to 1973 the Navy downed <b>12.5</b> enemy planes per loss, while the Air Force stayed near 2 to 1 (pp. 115–118).</li>
+        <li>Art Turock's three myths: abilities are fixed by genes; doing something long enough makes you better; effort is enough (pp. 121–122).</li>
+        <li>"Learning while real work gets done": a presenter picks one skill to work on, the audience gives feedback. Blue Bunny rehearsed sales calls as role-plays on video (pp. 122–123).</li>
+        <li>The Top Gun approach elsewhere: libraries of mammograms or X-rays with known outcomes, used for practice with instant feedback (pp. 125–128).</li>
+        <li><b>Knowledge vs. skills.</b> In a 2005 Harvard review, only 2 of 62 studies found doctors improved with experience. Lecture-style continuing education had no significant effect; interactive training helped a little (pp. 132–135).</li>
+        <li>Prostate surgery: cancer came back within five years in 17.9 percent of patients of surgeons with 10 prior operations, versus 10.7 percent at 250 (p. 139).</li>
+      </ul>
+      <p><span class="k">Key idea</span> Ask "How do we improve the relevant skills?" rather than "How do we teach the relevant knowledge?" (p. 137).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">6</span><h3>Principles of Deliberate Practice in Everyday Life</h3><span class="pg">pp. 145–179</span></div>
+      <p>For anyone who wants to improve at anything: golf, karate, singing, writing, code.</p>
+      <ul>
+        <li><b>Find a good teacher</b>, someone accomplished who also knows how to teach. Look for evidence of students' progress, not fun lessons (pp. 147–150).</li>
+        <li><b>Stay engaged.</b> Group classes make it easy to just go through the motions. "It is better to train at 100 percent effort for less time than at 70 percent effort for a longer period" (pp. 150–154).</li>
+        <li><b>No teacher?</b> Use the three Fs: "Focus. Feedback. Fix it" (p. 159). Ben Franklin taught himself to write by rewriting essays from <i>The Spectator</i> from his notes and comparing them with the originals (pp. 155–157).</li>
+        <li><b>Plateaus:</b> push yourself a little harder than usual to see what breaks first, then design practice aimed at that one weakness (pp. 161–165).</li>
+        <li><b>Motivation:</b> willpower is not a general trait. Instead, weaken the reasons to quit and strengthen the reasons to keep going (pp. 166–178).</li>
+      </ul>
+      <p><span class="k">Key stories</span> Dan McLaughlin, a 30-year-old photographer who had never played a round of golf, got his handicap down to 3–4 (pp. 145, 178). Per Holmlöv started karate at 69 (p. 147). Natalie Coughlin stopped daydreaming during laps and focused on every stroke (pp. 152–153). Josh Foer broke his card-memory plateau and won the 2006 USA Memory Championship (p. 161).</p>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">7</span><h3>The Road to Extraordinary</h3><span class="pg">pp. 180–206</span></div>
+      <p>László and Klara Polgár set out to prove any child could become a genius, and chose chess because it "is very objective and easy to measure" (p. 181). All three daughters became top players. Judit became a grandmaster at fifteen (pp. 180–182).</p>
+      <p>Benjamin Bloom's study of 120 experts shows the same stages everywhere (pp. 184–194):</p>
+      <ol>
+        <li><b>Playful start.</b> The field is a toy; parents and older siblings spark interest.</li>
+        <li><b>Becoming serious.</b> Lessons, a daily routine; motivation moves from parents to the child; by 11–12 they call themselves "pianists" or "swimmers."</li>
+        <li><b>Commitment.</b> In the mid-teens: the best teachers, more hours, large costs.</li>
+        <li><b>Pathbreaking.</b> A few go beyond what anyone has done. They get there in small steps that look like leaps from outside (pp. 202–206).</li>
+      </ol>
+      <ul>
+        <li>Starting late: some physical traits need childhood training, but adults can still learn a great deal. Paul Brady taught himself perfect pitch at 32 in two months of daily half-hour sessions (pp. 194–201).</li>
+      </ul>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">8</span><h3>But What About Natural Talent?</h3><span class="pg">pp. 207–242</span></div>
+      <p>Ericsson's test for any "natural" ability: what exactly is the ability, and what training made it possible? (p. 211)</p>
+      <ul>
+        <li>Paganini's breaking-string act was planned: he wrote pieces to finish on one string and practised them (pp. 208–211).</li>
+        <li>Mozart's early works are in his father's handwriting. His first certainly original serious compositions came at 15–16, after a decade of training (pp. 211–214).</li>
+        <li>Donald Thomas, the "untrained" high jumper, had used the Fosbury Flop in high school and trained his jump by dunking. Despite years of coaching afterward, he never beat the 2.35 m he cleared in 2007 (pp. 215–219).</li>
+        <li>Savants like Donny, the calendar calculator, built their skill through obsessive practice. A graduate student matched calendar-calculating twins after 16 sessions (pp. 220–222).</li>
+        <li><b>IQ and chess:</b> IQ helps beginners. But among 23 elite young players, those with lower IQs were slightly <i>better</i>, because they practised more (pp. 227–233).</li>
+        <li>No one can predict who will reach the top. Tom Brady went 199th in the draft (p. 236).</li>
+        <li><b>The dark side:</b> believing in talent becomes a self-fulfilling prophecy, as with Canadian hockey players born early in the year (pp. 238–242).</li>
+      </ul>
+    </div>
+
+    <div class="chap"><div class="chap-head"><span class="num">9</span><h3>Where Do We Go from Here?</h3><span class="pg">pp. 243–259</span></div>
+      <p>A glimpse of the future at the University of British Columbia. Two instructors who had never taught a class used methods based on deliberate practice for one week of a physics course. Their students scored <b>74 percent</b> on the test; the section taught by an experienced professor scored <b>41 percent</b> (pp. 243–247).</p>
+      <ul>
+        <li>Start a lesson with what students should be able to do, not what they should know. The knowledge "comes along for the ride" (p. 251).</li>
+        <li>Teach step by step, just outside the comfort zone, with lots of repetition and feedback (p. 253).</li>
+        <li>Every student should develop expertise in at least one area, to learn what expertise takes (p. 255).</li>
+        <li>Ericsson proposes a new name for us: <b>Homo exercens</b>, "practicing man" (p. 258).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h2>Threads that run through the whole book</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Idea</th><th>What it means</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td><b>Comfort zone</b></td><td>Change happens only when you push past what you can already do, but not too far.</td><td class="pg">17–19, 37–41, 99</td></tr>
+        <tr><td><b>Mental representations</b></td><td>Patterns in long-term memory are what experts have and novices lack. Practice exists to build them.</td><td class="pg">58–83, 99–100, 160–161</td></tr>
+        <tr><td><b>Feedback</b></td><td>Without knowing what went wrong, you can't fix it. Later, your own representations become the feedback.</td><td class="pg">16–17, 99, 125–128</td></tr>
+        <tr><td><b>Try differently</b></td><td>When stuck, change the method, not the effort.</td><td class="pg">19–21, 161–165</td></tr>
+        <tr><td><b>Skills over knowledge</b></td><td>What you can do matters more than what you know.</td><td class="pg">130–137, 250–251</td></tr>
+        <tr><td><b>Experience isn't practice</b></td><td>Years on the job, or performing, don't make you better on their own.</td><td class="pg">12–13, 110–111, 132–133</td></tr>
+        <tr><td><b>Talent is an explanation after the fact</b></td><td>Like "willpower," it's assigned once someone succeeds, and it discourages everyone else.</td><td class="pg">167–168, 207–242</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="stack">
+    <h2>Numbers worth remembering</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Result</th><th>Figure</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Steve Faloon's digit span</td><td class="n">≈8 → 82 digits</td><td class="pg">1–5</td></tr>
+        <tr><td>Sakakibara's children with perfect pitch</td><td class="n">24 of 24</td><td class="pg">xiv–xv</td></tr>
+        <tr><td>Solitary violin practice by age 18 (best / better / good)</td><td class="n">7,410 / 5,301 / 3,420 h</td><td class="pg">93</td></tr>
+        <tr><td>Chess chunks held by a master</td><td class="n">≈50,000</td><td class="pg">57</td></tr>
+        <tr><td>Navy kills per loss after Top Gun (1970–73)</td><td class="n">12.5 : 1</td><td class="pg">117</td></tr>
+        <tr><td>Studies finding doctors improve with experience</td><td class="n">2 of 62</td><td class="pg">133</td></tr>
+        <tr><td>Prostate cancer recurrence (10 vs. 250 prior surgeries)</td><td class="n">17.9% vs 10.7%</td><td class="pg">139</td></tr>
+        <tr><td>UBC physics test (lecture vs. deliberate practice)</td><td class="n">41% vs 74%</td><td class="pg">247</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <p class="note-scan">About this copy: the scan runs from the cover through the index (338 PDF pages), with a "DEMO VERSION" watermark over the text. Page numbers here are the book's printed numbers. Quotes were checked against the page images. The notes and index sections are not summarized.</p>
+</section>
+
+<!-- ================= READER NOTES ================= -->
+<section class="view" id="notes" role="tabpanel" aria-labelledby="t-notes" hidden>
+  <div class="stack">
+    <h2>Reader notes</h2>
+    <p>Notes as a careful reader takes them: lines worth underlining, thoughts in the margin, questions to come back to, and one thing to try. The highlighted lines are the book's words. The handwritten notes are a reader's reactions.</p>
+  </div>
+
+  <details class="nb" open><summary><span class="num">0</span><h3>Introduction: The Gift</h3></summary><div class="nb-body">
+    <div class="hl"><q>Learning isn't a way of reaching one's potential but rather a way of developing it. We can create our own potential.</q><span class="pg">p. xx</span></div>
+    <div class="hl"><q>The right sort of practice carried out over a sufficient period of time leads to improvement. Nothing else.</q><span class="pg">p. xxi</span></div>
+    <div class="hl"><q>Don't undermine the work I've put in every day. Not some days. Every day.</q><span class="pg">p. xviii (Ray Allen)</span></div>
+    <div class="margin"><p>Cup vs. vessel. A cup you can only fill; a vessel you can stretch.</p><p>24 of 24 kids. Not "most." All of them.</p><p>"Nothing else": not desire, not hard work alone. The right sort of practice.</p></div>
+    <div class="qs">? Which of my abilities do I treat as fixed?<br>? Who in my field do I call "talented," and what practice am I not seeing?</div>
+    <p class="try"><span class="k">Try this</span> Write down one skill you've said "I'm just not good at." Next to it, write how many hours of focused practice you've actually given it.</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">1</span><h3>The Power of Purposeful Practice</h3></summary><div class="nb-body">
+    <div class="hl"><q>This is naive practice in a nutshell: I just played it.</q><span class="pg">p. 14</span></div>
+    <div class="hl"><q>You seldom improve much without giving the task your full attention.</q><span class="pg">p. 16</span></div>
+    <div class="hl"><q>If you never push yourself beyond your comfort zone, you will never improve.</q><span class="pg">p. 18</span></div>
+    <div class="hl"><q>Generally the solution is not "try harder" but rather "try differently."</q><span class="pg">p. 19</span></div>
+    <div class="margin"><p>+1 when right, −2 when wrong. Always at the edge.</p><p>Franklin: thousands of hours, never better. Hours ≠ practice.</p><p>Steve hit walls at 22 and 34 digits. Each time a new technique got him past, not more effort.</p><p>Renée vs Steve: same effort, different method, very different result.</p></div>
+    <div class="qs">? What do I "just play" over and over?<br>? Where did I stop improving because it got automatic?</div>
+    <p class="try"><span class="k">Try this</span> Pick one thing you practise. Rewrite the goal as something specific you can check, like "the whole piece at full speed, three times in a row, no mistakes" (p. 15).</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">2</span><h3>Harnessing Adaptability</h3></summary><div class="nb-body">
+    <div class="hl"><q>In the brain, the greater the challenge, the greater the changes — up to a point.</q><span class="pg">p. 41</span></div>
+    <div class="hl"><q>They live in the world of "good enough."</q><span class="pg">p. 47</span></div>
+    <div class="hl"><q>With deliberate practice, however, the goal is not just to reach your potential but to build it, to make things possible that were not possible before.</q><span class="pg">p. 48</span></div>
+    <div class="margin"><p>Cabbies who quit training: no hippocampus growth. Only the ones who finished changed.</p><p>Homeostasis = the body likes comfort. Change only comes when comfort breaks.</p><p>Retired cabbies lose it. Use it or lose it applies to the brain too.</p></div>
+    <div class="qs">? What part of my day actually pushes me past comfortable?<br>? What skill have I let fade from disuse?</div>
+    <p class="try"><span class="k">Try this</span> Take one routine task and make it slightly harder on purpose: less time, a harder case, no notes. Notice what changes.</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">3</span><h3>Mental Representations</h3></summary><div class="nb-body">
+    <div class="hl"><q>What sets expert performers apart from everyone else is the quality and quantity of their mental representations.</q><span class="pg">p. 62</span></div>
+    <div class="hl"><q>There is no such thing as developing a general skill.</q><span class="pg">p. 60</span></div>
+    <div class="hl"><q>It's like a staircase that you climb as you build it.</q><span class="pg">p. 83</span></div>
+    <div class="margin"><p>KEY CHAPTER. Experts see patterns; novices see pieces.</p><p>Random board → master = novice. The skill is the patterns, not memory.</p><p>Knowledge telling vs knowledge transforming. Writing should change what I think.</p><p>Saxophone boy fixed 8/10 mistakes because he could hear what it should sound like.</p></div>
+    <div class="qs">? In my field, what do experts notice that I miss?<br>? Can I describe what "good" looks like before I start?</div>
+    <p class="try"><span class="k">Try this</span> Before your next task, sketch what a perfect result looks like. Afterward, compare and write down where you differed.</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">4</span><h3>The Gold Standard</h3></summary><div class="nb-body">
+    <div class="hl"><q>Deliberate practice is purposeful practice that knows where it is going and how to get there.</q><span class="pg">p. 98</span></div>
+    <div class="hl"><q>There is no point at which performance maxes out and additional practice does not lead to further improvement.</q><span class="pg">p. 113</span></div>
+    <div class="hl"><q>How much you improve is up to you.</q><span class="pg">p. 113</span></div>
+    <div class="margin"><p>Best violinists: most solitary practice, especially in their teens.</p><p>Nobody enjoyed it. Not even the best. So "loving practice" isn't the secret.</p><p>10,000 hours = an average, not a rule. Beatles ≈ 1,100.</p><p>Wine judges disagree with themselves. Careful who I call an expert.</p></div>
+    <div class="qs">? Who are the real experts in my field, measured objectively?<br>? What do they do that others don't?</div>
+    <p class="try"><span class="k">Try this</span> Name two or three people who are clearly better than you at your main skill. Write one thing each does differently.</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">5</span><h3>Principles of Deliberate Practice on the Job</h3></summary><div class="nb-body">
+    <div class="hl"><q>Doing the same thing over and over again in exactly the same way is not a recipe for improvement; it is a recipe for stagnation and gradual decline.</q><span class="pg">p. 121</span></div>
+    <div class="hl"><q>The bottom line is what you are able to do, not what you know.</q><span class="pg">p. 131</span></div>
+    <div class="hl"><q>How do we improve the relevant skills? rather than, How do we teach the relevant knowledge?</q><span class="pg">p. 137</span></div>
+    <div class="margin"><p>Top Gun: the learning happened in the debrief, not the flight.</p><p>After-action questions → students learn to ask them of themselves.</p><p>Lectures for doctors: no measurable effect. Same for most training I sit through?</p><p>Art Turock's red flag for "I can't." Ha.</p></div>
+    <div class="qs">? Where at work could I practise without real consequences?<br>? Which training I've had was knowledge, and which was skill?</div>
+    <p class="try"><span class="k">Try this</span> After your next meeting, call or task, answer the five Top Gun questions in writing (see Toolkit).</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">6</span><h3>Principles of Deliberate Practice in Everyday Life</h3></summary><div class="nb-body">
+    <div class="hl"><q>Remember: if your mind is wandering or you're relaxed and just having fun, you probably won't improve.</q><span class="pg">p. 151</span></div>
+    <div class="hl"><q>It is better to train at 100 percent effort for less time than at 70 percent effort for a longer period.</q><span class="pg">p. 154</span></div>
+    <div class="hl"><q>Focus. Feedback. Fix it.</q><span class="pg">p. 159</span></div>
+    <div class="hl"><q>Maintaining the motivation that enables such a regimen has two parts: reasons to keep going and reasons to stop.</q><span class="pg">p. 169</span></div>
+    <div class="margin"><p>Franklin's method = reproduce the expert, compare, correct. Works for anything.</p><p>Pros finish a singing lesson focused; amateurs finish happy (p. 151).</p><p>Spelling bee kids: none liked it. They kept going anyway.</p><p>Gunder Hägg's dad lied about his time, 4:50 instead of 5:50. Belief matters.</p></div>
+    <div class="qs">? What breaks first when I push a little faster?<br>? What makes it easy for me to skip practice?</div>
+    <p class="try"><span class="k">Try this</span> Set one fixed practice time this week, phone in another room, under an hour. Stop when focus fades.</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">7</span><h3>The Road to Extraordinary</h3></summary><div class="nb-body">
+    <div class="hl"><q>Chess is very objective and easy to measure.</q><span class="pg">p. 181 (Klara Polgár)</span></div>
+    <div class="hl"><q>But if we adults try hard enough, our brains will find a way.</q><span class="pg">p. 199</span></div>
+    <div class="hl"><q>There are no big leaps, only developments that look like big leaps to people from the outside because they haven't seen all of the little steps that comprise them.</q><span class="pg">p. 205</span></div>
+    <div class="margin"><p>Four stages: play → serious → commitment → pathbreaking.</p><p>Younger siblings often go furthest.</p><p>Paul Brady, perfect pitch at 32. Two months, half an hour a day.</p><p>Pathbreakers first master what came before. Picasso painted classically first.</p></div>
+    <div class="qs">? Which stage am I at in my main skill?<br>? What would "commitment" look like for me?</div>
+    <p class="try"><span class="k">Try this</span> Find a pathbreaker in your field and look at their early work. Notice the small steps.</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">8</span><h3>But What About Natural Talent?</h3></summary><div class="nb-body">
+    <div class="hl"><q>In the long run it is the ones who practice more who prevail, not the ones who had some initial advantage in intelligence or some other talent.</q><span class="pg">p. 233</span></div>
+    <div class="hl"><q>This is the dark side of believing in innate talent.</q><span class="pg">p. 241</span></div>
+    <div class="margin"><p>Two questions kill most "prodigy" stories: what exactly is the ability, and what training led to it?</p><p>Elite young chess players: lower IQ, more practice, slightly better.</p><p>Mozart's early works: Dad's handwriting.</p><p>"Tone-deaf" usually just means someone said so once.</p></div>
+    <div class="qs">? Who told me I was "no good at" something?<br>? Whom have I labelled untalented?</div>
+    <p class="try"><span class="k">Try this</span> Pick a "natural" you admire. Look up their early training. How many hours can you find?</p>
+  </div></details>
+
+  <details class="nb"><summary><span class="num">9</span><h3>Where Do We Go from Here?</h3></summary><div class="nb-body">
+    <div class="hl"><q>When preparing a lesson plan, determining what a student should be able to do is far more effective than determining what the student should know.</q><span class="pg">p. 251</span></div>
+    <div class="hl"><q>And I would argue that we humans are most human when we're improving ourselves.</q><span class="pg">p. 258</span></div>
+    <div class="margin"><p>Two new teachers beat the veteran: 74% vs 41%. Method > charisma.</p><p>Clicker questions → discuss → feedback → again.</p><p>Homo exercens. I like that.</p></div>
+    <div class="qs">? What should I be able to <i>do</i> at the end of what I'm studying?<br>? What's my one area of real expertise?</div>
+    <p class="try"><span class="k">Try this</span> Rewrite one learning goal as an action: not "understand X" but "be able to do Y with X."</p>
+  </div></details>
+
+  <div class="stack">
+    <h3>Inside back cover: page index</h3>
+    <p>Key ideas with the pages where they live.</p>
+    <div class="idx">
+      <div><span>The gift = adaptability</span><span>xvi–xviii</span></div>
+      <div><span>Expandable vessel</span><span>xx</span></div>
+      <div><span>+1 / −2 rule</span><span>4</span></div>
+      <div><span>Usual approach stalls</span><span>11–13</span></div>
+      <div><span>Naive practice</span><span>14</span></div>
+      <div><span>Four traits, purposeful practice</span><span>15–18</span></div>
+      <div><span>Try differently</span><span>19</span></div>
+      <div><span>Purposeful practice in a nutshell</span><span>22</span></div>
+      <div><span>London cabbies</span><span>27–33</span></div>
+      <div><span>Homeostasis</span><span>37–41</span></div>
+      <div><span>Build your potential</span><span>47–48</span></div>
+      <div><span>Chess chunks</span><span>55–57</span></div>
+      <div><span>Mental representations defined</span><span>58–61</span></div>
+      <div><span>No general skill</span><span>60</span></div>
+      <div><span>Knowledge telling vs transforming</span><span>73–76</span></div>
+      <div><span>Staircase / virtuous circle</span><span>79–83</span></div>
+      <div><span>Berlin violin study</span><span>87–94</span></div>
+      <div><span>Seven traits, deliberate practice</span><span>99–100</span></div>
+      <div><span>Get as close as you can</span><span>103</span></div>
+      <div><span>Ten-thousand-hour rule</span><span>109–114</span></div>
+      <div><span>Top Gun</span><span>115–119</span></div>
+      <div><span>Four questions for any program</span><span>124</span></div>
+      <div><span>Knowledge vs skills</span><span>130–137</span></div>
+      <div><span>Find a good teacher</span><span>147–150</span></div>
+      <div><span>100% vs 70% effort</span><span>154</span></div>
+      <div><span>Franklin's writing method</span><span>155–157</span></div>
+      <div><span>Three Fs</span><span>159</span></div>
+      <div><span>Plateaus</span><span>161–165</span></div>
+      <div><span>Motivation</span><span>166–178</span></div>
+      <div><span>Bloom's stages</span><span>184–194</span></div>
+      <div><span>Two questions for "talent"</span><span>211</span></div>
+      <div><span>IQ and chess</span><span>227–233</span></div>
+      <div><span>Self-fulfilling prophecy</span><span>238–242</span></div>
+      <div><span>UBC physics</span><span>243–247</span></div>
+      <div><span>Homo exercens</span><span>258</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLKIT ================= -->
+<section class="view" id="toolkit" role="tabpanel" aria-labelledby="t-toolkit" hidden>
+  <div class="stack">
+    <h2>Toolkit</h2>
+    <p>Every method and checklist the book gives, in a form you can use without the book open.</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Purposeful practice: four checks</h3><span class="pg">pp. 15–18</span></div>
+    <ol>
+      <li><b>A well-defined, specific goal</b> for this session, not "get better."</li>
+      <li><b>Full focus.</b> No mind-wandering.</li>
+      <li><b>Feedback</b> on every attempt: what went right, what went wrong, and why.</li>
+      <li><b>Just outside your comfort zone.</b> Something you can't quite do yet.</li>
+    </ol>
+    <p class="say">Get outside your comfort zone but do it in a focused way, with clear goals, a plan for reaching those goals, and a way to monitor your progress. (p. 22)</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Deliberate practice: seven traits</h3><span class="pg">pp. 99–100</span></div>
+    <ol>
+      <li>It builds skills others have already figured out how to do, using proven training methods, under a teacher or coach.</li>
+      <li>It takes place outside your comfort zone and demands near-maximum effort. It's usually not enjoyable.</li>
+      <li>It has well-defined, specific goals, broken into a plan of small changes.</li>
+      <li>It is deliberate: full attention and conscious control.</li>
+      <li>It involves feedback and changing what you do in response. Over time you learn to give yourself feedback.</li>
+      <li>It both builds and depends on effective mental representations.</li>
+      <li>It builds on existing skills step by step, so the fundamentals must be right from the start.</li>
+    </ol>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>When strict deliberate practice isn't possible</h3><span class="pg">pp. 103–108</span></div>
+    <ol>
+      <li><b>Identify the expert performers</b>, using objective measures where you can. Be wary of reputation, seniority and charm.</li>
+      <li>No objective measure? Ask people who see many professionals at work (like a nurse on several surgical teams), or find who professionals call when they're stuck.</li>
+      <li><b>Figure out what they do differently</b>, or what their training does differently.</li>
+      <li><b>Design practice</b> that lets you do it too. Keep what works; drop what doesn't.</li>
+      <li>Whenever possible, work with a good coach.</li>
+    </ol>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Stay at the edge: the +1 / −2 rule</h3><span class="pg">p. 4</span></div>
+    <ol>
+      <li>Start at a level you can manage.</li>
+      <li>Succeed: make the next attempt one step harder.</li>
+      <li>Fail: make it two steps easier.</li>
+    </ol>
+    <p>This is how Steve Faloon was "constantly challenged, but not too much."</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>No teacher: the three Fs</h3><span class="pg">p. 159</span></div>
+    <p class="say">Focus. Feedback. Fix it.</p>
+    <ol>
+      <li>Break the skill into parts you can repeat and analyze.</li>
+      <li>Find your weaknesses.</li>
+      <li>Figure out ways to fix them, then repeat.</li>
+    </ol>
+    <p>Creative versions from the book: ask strangers the same question again and again to hear the answers repeatedly (ESL student); keep strangers talking at rush hour and time yourself (circus ringmaster); try material at open-mic nights (comedians) (pp. 158–159).</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Franklin's method: learn from a model</h3><span class="pg">pp. 155–156</span></div>
+    <ol>
+      <li>Pick work by someone excellent.</li>
+      <li>Write short hints about each part, just enough to remind you what it says.</li>
+      <li>Wait a few days, then reproduce it from your hints.</li>
+      <li>Compare with the original and correct your version.</li>
+      <li>Variations: rewrite it in a different form and back (he turned prose into verse) to build range; shuffle your hints and rebuild the order to learn structure.</li>
+    </ol>
+    <p>The same works for chess (replay grandmaster games), art (copy the masters) and music (Mozart studied great composers' work) (p. 160).</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Choose a good teacher</h3><span class="pg">pp. 147–150</span></div>
+    <ul>
+      <li>Accomplished in the field, though not necessarily world-class. They can only take you as far as they or their students have gone.</li>
+      <li>Experienced at <i>teaching</i>. Many great performers are poor teachers.</li>
+      <li>Talk to their students, especially ones who started at your level and age.</li>
+      <li>Ignore reviews about fun; look for evidence of progress.</li>
+      <li>Ask how they guide solo practice: what to work on, what to watch for, how to recognize good performance.</li>
+      <li>When you stop improving, look for a new teacher.</li>
+    </ul>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Stay engaged</h3><span class="pg">pp. 150–154, 170–171</span></div>
+    <ul>
+      <li>Shorter sessions with clearer goals. 100 percent effort beats 70 percent for longer.</li>
+      <li>About an hour per session. Take a break if you want more.</li>
+      <li>End the session when you can no longer focus.</li>
+      <li>Sleep enough. The Berlin violinists napped.</li>
+      <li>Even in repetitive work (laps, reps, scales), attend to every detail of form.</li>
+    </ul>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Break a plateau</h3><span class="pg">pp. 161–165</span></div>
+    <ol>
+      <li>Challenge yourself in a new way: change the exercise, load or routine.</li>
+      <li>Still stuck? Push yourself a little (not a lot) harder than usual: faster, a tougher opponent, a busier day.</li>
+      <li>Watch what breaks first. That part is holding you back.</li>
+      <li>Design practice aimed only at that weakness (typists drill "ol" words).</li>
+      <li>Other moves from Faloon's study: slow down to see whether the problem is speed; try far beyond your limit to show it's possible (pp. 20–21).</li>
+    </ol>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Keep going: motivation</h3><span class="pg">pp. 166–178</span></div>
+    <p><span class="k">Weaken reasons to quit</span></p>
+    <ul>
+      <li>A fixed practice time, cleared of everything else.</li>
+      <li>Remove distractions: phone off and in another room.</li>
+      <li>Sleep, health, sessions of about an hour.</li>
+    </ul>
+    <p><span class="k">Strengthen reasons to keep going</span></p>
+    <ul>
+      <li>Let the skill become part of who you are.</li>
+      <li>Believe you can improve. After a setback, agree to get back to where you were before you decide to quit (p. 173).</li>
+      <li>Join or build a group with the same goals (Franklin's Junto).</li>
+      <li>Break the journey into small, measurable levels, with small rewards. Dan McLaughlin's putting game logged 102 putts per game (p. 177).</li>
+    </ul>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Top Gun debrief</h3><span class="pg">p. 117</span></div>
+    <p>After each attempt, answer:</p>
+    <ol>
+      <li>What did you notice?</li>
+      <li>What actions did you take?</li>
+      <li>Why did you choose to do that?</li>
+      <li>What were your mistakes?</li>
+      <li>What could you have done differently?</li>
+    </ol>
+    <p>Then try again the next day. Over time you start asking yourself these questions.</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Judge any training program</h3><span class="pg">p. 124</span></div>
+    <ol>
+      <li>Does it push people outside their comfort zone?</li>
+      <li>Does it give immediate feedback and say how to improve?</li>
+      <li>Did its designers identify the best performers and what sets them apart?</li>
+      <li>Does it develop the specific skills those experts have?</li>
+    </ol>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Practise while working</h3><span class="pg">pp. 122–123</span></div>
+    <ol>
+      <li>Before a presentation, the speaker picks one skill to work on (stories, speaking without slides).</li>
+      <li>The audience takes notes on how it went and practises giving feedback.</li>
+      <li>For a big sales call: role-play it, get feedback, record it, rehearse again the next day.</li>
+      <li>Make it routine, not a one-off.</li>
+    </ol>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Test a "talent" story</h3><span class="pg">pp. 211, 217</span></div>
+    <ol>
+      <li>What exactly is the ability?</li>
+      <li>What training could have produced it?</li>
+    </ol>
+    <p>Ericsson says thirty years of asking these two questions never turned up a case they couldn't explain.</p>
+  </div>
+
+  <div class="tool"><div class="toolhead"><h3>Design a lesson the UBC way</h3><span class="pg">pp. 250–253</span></div>
+    <ol>
+      <li>Decide what learners should be able to <i>do</i>. Make objectives skills, not knowledge.</li>
+      <li>Study how experts do it, especially their mental representations.</li>
+      <li>Teach it step by step, each step just outside the comfort zone.</li>
+      <li>Give lots of repetition and feedback: try, fail, get feedback, try again.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= NOTEPAD ================= -->
+<section class="view" id="notepad" role="tabpanel" aria-labelledby="t-notepad" hidden>
+  <div class="stack">
+    <h2>Notepad</h2>
+    <p>The whole book on four pocket cards. Copy each one into your notebook or notes app.</p>
+  </div>
+  <div class="np-actions"><button type="button" id="np-all">Copy all four cards</button></div>
+  <p class="np-status" id="np-status" aria-live="polite"></p>
+  <div class="pads">
+  <div class="pad"><button type="button" class="copy" data-i="0">Copy</button><pre id="pad0">PEAK
+Ericsson &amp; Pool · 2016 · card 1/4
+
+The gift = an ADAPTABLE brain + body
+Potential = expandable vessel, not a cup
+Right practice over time → improvement.
+  Nothing else. (xxi)
+
+3 KINDS OF PRACTICE
+  Naive: "I just played it" → plateau
+  Purposeful: goal · focus · feedback
+    · outside comfort zone
+  Deliberate: purposeful + expert
+    standard + teacher → builds
+    MENTAL REPRESENTATIONS
+
+When stuck: try differently, not harder</pre></div>
+  <div class="pad"><button type="button" class="copy" data-i="1">Copy</button><pre id="pad1">CH 1–4 · card 2/4
+
+1 PURPOSEFUL PRACTICE
+  Faloon 8 → 82 digits, +1/−2 rule (4)
+  Franklin: chess hours, no gain (18)
+2 ADAPTABILITY
+  Cabbies' hippocampus grows (32)
+  Change only past comfort (homeostasis)
+  Build potential, don't just fill it (48)
+3 MENTAL REPRESENTATIONS (key chapter)
+  Experts see patterns, ~50k chunks (57)
+  No such thing as a general skill (60)
+  Staircase you build as you climb (83)
+4 GOLD STANDARD
+  Best violinists: 7,410 h by 18 (93)
+  10,000 h = average, not a rule
+  No point where practice stops helping</pre></div>
+  <div class="pad"><button type="button" class="copy" data-i="2">Copy</button><pre id="pad2">CH 5–9 · card 3/4
+
+5 ON THE JOB
+  Top Gun: ~1:1 → 12.5:1 (117)
+  Debrief every attempt
+  Skills, not knowledge (137)
+6 EVERYDAY LIFE
+  Teacher · focus · 100% &gt; 70% (154)
+  No teacher: FOCUS · FEEDBACK · FIX IT
+  Franklin: reproduce, compare, correct
+  Plateau: push a bit, see what breaks
+7 ROAD TO EXTRAORDINARY
+  Play → serious → commit → pathbreak
+8 TALENT?
+  What's the ability? What training?
+  Elite kids: more practice beat higher IQ
+9 WHAT'S NEXT
+  UBC physics 74% vs 41% (247)
+  Homo exercens = "practicing man"</pre></div>
+  <div class="pad"><button type="button" class="copy" data-i="3">Copy</button><pre id="pad3">DAILY TOOLKIT · card 4/4
+
+BEFORE  One specific goal
+        Picture what "good" looks like
+DURING  Full focus, ≤ 1 hour
+        Just past comfortable
+        Right → harder · wrong → easier
+AFTER   What did I notice? What did I do?
+        Why? What were my mistakes?
+        What would I do differently?
+STUCK   Push a little harder → find the
+        weak part → drill only that
+KEEP ON Fixed time · phone away · sleep
+        Small measurable levels
+        A group with the same goal
+
+Try differently, not harder.</pre></div>
+  </div>
+</section>
+
+</div></main>
+
+<footer class="site"><div class="wrap" style="display:grid;gap:6px">
+  <p>Summary for personal study. Page numbers refer to the 2016 edition (scanned copy); short quotes are from the book.</p>
+  <p><a href="index.html">All pages</a> &middot; <a href="https://github.com/Nithin900/psycho-cybernetics">Source on GitHub</a></p>
+</div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  var ids=tabs.map(function(t){return t.getAttribute('aria-controls')});
+  function show(id){
+    tabs.forEach(function(t){
+      var on=t.getAttribute('aria-controls')===id;
+      t.setAttribute('aria-selected',on?'true':'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+    });
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    var id=t.getAttribute('aria-controls');show(id);
+    try{history.replaceState(null,'','#'+id)}catch(e){}
+    window.scrollTo(0,0);
+  })});
+  function fromHash(){var h=(location.hash||'').slice(1);if(ids.indexOf(h)>-1)show(h)}
+  window.addEventListener('hashchange',fromHash);fromHash();
+
+  var st=document.getElementById('np-status');
+  function say(t){st.textContent=t;clearTimeout(say.t);say.t=setTimeout(function(){st.textContent=''},2500)}
+  function copy(text,el){
+    function fallback(){try{var r=document.createRange();r.selectNodeContents(el);var x=window.getSelection();x.removeAllRanges();x.addRange(r);say('Selected. Press Ctrl+C (or Cmd+C) to copy.')}catch(e){}}
+    try{navigator.clipboard.writeText(text).then(function(){say('Copied.')},fallback)}catch(e){fallback()}
+  }
+  [].forEach.call(document.querySelectorAll('.pad .copy'),function(b){
+    b.addEventListener('click',function(){var p=document.getElementById('pad'+b.getAttribute('data-i'));copy(p.textContent,p)})
+  });
+  document.getElementById('np-all').addEventListener('click',function(){
+    var all=[].map.call(document.querySelectorAll('.pad pre'),function(p){return p.textContent}).join('\n\n----\n\n');
+    copy(all,document.querySelector('.pads'))
+  });
+})();
+</script>
+</body>
+</html>

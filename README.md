@@ -1,10 +1,10 @@
 # Psycho-Cybernetics
 
-Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including one by his student Ron Willingham), plus Cal Newport's *So Good They Can't Ignore You*. Each page is a single HTML file: open it in any browser. Start at [`index.html`](index.html), which lists every page by book.
+Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including one by his student Ron Willingham), plus Cal Newport's *So Good They Can't Ignore You* and Anders Ericsson and Robert Pool's *Peak*. Each page is a single HTML file: open it in any browser. Start at [`index.html`](index.html), which lists every page by book and has a sticky nav bar to jump to any book, filter by page type (daily practice, reading guides, references, visual) and search.
 
 | Page | Book | What it is |
 |---|---|---|
-| [`index.html`](index.html) | All | **Home**: every page in one place, grouped by book |
+| [`index.html`](index.html) | All | **Home**: every page in one place, grouped by book, with a nav bar (jump to a book, filter by page type, search) |
 | [`self-image-ladder.html`](self-image-ladder.html) | All seven Maltz books | **Self-Image Ladder**: the self-image on a seven-rung learning ladder (parts, predictions, trade-offs, factors that build or shrink it, the system loop, a Feynman check, problem-to-solution practice with a 21-day counter). Progress is saved in your browser |
 | [`psycho-cybernetics-machine.html`](psycho-cybernetics-machine.html) | *Psycho-Cybernetics* (1960) | **The Psycho-Cybernetics Machine**: the definition and all 15 chapters as animated, tappable scenes with Maltz's stories and page-cited quotes |
 | [`self-image-day.html`](self-image-day.html) | *Psycho-Cybernetics & Self-Fulfillment* (1970) | **Self-Image Day**: an activity page of seven exercises from the book (morning mirror, Loser's List to Winner's List, the double feature, the 13 dual forces of YOUR SELF IMAGE, the four points against a resentment, two quiet minutes, and the evening NOT GUILTY verdict). Entries are saved in your browser |
@@ -38,8 +38,9 @@ Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including 
 | [`so-good-they-cant-ignore-you-activity.html`](so-good-they-cant-ignore-you-activity.html) | *So Good They Can't Ignore You* (2012), Cal Newport | **Craftsman's Day**: a daily practice page from the book (the craftsman's question, defining "good", a one-hour strain timer, honest feedback, the hour tally with a monthly total, important-not-immediate habits) plus a "before a bigger move" checklist; entries are saved in your browser |
 | [`so-good-they-cant-ignore-you-reading-guide.html`](so-good-they-cant-ignore-you-reading-guide.html) | *So Good They Can't Ignore You* (2012), Cal Newport | **Reading guide**: the four rules chapter by chapter, the conclusion, threads through the book and check-yourself questions, with page numbers |
 | [`so-good-they-cant-ignore-you-reference.html`](so-good-they-cant-ignore-you-reference.html) | *So Good They Can't Ignore You* (2012), Cal Newport | **Reference**: the four rules, every law and control trap in Newport's words, numbered lists, Mike Jackson's week, key terms, people and stories, research figures and the books he draws on |
+| [`peak.html`](peak.html) | *Peak* (2016), Anders Ericsson & Robert Pool | **Book report & reader notes**: the book chapter by chapter with page numbers, the three kinds of practice, key numbers, reader notes with checked quotes, a toolkit of every method (purposeful/deliberate practice checklists, the three Fs, Franklin's method, the Top Gun debrief, breaking a plateau, motivation) and four copyable pocket cards |
 
-The *Self-Fulfillment* pages use the Bantam 1973 edition; page numbers refer to it. The scanned copy used skips page 3 and pages 5–10 (the opening of Chapter 1). The other books were read from scanned copies; the *Conquest of Frustration* scan ends at p. 176, partway through the last section. The *So Good They Can't Ignore You* pages use the e-book copy (Business Plus, 2012); its page numbers are PDF pages and won't match the printed hardcover.
+The *Self-Fulfillment* pages use the Bantam 1973 edition; page numbers refer to it. The scanned copy used skips page 3 and pages 5–10 (the opening of Chapter 1). The other books were read from scanned copies; the *Conquest of Frustration* scan ends at p. 176, partway through the last section. The *So Good They Can't Ignore You* pages use the e-book copy (Business Plus, 2012); its page numbers are PDF pages and won't match the printed hardcover. The *Peak* page uses a scanned copy of the 2016 edition; page numbers are the book's printed numbers.
 
 ## Publishing
 

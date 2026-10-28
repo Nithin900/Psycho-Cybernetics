@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Psycho-Cybernetics Study Pages</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Reading guides, references and daily practice pages for eight books by Maxwell Maltz and his student Ron Willingham.">
+<meta name="description" content="Reading guides, references and daily practice pages for books by Maxwell Maltz and his student Ron Willingham, plus So Good They Can't Ignore You and Peak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -55,22 +55,80 @@ h1{font-size:clamp(2.4rem,7vw,3.8rem)}
 .go{font-size:.88rem;color:var(--accent);font-weight:700}
 footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted);font-size:.9rem;display:grid;gap:.4rem}
 @media (max-width:44rem){.book{grid-template-columns:1fr;gap:1rem}}
+
+/* Top nav: sticky bar with brand, type filter, search, and one link per book */
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--rule);
+  margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));padding-inline:max(16px, env(safe-area-inset-left, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--bg)}
+.topnav .inner{max-width:60rem;margin:0 auto;display:grid;gap:.5rem;padding-block:.65rem .55rem}
+.navrow{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap}
+.brand span{color:var(--accent)}
+.navrow select,.navrow input{font:inherit;font-size:.92rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:.5rem;padding:.4rem .6rem;min-width:0}
+.navrow label{display:flex;min-width:0}
+.navrow input{width:13rem}
+.navrow select{width:auto}
+.navrow select:focus-visible,.navrow input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.navbooks{display:flex;gap:.3rem;overflow-x:auto;scrollbar-width:thin;padding-bottom:.15rem;align-items:center}
+.navbooks a{flex:none;font-size:.88rem;font-weight:700;color:var(--muted);text-decoration:none;padding:.3rem .65rem;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.navbooks a:hover{color:var(--ink);border-color:var(--rule)}
+.navbooks a[aria-current="true"]{color:var(--accent);background:var(--accent-soft);border-color:var(--accent)}
+.navbooks .grp{flex:none;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 .25rem 0 .5rem}
+.navbooks .grp:first-child{padding-left:0}
+.book{scroll-margin-top:8.5rem}
+.book[hidden],.card[hidden]{display:none!important}
+.empty{padding-block:2rem;color:var(--muted);border-top:1px solid var(--rule)}
+@media (max-width:44rem){.qlab{flex:1 1 8rem}.navrow input{width:100%}.brand{flex:1 0 100%;margin-right:0}.book{scroll-margin-top:10.5rem}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="top">
+
+<nav class="topnav" aria-label="Study pages">
+  <div class="inner">
+    <div class="navrow">
+      <a class="brand" href="#top">Study <span>Pages</span></a>
+      <label><span class="sr">Show page type</span>
+        <select id="type">
+          <option value="all">All pages</option>
+          <option value="practice">Daily practice</option>
+          <option value="guide">Reading guides &amp; reports</option>
+          <option value="reference">References</option>
+          <option value="visual">Visual &amp; extras</option>
+        </select>
+      </label>
+      <label class="qlab"><span class="sr">Search pages</span><input type="search" id="q" placeholder="Search pages&hellip;" autocomplete="off"></label>
+    </div>
+    <div class="navbooks" id="navbooks">
+      <a href="#all">All books</a>
+      <span class="grp">Maltz</span>
+      <a href="#psycho-cybernetics">Psycho-Cybernetics</a>
+      <a href="#creative-living">Creative Living</a>
+      <a href="#conquest">Conquest of Frustration</a>
+      <a href="#self-fulfillment">Self-Fulfillment</a>
+      <a href="#youth">For Youth</a>
+      <a href="#self-respect">Self-Respect</a>
+      <a href="#life-is-what-you-make-it">Life Is What You Make It</a>
+      <a href="#live-free">Live and Be Free</a>
+      <span class="grp">Skill &amp; practice</span>
+      <a href="#so-good">So Good They Can&rsquo;t Ignore You</a>
+      <a href="#peak">Peak</a>
+    </div>
+  </div>
+</nav>
 
 <header>
-  <span class="label">Maxwell Maltz and more &middot; nine books &middot; 33 pages</span>
+  <span class="label">Maxwell Maltz and more &middot; ten books &middot; 34 pages</span>
   <h1>Psycho-Cybernetics Study Pages</h1>
-  <p class="lede">Reading guides, references and daily practice pages for Maxwell Maltz&rsquo;s books on the self-image, plus one by his student Ron Willingham and Cal Newport&rsquo;s <i>So Good They Can&rsquo;t Ignore You</i>. Each page is a single page you can open on any device.</p>
+  <p class="lede">Reading guides, references and daily practice pages for Maxwell Maltz&rsquo;s books on the self-image, plus one by his student Ron Willingham Cal Newport&rsquo;s <i>So Good They Can&rsquo;t Ignore You</i> and Anders Ericsson&rsquo;s <i>Peak</i>. Each page is a single page you can open on any device.</p>
   <p class="helm">&ldquo;Steering your mind to a productive, useful goal.&rdquo;<span>From the Greek <i>kybernetes</i>, a helmsman &middot; Psycho-Cybernetics &amp; Self-Fulfillment, p. 204</span></p>
 </header>
 
 <main class="shelf">
 
-<section class="book" aria-labelledby="b0">
+<section class="book" id="all" aria-labelledby="b0">
   <div class="spine">
     <span class="year">All books</span>
     <h2 id="b0">The self-image, all in one place</h2>
@@ -92,7 +150,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b1">
+<section class="book" id="psycho-cybernetics" aria-labelledby="b1">
   <div class="spine">
     <span class="year">1960</span>
     <h2 id="b1">Psycho-Cybernetics</h2>
@@ -138,7 +196,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b2">
+<section class="book" id="creative-living" aria-labelledby="b2">
   <div class="spine">
     <span class="year">1967</span>
     <h2 id="b2">Creative Living for Today</h2>
@@ -166,7 +224,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b3">
+<section class="book" id="conquest" aria-labelledby="b3">
   <div class="spine">
     <span class="year">1969</span>
     <h2 id="b3">The Conquest of Frustration</h2>
@@ -194,7 +252,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b4">
+<section class="book" id="self-fulfillment" aria-labelledby="b4">
   <div class="spine">
     <span class="year">1970</span>
     <h2 id="b4">Psycho-Cybernetics &amp; Self-Fulfillment</h2>
@@ -222,7 +280,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b5">
+<section class="book" id="youth" aria-labelledby="b5">
   <div class="spine">
     <span class="year">Early 1970s</span>
     <h2 id="b5">Power Psycho-Cybernetics for Youth</h2>
@@ -250,7 +308,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b6">
+<section class="book" id="self-respect" aria-labelledby="b6">
   <div class="spine">
     <span class="year">1973</span>
     <h2 id="b6">The Search for Self-Respect</h2>
@@ -278,7 +336,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b7">
+<section class="book" id="life-is-what-you-make-it" aria-labelledby="b7">
   <div class="spine">
     <span class="year">1973</span>
     <h2 id="b7">Life Is What You Make It</h2>
@@ -306,7 +364,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b8">
+<section class="book" id="live-free" aria-labelledby="b8">
   <div class="spine">
     <span class="year">1975</span>
     <h2 id="b8">Live and Be Free Thru Psycho-Cybernetics</h2>
@@ -340,7 +398,7 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
-<section class="book" aria-labelledby="b9">
+<section class="book" id="so-good" aria-labelledby="b9">
   <div class="spine">
     <span class="year">2012</span>
     <h2 id="b9">So Good They Can&rsquo;t Ignore You</h2>
@@ -368,12 +426,61 @@ footer{padding-block:2.5rem 0;border-top:1px solid var(--rule);color:var(--muted
   </div>
 </section>
 
+<section class="book" id="peak" aria-labelledby="b10">
+  <div class="spine">
+    <span class="year">2016</span>
+    <h2 id="b10">Peak</h2>
+    <p>Anders Ericsson and Robert Pool: how experts are made &mdash; purposeful and deliberate practice, mental representations, and why &ldquo;talent&rdquo; explains less than we think.</p>
+  </div>
+  <div class="pages">
+    <a class="card featured" href="peak.html">
+      <span class="kind">Book report</span>
+      <h3>Report, notes &amp; toolkit</h3>
+      <p>All nine chapters with page numbers, reader notes with checked quotes, every method as a toolkit (the three Fs, the Top Gun debrief, breaking a plateau) and four pocket cards.</p>
+      <span class="go">Open the book page &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<p class="empty" id="empty" hidden>No pages match. Try another word or show all page types.</p>
+
 </main>
 
 <footer>
-  <p>Study pages on books by Maxwell Maltz, M.D., and on Cal Newport&rsquo;s <i>So Good They Can&rsquo;t Ignore You</i>. Summaries are for personal study; page numbers refer to the editions named on each page.</p>
+  <p>Study pages on books by Maxwell Maltz, M.D., on Cal Newport&rsquo;s <i>So Good They Can&rsquo;t Ignore You</i> and on Anders Ericsson and Robert Pool&rsquo;s <i>Peak</i>. Summaries are for personal study; page numbers refer to the editions named on each page.</p>
   <p><a href="https://github.com/Nithin900/psycho-cybernetics">Source on GitHub</a></p>
 </footer>
 </div>
+<script>
+(function(){
+  var TYPES={practice:["activity","workbook","learning ladder"],guide:["reading guide","chapter report","book report","notes"],reference:["reference"],visual:["visual book","podcast script","learning ladder"]};
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var books=[].slice.call(document.querySelectorAll('.book'));
+  var sel=document.getElementById('type'),q=document.getElementById('q'),empty=document.getElementById('empty');
+  var links=[].slice.call(document.querySelectorAll('#navbooks a'));
+  function apply(){
+    var t=sel.value,term=q.value.trim().toLowerCase(),any=false;
+    cards.forEach(function(c){
+      var kind=(c.querySelector('.kind')||{}).textContent||'';kind=kind.trim().toLowerCase();
+      var book=c.closest('.book').querySelector('.spine').textContent.toLowerCase();
+      var okT=t==='all'||TYPES[t].indexOf(kind)>-1;
+      var okQ=!term||(c.textContent+' '+book).toLowerCase().indexOf(term)>-1;
+      c.hidden=!(okT&&okQ);
+    });
+    books.forEach(function(b){
+      var vis=b.querySelectorAll('.card:not([hidden])').length>0;b.hidden=!vis;if(vis)any=true;
+      var l=document.querySelector('#navbooks a[href="#'+b.id+'"]');if(l)l.hidden=!vis;
+    });
+    empty.hidden=any;
+  }
+  sel.addEventListener('change',apply);q.addEventListener('input',apply);
+  // Highlight the book currently in view
+  function mark(id){links.forEach(function(a){var on=a.getAttribute('href')==='#'+id;if(on){a.setAttribute('aria-current','true');var nb=a.parentNode,l=a.offsetLeft-nb.offsetLeft;if(l<nb.scrollLeft||l+a.offsetWidth>nb.scrollLeft+nb.clientWidth)nb.scrollLeft=l-16}else a.removeAttribute('aria-current')})}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)mark(e.target.id)})},{rootMargin:'-40% 0px -55% 0px'});
+    books.forEach(function(b){io.observe(b)});
+  }
+})();
+</script>
 </body>
 </html>
