@@ -1,6 +1,6 @@
 # Psycho-Cybernetics
 
-Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including one by his student Ron Willingham). Each page is a single HTML file: open it in any browser. Start at [`index.html`](index.html), which lists every page by book.
+Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including one by his student Ron Willingham), plus Cal Newport's *So Good They Can't Ignore You*. Each page is a single HTML file: open it in any browser. Start at [`index.html`](index.html), which lists every page by book.
 
 | Page | Book | What it is |
 |---|---|---|
@@ -35,8 +35,11 @@ Study pages on Maxwell Maltz's Psycho-Cybernetics books (eight books, including 
 | [`live-free-activity.html`](live-free-activity.html) | *Live and Be Free Thru Psycho-Cybernetics* (1975), with Charles Schreiber | **Activity**: a daily practice page built from the book's own exercises; entries are saved in your browser |
 | [`live-free-reading-guide.html`](live-free-reading-guide.html) | *Live and Be Free Thru Psycho-Cybernetics* (1975), with Charles Schreiber | **Reading guide**: chapter by chapter, with page numbers (Warner 1976) |
 | [`live-free-reference.html`](live-free-reference.html) | *Live and Be Free Thru Psycho-Cybernetics* (1975), with Charles Schreiber | **Reference**: lists, acrostics, exercises, key terms and stories, with page numbers |
+| [`so-good-they-cant-ignore-you-activity.html`](so-good-they-cant-ignore-you-activity.html) | *So Good They Can't Ignore You* (2012), Cal Newport | **Craftsman's Day**: a daily practice page from the book (the craftsman's question, defining "good", a one-hour strain timer, honest feedback, the hour tally with a monthly total, important-not-immediate habits) plus a "before a bigger move" checklist; entries are saved in your browser |
+| [`so-good-they-cant-ignore-you-reading-guide.html`](so-good-they-cant-ignore-you-reading-guide.html) | *So Good They Can't Ignore You* (2012), Cal Newport | **Reading guide**: the four rules chapter by chapter, the conclusion, threads through the book and check-yourself questions, with page numbers |
+| [`so-good-they-cant-ignore-you-reference.html`](so-good-they-cant-ignore-you-reference.html) | *So Good They Can't Ignore You* (2012), Cal Newport | **Reference**: the four rules, every law and control trap in Newport's words, numbered lists, Mike Jackson's week, key terms, people and stories, research figures and the books he draws on |
 
-The *Self-Fulfillment* pages use the Bantam 1973 edition; page numbers refer to it. The scanned copy used skips page 3 and pages 5–10 (the opening of Chapter 1). The other books were read from scanned copies; the *Conquest of Frustration* scan ends at p. 176, partway through the last section.
+The *Self-Fulfillment* pages use the Bantam 1973 edition; page numbers refer to it. The scanned copy used skips page 3 and pages 5–10 (the opening of Chapter 1). The other books were read from scanned copies; the *Conquest of Frustration* scan ends at p. 176, partway through the last section. The *So Good They Can't Ignore You* pages use the e-book copy (Business Plus, 2012); its page numbers are PDF pages and won't match the printed hardcover.
 
 ## Publishing
 

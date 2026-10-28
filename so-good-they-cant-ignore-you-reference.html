@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>So Good They Can't Ignore You Reference</title>
+<meta name="description" content="So Good They Can&#x27;t Ignore You at a glance: the four rules, every law and trap in Newport&#x27;s words, the numbered lists, key terms, the people and stories, and the research figures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.rulemark{padding-top:3rem;margin-top:1rem;border-top:3px double var(--rule);display:grid;gap:.25rem}
+.rulemark b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--accent)}
+.rulemark + h2{border-top:0;margin-top:0;padding-top:1rem}
+details{border:1px solid var(--rule);border-radius:.6rem;background:var(--surface);padding:.6rem .9rem}
+details summary{cursor:pointer;font-weight:700}
+details p{margin-top:.5rem;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap wide">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Cal Newport &middot; So Good They Can&rsquo;t Ignore You &middot; 2012</span>
+  <h1>So Good They Can&rsquo;t Ignore You, at a glance</h1>
+  <p class="lede">Look things up: the four rules, the laws and control traps in Newport&rsquo;s own words, the lists (five habits, three disqualifiers, the mission pyramid), key terms, people and numbers. Book content only, with page numbers.</p>
+  <p class="noteline">Four rules in fifteen chapters (pp. 5&ndash;198), then career profile summaries and a glossary. Page numbers are those of the e-book copy used (Business Plus, 2012; 227 PDF pages), not the printed hardcover.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-four-rules">The four rules</a><a href="#laws-theories-and-traps">Laws, theories and traps</a><a href="#numbered-lists">Numbered lists</a><a href="#mike-jackson-s-week">Mike Jackson&rsquo;s week</a><a href="#key-terms">Key terms</a><a href="#people-and-stories">People and stories</a><a href="#research-and-numbers">Research and numbers</a><a href="#books-newport-draws-on">Books Newport draws on</a></nav>
+<article>
+<h2 id="the-four-rules">The four rules</h2>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Rule</th>
+<th>Title</th>
+<th>The claim</th>
+<th>Chapters</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Don&rsquo;t Follow Your Passion</td>
+<td>Most people have no pre-existing passion to match, and believing in one makes people less happy</td>
+<td>1–3</td>
+<td>13–36</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Be So Good They Can&rsquo;t Ignore You (Or, the Importance of Skill)</td>
+<td>Great work costs rare and valuable skills (career capital), built through the craftsman mindset and deliberate practice</td>
+<td>4–7</td>
+<td>37–95</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Turn Down a Promotion (Or, the Importance of Control)</td>
+<td>Invest capital in control, watching for the two control traps and testing with the law of financial viability</td>
+<td>8–11</td>
+<td>96–128</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Think Small, Act Big (Or, the Importance of Mission)</td>
+<td>A mission needs capital, little bets and remarkability</td>
+<td>12–15</td>
+<td>129–172</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="laws-theories-and-traps">Laws, theories and traps</h2>
+<p>Each one in the book&rsquo;s own words.</p>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Name</th>
+<th>The wording</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The passion hypothesis</td>
+<td>&ldquo;The key to occupational happiness is to first figure out what you&rsquo;re passionate about and then find a job that matches this passion.&rdquo;</td>
+<td>16–17</td>
+</tr>
+<tr>
+<td>The career capital theory of great work</td>
+<td>The traits that define great work are rare and valuable. · Supply and demand says that if you want these traits you need rare and valuable skills to offer in return. · Think of these rare and valuable skills you can offer as your career capital. · The craftsman mindset, with its relentless focus on becoming &ldquo;so good they can&rsquo;t ignore you,&rdquo; is a strategy well suited for acquiring career capital.</td>
+<td>53</td>
+</tr>
+<tr>
+<td>The 10,000-hour rule</td>
+<td>&ldquo;Excellence at performing a complex task requires a critical minimum level of practice… ten thousand hours&rdquo; (Gladwell&rsquo;s summary)</td>
+<td>79</td>
+</tr>
+<tr>
+<td>The first control trap</td>
+<td>&ldquo;Control that&rsquo;s acquired without career capital is not sustainable.&rdquo;</td>
+<td>109</td>
+</tr>
+<tr>
+<td>The second control trap</td>
+<td>&ldquo;The point at which you have acquired enough career capital to get meaningful control over your working life is exactly the point when you&rsquo;ve become valuable enough to your current employer that they will try to prevent you from making the change.&rdquo;</td>
+<td>118</td>
+</tr>
+<tr>
+<td>The law of financial viability</td>
+<td>&ldquo;When deciding whether to follow an appealing pursuit that will introduce more control into your work life, seek evidence of whether people are willing to pay for it. If you find this evidence, continue. If not, move on.&rdquo;</td>
+<td>125</td>
+</tr>
+<tr>
+<td>The law of remarkability</td>
+<td>&ldquo;For a mission-driven project to succeed, it should be remarkable in two different ways. First, it must compel people who encounter it to remark about it to others. Second, it must be launched in a venue that supports such remarking.&rdquo;</td>
+<td>168</td>
+</tr>
+<tr>
+<td>Think small, act big</td>
+<td>&ldquo;Advancing to the cutting edge in a field is an act of &lsquo;small&rsquo; thinking… Once you get to the cutting edge, however, and discover a mission in the adjacent possible, you must go after it with zeal: a &lsquo;big&rsquo; action.&rdquo;</td>
+<td>148</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="numbered-lists">Numbered lists</h2>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>List</th>
+<th>The items</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Three conclusions from the science of passion</td>
+<td>Career passions are rare · passion takes time · passion is a side effect of mastery</td>
+<td>26–29</td>
+</tr>
+<tr>
+<td>Job, career, calling (Wrzesniewski)</td>
+<td>A job pays the bills · a career is a path toward increasingly better work · a calling is an important part of your life and a vital part of your identity</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Three needs (Self-Determination Theory)</td>
+<td>Autonomy: control over your day, and your actions matter · Competence: you are good at what you do · Relatedness: connection to other people</td>
+<td>29</td>
+</tr>
+<tr>
+<td>Two reasons against the passion mindset</td>
+<td>It makes you hyperaware of what you don&rsquo;t like · its deep questions (&ldquo;Who am I?&rdquo;) are impossible to confirm</td>
+<td>46</td>
+</tr>
+<tr>
+<td>Traits that define great work</td>
+<td>Creativity · Impact · Control (Mission is added in Rule #4)</td>
+<td>50, 136</td>
+</tr>
+<tr>
+<td>Three disqualifiers for the craftsman mindset</td>
+<td>Few chances to build rare and valuable skills · the job is useless or bad for the world · you must work with people you really dislike</td>
+<td>59</td>
+</tr>
+<tr>
+<td>Two parts of deliberate practice</td>
+<td>Stretch past what&rsquo;s comfortable · honest, immediate feedback</td>
+<td>76, 92</td>
+</tr>
+<tr>
+<td>Five habits of a craftsman</td>
+<td>Decide what capital market you&rsquo;re in · identify your capital type · define &ldquo;good&rdquo; · stretch and destroy · be patient</td>
+<td>87–94</td>
+</tr>
+<tr>
+<td>Two career capital markets</td>
+<td>Winner-take-all: one type of capital, many competitors · Auction: many types of capital, each person&rsquo;s mix can be unique</td>
+<td>88</td>
+</tr>
+<tr>
+<td>Three tactics for mission</td>
+<td>Build career capital · use little bets · use a marketing mindset (the law of remarkability)</td>
+<td>137</td>
+</tr>
+<tr>
+<td>Two types of structure for hard focus</td>
+<td>Time structure (&ldquo;for the next hour this is my whole world&rdquo;) · information structure (proof map → self-quizzes → proof summaries)</td>
+<td>181</td>
+</tr>
+<tr>
+<td>Three deliberate-practice routines</td>
+<td>Research bible · hour tally · theory notebook</td>
+<td>183–185</td>
+</tr>
+<tr>
+<td>A little bet (Newport&rsquo;s version)</td>
+<td>Small enough to finish in under a month · forces you to create new value · produces a concrete result for concrete feedback</td>
+<td>194</td>
+</tr>
+<tr>
+<td>The mission pyramid</td>
+<td>Top: tentative research mission · Middle: exploratory projects (little bets) · Bottom: background research</td>
+<td>191–195</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="mike-jackson-s-week">Mike Jackson&rsquo;s week</h2>
+<p>His sample spreadsheet (pp. 84–85): 18 hours on hard-to-change commitments, 27 on highly changeable ones. &ldquo;At the beginning of each week I figure out how much time I want to spend on different activities… I then track it so I can see how close I came to my targets&rdquo; (p. 84).</p>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Activity</th>
+<th>Kind</th>
+<th>Hours a week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-mail</td>
+<td>Hard to change</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>Lunch / breaks / other</td>
+<td>Hard to change</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Planning / organization</td>
+<td>Hard to change</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Partner meeting / administrative</td>
+<td>Hard to change</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Weekly fund-raising meeting</td>
+<td>Hard to change</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Improving fund-raising materials</td>
+<td>Highly changeable</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Fund-raising process</td>
+<td>Highly changeable</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Due diligence research</td>
+<td>Highly changeable</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Deal flow sourcing</td>
+<td>Highly changeable</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Meetings / calls with potential investors</td>
+<td>Highly changeable</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Work with portfolio companies</td>
+<td>Highly changeable</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Networking / professional development</td>
+<td>Highly changeable</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="key-terms">Key terms</h2>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Term</th>
+<th>What Newport means</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passion hypothesis</td>
+<td>Find your passion first, then a job to match it; he argues it is wrong and dangerous</td>
+<td>16–17, 214</td>
+</tr>
+<tr>
+<td>Craftsman mindset</td>
+<td>An output-centric approach: focus on the value you offer the world</td>
+<td>44, 214</td>
+</tr>
+<tr>
+<td>Passion mindset</td>
+<td>Focus on the value your job offers you; leads to &ldquo;chronic dissatisfaction&rdquo;</td>
+<td>46, 214</td>
+</tr>
+<tr>
+<td>Career capital</td>
+<td>Rare and valuable skills; &ldquo;the key currency for creating work you love&rdquo;</td>
+<td>53, 214</td>
+</tr>
+<tr>
+<td>&ldquo;The tape doesn&rsquo;t lie&rdquo;</td>
+<td>Studio musicians&rsquo; adage: on playback, &ldquo;your ability has no hiding place&rdquo;</td>
+<td>44</td>
+</tr>
+<tr>
+<td>Argument from pre-existing passion</td>
+<td>The objection that only the already-passionate can adopt the craftsman mindset</td>
+<td>47–48</td>
+</tr>
+<tr>
+<td>Cloud of external distractions</td>
+<td>Jordan Tice&rsquo;s name for worrying about how his career compares with his friends&rsquo;</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Courage culture</td>
+<td>Authors and commentators who say only courage stands between you and a dream job</td>
+<td>56, 119, 216</td>
+</tr>
+<tr>
+<td>Deliberate practice</td>
+<td>Ericsson: &ldquo;activity designed, typically by a teacher, for the sole purpose of effectively improving specific aspects of an individual&rsquo;s performance&rdquo;</td>
+<td>81, 215</td>
+</tr>
+<tr>
+<td>Acceptable level</td>
+<td>Where performance plateaus if you just show up and work hard</td>
+<td>82, 180</td>
+</tr>
+<tr>
+<td>Winner-take-all market</td>
+<td>One type of career capital and many competitors (TV writing, advice blogging)</td>
+<td>88, 216</td>
+</tr>
+<tr>
+<td>Auction market</td>
+<td>Many types of career capital; each person builds a unique mix (cleantech)</td>
+<td>88, 216</td>
+</tr>
+<tr>
+<td>Open gates</td>
+<td>Chances to build capital that are already open to you</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Stretch</td>
+<td>The strain of deliberate practice, &ldquo;as if my neurons are physically re-forming&rdquo;</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Diligence</td>
+<td>Martin&rsquo;s sense: the willingness to ignore other pursuits that distract you</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>Having a say in what you do and how you do it</td>
+<td>103, 216</td>
+</tr>
+<tr>
+<td>Dream-job elixir</td>
+<td>Newport&rsquo;s name for control</td>
+<td>103</td>
+</tr>
+<tr>
+<td>ROWE</td>
+<td>Results-Only Work Environment: &ldquo;No results, no job&rdquo;</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Lifestyle design</td>
+<td>Timothy Ferriss&rsquo;s term for designing your own path through life</td>
+<td>110</td>
+</tr>
+<tr>
+<td>Lone nut / first follower</td>
+<td>Sivers: &ldquo;the first follower transforms the lone nut into a leader&rdquo;</td>
+<td>122</td>
+</tr>
+<tr>
+<td>Money as a neutral indicator of value</td>
+<td>Sivers: &ldquo;By aiming to make money, you&rsquo;re aiming to be valuable&rdquo;</td>
+<td>124</td>
+</tr>
+<tr>
+<td>Mission</td>
+<td>A unifying focus for your career; more general than a job; answers &ldquo;What should I do with my life?&rdquo;</td>
+<td>136, 217</td>
+</tr>
+<tr>
+<td>Multiples</td>
+<td>The same discovery made by several people at nearly the same time</td>
+<td>141</td>
+</tr>
+<tr>
+<td>Adjacent possible</td>
+<td>Johnson (from Kauffman): the space just beyond the cutting edge, where new combinations of existing ideas lie</td>
+<td>141–142, 217</td>
+</tr>
+<tr>
+<td>Little bets</td>
+<td>Sims: small experiments that learn from &ldquo;little failures&rdquo; and &ldquo;small but significant wins&rdquo;</td>
+<td>157, 217</td>
+</tr>
+<tr>
+<td>Purple cow / brown cow</td>
+<td>Godin: the remarkable versus the boring</td>
+<td>165, 167</td>
+</tr>
+<tr>
+<td>Research bible</td>
+<td>A computer document where Newport summarizes a relevant paper every week</td>
+<td>183</td>
+</tr>
+<tr>
+<td>Hour tally</td>
+<td>A sheet behind his desk counting the hours of deliberate practice each month</td>
+<td>184</td>
+</tr>
+<tr>
+<td>Theory notebook</td>
+<td>A $45 archival lab notebook for formally recording brainstorm results by hand</td>
+<td>185</td>
+</tr>
+<tr>
+<td>Productivity-centric vs craft-centric</td>
+<td>Getting things done vs getting better at what you do</td>
+<td>185</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="people-and-stories">People and stories</h2>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Person</th>
+<th>Who</th>
+<th>What the story shows</th>
+<th>Rule</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thomas</td>
+<td>Would-be Zen monk, later in banking</td>
+<td>Passion fulfilled didn&rsquo;t change him; working right did</td>
+<td>Intro, Conclusion</td>
+<td>5–9, 196–198</td>
+</tr>
+<tr>
+<td>Steve Jobs</td>
+<td>Apple founder</td>
+<td>Apple began as a small-time scheme, not a passion</td>
+<td>1, 2</td>
+<td>15–21, 51</td>
+</tr>
+<tr>
+<td>Ira Glass</td>
+<td><em>This American Life</em> host</td>
+<td>&ldquo;Force the skills to come&rdquo;; the gap</td>
+<td>1, 2</td>
+<td>23, 51–52</td>
+</tr>
+<tr>
+<td>Al Merrick</td>
+<td>Channel Island Surfboards founder</td>
+<td>&ldquo;Being the best I could be&rdquo;; his boards won</td>
+<td>1, 2</td>
+<td>24, 50–53</td>
+</tr>
+<tr>
+<td>Vallerand&rsquo;s 539 students</td>
+<td>Canadian survey</td>
+<td>Under 4% of passions related to work</td>
+<td>1</td>
+<td>26</td>
+</tr>
+<tr>
+<td>College administrative assistants</td>
+<td>Wrzesniewski&rsquo;s study</td>
+<td>Years on the job predicted a calling</td>
+<td>1</td>
+<td>27–28</td>
+</tr>
+<tr>
+<td>Scott, Jill, Elaine</td>
+<td><em>Quarterlife Crisis</em></td>
+<td>Passion-centric planning breeds angst</td>
+<td>1</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Jordan Tice</td>
+<td>Bluegrass guitarist</td>
+<td>Practising just past comfort, with instant feedback</td>
+<td>2</td>
+<td>40–48, 75–77</td>
+</tr>
+<tr>
+<td>Steve Martin</td>
+<td>Comedian</td>
+<td>&ldquo;Be so good they can&rsquo;t ignore you&rdquo;; a forty-year banjo</td>
+<td>2</td>
+<td>42–43, 94</td>
+</tr>
+<tr>
+<td>Mark Casstevens</td>
+<td>Nashville studio musician</td>
+<td>&ldquo;The tape doesn&rsquo;t lie&rdquo;</td>
+<td>2</td>
+<td>44, 77</td>
+</tr>
+<tr>
+<td>Lisa Feuer</td>
+<td>Ex-advertising yoga teacher</td>
+<td>Courage without capital → food stamps</td>
+<td>2, 3</td>
+<td>55–58, 109</td>
+</tr>
+<tr>
+<td>Joe Duffy</td>
+<td>Logo designer</td>
+<td>Capital bought autonomy, then Duffy Trails</td>
+<td>2</td>
+<td>57–58, 199–200</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Tax consultant</td>
+<td>When to leave: the three disqualifiers</td>
+<td>2</td>
+<td>59–60</td>
+</tr>
+<tr>
+<td>Alex Berger</td>
+<td>TV writer</td>
+<td>Winner-take-all market; craves feedback</td>
+<td>2</td>
+<td>62–69, 83, 88</td>
+</tr>
+<tr>
+<td>Mike Jackson</td>
+<td>Cleantech VC</td>
+<td>Auction market; open gates; hour tracking</td>
+<td>2</td>
+<td>70–73, 83–86</td>
+</tr>
+<tr>
+<td>Charness&rsquo;s chess players</td>
+<td>400+ ranked players</td>
+<td>Serious study, not tournaments, made grand masters</td>
+<td>2</td>
+<td>78–80</td>
+</tr>
+<tr>
+<td>Ryan and Sarah Voiland</td>
+<td>Red Fire Farm</td>
+<td>Control, bought with a decade of capital</td>
+<td>3</td>
+<td>99–103, 125</td>
+</tr>
+<tr>
+<td>Jane</td>
+<td>College dropout adventurer</td>
+<td>The first control trap; mission without capital</td>
+<td>3, 4</td>
+<td>107–108, 139</td>
+</tr>
+<tr>
+<td>The lifestyle-design blogger</td>
+<td>Quit at 25</td>
+<td>Enthusiasm alone is not rare and valuable</td>
+<td>3</td>
+<td>110–111</td>
+</tr>
+<tr>
+<td>Lulu Young</td>
+<td>Freelance software developer</td>
+<td>Control done right; turned down a promotion</td>
+<td>3</td>
+<td>113–116, 125–126</td>
+</tr>
+<tr>
+<td>Lewis</td>
+<td>Plastic surgery resident</td>
+<td>The second control trap</td>
+<td>3</td>
+<td>116–118</td>
+</tr>
+<tr>
+<td>Derek Sivers</td>
+<td>CD Baby founder</td>
+<td>&ldquo;Do what people are willing to pay for&rdquo;</td>
+<td>3</td>
+<td>122–126</td>
+</tr>
+<tr>
+<td>Pardis Sabeti</td>
+<td>Harvard geneticist</td>
+<td>Mission from capital and patience</td>
+<td>4</td>
+<td>132–148, 158, 169</td>
+</tr>
+<tr>
+<td>Sarah</td>
+<td>Cognitive science grad student</td>
+<td>Seeking a mission too early</td>
+<td>4</td>
+<td>139, 144</td>
+</tr>
+<tr>
+<td>Kirk French</td>
+<td>Archaeologist, TV host</td>
+<td>Little bets led to <em>American Treasures</em></td>
+<td>4</td>
+<td>152–158, 169–170</td>
+</tr>
+<tr>
+<td>Chris Rock</td>
+<td>Comedian</td>
+<td>40–50 unannounced club visits per special</td>
+<td>4</td>
+<td>157–158</td>
+</tr>
+<tr>
+<td>Giles Bowkett</td>
+<td>Ruby programmer</td>
+<td>Purple cow in a venue made for remarking</td>
+<td>4</td>
+<td>161–168</td>
+</tr>
+<tr>
+<td>Princeton Web Solutions</td>
+<td>Newport&rsquo;s high-school company</td>
+<td>Inoculated him against the cult of passion</td>
+<td>Conclusion</td>
+<td>176–177</td>
+</tr>
+<tr>
+<td>Alan Lightman</td>
+<td>MIT physicist-writer</td>
+<td>A mission-built life: &ldquo;I don&rsquo;t use e-mail&rdquo;</td>
+<td>Conclusion</td>
+<td>190</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="research-and-numbers">Research and numbers</h2>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Finding</th>
+<th>The figure</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Students with a passion (Vallerand, 2002)</td>
+<td>84% had one; under 4% related to work or education</td>
+<td>26</td>
+</tr>
+<tr>
+<td><em>What Color Is Your Parachute?</em></td>
+<td>First printing 100 copies; now over six million</td>
+<td>32</td>
+</tr>
+<tr>
+<td>&ldquo;Follow your passion&rdquo; in print (Ngram)</td>
+<td>Three times more common by 2000 than in the 1970s–80s</td>
+<td>32</td>
+</tr>
+<tr>
+<td>U.S. job satisfaction (Conference Board)</td>
+<td>61% in 1987 → 45% in 2010; 64% of young people actively unhappy</td>
+<td>33</td>
+</tr>
+<tr>
+<td>Chess study (Charness, 2005)</td>
+<td>Grand masters ~5,000 of 10,000 hours in serious study vs ~1,000 for intermediates</td>
+<td>80</td>
+</tr>
+<tr>
+<td>Small businesses giving control (Cornell)</td>
+<td>Grew at four times the rate</td>
+<td>104</td>
+</tr>
+<tr>
+<td>ROWE at Best Buy</td>
+<td>Turnover fell by up to 90%</td>
+<td>104</td>
+</tr>
+<tr>
+<td>ROWE at a Redlands non-profit</td>
+<td>80% more engaged; over 90% said it made life better</td>
+<td>105</td>
+</tr>
+<tr>
+<td>TV writing pay</td>
+<td>Guild minimum $2,500 a week; story editors over $10,000 an episode</td>
+<td>63–64</td>
+</tr>
+<tr>
+<td>Lisa Feuer&rsquo;s yoga business</td>
+<td>$4,000 course; on track for $15,000 a year</td>
+<td>55–56</td>
+</tr>
+<tr>
+<td>CD Baby sale</td>
+<td>$22 million (2008), all put into a charitable trust</td>
+<td>122–123</td>
+</tr>
+<tr>
+<td>Simultaneous discoveries (Columbia study)</td>
+<td>Just shy of 150 examples</td>
+<td>141</td>
+</tr>
+<tr>
+<td>Sabeti&rsquo;s 2002 <em>Nature</em> paper</td>
+<td>Cited over 720 times</td>
+<td>147</td>
+</tr>
+<tr>
+<td>Newport&rsquo;s hour tally, 2011</td>
+<td>12 (late March), 42 (April), 26.5 (May), 23 (June)</td>
+<td>184</td>
+</tr>
+<tr>
+<td>Thomas after the monastery</td>
+<td>Three promotions in two years; a $6 billion system, then five times that</td>
+<td>196–197</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="books-newport-draws-on">Books Newport draws on</h2>
+<div class="scroll"><table class="pages">
+<thead>
+<tr>
+<th>Book</th>
+<th>Author</th>
+<th>Used for</th>
+<th>Pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Steve Jobs: The Journey Is the Reward</em></td>
+<td>Jeffrey S. Young</td>
+<td>Jobs&rsquo;s real path to Apple</td>
+<td>19–20</td>
+</tr>
+<tr>
+<td><em>Drive</em></td>
+<td>Daniel Pink</td>
+<td>Self-Determination Theory; the power of control</td>
+<td>29, 104</td>
+</tr>
+<tr>
+<td><em>What Color Is Your Parachute?</em></td>
+<td>Richard Bolles</td>
+<td>The birth of the passion hypothesis</td>
+<td>32</td>
+</tr>
+<tr>
+<td><em>Quarterlife Crisis</em></td>
+<td>Alexandra Robbins and Abby Wilner</td>
+<td>Unhappy twentysomethings</td>
+<td>34</td>
+</tr>
+<tr>
+<td><em>Born Standing Up</em></td>
+<td>Steve Martin</td>
+<td>&ldquo;Be so good they can&rsquo;t ignore you&rdquo;; diligence</td>
+<td>42, 94</td>
+</tr>
+<tr>
+<td><em>What Should I Do With My Life?</em></td>
+<td>Po Bronson</td>
+<td>The passion mindset</td>
+<td>46</td>
+</tr>
+<tr>
+<td><em>Escape from Cubicle Nation</em></td>
+<td>Pamela Slim</td>
+<td>The courage culture</td>
+<td>55</td>
+</tr>
+<tr>
+<td><em>Outliers</em></td>
+<td>Malcolm Gladwell</td>
+<td>The 10,000-hour rule</td>
+<td>79, 81</td>
+</tr>
+<tr>
+<td><em>Talent Is Overrated</em></td>
+<td>Geoff Colvin</td>
+<td>Deliberate practice needs goals and focus</td>
+<td>91–92</td>
+</tr>
+<tr>
+<td><em>Where Good Ideas Come From</em></td>
+<td>Steven Johnson</td>
+<td>The adjacent possible</td>
+<td>141, 193</td>
+</tr>
+<tr>
+<td><em>Little Bets</em></td>
+<td>Peter Sims</td>
+<td>Little bets</td>
+<td>157</td>
+</tr>
+<tr>
+<td><em>Purple Cow</em></td>
+<td>Seth Godin</td>
+<td>Remarkability</td>
+<td>165</td>
+</tr>
+<tr>
+<td><em>My Job Went to India</em></td>
+<td>Chad Fowler</td>
+<td>Open source as a venue</td>
+<td>165</td>
+</tr>
+<tr>
+<td><em>Einstein&rsquo;s Dreams</em></td>
+<td>Alan Lightman</td>
+<td>A mission-built career</td>
+<td>190</td>
+</tr>
+</tbody>
+</table></div>
+</article>
+<footer>
+  <p>From <em>So Good They Can&rsquo;t Ignore You: Why Skills Trump Passion in the Quest for Work You Love</em> by Cal Newport (Business Plus, 2012). Page numbers refer to the e-book copy used. Short quotes are used for study.</p>
+  <p><a href="so-good-they-cant-ignore-you-activity.html">Craftsman&rsquo;s Day</a> &middot; <a href="so-good-they-cant-ignore-you-reading-guide.html">Reading guide</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>

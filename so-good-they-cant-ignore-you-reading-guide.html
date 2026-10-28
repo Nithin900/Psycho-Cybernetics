@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>So Good They Can't Ignore You Reading Guide</title>
+<meta name="description" content="So Good They Can&#x27;t Ignore You read chapter by chapter: the passion hypothesis, the craftsman mindset, career capital, deliberate practice, control and its traps, mission, little bets and remarkability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: the repo's pocket-paperback reading column, with wide tables scrolling in their own frames */
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:64rem}
+h1{font-size:clamp(2.1rem,6.5vw,3.2rem)}
+h2{font-size:1.7rem}
+h3{font-size:1.2rem}
+header{padding-block:1.5rem 2rem;display:grid;gap:1rem;border-bottom:1px solid var(--rule)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.25rem;border-bottom:1px solid var(--rule)}
+nav.toc a{font-size:.88rem;text-decoration:none;padding:.3rem .75rem;border:1px solid var(--rule);border-radius:999px;color:var(--ink)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+article{display:grid;gap:1rem}
+article h2{padding-top:2.5rem;margin-top:1rem;border-top:1px solid var(--rule)}
+article h2:first-child{border-top:0;margin-top:0}
+article h3{padding-top:.75rem}
+article p,article li{max-width:42rem}
+article ul,article ol{margin:0;padding-left:1.3rem;display:grid;gap:.35rem}
+article li > p{margin:0}
+article blockquote{margin:0;padding:.6rem 1rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 .5rem .5rem 0;color:var(--ink)}
+em{font-style:italic}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:.75rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--glass)}
+td p{margin:0}
+td:first-child{font-weight:700;min-width:8rem}
+table.pages td:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.next{display:flex;flex-wrap:wrap;gap:.6rem;padding-top:1rem}
+.next a{font-size:.9rem;text-decoration:none;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:999px}
+:root{
+  --bg:#eef2f2; --surface:#ffffff; --glass:#dde7e8; --ink:#17262b; --muted:#53676d;
+  --rule:#c4d2d4; --accent:#1d6670; --accent-soft:#d3e6e8; --go:#2f7d4a; --go-soft:#dcefe2; --stop:#b4473a; --stop-soft:#f6e1dd;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1d; --surface:#18252a; --glass:#1c2b2f; --ink:#e3ecec; --muted:#9db0b4;
+  --rule:#2e4146; --accent:#6cc3cc; --accent-soft:#1e3a3f; --go:#6cc98a; --go-soft:#1d3527; --stop:#e48a7e; --stop-soft:#3a2522; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.home{display:inline-block;padding-top:1.25rem;font-size:.9rem;text-decoration:none}
+.lede{font-size:1.15rem;color:var(--muted);max-width:38rem}
+.noteline{font-size:.95rem;color:var(--muted);border-left:3px solid var(--accent);padding:.6rem 1rem;background:var(--surface);border-radius:0 .5rem .5rem 0}
+footer{padding-block:2.5rem 0;color:var(--muted);font-size:.9rem;display:grid;gap:.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.rulemark{padding-top:3rem;margin-top:1rem;border-top:3px double var(--rule);display:grid;gap:.25rem}
+.rulemark b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--accent)}
+.rulemark + h2{border-top:0;margin-top:0;padding-top:1rem}
+details{border:1px solid var(--rule);border-radius:.6rem;background:var(--surface);padding:.6rem .9rem}
+details summary{cursor:pointer;font-weight:700}
+details p{margin-top:.5rem;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="index.html">&larr; All pages</a>
+<header>
+  <span class="label">Cal Newport &middot; So Good They Can&rsquo;t Ignore You &middot; 2012</span>
+  <h1>So Good They Can&rsquo;t Ignore You, chapter by chapter</h1>
+  <p class="lede">A front-to-back read of Newport&rsquo;s book: for each chapter, what he&rsquo;s saying, how he builds it, what he asks you to do and how it links to the rest. Book content only, with page numbers.</p>
+  <p class="noteline">Four rules in fifteen chapters (pp. 5&ndash;198), then career profile summaries and a glossary. Page numbers are those of the e-book copy used (Business Plus, 2012; 227 PDF pages), not the printed hardcover.</p>
+</header>
+<nav class="toc" aria-label="Sections"><a href="#the-big-picture">The big picture</a><a href="#introduction-the-passion-of-the-monk-pp">Introduction</a><a href="#chapter-1-the-passion-of-steve-jobs-pp-1">Ch. 1</a><a href="#chapter-2-passion-is-rare-pp-22-30">Ch. 2</a><a href="#chapter-3-passion-is-dangerous-pp-31-36">Ch. 3</a><a href="#chapter-4-the-clarity-of-the-craftsman-p">Ch. 4</a><a href="#chapter-5-the-power-of-career-capital-pp">Ch. 5</a><a href="#chapter-6-the-career-capitalists-pp-61-7">Ch. 6</a><a href="#chapter-7-becoming-a-craftsman-pp-74-94">Ch. 7</a><a href="#chapter-8-the-dream-job-elixir-pp-98-105">Ch. 8</a><a href="#chapter-9-the-first-control-trap-pp-106">Ch. 9</a><a href="#chapter-10-the-second-control-trap-pp-11">Ch. 10</a><a href="#chapter-11-avoiding-the-control-traps-pp">Ch. 11</a><a href="#chapter-12-the-meaningful-life-of-pardis">Ch. 12</a><a href="#chapter-13-missions-require-capital-pp-1">Ch. 13</a><a href="#chapter-14-missions-require-little-bets">Ch. 14</a><a href="#chapter-15-missions-require-marketing-pp">Ch. 15</a><a href="#conclusion-how-newport-applied-the-rules">Conclusion</a><a href="#threads-through-the-book">Threads through the book</a><a href="#check-yourself">Check yourself</a></nav>
+<article>
+<h2 id="the-big-picture">The big picture</h2>
+<p>Newport&rsquo;s question: &ldquo;Why do some people end up loving what they do, while so many others fail at this goal?&rdquo; (p. 10). He began asking it in the summer of 2010, as an MIT postdoc facing what might be &ldquo;my first and last job hunt&rdquo; for a professorship (p. 10).</p>
+<p>His answer runs through every story in the book: &ldquo;the importance of ability. The things that make a great job great, I discovered, are rare and valuable. If you want them in your working life, you need something rare and valuable to offer in return&rdquo; (p. 11). Passion is moved &ldquo;to the sidelines&rdquo;: it is &ldquo;an epiphenomenon of a working life well lived. Don&rsquo;t follow your passion; rather, let it follow you&rdquo; (p. 12).</p>
+<p>He wrote it &ldquo;in a manifesto style&rdquo;, as four rules with &ldquo;deliberately provocative&rdquo; titles, and says plainly: &ldquo;you won&rsquo;t find ten-step systems or self-assessment quizzes in these pages&rdquo; (p. 12).</p>
+<p>The book&rsquo;s shape:</p>
+<ul>
+<li><strong>Introduction</strong> (pp. 5–12): Thomas the would-be monk, and the start of the quest.</li>
+<li><strong>Rule #1, Don&rsquo;t Follow Your Passion</strong> (Chapters 1–3): the case against the passion hypothesis.</li>
+<li><strong>Rule #2, Be So Good They Can&rsquo;t Ignore You</strong> (Chapters 4–7): the craftsman mindset, career capital and deliberate practice.</li>
+<li><strong>Rule #3, Turn Down a Promotion</strong> (Chapters 8–11): control, its two traps and the law of financial viability.</li>
+<li><strong>Rule #4, Think Small, Act Big</strong> (Chapters 12–15): mission, the adjacent possible, little bets and the law of remarkability.</li>
+<li><strong>Conclusion</strong> (pp. 173–198): how Newport applied each rule to his own first year as a professor, and how Thomas&rsquo;s story ends.</li>
+<li><strong>Career Profile Summaries</strong> (pp. 199–209) and a <strong>Glossary</strong> (pp. 214–218).</li>
+</ul>
+<p>The whole book in one sentence, in his words: &ldquo;To construct work you love, you must first build career capital by mastering rare and valuable skills, and then cash in this capital for the type of traits that define compelling careers&rdquo; (p. 171).</p>
+<h2 id="introduction-the-passion-of-the-monk-pp">Introduction — The Passion of the Monk (pp. 5–12)</h2>
+<p><strong>What he&rsquo;s saying.</strong> &ldquo;&lsquo;Follow your passion&rsquo; is dangerous advice&rdquo; (p. 5). Thomas, with degrees in philosophy, theology and comparative religion, decided Zen practice was the key to a meaningful life. After jobs teaching English in Gumi, South Korea, and doing data entry in London, he spent nine months applying to the Zen Mountain Monastery in the Catskills (pp. 5–6). He passed the Mu koan, the first of the &ldquo;eight gates&rdquo; (p. 8), then saw that monastic life was &ldquo;increasingly sophisticated musings on this one, core insight&rdquo; and broke down: &ldquo;The reality was, nothing had changed. I was exactly the same person, with the same worries and anxieties&rdquo; (p. 9).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The belief under attack.</strong> That &ldquo;the key to happiness is identifying your true calling and then chasing after it with all the courage you can muster&rdquo; — a belief Newport calls &ldquo;frighteningly naïve&rdquo; (p. 9).</li>
+<li><strong>His own stakes.</strong> His advisor opened their job-search meeting with &ldquo;How bad of a school are you willing to go to?&rdquo; (p. 10). If the search failed he would have to &ldquo;start from scratch&rdquo; (p. 10).</li>
+<li><strong>Where the quest went.</strong> An organic farm, professional musicians, venture capitalists, screenwriters, &ldquo;rock-star computer programmers&rdquo; and professors (p. 11).</li>
+<li><strong>Mastery is not the whole answer.</strong> Plenty of &ldquo;well-respected but miserable workaholics&rdquo; exist, so the book also covers &ldquo;investing the career capital this generates into the right types of traits&rdquo; (p. 12).</li>
+</ul>
+<p><strong>How it connects.</strong> Thomas comes back in the last pages of the book, after he moves &ldquo;away from finding the right work and toward working right&rdquo; (pp. 12, 196–198).</p>
+<p class="rulemark"><span class="label">Rule #1</span><b>Don&rsquo;t Follow Your Passion (pp. 13–36)</b></p>
+<h2 id="chapter-1-the-passion-of-steve-jobs-pp-1">Chapter 1 — The &ldquo;Passion&rdquo; of Steve Jobs (pp. 15–21)</h2>
+<p><strong>What he&rsquo;s saying.</strong> The <strong>passion hypothesis</strong>: &ldquo;The key to occupational happiness is to first figure out what you&rsquo;re passionate about and then find a job that matches this passion&rdquo; (pp. 16–17). Jobs&rsquo;s 2005 Stanford speech (&ldquo;You&rsquo;ve got to find what you love… don&rsquo;t settle&rdquo;) is the famous version of it (p. 16). One career counselor told Newport that &ldquo;do what you love, and the money will follow&rdquo; is the field&rsquo;s &ldquo;de facto motto&rdquo; (p. 17).</p>
+<p><strong>How he builds it.</strong> He tells what Jobs <em>did</em>, not what he said (pp. 19–20):</p>
+<ul>
+<li>At Reed College, Jobs studied Western history and dance and dabbled in Eastern mysticism; he dropped out, worked night shifts at Atari, spent time at the All-One Farm commune, travelled in India and trained at the Los Altos Zen Center.</li>
+<li>He lost the Call-in Computer work for Alex Kamradt because he left for the commune without telling him.</li>
+<li>Apple began as a free-time scheme: boards made for $25 and sold for $50, a hundred of them, for about $1,000 profit. Paul Terrell of the Byte Shop instead wanted fifty assembled computers at $500 each. As biographer Jeffrey Young put it, &ldquo;Their plans were circumspect and small-time.&rdquo;</li>
+</ul>
+<p><strong>The point.</strong> &ldquo;Apple Computer was decidedly not born out of passion, but instead was the result of a lucky break—a &lsquo;small-time&rsquo; scheme that unexpectedly took off&rdquo; (p. 21). That Jobs later loved his work &ldquo;borders on the tautological&rdquo; and doesn&rsquo;t answer the real question: &ldquo;How do we find work that we&rsquo;ll eventually love?&rdquo; (p. 21).</p>
+<h2 id="chapter-2-passion-is-rare-pp-22-30">Chapter 2 — Passion Is Rare (pp. 22–30)</h2>
+<p><strong>What he&rsquo;s saying.</strong> &ldquo;The more you seek examples of the passion hypothesis, the more you recognize its rarity&rdquo; (p. 22).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The Roadtrip Nation archive</strong> (pp. 23–24). Ira Glass: &ldquo;Things happen in stages… The key thing is to force yourself through the work, force the skills to come&rdquo;; judging everything in the abstract before you do it is &ldquo;your tragic mistake.&rdquo; Astrobiologist Andrew Steele: &ldquo;I just wanted options.&rdquo; Surfboard maker Al Merrick: &ldquo;I set goals for myself at being the best I could be at what[ever] I did.&rdquo; Glass blower William Morris: &ldquo;You&rsquo;ll never be sure. You don&rsquo;t want to be sure.&rdquo;</li>
+<li><strong>Conclusion #1: career passions are rare</strong> (p. 26). Robert Vallerand&rsquo;s 2002 survey of 539 Canadian students: 84% had a passion, but the top five were dance, hockey, skiing, reading and swimming, and under 4% had anything to do with work or education.</li>
+<li><strong>Conclusion #2: passion takes time</strong> (pp. 27–28). Amy Wrzesniewski separates a <em>job</em>, a <em>career</em> and a <em>calling</em>. Among college administrative assistants doing the same work, the split was roughly even, and &ldquo;the strongest predictor of an assistant seeing her work as a calling was the number of years spent on the job.&rdquo;</li>
+<li><strong>Conclusion #3: passion is a side effect of mastery</strong> (pp. 29–30). Self-Determination Theory names three needs: <strong>autonomy</strong>, <strong>competence</strong> and <strong>relatedness</strong>. &ldquo;Matching work to pre-existing passions&rdquo; is not among them.</li>
+</ul>
+<p><strong>The line to remember.</strong> &ldquo;Working right trumps finding the right work&rdquo; (p. 30).</p>
+<h2 id="chapter-3-passion-is-dangerous-pp-31-36">Chapter 3 — Passion Is Dangerous (pp. 31–36)</h2>
+<p><strong>What he&rsquo;s saying.</strong> Believing the passion hypothesis &ldquo;can make you less happy&rdquo; (p. 31). It convinces people &ldquo;that somewhere there&rsquo;s a magic &lsquo;right&rsquo; job waiting for them,&rdquo; and when they don&rsquo;t find that certainty, &ldquo;chronic job-hopping and crippling self-doubt&rdquo; follow (p. 33).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The birth of the idea</strong> (p. 32). Richard Bolles&rsquo;s <em>What Color Is Your Parachute?</em> (1970): first printing of one hundred copies, now over six million. In Google&rsquo;s Ngram Viewer, &ldquo;follow your passion&rdquo; was appearing three times as often by 2000 as in the seventies and eighties.</li>
+<li><strong>Not getting happier</strong> (p. 33). The 2010 Conference Board survey: 45% of Americans satisfied with their jobs, down from 61% in 1987; 64% of young people &ldquo;actively unhappy,&rdquo; the highest ever measured.</li>
+<li><strong>The anecdotes</strong> (p. 34). In <em>Quarterlife Crisis</em>, Scott, 27, has a &ldquo;perfect&rdquo; job in politics but calls it &ldquo;not fulfilling&rdquo;; Jill and Elaine are lost too.</li>
+<li><strong>The exceptions</strong> (p. 35). Film critic Peter Travers and professional athletes did follow early passions, but &ldquo;observing a few instances of a strategy working does not make it universally effective.&rdquo;</li>
+</ul>
+<p><strong>How it connects.</strong> If not passion, then what? Rule #2 begins with &ldquo;a group of bluegrass musicians practicing their craft in the suburbs of Boston&rdquo; (pp. 35–36).</p>
+<p class="rulemark"><span class="label">Rule #2</span><b>Be So Good They Can&rsquo;t Ignore You (pp. 37–95)</b></p>
+<h2 id="chapter-4-the-clarity-of-the-craftsman-p">Chapter 4 — The Clarity of the Craftsman (pp. 39–48)</h2>
+<p><strong>What he&rsquo;s saying.</strong> There are two ways to approach work. The <strong>craftsman mindset</strong> is &ldquo;a focus on what value you&rsquo;re producing in your job&rdquo;; the <strong>passion mindset</strong> is &ldquo;a focus on what value your job offers you&rdquo; (p. 39). &ldquo;The craftsman mindset offers clarity, while the passion mindset offers a swamp of ambiguous and unanswerable questions&rdquo; (p. 47).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Jordan Tice</strong>, 24, a guitarist living in a &ldquo;bluegrass frat house,&rdquo; practising a new tune &ldquo;just a little faster than he&rsquo;s comfortable, for two or three hours straight&rdquo; (pp. 40–41).</li>
+<li><strong>Steve Martin</strong>, on <em>Charlie Rose</em> in 2007: &ldquo;Be so good they can&rsquo;t ignore you&rdquo; (p. 42). His new act took him ten years to cohere (p. 43).</li>
+<li><strong>Newport&rsquo;s own response</strong>: he started tracking the hours he spends each month &ldquo;thinking hard about research problems&rdquo; — forty-two in the month he wrote the chapter (p. 43).</li>
+<li><strong>Mark Casstevens</strong>, a Nashville studio musician who has played on ninety-nine number one singles: &ldquo;The tape doesn&rsquo;t lie… your ability has no hiding place&rdquo; (p. 44).</li>
+<li><strong>Why he dislikes the passion mindset</strong> (p. 46): it makes you &ldquo;hyperaware of what you don&rsquo;t like&rdquo; about your work, and its questions (&ldquo;Who am I?&rdquo;, &ldquo;What do I truly love?&rdquo;) &ldquo;are essentially impossible to confirm.&rdquo;</li>
+<li><strong>The &ldquo;argument from pre-existing passion&rdquo;</strong> (pp. 47–48): that the craftsman mindset works only for people already passionate. He rejects it: performers are insecure (Jordan&rsquo;s &ldquo;cloud of external distractions&rdquo;; Martin&rsquo;s anxiety attacks), and the mindset is simply &ldquo;what works.&rdquo;</li>
+</ul>
+<p><strong>What he asks you to do.</strong> &ldquo;You shouldn&rsquo;t just envy the craftsman mindset, you should emulate it&rdquo; (p. 47). &ldquo;No one owes you a great career… you need to earn it&rdquo; (p. 47). &ldquo;You adopt the craftsman mindset first and then the passion follows&rdquo; (p. 48).</p>
+<h2 id="chapter-5-the-power-of-career-capital-pp">Chapter 5 — The Power of Career Capital (pp. 49–60)</h2>
+<p><strong>What he&rsquo;s saying.</strong> &ldquo;The traits that make a great job great are rare and valuable, and therefore, if you want a great job, you need to build up rare and valuable skills—which I call career capital—to offer in return&rdquo; (p. 49).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Traits that define great work</strong> (p. 50): <strong>creativity</strong> (Ira Glass), <strong>impact</strong> (Steve Jobs), <strong>control</strong> (Al Merrick).</li>
+<li><strong>Supply and Demand 101</strong> (p. 51): something rare and valuable costs something rare and valuable.</li>
+<li><strong>The trio, retold as trades</strong> (pp. 51–53). Jobs took $250,000 from Mark Markkula and built the Apple II. Glass went from intern to tape cutter to host, pushing through &ldquo;the gap&rdquo; when &ldquo;what you&rsquo;re making isn&rsquo;t so good.&rdquo; Merrick worked until his boards won competitions: &ldquo;I was a craftsman.&rdquo;</li>
+<li><strong>The Career Capital Theory of Great Work</strong> (p. 53; see the Reference). &ldquo;You need to get good in order to get good things in your working life&rdquo; (pp. 53–54).</li>
+<li><strong>From courage to food stamps</strong> (pp. 55–58). At 38, Lisa Feuer left advertising and took a 200-hour, $4,000 yoga course paid for with a home equity loan. By 2009 she was on track to earn $15,000 and texted a reporter from the food stamp office: &ldquo;Sent from my iPhone.&rdquo; Joe Duffy, also in advertising, instead built a specialty in logos, ran Duffy Designs inside Fallon McElligott, started Duffy &amp; Partners and bought the hundred-acre Duffy Trails at 45. &ldquo;The downside of the passion mindset is that it strips away merit&rdquo; (p. 56).</li>
+<li><strong>When craftsmanship fails</strong> (pp. 59–60). To John, a tax consultant, he said, &ldquo;It sounds like you should leave your job,&rdquo; and wrote the <strong>three disqualifiers</strong> (see the Reference). He deletes Wall Street headhunters&rsquo; offers because they hit the second one.</li>
+</ul>
+<p><strong>How it connects.</strong> The disqualifiers &ldquo;still have nothing to do with whether a job is the right fit for some innate passion&rdquo; — &ldquo;working right, therefore, still trumps finding the right work&rdquo; (p. 60).</p>
+<h2 id="chapter-6-the-career-capitalists-pp-61-7">Chapter 6 — The Career Capitalists (pp. 61–73)</h2>
+<p><strong>What he&rsquo;s saying.</strong> Two people who &ldquo;focused on getting good—not finding their passion—and then used the career capital this generated&rdquo; (p. 62).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Alex Berger, 31, television writer</strong> (pp. 63–69). TV writing has impact, creativity and control, and it is hard to get into: of about a hundred scripts one reader graded, only fourteen came from unproduced writers, and the best of those scored 6.5 out of 10 (p. 63). Alex was the best speaker at the 2002 National Debate Tournament (p. 66). He tried the <em>National Lampoon</em> and a &ldquo;Master Debaters&rdquo; pilot, then quit to become an NBC assistant, writing at night until two or three A.M. (pp. 66–67). As a script assistant on <em>Commander in Chief</em> he pitched an episode and got his first &ldquo;written by&rdquo; credit. Then came a staff job on <em>K-Ville</em>, co-creating <em>Glenn Martin, DDS</em> with Michael Eisner, and selling a pilot to USA (pp. 67–68). &ldquo;He simply understood the value, and difficulty, of becoming good&rdquo; (p. 69).</li>
+<li><strong>Mike Jackson, 29, cleantech venture capitalist</strong> (pp. 70–73). He did a Stanford master&rsquo;s, then helped lead a research project on India&rsquo;s natural-gas sector, with ten trips to India (p. 71). He ran Village Green, a renewable energy credits business, for two years (pp. 71–72). A comedian friend&rsquo;s girlfriend recommended him for a venture capital interview, which led to an internship at the Westly Group, then analyst, associate and, two years later, director (p. 72). &ldquo;When people ask me how I got my job… I tell them to make friends with a comedian.&rdquo;</li>
+<li><strong>The hour tracker</strong> (p. 73). Mike logs every hour in quarter-hour increments and allows himself ninety minutes a day of e-mail.</li>
+</ul>
+<p><strong>How it connects.</strong> Mike &ldquo;started gathering capital before he knew what he wanted to do with it&rdquo; (p. 70). Chapter 7 shows <em>how</em> both of them got good.</p>
+<h2 id="chapter-7-becoming-a-craftsman-pp-74-94">Chapter 7 — Becoming a Craftsman (pp. 74–94)</h2>
+<p><strong>What he&rsquo;s saying.</strong> <strong>Deliberate practice</strong> is &ldquo;the key strategy for acquiring career capital&rdquo; (p. 74). Anders Ericsson defines it as an &ldquo;activity designed, typically by a teacher, for the sole purpose of effectively improving specific aspects of an individual&rsquo;s performance&rdquo; (p. 81).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>&ldquo;I played. But he practiced.&rdquo;</strong> (p. 77). Newport and Tice both started guitar at twelve. Newport &ldquo;learned songs reluctantly, then clung to them fiercely&rdquo;; Tice worked out Allman Brothers leads by ear with a teacher there to show him when he &ldquo;junked up a harmony.&rdquo; The two traits: <strong>strain</strong> and <strong>feedback</strong> (p. 76).</li>
+<li><strong>Chess</strong> (pp. 78–81). In Neil Charness&rsquo;s study of 400+ players with roughly 10,000 hours each, grand masters had spent about 5,000 hours in serious study against about 1,000 for intermediate players — five times as much (p. 80).</li>
+<li><strong>The plateau</strong> (p. 82). Most professionals improve &ldquo;until they reach an acceptable level.&rdquo; Knowledge work has no training philosophy, so &ldquo;most people are stuck,&rdquo; which gives anyone who practises deliberately &ldquo;the possibility of blowing past your peers.&rdquo;</li>
+<li><strong>The two career capitalists again</strong> (pp. 83–86). Alex: &ldquo;I have a never-ending thirst to get better,&rdquo; and he is now &ldquo;humiliated&rdquo; by the scripts he once showed people. Mike plans his week by hours (18 on hard-to-change commitments, 27 on highly changeable ones) and prints his numbers at the end of every week to guide the next: &ldquo;I want to spend time on what&rsquo;s important, instead of what&rsquo;s immediate.&rdquo;</li>
+</ul>
+<p><strong>What he asks you to do — the five habits of a craftsman</strong> (pp. 87–94):</p>
+<ol>
+<li><strong>Decide what capital market you&rsquo;re in</strong>: <em>winner-take-all</em> (one skill matters, as in TV writing or advice blogging) or <em>auction</em> (many kinds of capital, as in cleantech). Alex wasted a year treating Hollywood as an auction (p. 88).</li>
+<li><strong>Identify your capital type</strong>: in an auction market, look for &ldquo;open gates&rdquo;; skill is like a freight train, hard to start but easy to switch tracks once moving (p. 90).</li>
+<li><strong>Define &ldquo;good&rdquo;</strong>: deliberate practice &ldquo;requires good goals&rdquo; (Geoff Colvin, p. 91).</li>
+<li><strong>Stretch and destroy</strong>: &ldquo;If you&rsquo;re not uncomfortable, then you&rsquo;re probably stuck at an &lsquo;acceptable level&rsquo;&rdquo;; embrace honest feedback &ldquo;even if it destroys what you thought was good&rdquo; (p. 92).</li>
+<li><strong>Be patient</strong>: Martin on the banjo: &ldquo;if I stay with it, then one day I will have been playing for forty years.&rdquo; Diligence means a &ldquo;willingness to ignore other pursuits that pop up along the way&rdquo; (p. 94).</li>
+</ol>
+<p><strong>How it connects.</strong> The Summary of Rule #2 (p. 95): knowledge workers don&rsquo;t know about deliberate practice, so &ldquo;if you can introduce this strategy into your working life you can vault past your peers.&rdquo;</p>
+<p class="rulemark"><span class="label">Rule #3</span><b>Turn Down a Promotion (pp. 96–128)</b></p>
+<h2 id="chapter-8-the-dream-job-elixir-pp-98-105">Chapter 8 — The Dream-Job Elixir (pp. 98–105)</h2>
+<p><strong>What he&rsquo;s saying.</strong> &ldquo;Control over what you do, and how you do it, is one of the most powerful traits you can acquire when creating work you love&rdquo; (p. 98).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Red Fire Farm</strong> (pp. 99–103). Ryan Voiland, an Ivy League graduate, bought farmland in Granby, Massachusetts. By 2011 the farm had seventy acres and about 1,300 CSA subscribers. He didn&rsquo;t follow a passion: he started with a roadside umbrella selling wild blueberries, took over his parents&rsquo; garden, read &ldquo;zillions of different things,&rdquo; rented ten acres in high school, took a farm-agency loan for a tractor and studied horticulture at Cornell. That was close to a decade of capital before he bought land in 2001 (pp. 101–102).</li>
+<li><strong>What the appeal actually is</strong> (p. 103). Not the sun (weather &ldquo;is something to battle&rdquo;) and not escaping the screen (winters on Excel). It&rsquo;s <strong>control</strong>: &ldquo;Ryan and Sarah live a meaningful life on their own terms.&rdquo;</li>
+<li><strong>The research</strong> (pp. 104–105). In Dan Pink&rsquo;s <em>Drive</em>, more control means better grades, performance and happiness; Cornell&rsquo;s study of 300+ small businesses found the control-giving half grew four times as fast. In ROWE (Results-Only Work Environment) companies, turnover on Best Buy teams fell by up to 90%; at a Redlands non-profit, 80% felt more engaged and over 90% said it made their lives better.</li>
+</ul>
+<p><strong>What he asks you to do.</strong> &ldquo;If your goal is to love what you do, your first step is to acquire career capital. Your next step is to invest this capital in the traits that define great work. Control is one of the most important targets&rdquo; (p. 105).</p>
+<h2 id="chapter-9-the-first-control-trap-pp-106">Chapter 9 — The First Control Trap (pp. 106–111)</h2>
+<p><strong>What he&rsquo;s saying.</strong> <strong>The first control trap</strong>: &ldquo;Control that&rsquo;s acquired without career capital is not sustainable&rdquo; (p. 109).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Jane</strong> (pp. 107–108). A top-one-percent student whose life plan included crossing Antarctica &ldquo;(by dog sled?)&rdquo; and learning fire breathing, funded by &ldquo;low-maintenance websites&rdquo; earning $3,000 a month. She dropped out; her blog had three posts in nine months. &ldquo;I also need money in order to eat.&rdquo;</li>
+<li><strong>Lisa Feuer, again</strong> (p. 109).</li>
+<li><strong>The lifestyle-design community</strong> (pp. 110–111). Timothy Ferriss has &ldquo;more than enough career capital&rdquo; for his life; many followers don&rsquo;t. One blogger quit at 25 to show &ldquo;how an average Joe… can build a business&rdquo;; the business was a blog about being a lifestyle designer. &ldquo;Enthusiasm alone is not rare and valuable&rdquo; (p. 110). His ten-point plan (&ldquo;#2. Bring the ENERGY&rdquo;) left out &ldquo;giving readers content they&rsquo;re willing to pay for,&rdquo; and the posts stopped (p. 111).</li>
+</ul>
+<p><strong>How it connects.</strong> The trap is &ldquo;only half of the story&rdquo;: once you <em>do</em> have capital, people push back (p. 111).</p>
+<h2 id="chapter-10-the-second-control-trap-pp-11">Chapter 10 — The Second Control Trap (pp. 112–120)</h2>
+<p><strong>What he&rsquo;s saying.</strong> <strong>The second control trap</strong>: &ldquo;The point at which you have acquired enough career capital to get meaningful control over your working life is exactly the point when you&rsquo;ve become valuable enough to your current employer that they will try to prevent you from making the change&rdquo; (p. 118).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Lulu Young, software developer</strong> (pp. 113–116). She started at &ldquo;the bottom rung&rdquo; as a software tester and taught herself to automate the testing. Each new store of capital bought more control: a thirty-hour week for a part-time philosophy degree; turning down a QA manager promotion to join a seven-person start-up (&ldquo;People thought I was nuts&rdquo;); three months&rsquo; leave (&ldquo;There will be no way for you to contact me&rdquo;); then freelancing and going flying &ldquo;if the weather was nice on a Friday.&rdquo;</li>
+<li><strong>Lewis, a plastic surgery resident</strong> (pp. 116–118). He had a stabbed patient&rsquo;s heart in his hand and was refused blood because &ldquo;You skipped registration.&rdquo; He became the first person in the ten-year history of his program to take time off mid-residency, two years to start a medical education company. &ldquo;They were asking me, &lsquo;Why would you do this!?&rsquo;&rdquo;</li>
+<li><strong>Courage revisited</strong> (pp. 119–120). He moderates his earlier &ldquo;disdain&rdquo; for the courage culture: courage matters, but timing is everything. If you lack capital, heed the resistance; if you have it, ignore the resistance. &ldquo;Both scenarios feel the same, but the right response is different in each.&rdquo;</li>
+</ul>
+<h2 id="chapter-11-avoiding-the-control-traps-pp">Chapter 11 — Avoiding the Control Traps (pp. 121–128)</h2>
+<p><strong>What he&rsquo;s saying.</strong> <strong>The law of financial viability</strong>: &ldquo;When deciding whether to follow an appealing pursuit that will introduce more control into your work life, seek evidence of whether people are willing to pay for it. If you find this evidence, continue. If not, move on&rdquo; (p. 125).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Derek Sivers</strong> (pp. 122–123). In his TED talk on the lone dancing man, &ldquo;the first follower transforms the lone nut into a leader.&rdquo; Sivers quit Warner Bros. in 1992 for music, started CD Baby in 1997 and sold it in 2008 for $22 million. He put the proceeds into a charitable trust for music education and lives &ldquo;off the smallest possible amount of interest allowed by law.&rdquo; His rule: &ldquo;if something is scary, do it.&rdquo;</li>
+<li><strong>His answer</strong> (p. 124): &ldquo;Do what people are willing to pay for… Money is a neutral indicator of value. By aiming to make money, you&rsquo;re aiming to be valuable.&rdquo; Hobbies are exempt. He kept his day job until music paid more; at CD Baby, &ldquo;first I sold one CD, which gave me enough money to sell two&rdquo; (pp. 124–125).</li>
+<li><strong>&ldquo;Willing to pay&rdquo; is flexible</strong> (pp. 125–126): customers, a loan, an investment, or an employer agreeing. Ryan had to convince the Farm Services Agency with a business plan; Lulu&rsquo;s employers said yes; Jane never tested her idea.</li>
+</ul>
+<p><strong>How it connects.</strong> The Summary of Rule #3 (pp. 127–128): &ldquo;Unless people are willing to pay you, it&rsquo;s not an idea you&rsquo;re ready to go after.&rdquo;</p>
+<p class="rulemark"><span class="label">Rule #4</span><b>Think Small, Act Big (pp. 129–172)</b></p>
+<h2 id="chapter-12-the-meaningful-life-of-pardis">Chapter 12 — The Meaningful Life of Pardis Sabeti (pp. 131–137)</h2>
+<p><strong>What he&rsquo;s saying.</strong> &ldquo;A unifying mission to your working life can be a source of great satisfaction&rdquo; (p. 131). &ldquo;To have a mission is to have a unifying focus for your career. It&rsquo;s more general than a specific job and can span multiple positions&rdquo; (p. 136).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>The happy professor</strong> (pp. 132–133). Pardis Sabeti, 35, a Harvard evolutionary biologist, plays volleyball with her lab, plays in the band Thousand Days and leads a clinic&rsquo;s staff in song in Nigeria, &ldquo;my African home.&rdquo; It&rsquo;s her mission that gives her this energy.</li>
+<li><strong>Her mission</strong> (pp. 134–135): &ldquo;to use new technology to fight old diseases.&rdquo; Her algorithm hunts for recently evolved genes; it found one that gives resistance to Lassa fever (spelled &ldquo;Lhassa&rdquo; in the book), and she has added malaria and bubonic plague.</li>
+<li><strong>Why missions matter</strong> (p. 136): they focus energy and maximize impact, and they make hard work less draining. Staying up late on litigation drains you; staying up late &ldquo;to help cure an ancient disease can leave you more energized.&rdquo;</li>
+<li><strong>What&rsquo;s coming</strong> (p. 137): missions need capital, plus two advanced tactics — systematic experiments with &ldquo;proto-missions&rdquo; and &ldquo;a marketing mindset.&rdquo; &ldquo;Missions are hard.&rdquo;</li>
+</ul>
+<h2 id="chapter-13-missions-require-capital-pp-1">Chapter 13 — Missions Require Capital (pp. 138–148)</h2>
+<p><strong>What he&rsquo;s saying.</strong> &ldquo;A mission chosen before you have relevant career capital is not likely to be sustainable&rdquo; (p. 138).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Mission failure</strong> (pp. 139–140). Sarah, a first-year cognitive science doctoral student, is paralyzed: &ldquo;I feel I have too many interests.&rdquo; Jane&rsquo;s vague non-profit &ldquo;to develop my vision of… a life well-lived&rdquo; goes nowhere.</li>
+<li><strong>The adjacent possible</strong> (pp. 141–143). At a San Jose conference, four papers from four universities used the same obscure technique, randomized linear network coding. Steven Johnson&rsquo;s <em>Where Good Ideas Come From</em> records many such &ldquo;multiples&rdquo;: sunspots in 1611, the battery, oxygen (Scheele and Priestley), and nearly 150 others. Big ideas are found in the &ldquo;adjacent possible,&rdquo; the space just beyond the cutting edge (a term from Stuart Kauffman).</li>
+<li><strong>The leap</strong> (p. 144): &ldquo;A good career mission is similar to a scientific breakthrough—it&rsquo;s an innovation waiting to be discovered in the adjacent possible of your field. If you want to identify a mission for your working life, therefore, you must first get to the cutting edge.&rdquo;</li>
+<li><strong>Pardis&rsquo;s patience</strong> (pp. 146–148). &ldquo;I think you do need passion to be happy… It&rsquo;s just that we don&rsquo;t know what that passion is.&rdquo; She moved through math, biology, medicine and infectious disease, then a Rhodes, an Oxford PhD and a Harvard MD, before her 2002 <em>Nature</em> paper (cited over 720 times): &ldquo;People started treating me differently after that paper.&rdquo;</li>
+</ul>
+<p><strong>The title explained</strong> (p. 148). &ldquo;Advancing to the cutting edge in a field is an act of &lsquo;small&rsquo; thinking… Once you get to the cutting edge, however, and discover a mission in the adjacent possible, you must go after it with zeal: a &lsquo;big&rsquo; action.&rdquo; Sarah and Jane did it backward: they thought big and acted small.</p>
+<h2 id="chapter-14-missions-require-little-bets">Chapter 14 — Missions Require Little Bets (pp. 149–159)</h2>
+<p><strong>What he&rsquo;s saying.</strong> Great missions become great successes through &ldquo;small and achievable projects—little bets&rdquo; (p. 149).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Newport&rsquo;s own gap</strong> (p. 150). He had the capital and &ldquo;notebooks filled with potential missions&rdquo; (for example, an entry from March 13, 2011), yet hadn&rsquo;t committed to any of them.</li>
+<li><strong>Kirk French and <em>American Treasures</em></strong> (pp. 152–156). Two archaeologists drive around in an old F-150 and refuse to put cash values on artifacts. Kirk had run &ldquo;Kirk Fest&rdquo; and toured with Jason De León&rsquo;s band. His mission was to &ldquo;popularize modern archaeology to a mass audience.&rdquo; His small steps: digitizing the 1961 film <em>Land and Water</em>; raising seed money for an update; and calling back a man who claimed to have &ldquo;the treasure of the Knights Templar in my backyard&rdquo; (&ldquo;I&rsquo;m going to call him back&rdquo;) and filming it as <em>The Armchair Archaeologist</em>. When a production company came looking, Discovery said, &ldquo;Screw a pilot, let&rsquo;s film eight episodes.&rdquo;</li>
+<li><strong>Little bets</strong> (pp. 157–158). From Peter Sims: innovators &ldquo;make a methodical series of little bets about what might be a good direction, learning critical information from lots of little failures and from small but significant wins.&rdquo; Chris Rock makes forty to fifty unannounced club visits with a yellow legal pad before an HBO special. A bet &ldquo;takes a few months at most. It either succeeds or fails, but either way you get important feedback.&rdquo;</li>
+<li><strong>Pardis again</strong> (p. 158). She moved from lab to lab; &ldquo;It was tentativeness, not boldness, that transformed Pardis&rsquo;s general mission into a specific success.&rdquo;</li>
+</ul>
+<p><strong>How it connects</strong> (p. 159). &ldquo;If career capital makes it possible to identify a compelling mission, then it&rsquo;s a strategy of little bets that gives you a good shot of succeeding in this mission.&rdquo;</p>
+<h2 id="chapter-15-missions-require-marketing-pp">Chapter 15 — Missions Require Marketing (pp. 160–172)</h2>
+<p><strong>What he&rsquo;s saying.</strong> <strong>The law of remarkability</strong>: &ldquo;For a mission-driven project to succeed, it should be remarkable in two different ways. First, it must compel people who encounter it to remark about it to others. Second, it must be launched in a venue that supports such remarking&rdquo; (p. 168).</p>
+<p><strong>How he builds it.</strong></p>
+<ul>
+<li><strong>Giles Bowkett</strong> (pp. 161–166). He became famous among Ruby programmers in 2008 (&ldquo;every Ruby programmer on the planet knows my name&rdquo;). His mission was to bring together art and Ruby programming. His path: a college dropout, then HTML in 1994, then San Francisco, where his pay jumped from $30,000 to $100,000; then boredom at an investment bank, then a camper on his parents&rsquo; land studying algorithmic (&ldquo;aleatoric&rdquo;) music.</li>
+<li><strong>Two books</strong> (p. 165). Seth Godin&rsquo;s <em>Purple Cow</em>: &ldquo;You&rsquo;re either remarkable or invisible.&rdquo; Chad Fowler&rsquo;s <em>My Job Went to India</em>: make quality contributions to open-source software. &ldquo;The synthesis… is that the best way to market yourself as a programmer is to create remarkable open-source software. So I did.&rdquo; The result was <strong>Archaeopteryx</strong>, an AI that writes and plays its own dance music. He spoke at fifteen or more user groups and conferences in 2008 (p. 166).</li>
+<li><strong>Brown cow vs purple cow</strong> (p. 167). His earlier package of command-line tools was useful but nobody&rsquo;s &ldquo;You have to see this!&rdquo; Newport points out that this book itself was designed to be remarkable, and that his blog was the venue (pp. 167–168).</li>
+<li><strong>The law in action</strong> (pp. 169–170). Pardis&rsquo;s project drew headlines and her venue was peer-reviewed publication (&ldquo;publish!&rdquo;). Kirk&rsquo;s house calls were the project, and television was the venue.</li>
+</ul>
+<p><strong>How it connects.</strong> The Summary of Rule #4 (pp. 171–172): capital, then little bets and the law of remarkability, to &ldquo;transform your mission from a compelling idea into a compelling career.&rdquo;</p>
+<h2 id="conclusion-how-newport-applied-the-rules">Conclusion — How Newport applied the rules (pp. 173–198)</h2>
+<p><strong>My story resumes</strong> (pp. 173–175). He sent twenty applications, took Georgetown&rsquo;s offer in March 2011 and signed the book deal two weeks later. The applications are &ldquo;tentative,&rdquo; but that is what makes them relevant (p. 175).</p>
+<p><strong>Rule #1</strong> (pp. 176–178). In high school he started Princeton Web Solutions with Michael Simmons, not out of passion: &ldquo;We were bored, available, and ambitious.&rdquo; It &ldquo;inoculated&rdquo; him against the cult of passion. He went on to hack his study skills and published a student guide. Choosing between Microsoft and MIT didn&rsquo;t paralyze him.</p>
+<p><strong>Rule #2</strong> (pp. 179–185). He feared his capital was tapering off at an &ldquo;acceptable level&rdquo; once coursework ended. He decided to deconstruct a well-cited but obtuse paper:</p>
+<ul>
+<li><strong>Time structure</strong>: &ldquo;for the next hour this is my whole world&rdquo;; the resistance took &ldquo;on average, ten minutes&rdquo; to die down (p. 181).</li>
+<li><strong>Information structure</strong>: a proof map, then self-quizzes on definitions, then proof summaries in his own words (p. 181).</li>
+<li>About fifteen hours over two weeks; he found a pair of mistakes in a paper cited close to sixty times, and published a new result (p. 182). &ldquo;Strain, I now accepted, was good,&rdquo; like a bodybuilder&rsquo;s muscle burn (p. 182).</li>
+<li>Three routines: the <strong>research bible</strong> (a weekly summary of a paper), the <strong>hour tally</strong> (12 hours in the last two weeks of March 2011, 42 in April, 26.5 in May, 23 in June) and a $45 <strong>theory notebook</strong> (pp. 183–185). He went from &ldquo;productivity-centric&rdquo; to &ldquo;craft-centric&rdquo; (p. 185).</li>
+</ul>
+<p><strong>Rule #3</strong> (pp. 186–189). He chose Georgetown over an interview at a well-established state university because of control: &ldquo;In a growing program, you&rsquo;ll always have a say,&rdquo; and tenure there was not a comparison with outside experts. He checked both traps and the law of financial viability: they were &ldquo;willing to pay me well for this move toward autonomy&rdquo; (p. 189).</p>
+<p><strong>Rule #4</strong> (pp. 190–195). Alan Lightman, the MIT physicist turned writer, has a contact page that says &ldquo;I don&rsquo;t use e-mail.&rdquo; True missions need capital plus &ldquo;ceaselessly scanning your always-changing view of the adjacent possible&rdquo;: &ldquo;a lifestyle, not a series of steps&rdquo; (p. 191). His <strong>mission pyramid</strong>:</p>
+<ul>
+<li><strong>Top</strong>: a tentative research mission — &ldquo;To apply distributed algorithm theory to interesting new places with the goal of producing interesting new results&rdquo; (p. 192).</li>
+<li><strong>Bottom</strong>: background research — something new every week, summarized in the bible, plus a daily walk for free-form thinking (p. 193).</li>
+<li><strong>Middle</strong>: exploratory projects, as little bets — under a month, creating new value, with a concrete result; two or three active at a time, with yellow-highlighted deadlines and the hours tallied (p. 194). The whole is &ldquo;a closed feedback loop&rdquo; (p. 195).</li>
+</ul>
+<p><strong>Final thoughts: Working right trumps finding the right work</strong> (pp. 196–198). Thomas went back to the banking job he&rsquo;d left. Free of &ldquo;escapist thoughts of fantasy jobs,&rdquo; he was promoted three times in two years, from data entry to running a system that managed $6 billion, and later five times that. &ldquo;Don&rsquo;t obsess over discovering your true calling. Instead, master rare and valuable skills&rdquo; (p. 197). Thomas&rsquo;s last words to Newport: &ldquo;Life is good&rdquo; (p. 198).</p>
+<h2 id="threads-through-the-book">Threads through the book</h2>
+<ul>
+<li><strong>Working right trumps finding the right work.</strong> It&rsquo;s stated in Chapter 2 (p. 30), repeated in Chapter 5 (p. 60) and closes the book (pp. 196–197).</li>
+<li><strong>Every good trait has a price in capital.</strong> Creativity, impact, control and mission all need career capital first (pp. 53, 109, 145).</li>
+<li><strong>Time and patience.</strong> Martin&rsquo;s ten years and forty-year banjo, Ryan&rsquo;s decade, Pardis&rsquo;s late mission (pp. 43, 94, 102, 147).</li>
+<li><strong>Feedback.</strong> &ldquo;The tape doesn&rsquo;t lie&rdquo; (p. 44), Mike&rsquo;s weekly printout (p. 86), Chris Rock&rsquo;s legal pad (p. 158), the pyramid&rsquo;s feedback loop (p. 195).</li>
+<li><strong>Courage, reconsidered.</strong> Dismissed as the &ldquo;courage culture&rdquo; in Rule #2 (p. 56), moderated in Rule #3 (p. 119).</li>
+<li><strong>Tracking hours.</strong> Newport&rsquo;s monthly count (p. 43), Mike&rsquo;s spreadsheet (pp. 84–85), the hour tally (p. 184).</li>
+</ul>
+<h2 id="check-yourself">Check yourself</h2>
+<details><summary>What does the passion hypothesis say, and why does Newport call it dangerous?</summary><p>That the key to occupational happiness is to first work out what you're passionate about and then find a job to match (p. 17). It's dangerous because it promises a magic "right" job; when people don't find that certainty, "chronic job-hopping and crippling self-doubt" follow (p. 33).</p></details>
+<details><summary>What three needs does Self-Determination Theory name?</summary><p>Autonomy, competence and relatedness (p. 29).</p></details>
+<details><summary>Craftsman mindset vs passion mindset?</summary><p>The craftsman mindset focuses on what you can offer the world; the passion mindset on what the world can offer you (pp. 46–47).</p></details>
+<details><summary>What are the three disqualifiers for applying the craftsman mindset?</summary><p>Few chances to build rare and valuable skills; work you think is useless or bad for the world; people you really dislike (p. 59).</p></details>
+<details><summary>Winner-take-all vs auction markets?</summary><p>Winner-take-all has one type of capital and many competitors (TV writing); an auction market has many types, and each person may build a unique collection (cleantech) (p. 88).</p></details>
+<details><summary>What two things make practice "deliberate"?</summary><p>Stretching past where you're comfortable, and honest, immediate feedback (pp. 76, 92, 95).</p></details>
+<details><summary>How can you tell the two control traps apart?</summary><p>They feel the same. Use the law of financial viability: if people are willing to pay for it, continue; if not, move on (pp. 119, 125).</p></details>
+<details><summary>Why must you reach the cutting edge before you can find a mission?</summary><p>Good missions are found in the adjacent possible, which you can only see from the cutting edge (p. 144).</p></details>
+<details><summary>What makes a bet "little"?</summary><p>It's bite-sized — a few months at most (under a month in Newport's own system) — and gives concrete feedback (pp. 158, 194).</p></details>
+<details><summary>What are the two parts of the law of remarkability?</summary><p>The project must compel people to remark about it, and it must be launched in a venue that supports remarking (p. 168).</p></details>
+<div class="next"><a href="so-good-they-cant-ignore-you-activity.html">Practice: Craftsman&rsquo;s Day &rarr;</a><a href="so-good-they-cant-ignore-you-reference.html">Look it up: Reference &rarr;</a></div>
+</article>
+<footer>
+  <p>From <em>So Good They Can&rsquo;t Ignore You: Why Skills Trump Passion in the Quest for Work You Love</em> by Cal Newport (Business Plus, 2012). Page numbers refer to the e-book copy used. Short quotes are used for study.</p>
+  <p><a href="so-good-they-cant-ignore-you-activity.html">Craftsman&rsquo;s Day</a> &middot; <a href="so-good-they-cant-ignore-you-reference.html">Reference</a> &middot; <a href="index.html">All pages</a></p>
+</footer>
+</div>
+</body>
+</html>
