@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maltz Practice Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Young+Serif&display=swap">
+<style>
+:root{--bg:#f2f6f5;--paper:#fff;--ink:#17302c;--muted:#536a66;--line:#cddcd9;--accent:#0f6e66;--soft:#dcefeb;--warn:#a13d2d;--wsoft:#f7e3dd;--gold:#8a5d0c;--gsoft:#f8ecd2;
+--display:"Young Serif",Georgia,serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1817;--paper:#152220;--ink:#e2eeeb;--muted:#9fb5b1;--line:#2a3d3a;--accent:#5cc3b7;--soft:#1c3431;--warn:#ef9a88;--wsoft:#3a2420;--gold:#e3b75c;--gsoft:#3a2f17;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--body);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.8rem,5vw,2.4rem)} h2{font-size:1.35rem} h3{font-size:1.05rem}
+p{margin:0}
+header{background:var(--paper);border-bottom:1px solid var(--line)}
+header .wrap{padding-block:22px 14px;display:grid;gap:6px}
+.eyebrow{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.sub{color:var(--muted);font-size:.95rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:8px}
+nav a{flex:none;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.88rem}
+nav a[aria-current=page]{background:var(--soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+main .wrap{padding-block:22px 80px;display:grid;gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.stat{font-family:var(--display);font-size:2rem;color:var(--accent);line-height:1}
+.muted{color:var(--muted);font-size:.9rem}
+.pill{display:inline-block;font-size:.75rem;padding:1px 9px;border-radius:999px;background:var(--soft);color:var(--accent);font-weight:700}
+.card>.pill{justify-self:start}
+a{color:var(--accent)}
+.pill.w{background:var(--wsoft);color:var(--warn)} .pill.g{background:var(--gsoft);color:var(--gold)}
+button,.btn{font:inherit;font-size:.92rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:7px 14px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+button.bad{border-color:var(--warn);color:var(--warn)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,textarea,select{font:inherit;font-size:.95rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:8px 10px;width:100%}
+textarea{min-height:80px;resize:vertical}
+label.f{display:grid;gap:4px;font-size:.88rem;color:var(--muted);font-weight:700}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.check{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed var(--line)}
+.check:last-child{border-bottom:0}
+.check input{width:auto;margin-top:.35em;accent-color:var(--accent)}
+.check.done span{color:var(--muted);text-decoration:line-through}
+.prompt{font-family:var(--display);font-size:1.4rem;line-height:1.3}
+.answer{border-left:4px solid var(--accent);padding-left:12px}
+.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.phase{border-left:4px solid var(--line)} .phase.now{border-left-color:var(--accent)}
+.list{display:grid;gap:8px}
+.item{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:4px}
+.save{font-size:.78rem;color:var(--muted)}
+[hidden]{display:none!important}
+.dots{display:flex;gap:4px;flex-wrap:wrap}
+.dots b{width:14px;height:14px;border-radius:3px;background:var(--soft);display:inline-block}
+.dots b.on{background:var(--accent)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <span class="eyebrow">Maxwell Maltz · 7 books · 12 weeks</span>
+  <h1>Maltz Practice Engine</h1>
+  <p class="sub">Recall instead of re-reading. WOOP instead of daydreaming. Real reps every week. <span class="save" id="saveState"></span></p>
+</div></header>
+<nav aria-label="Sections"><div class="wrap">
+  <a href="#today">Today</a><a href="#recall">Recall</a><a href="#woop">WOOP plans</a><a href="#log">Wins &amp; signals</a><a href="#review">Weekly review</a><a href="#map">12-week map</a><a href="index.html">All study pages</a>
+</div></nav>
+<main><div class="wrap" id="app"></div></main>
+
+<script type="application/json" id="state">{}</script>
+<script>
+(function(){
+const SRC = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+/* ---------- the 70 ideas ---------- */
+const THEMES = ["","Self-Image","Success Mechanism","Imagination","Beliefs & Dehypnosis","Relaxation","Emotions","Living it"];
+const IDEAS = [
+["1.1",1,"The mental blueprint","Everyone carries a picture of 'the sort of person I am' and acts consistent with it (PC 2)"],
+["1.2",1,"Beliefs become 'true'","Once an idea enters the picture, you stop questioning it and act on it (PC 2)"],
+["1.3",1,"The keystone of personality","Personality is a system of ideas; the self-image is its centre, so changing it changes the rest (PC 4)"],
+["1.4",1,"The plastic surgery puzzle","Some patients changed after surgery, others still felt ugly: the inner scar mattered more (PC intro)"],
+["1.5",1,"The ceiling / area of the possible","You can't perform consistently beyond your self-image, like the $5,000 salesman (PC 13, 50–51)"],
+["1.6",1,"Comfort zone","Acting outside your self-image causes tension that pulls you back (LBF 36)"],
+["1.7",1,"Overall average","The self-image averages how you see yourself across many areas (LBF 35)"],
+["1.8",1,"Real size, not inflated","Aim for an accurate picture of your real self: not smaller, not an arrogant fantasy (PC 10, 43)"],
+["1.9",1,"Positive thinking fails as a patch","Affirmations that contradict your self-image don't work; change the image itself (PC 4; LBF 37)"],
+["1.10",1,"Self-image and habits go together","Change one and the other follows (PC 108)"],
+["1.11",1,"It can change at any age","The self-image was learned, so it can be relearned (PC 3)"],
+["1.12",1,"Self-respect","Treat yourself as worth something; don't hand your worth to others' opinions (SSR; CLT 61)"],
+["2.1",2,"You are a servo-mechanism","Like a guided torpedo, your brain steers automatically toward the target you set (PC ch.2)"],
+["2.2",2,"Success or failure mechanism","The same machine executes success goals or negative goals without judging (PC 13)"],
+["2.3",2,"Goals must be clear","The mechanism needs a specific target you can picture, not a vague wish (PC ch.2)"],
+["2.4",2,"Error correction","Mistakes are steering signals: correct, then forget the error and remember the success (PC 66)"],
+["2.5",2,"Learning by success","Repeat successful attempts until they become automatic (PC ch.2; LBF 93)"],
+["2.6",2,"Trust the mechanism","Do your conscious best, then let the automatic part finish (PC ch.2, ch.11)"],
+["2.7",2,"Ideas come when you let go","Answers arrive after you stop straining: sleep on it (PC ch.2)"],
+["2.8",2,"Man is a goal-striver","Like a bicycle, you stay balanced only while moving toward something (PC 113–114)"],
+["2.9",2,"A goal every day","Set at least one goal each morning, even just 'improve' (CLT 24; PCSF 13–14)"],
+["2.10",2,"Goals at the edge","Not so easy it needs no effort, not so far it breaks the picture (LBF 75)"],
+["3.1",3,"Imagined vs real","A vividly imagined experience trains the nervous system much like a real one (PC 32)"],
+["3.2",3,"The free-throw experiment","Imagined practice improved shooting almost as much as real practice: 23% vs 24% (PC 35)"],
+["3.3",3,"Theater of the Mind","Sit quietly and picture yourself acting and feeling as the person you want to be, in detail (PC 45–46)"],
+["3.4",3,"Build new 'memories'","Imagine how you'd feel if you already were that person; it creates success memories (PC 46)"],
+["3.5",3,"Rehearse before the event","Practise interviews, talks and hard conversations in your mind first (PC ch.3)"],
+["3.6",3,"Imagination works both ways","Worry is negative imagination: it rehearses failure (PC ch.3, 14)"],
+["3.7",3,"The 21-day minimum","A noticeable change in a mental image takes at least about 3 weeks (PC xiii–xiv)"],
+["3.8",3,"Picture yourself, not someone else","Imitating others betrays your own self-image (CLT 54; CF 168)"],
+["4.1",4,"Everyone is hypnotized a little","We act on ideas absorbed uncritically from others or repeated to ourselves (PC 53)"],
+["4.2",4,"Belief, not ability, limits you","Lecky's students failed from an inadequate self-image, not low aptitude (PC 5)"],
+["4.3",4,"The four questions","Is there a rational reason? Could I be wrong? Would I judge someone else this way? Why act as if it's true? (PC 72)"],
+["4.4",4,"'I failed' vs 'I am a failure'","Use the verb, not the noun; mistakes don't define you (PC 5, 164, 166)"],
+["4.5",4,"Don't measure by others' norms","Inferiority comes from comparing to someone else's standard; you are simply 'you' (PC 56–58)"],
+["4.6",4,"Inferiority and superiority","Both come from comparison: two sides of one coin (PC 57)"],
+["4.7",4,"Borrowed self-images","A parent's or spouse's judgment can become your self-image; notice the voice and talk back (CF 20–21)"],
+["4.8",4,"Rational thinking's job","The conscious mind chooses goals and checks facts; it doesn't force results (PC ch.5)"],
+["4.9",4,"Desire + belief, not willpower","Beliefs change the way they formed: through experience and imagination, relaxed (PC 59–60)"],
+["5.1",5,"Relaxation lets it work","Effort blocks automatic performance; calm releases it (PC ch.4)"],
+["5.2",5,"Daily physical relaxation","Picture your body heavy and loose, a few minutes daily (PC ch.4)"],
+["5.3",5,"The quiet room","A calm room in your mind to visit before stressful tasks (PC ch.13)"],
+["5.4",5,"Responses are yours","Problems don't make you tense; your response does (PC 157, ch.13)"],
+["5.5",5,"Delayed reaction","Pause before responding, like letting a phone ring (PC ch.13)"],
+["5.6",5,"One problem at a time","Answer only what's in front of you, like sand through an hourglass (PC ch.13)"],
+["5.7",5,"Stop over-carefulness","Too much self-monitoring jams performance; allow spontaneity (PC ch.11)"],
+["5.8",5,"Worry before, not during","Plan consciously, then act without second-guessing (PC ch.11)"],
+["6.1",6,"Happiness is a habit","A mental habit you can build; be happy now, not 'when' (PC ch.7)"],
+["6.2",6,"Happiness resolutions","Act cheerful, friendly, less critical and calm for 21 days as an experiment (PC 109–110)"],
+["6.3",6,"Opinion, not facts","Most unhappiness comes from how you interpret events (PC ch.7)"],
+["6.4",6,"FAILURE signals","Frustration, Aggressiveness, Insecurity, Loneliness, Uncertainty, Resentment, Emptiness: off-course warnings (PC ch.9)"],
+["6.5",6,"Frustration needs consent","Chronic frustration = unrealistic goals or inadequate self-image (PC 131; CF 6)"],
+["6.6",6,"Resentment shrinks you","It makes you picture yourself as a victim (PC 143)"],
+["6.7",6,"Emotional scars","Hurts harden into a shell that protects but blocks life (PC 149–153)"],
+["6.8",6,"Your own plastic surgeon","You can remove emotional scars yourself (PC 159)"],
+["6.9",6,"Forgiveness is the scalpel","Forgive others and yourself completely, then forget (PC 160–164)"],
+["6.10",6,"Emotional face lift","Relaxation + forgiveness + imagination to remove old hurts (PC ch.10)"],
+["6.11",6,"Compassion for mistakes","Correct, don't condemn (SSR 120; CF 135)"],
+["6.12",6,"Crisis → opportunity","Practise without pressure, then use crisis energy to perform (PC ch.14)"],
+["7.1",7,"The SUCCESS personality","Sense of direction, Understanding, Courage, Charity, Esteem, Self-confidence, Self-acceptance (PC ch.8)"],
+["7.2",7,"Confidence from remembered success","Remember past wins, forget failures (PC 122–123)"],
+["7.3",7,"Self-acceptance first","Accept yourself as you are, then improve (PC 124–127)"],
+["7.4",7,"The winning feeling","Recall a past success's feeling before a new task (PC ch.15)"],
+["7.5",7,"Courage = act before certainty","Take the step without a guarantee (PC ch.8)"],
+["7.6",7,"Charity to others","How you see others mirrors how you see yourself (PC 120)"],
+["7.7",7,"More life","Keep goals and purpose at every age (PC ch.16, 263)"],
+["7.8",7,"The two pitfalls","Withdrawing from life, and basing worth on outside factors (CLT 61)"],
+["7.9",7,"Live in the present","Today is the only day you can act in (CLT)"],
+["7.10",7,"Success means happiness","Build the self-image on happiness and self-respect, not money or vanity (CF 71, 163)"],
+["7.11",7,"Freedom","Free yourself from false beliefs, resentments and others' expectations (LBF)"]
+];
+const PHASES = [
+ {n:1,w:"1–3",themes:[1,4],name:"See the picture",daily:"Write your current self-image in your lab area. Run the four questions on one 'I can't' belief. Theater of the Mind as your real self, including the obstacle.",proof:"Old vs new picture written from memory, one belief dropped, recall test on Themes 1 + 4",links:[["Self-Image Ladder (Rungs 1–4)","self-image-ladder.html"],["Self-Image Day","self-image-day.html"],["Psycho-Cybernetics notes","psycho-cybernetics-notes.html"]]},
+ {n:2,w:"4–6",themes:[2,3],name:"Start the engine",daily:"One goal each morning at the edge of your self-image, as an if-then plan. Rehearse it with the obstacle. Evening: 3 wins.",proof:"21 if-then goals, about 60 wins, recall test on Themes 2 + 3",links:[["The Psycho-Cybernetics Machine","psycho-cybernetics-machine.html"],["Chapter 2: the Success Mechanism","chapter-2-success-mechanism.html"],["Self-Fulfillment reading guide","self-fulfillment-reading-guide.html"]]},
+ {n:3,w:"7–9",themes:[5,6],name:"Calm and repair",daily:"Quiet room before stressful tasks. Name any FAILURE signal and its if-then plan. Forgive one old hurt.",proof:"One scar forgiven, fewer FAILURE signals, recall test on Themes 5 + 6",links:[["Search for Self-Respect activity","search-for-self-respect-activity.html"],["Conquest of Frustration activity","conquest-of-frustration-activity.html"],["Self-Image Ladder (Rung 7)","self-image-ladder.html#r7"]]},
+ {n:4,w:"10–12",themes:[7],name:"Live it",daily:"Winning feeling before tasks. One courage action per week. Weekly SUCCESS score.",proof:"A real-world test, a 2-minute teach-back with the book closed, recall on all 7 themes",links:[["The Self-Image Code podcast (teach-back model)","self-image-code-podcast.html"],["Live Free workbook","live-free-workbook.html"],["Peak (deliberate practice)","peak.html"]]}
+];
+const CHECKS = [
+ ["goal","Morning","Set today's goal as an if-then plan"],
+ ["picture","Morning","Read my new-picture sentence once"],
+ ["quiet","Before stress","Quiet room: 3 slow breaths + recall one win"],
+ ["wins","Night","Log 3 wins"],
+ ["signal","Night","Any FAILURE signal? Name it + if-then"],
+ ["recall","Night","Recall 3 ideas from memory (Recall tab)"],
+ ["theater","Night","7 min Theater of the Mind with the obstacle"]
+];
+const SIGNALS = ["Frustration","Aggressiveness","Insecurity","Loneliness","Uncertainty","Resentment","Emptiness"];
+const STEPS = [1,3,7,21,60];
+const DAY = 86400000;
+const today = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+const addDays = (iso,n) => { const d=new Date(iso+'T12:00:00'); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); };
+const diffDays = (a,b) => Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'))/DAY);
+
+/* ---------- state: embedded JSON, kept by publishing; localStorage as backup ---------- */
+let S;
+try { S = JSON.parse($('#state').textContent || '{}'); } catch(e){ S = {}; }
+try { const loc = JSON.parse(localStorage.getItem('maltzEngine') || 'null'); if (loc && (loc.t||0) > (S.t||0)) S = loc; } catch(e){}
+S = Object.assign({start:'',area:'',picture:'',cards:{},checks:{},woops:[],wins:[],signals:[],reviews:[],t:0}, S);
+
+let artifact = null, pubTimer = null, canPublish = true;
+const saveEl = $('#saveState');
+function save(){
+  S.t = Date.now();
+  try { localStorage.setItem('maltzEngine', JSON.stringify(S)); } catch(e){}
+  if (!artifact || !canPublish) { saveEl.textContent = artifact===null ? 'Saved in this browser.' : ''; return; }
+  saveEl.textContent = 'Saving…';
+  clearTimeout(pubTimer);
+  pubTimer = setTimeout(async () => {
+    const json = JSON.stringify(S).replace(/</g,'\\u003c');
+    const html = SRC.replace(/(<script type="application\/json" id="state">)[\s\S]*?(<\/script>)/, (m,a,b) => a + json + b);
+    try { await artifact.publish(html); saveEl.textContent = 'Saved to this page.'; }
+    catch(e){ const c = e && (e.code||e.message||''); if (/not_granted|not_writer/.test(c)) { canPublish=false; saveEl.textContent='Read-only view: saved in this browser.'; } else if (!/conflict/.test(c)) saveEl.textContent='Saved in this browser.'; }
+  }, 2500);
+}
+try { window.claude && window.claude.use && window.claude.use('artifact').then(a => { artifact = a; saveEl.textContent = a ? 'Saves to this page.' : 'Saved in this browser.'; }).catch(()=>{ saveEl.textContent='Saved in this browser.'; }); } catch(e){}
+
+/* ---------- helpers ---------- */
+function phaseInfo(){
+  if (!S.start) return null;
+  const d = diffDays(S.start, today()) + 1;
+  if (d < 1) return {day:d, phase:null, before:true};
+  const ph = Math.min(4, Math.ceil(d/21));
+  return {day:d, phase:ph, dayInPhase: d > 84 ? null : ((d-1)%21)+1, done: d>84};
+}
+function activeThemes(){ const p = phaseInfo(); if (!p || !p.phase) return [1,4]; const s=[]; PHASES.slice(0,p.phase).forEach(x=>s.push(...x.themes)); return s; }
+function dueCards(){
+  const themes = activeThemes(), t = today();
+  return IDEAS.filter(i => themes.includes(i[1])).filter(i => { const c=S.cards[i[0]]; return !c || c.due <= t; });
+}
+
+/* ---------- views ---------- */
+const V = {};
+V.today = () => {
+  const p = phaseInfo(), t = today(), done = S.checks[t] || [];
+  const due = dueCards().length;
+  let head;
+  if (!p) head = `<div class="card"><h2>Start your 12 weeks</h2><p>Pick one life area as your lab and a start date. Everything else follows from these two.</p>
+    <label class="f">Lab area<input id="area" placeholder="e.g. interview confidence" value="${esc(S.area)}"></label>
+    <label class="f">New-picture sentence (who the real you is in this area)<textarea id="pic" placeholder="I'm someone who explains what I know calmly and clearly…">${esc(S.picture)}</textarea></label>
+    <label class="f">Start date<input type="date" id="start" value="${t}"></label>
+    <div class="row"><button class="primary" id="go">Start</button></div></div>`;
+  else {
+    const ph = p.phase ? PHASES[p.phase-1] : null;
+    head = `<div class="grid">
+      <div class="card"><span class="muted">Program day</span><span class="stat">${p.before?'Starts '+esc(S.start):p.done?'Done':p.day+' / 84'}</span><div class="bar"><i style="width:${Math.min(100,Math.max(0,p.day/84*100))}%"></i></div></div>
+      <div class="card"><span class="muted">Phase</span><span class="stat">${ph?ph.n:'–'}</span><span>${ph?esc(ph.name)+' · day '+(p.dayInPhase||21)+' of 21':''}</span></div>
+      <div class="card"><span class="muted">Recall cards due</span><span class="stat">${due}</span><a href="#recall">Start recall →</a></div>
+    </div>
+    <div class="card"><span class="pill">Lab area: ${esc(S.area||'not set')}</span><p class="prompt" style="font-size:1.1rem">${esc(S.picture||'Add your new-picture sentence in the 12-week map tab.')}</p>
+    ${ph?`<p><b>This phase, daily:</b> ${esc(ph.daily)}</p>`:''}</div>`;
+  }
+  const streak = (() => { let n=0, d=t; while ((S.checks[d]||[]).length >= 5) { n++; d = addDays(d,-1); } return n; })();
+  const last14 = Array.from({length:14},(_,i)=>addDays(t,i-13));
+  return head + `<div class="card"><div class="row" style="justify-content:space-between"><h2>Today's 20 minutes</h2><span class="pill g">${done.length}/7 · streak ${streak}</span></div>
+    ${CHECKS.map(c=>`<label class="check ${done.includes(c[0])?'done':''}"><input type="checkbox" data-ck="${c[0]}" ${done.includes(c[0])?'checked':''}><span><b>${c[1]}:</b> ${c[2]}</span></label>`).join('')}
+    <div><span class="muted">Last 14 days (5+ ticks counts)</span><div class="dots">${last14.map(d=>`<b class="${(S.checks[d]||[]).length>=5?'on':''}" title="${d}"></b>`).join('')}</div></div>
+    <p class="muted">Missing one day is fine. Research says inconsistency, not one miss, is what stops a habit forming.</p></div>
+    ${latestWoop()}`;
+};
+function latestWoop(){
+  const w = S.woops.filter(x=>!x.closed)[0];
+  if (!w) return `<div class="card"><h3>No active WOOP plan</h3><a href="#woop">Write one →</a></div>`;
+  return `<div class="card"><span class="pill">Active plan</span><p class="prompt" style="font-size:1.1rem">If ${esc(w.ifx)}, then I will ${esc(w.then)}.</p><span class="muted">Wish: ${esc(w.wish)}</span></div>`;
+}
+
+let cur = null, revealed = false;
+V.recall = () => {
+  const due = dueCards();
+  const total = IDEAS.filter(i=>activeThemes().includes(i[1])).length;
+  const learned = IDEAS.filter(i=>S.cards[i[0]] && S.cards[i[0]].box>=2).length;
+  if (!due.length) return `<div class="card"><h2>All caught up</h2><p>No cards due today. ${learned} of 70 ideas are at "known" level. Cards come back at 1, 3, 7, 21 and 60 days.</p><p class="muted">Themes open now: ${activeThemes().map(n=>THEMES[n]).join(', ')}. More themes unlock as phases advance.</p></div>`;
+  if (!cur || !due.find(d=>d[0]===cur[0])) { cur = due[0]; revealed = false; }
+  return `<div class="card"><div class="row" style="justify-content:space-between"><span class="pill">${esc(cur[0])} · ${THEMES[cur[1]]}</span><span class="muted">${due.length} due · ${total} open</span></div>
+    <p class="prompt">${esc(cur[2])}</p>
+    <label class="f">Close everything. In your own words: what does it mean, and where does it show up in your lab area?<textarea id="ans" placeholder="Type from memory first…"></textarea></label>
+    <div id="rev" ${revealed?'':'hidden'}><div class="answer"><p>${esc(cur[3])}</p></div>
+      <p class="muted" style="margin-top:8px">Compare honestly. Did you get the core idea, and could you say why?</p>
+      <div class="row" style="margin-top:8px"><button class="bad" data-rate="0">Missed it</button><button data-rate="1">Partly</button><button class="primary" data-rate="2">Got it</button></div></div>
+    <div class="row" ${revealed?'hidden':''} id="showRow"><button class="primary" id="show">Check my answer</button></div></div>
+    <p class="muted">Why this works: testing yourself beats re-reading for retention a week later (Roediger &amp; Karpicke 2006), and explaining why deepens understanding.</p>`;
+};
+V.woop = () => `<div class="card"><h2>New WOOP plan</h2><p class="muted">Maltz's visualization + the obstacle. Picturing only success can lower effort; adding the obstacle and an if-then plan works better.</p>
+  <label class="f">Wish: what I want in my lab area this week<input id="w1"></label>
+  <label class="f">Outcome: the best result, pictured vividly<textarea id="w2"></textarea></label>
+  <label class="f">Obstacle: what in me gets in the way<input id="w3"></label>
+  <div class="grid"><label class="f">If…<input id="w4" placeholder="I start to freeze"></label><label class="f">…then I will<input id="w5" placeholder="pause, breathe, and think aloud"></label></div>
+  <label class="f">Linked Maltz idea<select id="w6">${IDEAS.map(i=>`<option value="${i[0]}">${i[0]} ${esc(i[2])}</option>`).join('')}</select></label>
+  <p class="err muted" id="werr" hidden style="color:var(--warn)">Fill in wish, obstacle, and both halves of the if-then.</p>
+  <div class="row"><button class="primary" id="wsave">Save plan</button></div></div>
+  <div class="card"><h2>My plans</h2><div class="list">${S.woops.length?S.woops.map((w,i)=>`<div class="item"><div class="row" style="justify-content:space-between"><b>If ${esc(w.ifx)}, then I will ${esc(w.then)}.</b>${w.closed?'<span class="pill g">closed</span>':'<span class="pill">active</span>'}</div>
+    <span class="muted">Wish: ${esc(w.wish)} · Obstacle: ${esc(w.obs)} · Idea ${esc(w.idea)} · ${esc(w.date)} · used ${w.used||0}×</span>
+    <div class="row"><button data-wused="${i}">I used it today</button><button data-wclose="${i}">${w.closed?'Reopen':'Close'}</button></div></div>`).join(''):'<p class="muted">No plans yet.</p>'}</div></div>`;
+V.log = () => {
+  const t = today();
+  const counts = SIGNALS.map(s=>S.signals.filter(x=>x.s===s && diffDays(x.date,t)<7).length);
+  return `<div class="card"><h2>Log a win</h2><p class="muted">Confidence is built on remembered success (7.2). Small counts.</p>
+    <div class="row"><input id="win" placeholder="Explained HikariCP pooling out loud without notes" style="flex:1;min-width:200px"><button class="primary" id="wadd">Add</button></div>
+    <p class="muted">${S.wins.filter(w=>w.date===t).length} today · ${S.wins.length} total</p>
+    <div class="list">${S.wins.slice(0,10).map(w=>`<div class="item"><span>${esc(w.text)}</span><span class="muted">${esc(w.date)}</span></div>`).join('')}</div></div>
+  <div class="card"><h2>FAILURE signal</h2><p class="muted">A bad feeling is a steering signal (6.4). Name it, then write the correction.</p>
+    <div class="row">${SIGNALS.map(s=>`<button data-sig="${s}">${s}</button>`).join('')}</div>
+    <label class="f">Correction (if-then)<input id="sigfix" placeholder="If I feel uncertain before a call, then I'll write my 3 points first"></label>
+    <p class="muted" id="sigpick">Pick a signal, then add the correction.</p>
+    <div class="row"><button class="primary" id="sigadd">Log signal</button></div>
+    <table><thead><tr><th>Signal</th><th>Last 7 days</th></tr></thead><tbody>${SIGNALS.map((s,i)=>`<tr><td>${s}</td><td>${counts[i]}</td></tr>`).join('')}</tbody></table></div>`;
+};
+V.review = () => `<div class="card"><h2>Weekly review</h2><p class="muted">15 minutes on Sunday, doc and pages closed.</p>
+  <label class="f">1. What changed in my lab area this week? One real example.<textarea id="r1"></textarea></label>
+  <label class="f">2. Which belief or feeling pulled me back? Run the four questions (4.3).<textarea id="r2"></textarea></label>
+  <label class="f">3. Recall test: every idea I remember from this phase's themes.<textarea id="r3"></textarea></label>
+  <label class="f">4. Teach-back: explain this phase in 3–4 sentences, as if to a friend.<textarea id="r4"></textarea></label>
+  <label class="f">5. Real reps done this week (count)<input id="r5" type="number" min="0" value="0"></label>
+  <div class="row"><button class="primary" id="rsave">Save review</button></div></div>
+  <div class="card"><h2>Past reviews</h2><div class="list">${S.reviews.length?S.reviews.map(r=>`<details class="item"><summary><b>${esc(r.date)}</b> · ${r.reps} real reps</summary><p><b>Changed:</b> ${esc(r.a)}</p><p><b>Pulled back:</b> ${esc(r.b)}</p><p><b>Recalled:</b> ${esc(r.c)}</p><p><b>Teach-back:</b> ${esc(r.d)}</p></details>`).join(''):'<p class="muted">No reviews yet.</p>'}</div></div>`;
+V.map = () => {
+  const p = phaseInfo();
+  return `<div class="card"><h2>Your setup</h2>
+    <label class="f">Lab area<input id="area2" value="${esc(S.area)}"></label>
+    <label class="f">New-picture sentence<textarea id="pic2">${esc(S.picture)}</textarea></label>
+    <label class="f">Start date<input type="date" id="start2" value="${esc(S.start)}"></label>
+    <div class="row"><button class="primary" id="setsave">Save setup</button></div></div>
+  ${PHASES.map(ph=>`<div class="card phase ${p&&p.phase===ph.n?'now':''}"><div class="row" style="justify-content:space-between"><h2>Phase ${ph.n}: ${esc(ph.name)}</h2><span class="pill">Weeks ${ph.w}</span></div>
+    <p><b>Themes:</b> ${ph.themes.map(n=>n+' '+THEMES[n]).join(' + ')}</p>
+    <p><b>Daily:</b> ${esc(ph.daily)}</p><p><b>Proof by day 21:</b> ${esc(ph.proof)}</p>
+    <p><b>Your Maltz pages for this phase</b> (look things up after recall, never re-read to review):</p>
+    <ul>${ph.links.map(l=>`<li><a href="${l[1]}">${esc(l[0])}</a></li>`).join('')}</ul></div>`).join('')}
+  <div class="card"><h3>Full idea list and research</h3><p><a href="maltz-complete-ideas.html">Maltz Complete Ideas: Stacked by Theme</a> has all 70 ideas with sources and the research behind this engine.</p></div>`;
+};
+
+/* ---------- render + events ---------- */
+const ROUTES = ['today','recall','woop','log','review','map'];
+let sig = null;
+function render(){
+  const r = ROUTES.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'today';
+  document.querySelectorAll('nav a').forEach(a=>{ if (a.getAttribute('href')==='#'+r) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  $('#app').innerHTML = V[r]();
+  bind(r);
+}
+function bind(r){
+  const on = (sel, fn) => { const el = $(sel); if (el) el.onclick = fn; };
+  document.querySelectorAll('[data-ck]').forEach(c => c.onchange = () => {
+    const t = today(), arr = new Set(S.checks[t]||[]); c.checked ? arr.add(c.dataset.ck) : arr.delete(c.dataset.ck); S.checks[t] = [...arr]; save(); render(); });
+  on('#go', () => { S.area = $('#area').value.trim(); S.picture = $('#pic').value.trim(); S.start = $('#start').value || today(); save(); render(); });
+  on('#setsave', () => { S.area = $('#area2').value.trim(); S.picture = $('#pic2').value.trim(); S.start = $('#start2').value; save(); render(); });
+  on('#show', () => { revealed = true; $('#rev').hidden = false; $('#showRow').hidden = true; });
+  document.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => {
+    const rate = +b.dataset.rate, c = S.cards[cur[0]] || {box:0};
+    c.box = rate===0 ? 0 : rate===1 ? Math.max(0,c.box) : Math.min(STEPS.length-1, c.box+1);
+    c.due = addDays(today(), rate===0 ? 1 : STEPS[c.box]); c.last = today();
+    S.cards[cur[0]] = c; cur = null; revealed = false;
+    const t = today(), done = new Set(S.checks[t]||[]);
+    S.reviewedToday = (S.reviewedDay===t ? (S.reviewedToday||0) : 0) + 1; S.reviewedDay = t;
+    if (S.reviewedToday >= 3) { done.add('recall'); S.checks[t] = [...done]; }
+    save(); render(); });
+  on('#wsave', () => {
+    const w = {wish:$('#w1').value.trim(), out:$('#w2').value.trim(), obs:$('#w3').value.trim(), ifx:$('#w4').value.trim(), then:$('#w5').value.trim(), idea:$('#w6').value, date:today(), used:0};
+    if (!w.wish || !w.obs || !w.ifx || !w.then) { $('#werr').hidden = false; return; }
+    S.woops.unshift(w); save(); render(); });
+  document.querySelectorAll('[data-wused]').forEach(b => b.onclick = () => { S.woops[+b.dataset.wused].used = (S.woops[+b.dataset.wused].used||0)+1; save(); render(); });
+  document.querySelectorAll('[data-wclose]').forEach(b => b.onclick = () => { const w=S.woops[+b.dataset.wclose]; w.closed=!w.closed; save(); render(); });
+  on('#wadd', () => { const v = $('#win').value.trim(); if (!v) return; S.wins.unshift({text:v, date:today()});
+    const t=today(); if (S.wins.filter(w=>w.date===t).length>=3){ const d=new Set(S.checks[t]||[]); d.add('wins'); S.checks[t]=[...d]; } save(); render(); });
+  const win = $('#win'); if (win) win.onkeydown = e => { if (e.key==='Enter') $('#wadd').click(); };
+  document.querySelectorAll('[data-sig]').forEach(b => b.onclick = () => { sig = b.dataset.sig; document.querySelectorAll('[data-sig]').forEach(x=>x.classList.toggle('primary', x===b)); $('#sigpick').textContent = 'Picked: '+sig; });
+  on('#sigadd', () => { if (!sig) { $('#sigpick').textContent = 'Pick a signal first.'; return; }
+    S.signals.unshift({s:sig, fix:$('#sigfix').value.trim(), date:today()}); const t=today(), d=new Set(S.checks[t]||[]); d.add('signal'); S.checks[t]=[...d]; sig=null; save(); render(); });
+  on('#rsave', () => { S.reviews.unshift({date:today(), a:$('#r1').value, b:$('#r2').value, c:$('#r3').value, d:$('#r4').value, reps:+$('#r5').value||0}); save(); render(); });
+}
+window.addEventListener('hashchange', render);
+render();
+})();
+</script>
+</body>
+</html>
