@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Self-Image Journal</title>
+<meta name="description" content="A digital self-image journal built from Maxwell Maltz's books: Self-Image Day, the 13 dual forces, old and new picture, beliefs and scars, success file, toolkit, gap check and 21-day tracker. Saved in your browser, with Excel export and import.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#eef2f2;--surface:#fff;--glass:#dde7e8;--ink:#17262b;--muted:#53676d;--rule:#c4d2d4;--accent:#1d6670;--accent-soft:#d3e6e8;--go:#2f7d4a;--go-soft:#dcefe2;--warn:#8a5a00;--warn-soft:#f6ecd6;--bad:#a1372d;
+  --display:"Young Serif",Georgia,serif;--body:"Atkinson Hyperlegible",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#111a1d;--surface:#18252a;--glass:#1c2b2f;--ink:#e3ecec;--muted:#9db0b4;--rule:#2e4146;--accent:#6cc3cc;--accent-soft:#1e3a3f;--go:#6cc98a;--go-soft:#1d3527;--warn:#e6b45c;--warn-soft:#3a2f18;--bad:#f08a7e;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.55;padding:0 max(14px,env(safe-area-inset-left)) 4rem max(14px,env(safe-area-inset-right))}
+.wrap{max-width:44rem;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.2;margin:0}
+h1{font-size:clamp(1.9rem,6vw,2.6rem)}h2{font-size:1.35rem;margin-bottom:.4rem}h3{font-size:1.1rem}
+a{color:var(--accent)}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{padding:1.6rem 0 .6rem;display:grid;gap:.35rem}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:.5rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;margin-bottom:1rem}
+nav a{text-align:center;text-decoration:none;font-size:.82rem;padding:.55rem .1rem;border:1px solid var(--rule);border-radius:.6rem;color:var(--ink);background:var(--surface)}
+nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+@media (max-width:34rem){nav{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:.8rem;padding:1rem 1.1rem;margin-bottom:1rem}
+.muted{color:var(--muted);font-size:.92rem}
+.row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.grow{flex:1;min-width:0}
+label.f{display:block;font-size:.88rem;color:var(--muted);margin:.6rem 0 .2rem}
+input[type=text],input[type=date],input[type=month],textarea,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:.5rem;padding:.55rem .65rem;width:100%;min-height:44px}
+textarea{min-height:4.2rem;resize:vertical}
+button{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:.6rem;padding:.5rem .8rem;min-height:44px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.on,button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.small{min-height:36px;padding:.3rem .6rem;font-size:.9rem}
+button.ng{width:100%;font-family:var(--display);font-size:1.2rem}
+button.ng.on{background:var(--go);border-color:var(--go)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.seg{display:flex;gap:.4rem;flex-wrap:wrap}
+.chk{display:flex;gap:.6rem;align-items:flex-start;padding:.3rem 0}
+.chk input{width:22px;height:22px;margin-top:.15rem;flex-shrink:0;accent-color:var(--accent)}
+.note{background:var(--accent-soft);border-radius:.6rem;padding:.6rem .8rem;font-size:.95rem}
+.warn{background:var(--warn-soft);color:var(--warn);border-radius:.6rem;padding:.6rem .8rem;font-size:.95rem}
+.ok{background:var(--go-soft);color:var(--go);border-radius:.6rem;padding:.6rem .8rem;font-size:.95rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:.4rem .3rem;border-bottom:1px solid var(--rule);vertical-align:middle}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.fbtn{min-width:44px;font-family:var(--mono)}
+.fbtn.plus{background:var(--go);border-color:var(--go);color:var(--surface)}
+.fbtn.minus{background:var(--bad);border-color:var(--bad);color:var(--surface)}
+.days21{display:grid;grid-template-columns:repeat(21,1fr);gap:3px;margin-top:.3rem}
+.days21 span{aspect-ratio:1;border:1px solid var(--muted);border-radius:3px;font-size:.6rem;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.days21 span.done{background:var(--go);border-color:var(--go);color:var(--surface)}
+.days21 span.today{outline:2px solid var(--accent)}
+details{border-top:1px solid var(--rule);padding:.5rem 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:700}
+.cite{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.status{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.big{font-family:var(--display);font-size:2rem;line-height:1}
+.chart{width:100%;height:auto;display:block}
+footer{border-top:1px solid var(--rule);padding-top:1rem;color:var(--muted);font-size:.88rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="label" href="index.html">&larr; All pages</a>
+  <h1>Self-Image Journal</h1>
+  <p class="muted">Built from Maltz's books: the self-image ladder, Self-Image Day and the Psycho-Cybernetics reference. Saved in this browser. Export to Excel every Sunday as your backup.</p>
+  <div class="row"><button class="small" data-act="prev" aria-label="Previous day">&#9664;</button><strong id="dateLabel" class="grow" style="text-align:center"></strong><button class="small" data-act="next" aria-label="Next day">&#9654;</button><button class="small" data-act="todayBtn">today</button></div>
+  <span class="status" id="status"></span>
+</header>
+<nav id="nav" aria-label="Sections">
+  <a href="#today">Today</a><a href="#picture">Picture</a><a href="#beliefs">Beliefs</a><a href="#success">Success</a><a href="#toolkit">Toolkit</a><a href="#review">Review</a><a href="#data">Excel</a>
+</nav>
+<main id="view"></main>
+<footer>Page cites: PC Psycho-Cybernetics · PCSF Psycho-Cybernetics &amp; Self-Fulfillment · CLT Creative Living for Today · CF The Conquest of Frustration · LBF Live and Be Free · PCY Power Psycho-Cybernetics for Youth. This page is a study aid, not a substitute for professional help.</footer>
+</div>
+<script>
+(function(){
+"use strict";
+var KEY="sij-v1";
+var FORCES=[["Y","You","Somebody else"],["O","Obey","Oppose"],["U","Understanding","Unbelief"],["R","Reason","Resentment"],["S","Friend","Stranger"],["E","Enthusiasm","Extinction"],["L","Live","Perish"],["F","Fact","Fiction"],["I","Decision","Indecision"],["M","Mind watcher","Mind avoider"],["A","Adjustment","Atrophy"],["G","Go-go","No-no"],["E","Enterprise","Emptiness"]];
+var FAILURE=["Frustration","Aggressiveness","Insecurity","Loneliness","Uncertainty","Resentment","Emptiness"];
+var LOSERS=["Never good enough","Too old to change","Always unlucky"];
+var LAYERS=[["who","who I am","the sort of person I am"],["opinion","my opinion","how good I think I am"],["beliefs","beliefs","what I take as true"],["comfort","comfort zone","what feels like me"],["ceiling","ceiling","the score I quietly expect"]];
+var PARTS=["the picture: the sort of person I am","my opinion: what I think I am worth","beliefs: become “true” once in the picture","the keystone: holds my system of ideas","one average: many areas blended into one image","comfort zone: outside it I feel tension","ceiling: how much of my potential I allow"];
+var BUILDERS=["experiencing success","imagination (Theater of the Mind)","forgiveness","compassion","a goal every day","self-acceptance","good habits"];
+var SHRINKERS=["past humiliations","a parent’s judgment","someone’s sarcasm","identifying with my mistakes","comparing myself to others","imitating others","emotional scars","resentment","withdrawal","feeling useless","self-criticism"];
+var QUESTIONS=["Is there a rational reason for this belief?","Could I be mistaken about it?","Would I conclude the same about someone else in my place?","Why act as if it were true, if there is no good reason?"];
+var SCAR_POINTS=["Forgive others","Forgive myself","See myself at my best","Keep up with myself, not with others"];
+var PHASES=[
+ {name:"See the picture",themes:"self-image + beliefs",adds:"Read your new-picture paragraph each morning; run one belief through the four questions.",proof:["Old and new picture written from memory","One belief dropped","Recall test on self-image and beliefs"]},
+ {name:"Start the engine",themes:"success mechanism + imagination",adds:"Write today's goal as an if-then and rehearse it for 2 minutes, obstacle included.",proof:["21 if-then goals","About 60 wins logged","Recall test on success mechanism and imagination"]},
+ {name:"Calm and repair",themes:"relaxation + emotions",adds:"3 minutes of quiet room before the goal; name any FAILURE signal with its if-then; work one scar.",proof:["One scar forgiven","Fewer FAILURE signals than phase 1","Recall test on relaxation and emotions"]},
+ {name:"Live it",themes:"living it",adds:"Recall the winning feeling before the goal; one courage action a week.",proof:["A real-world test in your lab area","2-minute teach-back, book closed","Recall test on all seven themes"]}
+];
+var TOOLKIT=[
+ ["I see myself as small","Dehypnotize the false belief","PC 53",["Write the “I can’t” down.","Run the four rational questions on it (PC 72), on the Beliefs tab.","Stop measuring yourself against other people’s standards (PC 56–58).","Do it relaxed: beliefs change the way they were formed, not by will power (PC 59–60)."]],
+ ["Old hurts still sting","Emotional face lift: forgive completely","PC 159",["Forgive others, and forget (PC 160).","Forgive completely, never partly or as a weapon (PC 160–161).","Forgive yourself for self-condemnation and regret (PC 163–164).","Work the four points on the Beliefs tab."]],
+ ["I always stop at the same level","Raise the ceiling, not the effort","PC 51",["Change the self-image first (LBF 38).","Set the goal at the outer edge of your self-image (LBF 75).","Theater of the Mind daily: see yourself acting the new level (PC 45–46).","Practise 21 days before judging (PC xiii–xiv)."]],
+ ["I identify with my mistakes","Say “I failed”, never “I am a failure”","PC 166",["Use the verb, not the noun (PC 164).","Correct the error, then forget it; dwell on what worked (PC 66).","Make a habit of remembering successes and forgetting failures (PC 122–123)."]],
+ ["I feel empty or frustrated","A goal every day; read the FAILURE gauge","CLT 86",["Set one goal each morning, even just “improvement” (PCSF 13–14).","Treat FAILURE feelings as warning signals and correct course (PC 129–130).","Chronic frustration means unrealistic goals or an inadequate self-image, or both (PC 131)."]],
+ ["Others’ words shaped me","Stop the wrong self-image","CF 21",["Notice whose judgment it really is (CF 20).","Talk back to it, out loud if you need to (CF 21).","Never hand your self-image or your destiny to others (PCY 163)."]],
+ ["Pressure shrinks me","The quiet room, every day","PC 193",["When pressure rings, remember you don’t have to answer it (PC 190).","Between tasks, step into your quiet room; picture a geyser letting off steam (PC 194–195).","Take 10–15 minutes a day to return to your realistic self-image (CLT 184)."]],
+ ["Positive thinking doesn’t work for me","Change the centre, then experience success","PC 3",["Aim at the self-image, not the habit or the situation (PC 3–4).","Build success in small steps (LBF 93).","Act as if, in your imagination first (LBF 157).","Use imagination, not will: imagination wins (PC 59)."]],
+ ["I lost confidence","Play back a past success","PC 122",["Relive a past success in full detail: sights, sounds, feelings (PC 233–234).","Then picture the coming task as already done (PC 234).","Each morning, get reacquainted with yourself in the mirror (CLT 15–17)."]],
+ ["I’m at odds with people","Be a friend to yourself first","CF 5",["Ask the mirror each morning: am I a friend to myself? (LBF 157).","Practise compassion for yourself, then for others (PCSF 175–176).","Mix with people; loneliness is often distance from your real self (PC 138–139)."]]
+];
+
+/* ---------- helpers ---------- */
+function pad(n){return String(n).padStart(2,"0");}
+function ymd(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());}
+function parse(s){var a=s.split("-").map(Number);return new Date(a[0],a[1]-1,a[2]);}
+function addDays(s,n){var d=parse(s);d.setDate(d.getDate()+n);return ymd(d);}
+function dayNum(s){var a=s.split("-").map(Number);return Math.round(Date.UTC(a[0],a[1]-1,a[2])/86400000);}
+function monday(s){return addDays(s,-((parse(s).getDay()+6)%7));}
+function today(){return ymd(new Date());}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+
+/* ---------- store: one object in this browser ---------- */
+function blank(){return {settings:{start:"",lab:""},picture:{old:{},neu:{},para:"",parts:{},recalls:[]},days:{},beliefs:[],scars:[],success:[],weeks:{},gap:{},proofs:{}};}
+var mem=null;
+function loadStore(){try{var v=JSON.parse(localStorage.getItem(KEY));if(v)return fix(v);}catch(e){}return mem||blank();}
+function fix(v){var b=blank();for(var k in b){if(v[k]==null)v[k]=b[k];}["old","neu","parts"].forEach(function(k){if(!v.picture[k])v.picture[k]={};});if(!v.picture.recalls)v.picture.recalls=[];return v;}
+var DB=loadStore(),saveTimer=null;
+function save(){clearTimeout(saveTimer);saveTimer=setTimeout(function(){try{localStorage.setItem(KEY,JSON.stringify(DB));status("Saved in this browser");}catch(e){mem=DB;status("This browser blocks storage: export to Excel before you close the page");}},350);}
+function status(t){document.getElementById("status").textContent=t;}
+function blankDay(){return {mirror:"",goal:"",loser:"",winner:"",feature:"",doubts:[],failure:[],ifthen:"",qr:false,forces:{},resent:"",quiet:"",wins:["","",""],starred:[false,false,false],tm:false,ng:false,paraRead:false};}
+function getDay(d){var x=DB.days[d];if(!x){x=blankDay();}else{var b=blankDay();for(var k in b)if(x[k]==null)x[k]=b[k];}return x;}
+function putDay(d,x){DB.days[d]=x;save();}
+
+var S={date:today(),view:"today",recall:null,playback:null};
+
+/* ---------- views ---------- */
+function vToday(){
+  var D=getDay(S.date),plus=0,minus=0;FORCES.forEach(function(f,i){if(D.forces[i]==="+")plus++;else if(D.forces[i]==="-")minus++;});
+  var ph=phaseInfo(S.date);
+  return ''+
+  (ph?'<div class="note" style="margin-bottom:1rem"><b>Week '+ph.week+' of 12 · phase '+ph.n+': '+esc(PHASES[ph.n-1].name)+'.</b> Adds today: '+esc(PHASES[ph.n-1].adds)+'</div>':'<div class="warn" style="margin-bottom:1rem">Set your 12-week start date on the Review tab to see your phase and 21-day tracker.</div>')+
+  '<div class="card"><h2>Morning</h2>'+
+   '<label class="f" for="mirror">Mirror: who do I want to be today? (PCSF 209)</label><input type="text" id="mirror" data-day="mirror" value="'+esc(D.mirror)+'" placeholder="calm and brave">'+
+   '<label class="f" for="goal">&#9678; One goal at the edge of my self-image, as an if-then (PCSF 14)</label><input type="text" id="goal" data-day="goal" value="'+esc(D.goal)+'" placeholder="if 9:30, then I open speaking task 5 and talk 60 sec">'+
+   '<label class="chk"><input type="checkbox" data-dayc="paraRead" '+(D.paraRead?"checked":"")+'><span>I read my new-picture paragraph'+(DB.picture.para?': <i>'+esc(DB.picture.para.slice(0,120))+(DB.picture.para.length>120?"…":"")+'</i>':' (write it on the Picture tab)')+'</span></label>'+
+   '<label class="f">Loser’s List → Winner’s List (PCSF 16–17): pick or write the label, then its winner version</label>'+
+   '<div class="seg">'+LOSERS.map(function(l){return '<button class="small'+(D.loser===l?' on':'')+'" data-act="loser" data-v="'+esc(l)+'">'+esc(l)+'</button>';}).join("")+'</div>'+
+   '<div class="row" style="margin-top:.4rem"><input type="text" class="grow" data-day="loser" value="'+esc(D.loser)+'" placeholder="my loser label" aria-label="Loser label"><span aria-hidden="true">→</span><input type="text" class="grow" data-day="winner" value="'+esc(D.winner)+'" placeholder="winner version" aria-label="Winner version"></div>'+
+   '<label class="f">Double feature (PCSF 31–32): see the frustrated me, then the enthusiastic me. Which film do I choose?</label>'+
+   '<div class="seg"><button class="'+(D.feature==="frus"?"on":"")+'" data-act="feature" data-v="frus">frustrated me</button><button class="'+(D.feature==="enth"?"on":"")+'" data-act="feature" data-v="enth">enthusiastic me</button></div>'+
+  '</div>'+
+  '<div class="card"><h2>During the day</h2>'+
+   '<label class="f" for="doubtIn">&#9651; A doubt about who I am, in one line</label><div class="row"><input type="text" id="doubtIn" class="grow" placeholder="I’m not a leader"><button class="small" data-act="addDoubt">add</button></div>'+
+   (D.doubts.length?'<ul>'+D.doubts.map(function(x,i){return '<li>'+esc(x)+' <button class="small" data-act="delDoubt" data-i="'+i+'" aria-label="Remove doubt">×</button></li>';}).join("")+'</ul><p class="muted">Run a doubt through the four questions on the Beliefs tab, or find its fix in the Toolkit.</p>':'')+
+   '<label class="f">⚑ FAILURE signals I noticed (PC 129–130)</label><div class="seg">'+FAILURE.map(function(f){return '<button class="small'+(D.failure.indexOf(f)>=0?' on':'')+'" data-act="fail" data-v="'+f+'">'+f+'</button>';}).join("")+'</div>'+
+   (D.failure.length?'<label class="f" for="ifthen">↻ If-then for it</label><input type="text" id="ifthen" data-day="ifthen" value="'+esc(D.ifthen)+'" placeholder="if I freeze, then I say one sentence out loud">':'')+
+   '<label class="chk"><input type="checkbox" data-dayc="qr" '+(D.qr?"checked":"")+'><span>Quiet room before a stressful task (PC 193)</span></label>'+
+  '</div>'+
+  '<div class="card"><h2>Night</h2>'+
+   '<p class="muted">YOUR SELF IMAGE (PCSF 23–37): which side of each force did I live today? Tap once for +, twice for −.</p>'+
+   '<table><thead><tr><th></th><th>positive</th><th>negative</th><th>today</th></tr></thead><tbody>'+
+   FORCES.map(function(f,i){var v=D.forces[i]||"";return '<tr><td style="font-family:var(--display);font-size:1.2rem">'+f[0]+'</td><td>'+f[1]+'</td><td class="muted">'+f[2]+'</td><td><button class="small fbtn '+(v==="+"?"plus":v==="-"?"minus":"")+'" data-act="force" data-i="'+i+'" aria-label="'+f[1]+' or '+f[2]+': '+(v==="+"?"positive":v==="-"?"negative":"not marked")+'">'+(v||"·")+'</button></td></tr>';}).join("")+
+   '</tbody></table><p class="muted" style="margin-top:.4rem">Today: <b>'+plus+'</b> positive, <b>'+minus+'</b> negative</p>'+
+   '<label class="f" for="resent">A resentment today? (work the four points on the Beliefs tab)</label><input type="text" id="resent" data-day="resent" value="'+esc(D.resent)+'">'+
+   '<label class="f">Two quiet minutes</label><div class="seg"><button class="'+(D.quiet==="derby"?"on":"")+'" data-act="quiet" data-v="derby">Kentucky Derby</button><button class="'+(D.quiet==="geyser"?"on":"")+'" data-act="quiet" data-v="geyser">the geyser</button></div>'+
+   (D.quiet?'<p class="note" style="margin-top:.5rem">'+(D.quiet==="derby"?"In a quiet room, see yourself as a racing contender running toward your goal, not held back by negative feelings, using the confidence of a past success (PCSF 242).":"Close your eyes and see a geyser blowing off steam. Let the day’s tensions flow out the same way (PCSF 69).")+'</p>':'')+
+   '<label class="f">♡ Today’s boosts, recalled “placidly, pleasantly” (PCSF 14). Star one to add it to your success file.</label>'+
+   [0,1,2].map(function(i){return '<div class="row" style="margin-bottom:.35rem"><input type="text" class="grow" data-win="'+i+'" value="'+esc(D.wins[i])+'" placeholder="win '+(i+1)+'" aria-label="Win '+(i+1)+'"><button class="small'+(D.starred[i]?' on':'')+'" data-act="star" data-i="'+i+'" aria-label="Add win '+(i+1)+' to success file" aria-pressed="'+(D.starred[i]?"true":"false")+'">★</button></div>';}).join("")+
+   '<label class="chk"><input type="checkbox" data-dayc="tm" '+(D.tm?"checked":"")+'><span>Theater of the Mind: tomorrow’s goal done as the new picture, obstacle included (PC 45–46)</span></label>'+
+   '<button class="ng'+(D.ng?' on':'')+'" data-act="ng" aria-pressed="'+(D.ng?"true":"false")+'">'+(D.ng?"NOT GUILTY ✓ · day complete":"Verdict: NOT GUILTY")+'</button>'+
+   '<p class="muted" style="margin-top:.4rem">The verdict closes the day and counts it on your 21-day tracker (PCSF 61).</p>'+
+  '</div>';
+}
+function vPicture(){
+  var P=DB.picture,R=S.recall;
+  return '<div class="card"><h2>Old vs new picture</h2><p class="muted">Right size: neither more than you are, nor less (PC 10). Lab area: <input type="text" data-set="lab" value="'+esc(DB.settings.lab)+'" placeholder="e.g. CELPIP practice" aria-label="Lab area" style="display:inline-block;width:auto;min-width:12rem"></p>'+
+   LAYERS.map(function(L){return '<h3 style="margin-top:.9rem">'+L[1]+' <span class="muted" style="font-family:var(--body);font-size:.85rem">· '+L[2]+'</span></h3><div class="row" style="align-items:stretch"><textarea class="grow" data-pic="old.'+L[0]+'" placeholder="old picture" aria-label="'+L[1]+', old picture">'+esc(P.old[L[0]])+'</textarea><textarea class="grow" data-pic="neu.'+L[0]+'" placeholder="new picture" aria-label="'+L[1]+', new picture">'+esc(P.neu[L[0]])+'</textarea></div>';}).join("")+
+  '</div>'+
+  '<div class="card"><h2>New-picture paragraph</h2><p class="muted">Present tense, “I am…”. Read it every morning.</p>'+
+   (R?'<p class="warn">Recall test: the paragraph is hidden. Write it from memory, then check.</p><textarea id="recallIn" style="min-height:7rem" aria-label="Paragraph from memory">'+esc(R.text||"")+'</textarea><div class="row" style="margin-top:.5rem"><button class="primary" data-act="checkRecall">check</button><button data-act="cancelRecall">cancel</button></div>'
+   :'<textarea data-pic="para" style="min-height:7rem" aria-label="New-picture paragraph">'+esc(P.para)+'</textarea><button style="margin-top:.5rem" data-act="startRecall">day-21 recall test</button>')+
+   (S.recallResult?'<div class="note" style="margin-top:.6rem"><b>From memory:</b> '+esc(S.recallResult.mine)+'<br><b>Your paragraph:</b> '+esc(S.recallResult.orig)+'</div>':'')+
+   (P.recalls.length?'<p class="muted" style="margin-top:.5rem">Recall tests done: '+P.recalls.length+' (last '+esc(P.recalls[P.recalls.length-1].date)+')</p>':'')+
+  '</div>'+
+  '<div class="card"><h2>What it’s made of</h2><p class="muted">How each of the 7 parts reads for you today.</p>'+
+   PARTS.map(function(p,i){return '<label class="f" for="part'+i+'">'+(i+1)+' · '+esc(p)+'</label><input type="text" id="part'+i+'" data-pic="parts.'+i+'" value="'+esc(P.parts[i])+'">';}).join("")+
+  '</div>';
+}
+function vBeliefs(){
+  return '<div class="card"><h2>“I can’t” → four questions</h2><p class="muted">PC ch. 5, pp. 71–72. Write the belief, answer each question, find one exception.</p>'+
+   '<div class="row"><input type="text" id="cantIn" class="grow" placeholder="I can’t speak for 90 seconds"><button class="small primary" data-act="addBelief">add</button></div><p id="bErr" class="muted" role="alert"></p>'+
+   DB.beliefs.map(function(b){return '<details'+(b.dropped?'':' open')+'><summary>I can’t '+esc(b.cant)+(b.dropped?' · dropped ✓':'')+'</summary>'+
+    QUESTIONS.map(function(q,i){return '<label class="f">'+(i+1)+' · '+q+'</label><textarea data-bel="'+b.id+'.q'+i+'">'+esc(b["q"+i])+'</textarea>';}).join("")+
+    '<label class="f">One exception</label><input type="text" data-bel="'+b.id+'.ex" value="'+esc(b.ex)+'">'+
+    '<label class="chk"><input type="checkbox" data-belc="'+b.id+'" '+(b.dropped?"checked":"")+'><span>Dropped</span></label><button class="small" data-act="delBelief" data-id="'+b.id+'">remove</button></details>';}).join("")+
+  '</div>'+
+  '<div class="card"><h2>Scar log · four points</h2><p class="muted">PCSF 29. Forgive completely, never as a weapon (PC 160–161).</p>'+
+   '<div class="row"><input type="text" id="scarIn" class="grow" placeholder="the old hurt"><button class="small primary" data-act="addScar">add</button></div><p id="sErr" class="muted" role="alert"></p>'+
+   DB.scars.map(function(s){return '<details'+(s.done?'':' open')+'><summary>'+esc(s.hurt)+(s.done?' · forgiven ✓':'')+'</summary>'+
+    SCAR_POINTS.map(function(p,i){return '<label class="f">'+(i+1)+' · '+p+'</label><textarea data-scar="'+s.id+'.p'+i+'">'+esc(s["p"+i])+'</textarea>';}).join("")+
+    '<label class="chk"><input type="checkbox" data-scarc="'+s.id+'" '+(s.done?"checked":"")+'><span>Forgiven</span></label><button class="small" data-act="delScar" data-id="'+s.id+'">remove</button></details>';}).join("")+
+  '</div>';
+}
+function vSuccess(){
+  var pb=S.playback;
+  return '<div class="card"><h2>Play back a success</h2><p class="muted">Before a hard task: relive one past success in full detail, the sights, sounds and feeling, then picture the task already done (PC 233–234).</p>'+
+   '<button class="primary" data-act="playback"'+(DB.success.length?'':' disabled')+'>pick one for me</button>'+
+   (pb?'<div class="ok" style="margin-top:.6rem"><b>'+esc(pb.what)+'</b>'+(pb.feel?'<br>It felt: '+esc(pb.feel):'')+'<br><span class="cite">'+esc(pb.date)+'</span></div>':'')+
+  '</div>'+
+  '<div class="card"><h2>Success file</h2>'+
+   '<div class="row"><input type="text" id="sWhat" class="grow" placeholder="what I did"><input type="text" id="sFeel" class="grow" placeholder="how it felt"><button class="small primary" data-act="addSuccess">add</button></div><p id="suErr" class="muted" role="alert"></p>'+
+   (DB.success.length?'<table><thead><tr><th>date</th><th>what I did</th><th>felt</th><th></th></tr></thead><tbody>'+DB.success.slice().sort(function(a,b){return a.date<b.date?1:-1;}).map(function(s){return '<tr><td class="cite">'+esc(s.date)+'</td><td>'+esc(s.what)+'</td><td class="muted">'+esc(s.feel)+'</td><td><button class="small" data-act="delSuccess" data-id="'+s.id+'" aria-label="Remove">×</button></td></tr>';}).join("")+'</tbody></table>':'<p class="muted">Star a win on the Today tab, or add one here.</p>')+
+  '</div>';
+}
+function vToolkit(){
+  return '<div class="card"><h2>Problem → Maltz’s fix</h2><p class="muted">From the self-image ladder. When a doubt shows up, open its row and do the first step today. Practise 21 days before judging (PC xiii).</p>'+
+   TOOLKIT.map(function(t){return '<details><summary>'+esc(t[0])+'</summary><p style="margin:.4rem 0"><b>'+esc(t[1])+'</b> <span class="cite">'+t[2]+'</span></p><ol>'+t[3].map(function(s){return '<li>'+esc(s)+'</li>';}).join("")+'</ol></details>';}).join("")+
+  '</div>';
+}
+function phaseInfo(d){var st=DB.settings.start;if(!st)return null;var n=dayNum(d)-dayNum(st);if(n<0)return null;var week=Math.floor(n/7)+1;if(week>12)return {week:12,n:4,day:n,over:true};return {week:week,n:Math.ceil(week/3),day:n};}
+function vReview(){
+  var st=DB.settings.start,ph=phaseInfo(S.date),mon=monday(S.date),wk=DB.weeks[mon]||{b:{},s:{}};
+  var week=[];for(var i=0;i<7;i++)week.push(addDays(mon,i));
+  var bars=week.map(function(d){var D=DB.days[d],p=0;if(D&&D.forces){for(var k in D.forces)if(D.forces[k]==="+")p++;}return {d:d,p:p,f:D&&D.failure?D.failure.length:0,ng:!!(D&&D.ng)};});
+  var failTotal=bars.reduce(function(a,b){return a+b.f;},0);
+  var h='<div class="card"><h2>12-week map</h2><label class="f" for="start">Start date</label><input type="date" id="start" data-set="start" value="'+esc(st)+'" style="max-width:12rem">';
+  if(ph){
+    var pi=PHASES[ph.n-1],p0=dayNum(st)+(ph.n-1)*21,cells="";
+    for(var j=0;j<21;j++){var dd=ymdFromNum(p0+j),D=DB.days[dd];cells+='<span class="'+(D&&D.ng?"done":"")+(dd===S.date?" today":"")+'" title="'+dd+'">'+(j+1)+'</span>';}
+    var doneN=0;for(var k2=0;k2<21;k2++){var d2=ymdFromNum(p0+k2);if(DB.days[d2]&&DB.days[d2].ng)doneN++;}
+    h+='<p style="margin-top:.6rem"><b>Week '+ph.week+' of 12 · phase '+ph.n+': '+esc(pi.name)+'</b> <span class="muted">('+esc(pi.themes)+')</span></p><p class="muted">'+esc(pi.adds)+'</p>'+
+       '<h3 style="margin-top:.8rem">21-day tracker · '+doneN+' / 21</h3><div class="days21" aria-label="21 days of this phase; filled means the day was completed">'+cells+'</div>'+
+       '<h3 style="margin-top:.8rem">Day-21 proof</h3>'+pi.proof.map(function(p,i){var key="p"+ph.n+"_"+i;return '<label class="chk"><input type="checkbox" data-proof="'+key+'" '+(DB.proofs[key]?"checked":"")+'><span>'+esc(p)+'</span></label>';}).join("");
+  }else h+='<p class="muted" style="margin-top:.5rem">Pick a start date: phases are 3 weeks each, 4 phases in all.</p>';
+  h+='</div>';
+  var maxP=13;
+  h+='<div class="card"><h2>This week</h2><p class="muted">Week of '+esc(mon)+' · positive forces per day (out of 13) · ✓ = day complete</p>'+
+    '<svg class="chart" viewBox="0 0 350 150" role="img" aria-label="Positive forces per day this week">'+bars.map(function(b,i){var x=10+i*48,hh=b.p/maxP*100;return '<rect x="'+x+'" y="'+(110-hh)+'" width="34" height="'+hh+'" rx="3" fill="var(--accent)"></rect><text x="'+(x+17)+'" y="'+(104-hh)+'" text-anchor="middle" font-size="11" fill="var(--ink)">'+(b.p||"")+'</text><text x="'+(x+17)+'" y="128" text-anchor="middle" font-size="11" fill="var(--muted)">'+"MTWTFSS"[i]+'</text><text x="'+(x+17)+'" y="144" text-anchor="middle" font-size="12" fill="var(--go)">'+(b.ng?"✓":"")+'</text>';}).join("")+'<line x1="6" y1="110" x2="344" y2="110" stroke="var(--rule)"></line></svg>'+
+    '<p class="muted">FAILURE signals this week: <b>'+failTotal+'</b></p></div>';
+  h+='<div class="card"><h2>Builders &amp; shrinkers</h2><p class="muted">Tick what showed up this week (PC 108: change habits and you change the self-image).</p>'+
+    '<h3>Builds it</h3>'+BUILDERS.map(function(b){return '<label class="chk"><input type="checkbox" data-wk="b|'+esc(b)+'" '+(wk.b&&wk.b[b]?"checked":"")+'><span>'+esc(b)+'</span></label>';}).join("")+
+    '<h3 style="margin-top:.6rem">Shrinks it</h3>'+SHRINKERS.map(function(b){return '<label class="chk"><input type="checkbox" data-wk="s|'+esc(b)+'" '+(wk.s&&wk.s[b]?"checked":"")+'><span>'+esc(b)+'</span></label>';}).join("")+
+  '</div>';
+  var mk=S.date.slice(0,7),g=DB.gap[mk]||{};
+  var months=Object.keys(DB.gap).sort();
+  h+='<div class="card"><h2>Monthly gap check</h2><p class="muted">1–10: how close was '+esc(mk)+' to your new picture? Score from evidence, not mood.</p>'+
+    LAYERS.map(function(L){var v=g[L[0]]||0;return '<label class="f" for="gap'+L[0]+'">'+L[1]+': <b id="gv'+L[0]+'">'+(v||"–")+'</b></label><input type="range" id="gap'+L[0]+'" min="1" max="10" step="1" value="'+(v||5)+'" data-gap="'+L[0]+'" style="width:100%">';}).join("")+
+    (months.length>1?gapChart(months):'<p class="muted" style="margin-top:.5rem">A trend line appears after your second month.</p>')+
+  '</div>';
+  return h;
+}
+function ymdFromNum(n){var d=new Date(n*86400000);return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate());}
+function gapChart(months){
+  var W=340,H=140,n=months.length,pts=months.map(function(m,i){var g=DB.gap[m],vals=LAYERS.map(function(L){return g[L[0]]||0;}).filter(function(x){return x>0;}),avg=vals.length?vals.reduce(function(a,b){return a+b;},0)/vals.length:0;return {m:m,avg:avg,x:20+i*(W-40)/Math.max(1,n-1),y:H-20-(avg/10)*(H-40)};});
+  return '<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Average gap score by month"><polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="'+pts.map(function(p){return p.x+","+p.y;}).join(" ")+'"></polyline>'+pts.map(function(p){return '<circle cx="'+p.x+'" cy="'+p.y+'" r="4" fill="var(--accent)"></circle><text x="'+p.x+'" y="'+(p.y-8)+'" text-anchor="middle" font-size="11" fill="var(--ink)">'+p.avg.toFixed(1)+'</text><text x="'+p.x+'" y="'+(H-4)+'" text-anchor="middle" font-size="10" fill="var(--muted)">'+p.m.slice(2)+'</text>';}).join("")+'</svg><p class="muted">Average of the 5 layers, month by month. Rising means the picture is changing.</p>';
+}
+function vData(){
+  var nDays=Object.keys(DB.days).length;
+  return '<div class="card"><h2>Excel</h2><p>Your entries live in this browser. Excel is your backup and the way to move between phone and laptop.</p>'+
+   '<p class="muted">'+nDays+' days · '+DB.beliefs.length+' beliefs · '+DB.scars.length+' scars · '+DB.success.length+' successes saved</p>'+
+   '<div class="row" style="margin-top:.6rem"><button class="primary" data-act="export">Export to Excel (.xlsx)</button><label class="grow"><span class="label">Import an exported .xlsx</span><input type="file" id="importFile" accept=".xlsx"></label></div>'+
+   '<p id="xMsg" class="muted" role="status" style="margin-top:.5rem"></p>'+
+   '<p class="muted" style="margin-top:.5rem">Import replaces what is in this browser with the file’s contents. Export first if you are unsure.</p></div>'+
+  '<div class="card"><h2>Sheets in the file</h2><p class="muted">Days · Picture · Parts · Recalls · Beliefs · Scars · Success · Weekly · Gap · Settings. Edit cells in Excel if you like, then import to bring the changes back. Keep the column names as they are.</p></div>'+
+  '<div class="card"><h2>Start over</h2><button data-act="reset">'+(S.resetArmed?'Tap again to erase everything in this browser':'Erase this browser’s journal')+'</button></div>';
+}
+
+/* ---------- Excel ---------- */
+var xlsxReady=null;
+function loadXLSX(){if(window.XLSX)return Promise.resolve();if(xlsxReady)return xlsxReady;xlsxReady=new Promise(function(res,rej){var s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";s.onload=res;s.onerror=function(){xlsxReady=null;rej();};document.head.appendChild(s);});return xlsxReady;}
+function msg(t){var el=document.getElementById("xMsg");if(el)el.textContent=t;}
+function toSheets(){
+  var days=Object.keys(DB.days).sort().map(function(d){var D=getDay(d),row={date:d,mirror:D.mirror,goal:D.goal,loser:D.loser,winner:D.winner,feature:D.feature,doubts:D.doubts.join(" | "),failure:D.failure.join(" | "),ifthen:D.ifthen,quiet_room:D.qr?1:0,resentment:D.resent,quiet_minutes:D.quiet,win1:D.wins[0],win2:D.wins[1],win3:D.wins[2],theater:D.tm?1:0,not_guilty:D.ng?1:0,paragraph_read:D.paraRead?1:0};FORCES.forEach(function(f,i){row["force_"+(i+1)+"_"+f[1].replace(/\W+/g,"_")]=D.forces[i]||"";});return row;});
+  var P=DB.picture;
+  var picture=LAYERS.map(function(L){return {layer:L[0],old_picture:P.old[L[0]]||"",new_picture:P.neu[L[0]]||""};});picture.push({layer:"paragraph",old_picture:"",new_picture:P.para||""});
+  var parts=PARTS.map(function(p,i){return {part:i+1,name:p,mine_today:P.parts[i]||""};});
+  var recalls=P.recalls.map(function(r){return {date:r.date,text:r.text};});
+  var beliefs=DB.beliefs.map(function(b){return {id:b.id,i_cant:b.cant,q1_rational:b.q0||"",q2_mistaken:b.q1||"",q3_someone_else:b.q2||"",q4_why_act:b.q3||"",exception:b.ex||"",dropped:b.dropped?1:0};});
+  var scars=DB.scars.map(function(s){return {id:s.id,hurt:s.hurt,forgive_others:s.p0||"",forgive_myself:s.p1||"",see_me_at_best:s.p2||"",keep_up_with_me:s.p3||"",forgiven:s.done?1:0};});
+  var success=DB.success.map(function(s){return {id:s.id,date:s.date,what:s.what,feeling:s.feel||""};});
+  var weekly=[];Object.keys(DB.weeks).sort().forEach(function(w){var x=DB.weeks[w];BUILDERS.forEach(function(b){weekly.push({week:w,type:"builder",factor:b,present:x.b&&x.b[b]?1:0});});SHRINKERS.forEach(function(b){weekly.push({week:w,type:"shrinker",factor:b,present:x.s&&x.s[b]?1:0});});});
+  var gap=Object.keys(DB.gap).sort().map(function(m){var g=DB.gap[m];return {month:m,who:g.who||"",opinion:g.opinion||"",beliefs:g.beliefs||"",comfort:g.comfort||"",ceiling:g.ceiling||""};});
+  var settings=[{key:"start",value:DB.settings.start||""},{key:"lab",value:DB.settings.lab||""}];Object.keys(DB.proofs).forEach(function(k){settings.push({key:"proof_"+k,value:DB.proofs[k]?1:0});});
+  return {Days:days,Picture:picture,Parts:parts,Recalls:recalls,Beliefs:beliefs,Scars:scars,Success:success,Weekly:weekly,Gap:gap,Settings:settings};
+}
+function doExport(){
+  msg("Preparing the file…");
+  loadXLSX().then(function(){var wb=XLSX.utils.book_new(),sh=toSheets();Object.keys(sh).forEach(function(n){var ws=sh[n].length?XLSX.utils.json_to_sheet(sh[n]):XLSX.utils.aoa_to_sheet([["(empty)"]]);XLSX.utils.book_append_sheet(wb,ws,n);});XLSX.writeFile(wb,"self-image-journal-"+today()+".xlsx");msg("Downloaded self-image-journal-"+today()+".xlsx");})
+  .catch(function(){msg("Couldn’t load the Excel library. Check your connection and try again.");});
+}
+function str(v){return v==null?"":String(v);}
+function fromSheets(wb){
+  var get=function(n){var ws=wb.Sheets[n];if(!ws)return [];var rows=XLSX.utils.sheet_to_json(ws,{defval:""});return rows.filter(function(r){return !("(empty)" in r);});};
+  var nd=blank();
+  get("Days").forEach(function(r){var d=str(r.date);if(!/^\d{4}-\d{2}-\d{2}$/.test(d))return;var D=blankDay();D.mirror=str(r.mirror);D.goal=str(r.goal);D.loser=str(r.loser);D.winner=str(r.winner);D.feature=str(r.feature);D.doubts=str(r.doubts)?str(r.doubts).split(" | "):[];D.failure=str(r.failure)?str(r.failure).split(" | "):[];D.ifthen=str(r.ifthen);D.qr=+r.quiet_room===1;D.resent=str(r.resentment);D.quiet=str(r.quiet_minutes);D.wins=[str(r.win1),str(r.win2),str(r.win3)];D.tm=+r.theater===1;D.ng=+r.not_guilty===1;D.paraRead=+r.paragraph_read===1;
+    FORCES.forEach(function(f,i){var v=str(r["force_"+(i+1)+"_"+f[1].replace(/\W+/g,"_")]);if(v==="+"||v==="-")D.forces[i]=v;});nd.days[d]=D;});
+  get("Picture").forEach(function(r){var l=str(r.layer);if(l==="paragraph")nd.picture.para=str(r.new_picture);else{nd.picture.old[l]=str(r.old_picture);nd.picture.neu[l]=str(r.new_picture);}});
+  get("Parts").forEach(function(r){var i=(+r.part)-1;if(i>=0&&i<7)nd.picture.parts[i]=str(r.mine_today);});
+  get("Recalls").forEach(function(r){nd.picture.recalls.push({date:str(r.date),text:str(r.text)});});
+  get("Beliefs").forEach(function(r){nd.beliefs.push({id:str(r.id)||uid(),cant:str(r.i_cant),q0:str(r.q1_rational),q1:str(r.q2_mistaken),q2:str(r.q3_someone_else),q3:str(r.q4_why_act),ex:str(r.exception),dropped:+r.dropped===1});});
+  get("Scars").forEach(function(r){nd.scars.push({id:str(r.id)||uid(),hurt:str(r.hurt),p0:str(r.forgive_others),p1:str(r.forgive_myself),p2:str(r.see_me_at_best),p3:str(r.keep_up_with_me),done:+r.forgiven===1});});
+  get("Success").forEach(function(r){nd.success.push({id:str(r.id)||uid(),date:str(r.date),what:str(r.what),feel:str(r.feeling)});});
+  get("Weekly").forEach(function(r){var w=str(r.week);if(!w)return;var x=nd.weeks[w]||(nd.weeks[w]={b:{},s:{}});if(+r.present===1)(str(r.type)==="builder"?x.b:x.s)[str(r.factor)]=true;});
+  get("Gap").forEach(function(r){var m=str(r.month);if(!m)return;var g={};LAYERS.forEach(function(L){var v=+r[L[0]];if(v>=1&&v<=10)g[L[0]]=v;});nd.gap[m]=g;});
+  get("Settings").forEach(function(r){var k=str(r.key),v=r.value;if(k==="start")nd.settings.start=str(v);else if(k==="lab")nd.settings.lab=str(v);else if(k.indexOf("proof_")===0)nd.proofs[k.slice(6)]=+v===1;});
+  return nd;
+}
+function doImport(file){
+  msg("Reading "+file.name+"…");
+  loadXLSX().then(function(){var rd=new FileReader();rd.onload=function(){try{var wb=XLSX.read(new Uint8Array(rd.result),{type:"array"});if(!wb.Sheets.Days&&!wb.Sheets.Picture){msg("That file doesn’t look like a Self-Image Journal export.");return;}DB=fromSheets(wb);save();render();msg("Imported "+Object.keys(DB.days).length+" days from "+file.name+".");}catch(e){msg("Couldn’t read that file: "+e.message);}};rd.readAsArrayBuffer(file);})
+  .catch(function(){msg("Couldn’t load the Excel library. Check your connection and try again.");});
+}
+
+/* ---------- render + events ---------- */
+var VIEWS={today:vToday,picture:vPicture,beliefs:vBeliefs,success:vSuccess,toolkit:vToolkit,review:vReview,data:vData};
+function render(){
+  document.getElementById("dateLabel").textContent=parse(S.date).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})+(S.date===today()?" · today":"");
+  [].forEach.call(document.querySelectorAll("#nav a"),function(a){if(a.getAttribute("href")==="#"+S.view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+  document.getElementById("view").innerHTML=(VIEWS[S.view]||vToday)();
+}
+function route(){var h=(location.hash||"#today").slice(1);S.view=VIEWS[h]?h:"today";S.recall=null;S.recallResult=null;S.resetArmed=false;render();}
+window.addEventListener("hashchange",route);
+function setPath(o,p,v){var k=p.split(".");for(var i=0;i<k.length-1;i++){if(o[k[i]]==null)o[k[i]]={};o=o[k[i]];}o[k[k.length-1]]=v;}
+function byId(arr,id){for(var i=0;i<arr.length;i++)if(arr[i].id===id)return arr[i];return null;}
+function syncStar(D,i){var w=D.wins[i];if(!w)return;var id="win_"+S.date+"_"+i,ex=byId(DB.success,id);if(D.starred[i]){if(ex)ex.what=w;else DB.success.push({id:id,date:S.date,what:w,feel:""});}else if(ex){DB.success=DB.success.filter(function(s){return s.id!==id;});}}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-act]");if(!b)return;var a=b.dataset.act,v=b.dataset.v,D=getDay(S.date);
+  if(a==="prev"){S.date=addDays(S.date,-1);return render();}
+  if(a==="next"){S.date=addDays(S.date,1);return render();}
+  if(a==="todayBtn"){S.date=today();return render();}
+  if(a==="loser"){D.loser=D.loser===v?"":v;putDay(S.date,D);return render();}
+  if(a==="feature"){D.feature=D.feature===v?"":v;putDay(S.date,D);return render();}
+  if(a==="quiet"){D.quiet=D.quiet===v?"":v;putDay(S.date,D);return render();}
+  if(a==="fail"){var i=D.failure.indexOf(v);if(i>=0)D.failure.splice(i,1);else D.failure.push(v);putDay(S.date,D);return render();}
+  if(a==="addDoubt"){var el=document.getElementById("doubtIn"),t=el.value.trim();if(!t){el.focus();return;}D.doubts.push(t);putDay(S.date,D);return render();}
+  if(a==="delDoubt"){D.doubts.splice(+b.dataset.i,1);putDay(S.date,D);return render();}
+  if(a==="force"){var k=b.dataset.i,c=D.forces[k];D.forces[k]=c==="+"?"-":c==="-"?"":"+";if(!D.forces[k])delete D.forces[k];putDay(S.date,D);return render();}
+  if(a==="star"){var si=+b.dataset.i;if(!D.wins[si]){var inp=document.querySelector('[data-win="'+si+'"]');if(inp)inp.focus();return;}D.starred[si]=!D.starred[si];syncStar(D,si);putDay(S.date,D);return render();}
+  if(a==="ng"){D.ng=!D.ng;putDay(S.date,D);return render();}
+  if(a==="startRecall"){if(!DB.picture.para){S.recallResult=null;alertMsg("Write your paragraph first.");return;}S.recall={text:""};S.recallResult=null;return render();}
+  if(a==="cancelRecall"){S.recall=null;return render();}
+  if(a==="checkRecall"){var mine=document.getElementById("recallIn").value.trim();if(!mine){document.getElementById("recallIn").focus();return;}DB.picture.recalls.push({date:today(),text:mine});save();S.recallResult={mine:mine,orig:DB.picture.para};S.recall=null;return render();}
+  if(a==="addBelief"){var ci=document.getElementById("cantIn"),ct=ci.value.trim().replace(/^i can.?t\s*/i,"");if(!ct){document.getElementById("bErr").textContent="Write the belief first.";return;}DB.beliefs.unshift({id:uid(),cant:ct,dropped:false});save();return render();}
+  if(a==="delBelief"){DB.beliefs=DB.beliefs.filter(function(x){return x.id!==b.dataset.id;});save();return render();}
+  if(a==="addScar"){var sc=document.getElementById("scarIn"),stt=sc.value.trim();if(!stt){document.getElementById("sErr").textContent="Name the hurt first.";return;}DB.scars.unshift({id:uid(),hurt:stt,done:false});save();return render();}
+  if(a==="delScar"){DB.scars=DB.scars.filter(function(x){return x.id!==b.dataset.id;});save();return render();}
+  if(a==="addSuccess"){var w=document.getElementById("sWhat"),wt=w.value.trim();if(!wt){document.getElementById("suErr").textContent="Write what you did first.";return;}DB.success.push({id:uid(),date:S.date,what:wt,feel:document.getElementById("sFeel").value.trim()});save();return render();}
+  if(a==="delSuccess"){DB.success=DB.success.filter(function(x){return x.id!==b.dataset.id;});save();return render();}
+  if(a==="playback"){if(!DB.success.length)return;S.playback=DB.success[Math.floor(Math.random()*DB.success.length)];return render();}
+  if(a==="export")return doExport();
+  if(a==="reset"){if(!S.resetArmed){S.resetArmed=true;return render();}DB=blank();save();S.resetArmed=false;return render();}
+});
+function alertMsg(t){status(t);}
+document.addEventListener("input",function(e){
+  var t=e.target,ds=t.dataset,D;
+  if(ds.day){D=getDay(S.date);D[ds.day]=t.value;putDay(S.date,D);}
+  else if(ds.win!=null){D=getDay(S.date);D.wins[+ds.win]=t.value;syncStar(D,+ds.win);putDay(S.date,D);}
+  else if(ds.pic){setPath(DB.picture,ds.pic,t.value);save();}
+  else if(ds.bel){var p=ds.bel.split("."),x=byId(DB.beliefs,p[0]);if(x){x[p[1]]=t.value;save();}}
+  else if(ds.scar){var q=ds.scar.split("."),y=byId(DB.scars,q[0]);if(y){y[q[1]]=t.value;save();}}
+  else if(ds.gap){var mk=S.date.slice(0,7);if(!DB.gap[mk])DB.gap[mk]={};DB.gap[mk][ds.gap]=+t.value;var lab=document.getElementById("gv"+ds.gap);if(lab)lab.textContent=t.value;save();}
+  else if(ds.set==="lab"){DB.settings.lab=t.value;save();}
+});
+document.addEventListener("change",function(e){
+  var t=e.target,ds=t.dataset,D;
+  if(ds.dayc){D=getDay(S.date);D[ds.dayc]=t.checked;putDay(S.date,D);}
+  else if(ds.belc){var x=byId(DB.beliefs,ds.belc);if(x){x.dropped=t.checked;save();render();}}
+  else if(ds.scarc){var y=byId(DB.scars,ds.scarc);if(y){y.done=t.checked;save();render();}}
+  else if(ds.proof){DB.proofs[ds.proof]=t.checked;save();}
+  else if(ds.wk){var parts=ds.wk.split("|"),mon=monday(S.date),w=DB.weeks[mon]||(DB.weeks[mon]={b:{},s:{}});w[parts[0]][parts[1]]=t.checked;save();}
+  else if(ds.set==="start"){DB.settings.start=t.value;save();render();}
+  else if(ds.gap){render();}
+  else if(t.id==="importFile"&&t.files&&t.files[0]){doImport(t.files[0]);t.value="";}
+});
+status("Saved in this browser · export to Excel weekly");
+route();
+})();
+</script>
+</body>
+</html>
